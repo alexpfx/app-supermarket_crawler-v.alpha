@@ -1,5 +1,7 @@
-package br.com.alexpfx.supermarket.crawler.model;
+package br.com.alexpfx.supermarket.crawler.controller;
 
+import br.com.alexpfx.supermarket.crawler.model.ExtractProductError;
+import br.com.alexpfx.supermarket.crawler.model.ProductInfo;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.url.WebURL;
 
