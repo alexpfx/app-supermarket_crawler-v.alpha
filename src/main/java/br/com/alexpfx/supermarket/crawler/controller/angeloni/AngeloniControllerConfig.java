@@ -12,7 +12,7 @@ public class AngeloniControllerConfig implements ControllerConfig {
     }
 
     public int getNumberOfCrawlers() {
-        return 4;
+        return 1;
     }
 
     public String[] getSeeds() {

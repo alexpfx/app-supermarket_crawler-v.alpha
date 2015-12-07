@@ -1,16 +1,22 @@
 package br.com.alexpfx.supermarket.crawler.controller;
 
+import br.com.alexpfx.supermarket.crawler.model.ProductInfo;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.url.WebURL;
+
+import java.util.regex.Pattern;
 
 /**
  * Created by alexandre on 04/12/2015.
  */
 public abstract class Crawler extends WebCrawler {
 
+    private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|jpg"
+            + "|png|mp3|mp3|zip|gz))$");
     private CrawlerModel crawlerModel;
     private CrawlerListener listener;
+
 
     protected Crawler(CrawlerModel crawlerModel, CrawlerListener listener) {
         this.crawlerModel = crawlerModel;
@@ -19,11 +25,24 @@ public abstract class Crawler extends WebCrawler {
 
     @Override
     public boolean shouldVisit(Page page, WebURL url) {
-        return crawlerModel.isProductPage(page, url);
+        String href = url.getURL().toLowerCase();
+        if (FILTERS.matcher(href).matches()) {
+            return false;
+        }
+        return crawlerModel.shouldVisit(page, url);
     }
 
     @Override
     public void visit(Page page) {
-        super.visit(page);
+        if (!crawlerModel.isProductPage(page.getWebURL().getURL())) {
+            return;
+        }
+
+        ProductInfo productInfo = crawlerModel.extractProduct(page);
+        if (productInfo != null) {
+            listener.onProductVisit(productInfo);
+        }
+
     }
 }
+

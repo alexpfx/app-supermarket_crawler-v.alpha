@@ -10,9 +10,10 @@ import edu.uci.ics.crawler4j.url.WebURL;
  */
 public interface CrawlerModel {
 
-    boolean isProductPage (Page page, WebURL webURL);
+    boolean shouldVisit(Page page, WebURL webURL);
 
     ProductInfo extractProduct (Page page) throws ExtractProductError;
 
 
+    boolean isProductPage(String url);
 }

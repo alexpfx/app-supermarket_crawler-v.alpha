@@ -13,7 +13,7 @@ public class AngeloniCrawler extends Crawler {
     public AngeloniCrawler() {
         super(new AngeloniCrawlerModel(), new CrawlerListener() {
             public void onProductVisit(ProductInfo productInfo) {
-                System.out.println("visit");
+                System.out.println(productInfo);
             }
         });
     }
