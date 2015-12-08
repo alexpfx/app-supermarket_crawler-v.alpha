@@ -12,19 +12,32 @@ import java.util.regex.Pattern;
  */
 public abstract class Crawler extends WebCrawler {
 
+    {
+        init();
+    }
+
     private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|jpg"
             + "|png|mp3|mp3|zip|gz))$");
     private CrawlerModel crawlerModel;
     private CrawlerListener listener;
 
-
-    protected Crawler(CrawlerModel crawlerModel, CrawlerListener listener) {
+    public void setCrawlerModel(CrawlerModel crawlerModel) {
         this.crawlerModel = crawlerModel;
+    }
+
+    public void setListener(CrawlerListener listener) {
         this.listener = listener;
     }
 
+    public abstract void init ();
+
+
     @Override
     public boolean shouldVisit(Page page, WebURL url) {
+        if (crawlerModel == null || listener == null) {
+            return false;
+        }
+
         String href = url.getURL().toLowerCase();
         if (FILTERS.matcher(href).matches()) {
             return false;

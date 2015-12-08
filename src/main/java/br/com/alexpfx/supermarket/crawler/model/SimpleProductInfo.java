@@ -55,4 +55,27 @@ public class SimpleProductInfo implements ProductInfo {
     public String toString() {
         return String.format("Cod: %s Desc: %s Price: %s", identity, description, price);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SimpleProductInfo that = (SimpleProductInfo) o;
+
+        if (!identity.equals(that.identity)) return false;
+        if (!description.equals(that.description)) return false;
+        if (!price.equals(that.price)) return false;
+        return !(quantity != null ? !quantity.equals(that.quantity) : that.quantity != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = identity.hashCode();
+        result = 31 * result + description.hashCode();
+        result = 31 * result + price.hashCode();
+        result = 31 * result + (quantity != null ? quantity.hashCode() : 0);
+        return result;
+    }
 }
