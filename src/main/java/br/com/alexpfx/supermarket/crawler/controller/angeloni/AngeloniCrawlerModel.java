@@ -3,8 +3,7 @@ package br.com.alexpfx.supermarket.crawler.controller.angeloni;
 import br.com.alexpfx.supermarket.crawler.DigitOrComma;
 import br.com.alexpfx.supermarket.crawler.controller.CrawlerModel;
 import br.com.alexpfx.supermarket.crawler.model.ExtractProductError;
-import br.com.alexpfx.supermarket.crawler.model.ProductInfo;
-import br.com.alexpfx.supermarket.crawler.model.SimpleProductInfo;
+import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.google.common.base.CharMatcher;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
@@ -32,7 +31,7 @@ public class AngeloniCrawlerModel implements CrawlerModel {
         return (href.contains("idProduto=") || href.contains("grupo=") || !urls.contains(href));
     }
 
-    public ProductInfo extractProduct(Page page) throws ExtractProductError {
+    public ProductInfoTO extractProduct(Page page) throws ExtractProductError {
         urls.add(page.getWebURL().getURL());
         WebURL webURL = page.getWebURL();
         HtmlParseData parseData = (HtmlParseData) page.getParseData();
@@ -43,7 +42,7 @@ public class AngeloniCrawlerModel implements CrawlerModel {
         Element rgtProd = document.getElementById("rgtProd");
         String codigo = extractCodigo(rgtProd);
         BigDecimal price = extractPrice(rgtProd);
-        return SimpleProductInfo.of(codigo, descricao, price);
+        return ProductInfoTO.of(codigo, descricao, price);
 
     }
 

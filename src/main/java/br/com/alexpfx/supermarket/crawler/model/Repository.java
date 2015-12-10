@@ -7,6 +7,6 @@ import com.firebase.client.Firebase;
  */
 public interface Repository <T> {
 
-    void save (String key, T value) throws InterruptedException;
+    void save (String category, String key, T value) throws InterruptedException;
 
 }

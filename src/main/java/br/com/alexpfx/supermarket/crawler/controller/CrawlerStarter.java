@@ -19,7 +19,6 @@ public class CrawlerStarter {
     }
 
     public void start() {
-        BasicConfigurator.configure();
         String storageFolder = config.getStorageFolder();
         int numberOfCralers = config.getNumberOfCrawlers();
         String[] seeds = config.getSeeds();

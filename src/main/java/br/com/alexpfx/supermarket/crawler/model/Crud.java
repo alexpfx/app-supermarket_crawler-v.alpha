@@ -20,14 +20,16 @@ public class Crud <T> implements Repository <T>{
     }
 
     @Override
-    public void save(String key, T value) throws InterruptedException {
+    public void save(String category, String key, T value) throws InterruptedException {
         final Semaphore semaphore = new Semaphore(0);
-        ref.setValue(value, new Firebase.CompletionListener() {
+        Firebase child = ref.child(category).child(key);
+        child.setValue(value, new Firebase.CompletionListener() {
             @Override
             public void onComplete(FirebaseError firebaseError, Firebase firebase) {
                 semaphore.release();
             }
         });
         semaphore.acquire();
+        child.setValue(value);
     }
 }

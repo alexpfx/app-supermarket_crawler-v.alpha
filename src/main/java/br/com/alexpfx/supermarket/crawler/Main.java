@@ -1,63 +1,61 @@
 package br.com.alexpfx.supermarket.crawler;
 
+import br.com.alexpfx.supermarket.crawler.controller.ControllerConfig;
+import br.com.alexpfx.supermarket.crawler.controller.CrawlerStarter;
+import br.com.alexpfx.supermarket.crawler.controller.angeloni.AngeloniControllerConfig;
+import br.com.alexpfx.supermarket.crawler.model.Crud;
 import com.firebase.client.*;
 import org.apache.log4j.BasicConfigurator;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.Semaphore;
 
 /**
  * Created by alexandre on 06/12/2015.
  */
-public class Main implements Firebase.AuthResultHandler, ValueEventListener {
+public class Main {
     public static void main(String[] args) throws InterruptedException {
-
         BasicConfigurator.configure();
         new Main().save();
 
 //        c.start();
     }
 
-    public void save () throws InterruptedException {
-        final Semaphore semaphore = new Semaphore(0);
-
-
+    public void save() throws InterruptedException {
         Firebase.setDefaultConfig(new Config());
-        final Firebase ref = new Firebase("https://supermarketcrawler.firebaseIO.com/");
-        ref.authAnonymously(this);
-        ref.addValueEventListener(this);
+        final Firebase refri = new Firebase("https://supermarketcrawler.firebaseIO.com/");
+        Crud<ProductInfo> crud = new Crud<>(refri);
+
+        ControllerConfig config = new AngeloniControllerConfig();
+        CrawlerStarter starter = new CrawlerStarter(config);
 
 
-        ref.child("/message").setValue("ms");
-        ref.child("/message").addValueEventListener(this);
-
-        Map<String, Boolean> test = new HashMap<String, Boolean>();
-        test.put("Test", true);
-        ref.setValue(test, new Firebase.CompletionListener() {
+        refri.orderByChild("/descgription").endAt("cerveja").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(FirebaseError error, Firebase ref) {
-                semaphore.release();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println(dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
             }
         });
-        ref.setValue(test);
-        semaphore.acquire();
 
-    }
 
-    public void onAuthenticated(AuthData authData) {
-        System.out.println(authData);
-    }
+        Firebase ref = new Firebase("https://docs-examples.firebaseio.com/web/saving-data/fireblog/posts");
+// Attach an listener to read the data at our posts reference
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                System.out.println(snapshot.getValue());
+            }
 
-    public void onAuthenticationError(FirebaseError firebaseError) {
-        System.out.println(firebaseError);
-    }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
 
-    public void onDataChange(DataSnapshot dataSnapshot) {
-        System.out.println(dataSnapshot.getValue());
-    }
-
-    public void onCancelled(FirebaseError firebaseError) {
-
+        while (true){
+            Thread.sleep(1000);
+        }
     }
 }
