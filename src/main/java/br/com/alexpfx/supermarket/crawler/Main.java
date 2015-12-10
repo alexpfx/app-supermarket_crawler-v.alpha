@@ -3,7 +3,7 @@ package br.com.alexpfx.supermarket.crawler;
 import br.com.alexpfx.supermarket.crawler.controller.ControllerConfig;
 import br.com.alexpfx.supermarket.crawler.controller.CrawlerStarter;
 import br.com.alexpfx.supermarket.crawler.controller.angeloni.AngeloniControllerConfig;
-import br.com.alexpfx.supermarket.crawler.model.Crud;
+import br.com.alexpfx.supermarket.crawler.model.database.Crud;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.*;
 import org.apache.log4j.BasicConfigurator;
@@ -22,7 +22,6 @@ public class Main {
     public void save() throws InterruptedException {
         Firebase.setDefaultConfig(new Config());
         final Firebase refri = new Firebase("https://supermarketcrawler.firebaseIO.com/");
-        Crud<ProductInfoTO> crud = new Crud<>(refri);
 
         ControllerConfig config = new AngeloniControllerConfig();
         CrawlerStarter starter = new CrawlerStarter(config);
