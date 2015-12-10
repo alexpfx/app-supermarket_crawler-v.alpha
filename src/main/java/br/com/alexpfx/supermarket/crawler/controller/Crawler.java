@@ -1,5 +1,6 @@
 package br.com.alexpfx.supermarket.crawler.controller;
 
+import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.url.WebURL;
@@ -50,7 +51,7 @@ public abstract class Crawler extends WebCrawler {
             return;
         }
 
-        ProductInfo productInfo = crawlerModel.extractProduct(page);
+        ProductInfoTO productInfo = crawlerModel.extractProduct(page);
         if (productInfo != null) {
             try{
                 listener.onProductVisit(productInfo);
