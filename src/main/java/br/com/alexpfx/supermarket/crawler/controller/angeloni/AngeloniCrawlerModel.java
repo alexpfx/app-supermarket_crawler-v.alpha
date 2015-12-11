@@ -27,8 +27,7 @@ public class AngeloniCrawlerModel implements CrawlerModel {
 
     public boolean shouldVisit(Page page, WebURL webURL) {
         String href = webURL.getURL().toLowerCase();
-        System.out.println("Quantidade urls: "+urls.size());
-        return (href.contains("idProduto=") || href.contains("grupo=") || !urls.contains(href));
+        return (!urls.contains(href) && href.contains("super") && (href.contains("grupo") || href.contains("idProduto")));
     }
 
     public ProductInfoTO extractProduct(Page page) throws ExtractProductError {

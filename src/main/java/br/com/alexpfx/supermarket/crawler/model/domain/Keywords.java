@@ -32,4 +32,7 @@ public class Keywords {
         return keywords;
     }
 
+    public List<String> getWordList() {
+        return wordList;
+    }
 }

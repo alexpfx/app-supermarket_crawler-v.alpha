@@ -18,7 +18,7 @@ public class Crud<T> implements Repository<T> {
     public void save(String path, T value) throws InterruptedException {
         final CountDownLatch countDownLatch = new CountDownLatch(1);
         Firebase child = ref.child(path);
-        child.setValue(value, new Firebase.CompletionListener() {
+        child.push().setValue(value, new Firebase.CompletionListener() {
             @Override
             public void onComplete(FirebaseError firebaseError, Firebase firebase) {
                 countDownLatch.countDown();

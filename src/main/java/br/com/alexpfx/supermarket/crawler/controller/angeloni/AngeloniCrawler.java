@@ -8,6 +8,7 @@ import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
 
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -17,8 +18,9 @@ public class AngeloniCrawler extends Crawler {
 
     public static final String REF_URL = "https://supermarketcrawler.firebaseio.com/";
     private CopyOnWriteArrayList<ProductInfoTO> produtos = new CopyOnWriteArrayList<ProductInfoTO>();
-
     private Crud <Product> productInfoCrud = new Crud<>(new Firebase(REF_URL));
+    private KeywordCounter counter = new KeywordCounter();
+
 
     @Override
     public void init() {
@@ -28,6 +30,7 @@ public class AngeloniCrawler extends Crawler {
                 h.add(PriceDate.of(new Date(), productInfo.getPrice()));
                 Product p = Product.of(Seller.of("Angeloni"), productInfo.getDescription(), h, Keywords.ofPhrase(productInfo.getDescription()));
                 productInfoCrud.save("/angeloni/produtos/", p);
+                counter.add(p.getKeywords());
             }
         });
         setCrawlerModel(new AngeloniCrawlerModel());

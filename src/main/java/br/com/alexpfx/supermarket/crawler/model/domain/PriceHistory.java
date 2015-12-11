@@ -14,6 +14,7 @@ public class PriceHistory {
         priceHistory.add(priceDate);
     }
 
-
-
+    public List<PriceDate> getPriceHistory() {
+        return priceHistory;
+    }
 }
