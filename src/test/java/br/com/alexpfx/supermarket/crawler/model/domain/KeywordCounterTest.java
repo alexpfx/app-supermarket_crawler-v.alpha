@@ -14,8 +14,9 @@ import static org.junit.Assert.assertEquals;
  */
 public class KeywordCounterTest {
     private KeywordCounter keywordCounter;
+
     @Before
-    public void setup (){
+    public void setup() {
         keywordCounter = new KeywordCounter();
     }
 
@@ -85,25 +86,19 @@ public class KeywordCounterTest {
     }
 
     @Test
-    public void testTop (){
-        String [] topKeys = new String[]{"mouse", "rua", "gato"};
-        Integer [] topValues = new Integer[]{10, 10, 8};
+    public void testTop() {
+        String[] topKeys = new String[]{"mouse", "rua", "gato"};
+        Integer[] topValues = new Integer[]{10, 10, 8};
         preencher();
         Map<String, Integer> top = keywordCounter.top(3);
         assertEquals(3, top.size());
         Iterator<Map.Entry<String, Integer>> it = top.entrySet().iterator();
         int i = 0;
-        while (it.hasNext()){
+        while (it.hasNext()) {
             Map.Entry<String, Integer> e = it.next();
             assertEquals(e.getKey(), topKeys[i]);
             assertEquals(e.getValue(), topValues[i++]);
         }
-
-
     }
-
-
-
-
 }
 

@@ -31,8 +31,11 @@ public class AngeloniCrawler extends Crawler {
                 Product p = Product.of(Seller.of("Angeloni"), productInfo.getDescription(), h, Keywords.ofPhrase(productInfo.getDescription()));
                 productInfoCrud.save("/angeloni/produtos/", p);
                 counter.add(p.getKeywords());
+                System.out.println(counter.top(40));
+                System.out.println();
             }
         });
         setCrawlerModel(new AngeloniCrawlerModel());
+
     }
 }
