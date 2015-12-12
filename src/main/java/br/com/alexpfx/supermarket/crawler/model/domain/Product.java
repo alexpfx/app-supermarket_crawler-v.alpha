@@ -5,6 +5,7 @@ package br.com.alexpfx.supermarket.crawler.model.domain;
  */
 public class Product {
 
+    private BarCode barCode;
     private Seller seller;
     private String description;
     private PriceHistory priceHistory;

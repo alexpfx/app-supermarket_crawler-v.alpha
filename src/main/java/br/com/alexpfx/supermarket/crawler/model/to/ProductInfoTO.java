@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 /**
  * Created by alexandre on 06/12/2015.
+ * Vem do crawler.
  */
 public class ProductInfoTO  {
-
 
     private String id;
     private String description;

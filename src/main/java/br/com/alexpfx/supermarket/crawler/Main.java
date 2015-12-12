@@ -26,8 +26,6 @@ public class Main {
         CrawlerStarter starter = new CrawlerStarter(config);
         starter.start();
 
-
-
-
     }
 }
+
