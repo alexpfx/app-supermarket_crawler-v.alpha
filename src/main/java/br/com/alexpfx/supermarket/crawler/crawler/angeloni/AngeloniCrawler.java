@@ -1,14 +1,13 @@
-package br.com.alexpfx.supermarket.crawler.controller.angeloni;
+package br.com.alexpfx.supermarket.crawler.crawler.angeloni;
 
-import br.com.alexpfx.supermarket.crawler.controller.Crawler;
-import br.com.alexpfx.supermarket.crawler.controller.CrawlerListener;
+import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
+import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
 import br.com.alexpfx.supermarket.crawler.model.database.Crud;
 import br.com.alexpfx.supermarket.crawler.model.domain.*;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
 
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**

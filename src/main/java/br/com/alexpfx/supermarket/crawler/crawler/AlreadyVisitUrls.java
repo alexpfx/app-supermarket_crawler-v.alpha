@@ -1,7 +1,5 @@
-package br.com.alexpfx.supermarket.crawler.controller.angeloni;
+package br.com.alexpfx.supermarket.crawler.crawler;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 

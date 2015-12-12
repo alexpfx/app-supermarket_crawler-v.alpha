@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler.controller;
+package br.com.alexpfx.supermarket.crawler.crawler;
 
 import br.com.alexpfx.supermarket.crawler.model.ExtractProductError;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;

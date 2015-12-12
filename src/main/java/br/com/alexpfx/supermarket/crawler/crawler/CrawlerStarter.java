@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler.controller;
+package br.com.alexpfx.supermarket.crawler.crawler;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;

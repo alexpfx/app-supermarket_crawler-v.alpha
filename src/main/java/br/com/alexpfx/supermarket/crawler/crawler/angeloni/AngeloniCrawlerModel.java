@@ -1,7 +1,8 @@
-package br.com.alexpfx.supermarket.crawler.controller.angeloni;
+package br.com.alexpfx.supermarket.crawler.crawler.angeloni;
 
 import br.com.alexpfx.supermarket.crawler.DigitOrComma;
-import br.com.alexpfx.supermarket.crawler.controller.CrawlerModel;
+import br.com.alexpfx.supermarket.crawler.crawler.AlreadyVisitUrls;
+import br.com.alexpfx.supermarket.crawler.crawler.CrawlerModel;
 import br.com.alexpfx.supermarket.crawler.model.ExtractProductError;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.google.common.base.CharMatcher;

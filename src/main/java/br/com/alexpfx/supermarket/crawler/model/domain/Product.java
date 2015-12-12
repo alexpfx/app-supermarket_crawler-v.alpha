@@ -7,6 +7,8 @@ public class Product {
 
     private BarCode barCode;
     private Seller seller;
+    private Manufacturer manufacturer;
+
     private String description;
     private PriceHistory priceHistory;
     private Keywords keywords;
@@ -38,4 +40,14 @@ public class Product {
     public Keywords getKeywords() {
         return keywords;
     }
+
+    public BarCode getBarCode() {
+        return barCode;
+    }
+
+    public Manufacturer getManufacturer() {
+        return manufacturer;
+    }
+
+
 }

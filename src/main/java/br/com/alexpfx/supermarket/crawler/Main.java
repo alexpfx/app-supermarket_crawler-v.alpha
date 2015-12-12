@@ -1,12 +1,9 @@
 package br.com.alexpfx.supermarket.crawler;
 
-import br.com.alexpfx.supermarket.crawler.controller.ControllerConfig;
-import br.com.alexpfx.supermarket.crawler.controller.CrawlerStarter;
-import br.com.alexpfx.supermarket.crawler.controller.angeloni.AngeloniControllerConfig;
-import br.com.alexpfx.supermarket.crawler.model.database.Crud;
-import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
+import br.com.alexpfx.supermarket.crawler.crawler.ControllerConfig;
+import br.com.alexpfx.supermarket.crawler.crawler.CrawlerStarter;
+import br.com.alexpfx.supermarket.crawler.crawler.angeloni.AngeloniControllerConfig;
 import com.firebase.client.*;
-import org.apache.log4j.BasicConfigurator;
 
 /**
  * Created by alexandre on 06/12/2015.
