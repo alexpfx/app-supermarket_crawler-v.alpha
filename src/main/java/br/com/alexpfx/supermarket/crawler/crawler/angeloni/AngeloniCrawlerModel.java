@@ -21,8 +21,6 @@ import java.util.regex.Pattern;
  * Created by alexandre on 06/12/2015.
  */
 public class AngeloniCrawlerModel implements CrawlerModel {
-    private final static Pattern FILTERS = Pattern.compile(".*(\\.(css|js|gif|jpg"
-            + "|png|mp3|mp3|zip|gz))$");
 
     AlreadyVisitUrls urls = new AlreadyVisitUrls();
 
@@ -33,7 +31,6 @@ public class AngeloniCrawlerModel implements CrawlerModel {
 
     public ProductInfoTO extractProduct(Page page) throws ExtractProductError {
         urls.add(page.getWebURL().getURL());
-        WebURL webURL = page.getWebURL();
         HtmlParseData parseData = (HtmlParseData) page.getParseData();
         String html = parseData.getHtml();
         Document document = Jsoup.parse(html);

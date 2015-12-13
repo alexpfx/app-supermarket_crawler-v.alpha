@@ -11,9 +11,9 @@ import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
  */
 public class CrawlerStarter {
 
-    private ControllerConfig config;
+    private CrawlerControllerConfig config;
 
-    public CrawlerStarter(ControllerConfig config) {
+    public CrawlerStarter(CrawlerControllerConfig config) {
         this.config = config;
     }
 

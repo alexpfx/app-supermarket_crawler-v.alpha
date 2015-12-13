@@ -1,8 +1,8 @@
 package br.com.alexpfx.supermarket.crawler;
 
-import br.com.alexpfx.supermarket.crawler.crawler.ControllerConfig;
+import br.com.alexpfx.supermarket.crawler.crawler.CrawlerControllerConfig;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerStarter;
-import br.com.alexpfx.supermarket.crawler.crawler.angeloni.AngeloniControllerConfig;
+import br.com.alexpfx.supermarket.crawler.crawler.camilo.MercadoRibeiraoCrawlerControllerConfig;
 import com.firebase.client.*;
 
 /**
@@ -19,7 +19,11 @@ public class Main {
         Firebase.setDefaultConfig(new Config());
         final Firebase refri = new Firebase("https://supermarketcrawler.firebaseIO.com/");
 
-        ControllerConfig config = new AngeloniControllerConfig();
+//        CrawlerControllerConfig config = new AngeloniCrawlerControllerConfig();
+//        CrawlerStarter starter = new CrawlerStarter(config);
+//        starter.start();
+
+        CrawlerControllerConfig config = new MercadoRibeiraoCrawlerControllerConfig();
         CrawlerStarter starter = new CrawlerStarter(config);
         starter.start();
 

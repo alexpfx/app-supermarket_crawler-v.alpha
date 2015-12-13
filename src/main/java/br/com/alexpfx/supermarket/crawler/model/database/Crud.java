@@ -34,6 +34,6 @@ public class Crud<T> implements Repository<T> {
             }
         });
         semaphore.acquire();
-        child.push().setValue(value);
+        child.setValue(value);
     }
 }

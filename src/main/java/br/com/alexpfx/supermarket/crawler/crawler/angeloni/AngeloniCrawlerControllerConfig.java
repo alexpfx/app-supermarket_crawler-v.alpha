@@ -1,12 +1,12 @@
 package br.com.alexpfx.supermarket.crawler.crawler.angeloni;
 
-import br.com.alexpfx.supermarket.crawler.crawler.ControllerConfig;
+import br.com.alexpfx.supermarket.crawler.crawler.CrawlerControllerConfig;
 import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
 
 /**
  * Created by alexandre on 06/12/2015.
  */
-public class AngeloniControllerConfig implements ControllerConfig {
+public class AngeloniCrawlerControllerConfig implements CrawlerControllerConfig {
     public String getStorageFolder() {
         return "/data/crawl/root/";
     }

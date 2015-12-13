@@ -31,9 +31,17 @@ public class ProductInfoTO  {
         this.price = price;
     }
 
+    private ProductInfoTO(String id, String description) {
+        this.id = id;
+        this.description = description;
+    }
 
     public static ProductInfoTO of(String identity, String description, BigDecimal price) {
         return new ProductInfoTO(identity, description, price);
+    }
+
+    public static ProductInfoTO of(String id, String description) {
+        return new ProductInfoTO(id, description);
     }
 
 

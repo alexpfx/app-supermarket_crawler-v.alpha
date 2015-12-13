@@ -3,7 +3,7 @@ package br.com.alexpfx.supermarket.crawler.crawler;
 /**
  * Created by alexandre on 06/12/2015.
  */
-public interface ControllerConfig {
+public interface CrawlerControllerConfig {
     String getStorageFolder();
 
     int getNumberOfCrawlers();
