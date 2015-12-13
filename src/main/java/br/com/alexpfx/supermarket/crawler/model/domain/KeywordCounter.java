@@ -16,8 +16,9 @@ public class KeywordCounter {
     private Map<String, Integer> wordMap = Collections.synchronizedMap(new LinkedHashMap<>());
 
     public synchronized void add(Keywords keywords) {
-        List<String> wordList = keywords.getWordList();
-        for (String w : wordList) {
+        Iterator<String> iterator = keywords.getIterator();
+        while (iterator.hasNext()) {
+            String w = iterator.next();
             add(w);
         }
     }
