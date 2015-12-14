@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler.crawler.camilo;
+package br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao;
 
 import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
@@ -15,8 +15,6 @@ import com.firebase.client.Firebase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.AbstractMap;
-import java.util.HashMap;
 import java.util.Map;
 
 /**

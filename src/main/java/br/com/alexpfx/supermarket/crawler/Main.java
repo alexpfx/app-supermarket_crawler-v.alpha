@@ -2,7 +2,7 @@ package br.com.alexpfx.supermarket.crawler;
 
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerControllerConfig;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerStarter;
-import br.com.alexpfx.supermarket.crawler.crawler.camilo.MercadoRibeiraoCrawlerControllerConfig;
+import br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao.MercadoRibeiraoCrawlerControllerConfig;
 import com.firebase.client.*;
 
 /**

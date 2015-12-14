@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler.crawler.camilo;
+package br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao;
 
 import br.com.alexpfx.supermarket.crawler.crawler.AlreadyVisitUrls;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerModel;
