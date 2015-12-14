@@ -26,6 +26,4 @@ public class KeywordTokenizer {
         });
         return r;
     }
-
-
 }

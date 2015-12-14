@@ -10,8 +10,12 @@ public class Keywords {
     public static final int MIN_WORD_SIZE = 4;
     private Set<String> wordList;
 
-    public Keywords(String phrase) {
+    private Keywords(String phrase) {
         wordList = new KeywordTokenizer(phrase, MIN_WORD_SIZE).getTokens();
+    }
+
+    public static Keywords of(String phrase) {
+        return new Keywords(phrase);
     }
 
     public boolean contains(String keyword) {

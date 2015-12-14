@@ -50,7 +50,7 @@ public class MercadoRibeiraoCrawler extends Crawler {
         setListener(new CrawlerListener() {
             @Override
             public void onProductVisit(ProductInfoTO productInfo) throws InterruptedException {
-                Product product = Product.of(BarCode.of(productInfo.getId(), BarCodeType.EAN), productInfo.getDescription(), Keywords.ofPhrase(productInfo.getDescription()));
+                Product product = Product.of(BarCode.of(productInfo.getId(), BarCodeType.EAN), productInfo.getDescription(), Keywords.of(productInfo.getDescription()));
                 if (!productRepository.exists(product)) {
                     productRepository.save(product);
                 }

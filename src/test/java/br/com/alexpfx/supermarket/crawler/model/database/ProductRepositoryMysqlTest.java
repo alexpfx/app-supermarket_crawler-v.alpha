@@ -32,7 +32,7 @@ public class ProductRepositoryMysqlTest extends BaseDatabaseTest {
 
     @Test
     public void testSave() throws Exception {
-        Keywords k = Keywords.ofPhrase("um dois tres quatro cinco seis sete oito nove dez onze");
+        Keywords k = Keywords.of("um dois tres quatro cinco seis sete oito nove dez onze");
         Product produto = Product.of(BarCode.of("000000000000", BarCodeType.EAN), "produto", k);
         repository.save(produto);
         Assert.assertTrue(repository.exists(produto));
