@@ -1,37 +1,21 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * Created by alexandre on 09/12/2015.
  */
 public class Keywords {
 
+    public static final int MIN_WORD_SIZE = 4;
+    private Set<String> wordList;
 
-    private List<String> wordList = new ArrayList<>();
-
-    public void add(String keyword) {
-        wordList.add(keyword);
+    public Keywords(String phrase) {
+        wordList = new KeywordTokenizer(phrase, MIN_WORD_SIZE).getTokens();
     }
 
     public boolean contains(String keyword) {
         return wordList.contains(keyword);
-    }
-
-
-    public static Keywords ofPhrase(String phrase) {
-        Keywords keywords = new Keywords();
-        StringTokenizer tokenizer = new StringTokenizer(phrase, " ", false);
-        while (tokenizer.hasMoreTokens()) {
-            String t = tokenizer.nextToken();
-            if (t.length() >= 4 && !keywords.contains(t)) {
-                keywords.add(t);
-            }
-        }
-        return keywords;
     }
 
 

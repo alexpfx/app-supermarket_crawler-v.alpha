@@ -42,8 +42,6 @@ public class ProductRepositoryMysql implements ProductRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
     private void save(Keywords keywords, int idProduto) {
