@@ -11,6 +11,7 @@ import java.util.Iterator;
  */
 public class ProductRepositoryMysql implements ProductRepository {
 
+
     private Connection connection;
 
     public ProductRepositoryMysql(Connection connection) {

@@ -4,6 +4,7 @@ import br.com.alexpfx.supermarket.crawler.crawler.CrawlerControllerConfig;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerStarter;
 import br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao.MercadoRibeiraoCrawlerControllerConfig;
 import com.firebase.client.*;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  * Created by alexandre on 06/12/2015.

@@ -11,6 +11,7 @@ import br.com.alexpfx.supermarket.crawler.model.domain.Keywords;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,6 +22,8 @@ import java.util.Map;
  * Created by alexandre on 12/12/2015.
  */
 public class MercadoRibeiraoCrawler extends Crawler {
+
+
     public static final String REF_URL = "https://smket.firebaseio.com/";
     public static final String URL = "jdbc:mysql://localhost/smket";
     private Crud<Map.Entry> productInfoCrud = new Crud<>(new Firebase(REF_URL));
@@ -38,17 +41,20 @@ public class MercadoRibeiraoCrawler extends Crawler {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, "alex", "alex00");
-            System.out.println(connection);
+
         } catch (SQLException e) {
+
             e.printStackTrace();
         }
 
         productRepository = new ProductRepositoryMysql(connection);
 
+        //TODO separar
         setListener(new CrawlerListener() {
             @Override
             public void onProductVisit(ProductInfoTO productInfo) throws InterruptedException {
                 Product product = Product.of(BarCode.of(productInfo.getId(), BarCodeType.EAN), productInfo.getDescription(), Keywords.of(productInfo.getDescription()));
+                System.out.println(product);
                 if (!productRepository.exists(product)) {
                     productRepository.save(product);
                 }

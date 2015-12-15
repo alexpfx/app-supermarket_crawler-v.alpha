@@ -27,4 +27,9 @@ public class BarCode {
     public BarCodeType getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%63s\t", code);
+    }
 }

@@ -12,17 +12,25 @@ public class KeywordTokenizer {
 
     private String phrase;
     private int minimumLength;
+    private Set<String> filtered;
 
     public KeywordTokenizer(String phrase, int minimumLength) {
+        this(phrase, minimumLength, new TreeSet<>());
+    }
+
+    public KeywordTokenizer(String phrase, int minimumLength, Set<String> filtered) {
         this.phrase = phrase;
         this.minimumLength = minimumLength;
+        this.filtered = filtered;
     }
 
     public Set<String> getTokens() {
         Set<String> r = new TreeSet<>();
         Iterable<String> splited = Splitter.on(" ").trimResults().omitEmptyStrings().split(phrase);
         splited.forEach(s -> {
-            if (s.length() >= minimumLength) r.add(s);
+            if ((s.length() >= minimumLength) && (!filtered.contains(s))){
+                r.add(s);
+            }
         });
         return r;
     }

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
 
 import static org.junit.Assert.*;
 
@@ -66,6 +67,25 @@ public class KeywordTokenizerTest {
             String s = iterator.next();
             assertEquals(ordenado[i++], s);
         }
+
+
+    }
+
+    @Test
+    public void testGetTokens_comFiltro() throws Exception {
+        Set<String> filtrado = new TreeSet<>();
+        filtrado.add("rei");
+        filtrado.add("rato");
+
+        kw = new KeywordTokenizer("o rato roeu a roupa do rei de roma", 1, filtrado);
+        long before = System.currentTimeMillis();
+        Set<String> tokens = kw.getTokens();
+        System.out.println(System.currentTimeMillis() - before);
+        assertNotNull(tokens);
+        assertEquals(7, tokens.size());
+        assertFalse(tokens.contains("rei"));
+        assertFalse(tokens.contains("rato"));
+        assertTrue(tokens.contains("roupa"));
 
     }
 
