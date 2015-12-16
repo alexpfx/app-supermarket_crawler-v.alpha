@@ -1,9 +1,6 @@
 package br.com.alexpfx.supermarket.crawler.model.database;
 
-import br.com.alexpfx.supermarket.crawler.model.domain.BarCode;
-import br.com.alexpfx.supermarket.crawler.model.domain.BarCodeType;
-import br.com.alexpfx.supermarket.crawler.model.domain.Keywords;
-import br.com.alexpfx.supermarket.crawler.model.domain.Product;
+import br.com.alexpfx.supermarket.crawler.model.domain.*;
 import org.junit.*;
 
 import java.sql.DriverManager;
@@ -33,10 +30,15 @@ public class ProductRepositoryMysqlTest extends BaseDatabaseTest {
     @Test
     public void testSave() throws Exception {
         Keywords k = Keywords.of("um dois tres quatro cinco seis sete oito nove dez onze");
-        Product produto = Product.of(BarCode.of("000000000000", BarCodeType.EAN), "produto", k);
+        ProductBuilder b = new ProductBuilder();
+        String code = "00000000000";
+        Product produto = b.barCode(BarCode.of(code, BarCodeType.EAN)).description("produto").keywords(k).createProduct();
         repository.save(produto);
         Assert.assertTrue(repository.exists(produto));
-        System.out.println();
+
+        repository.delete(produto);
+
+
     }
 
     @Test

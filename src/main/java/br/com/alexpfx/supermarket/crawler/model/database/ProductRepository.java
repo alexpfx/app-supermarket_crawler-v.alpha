@@ -10,4 +10,5 @@ import java.sql.SQLException;
 public interface ProductRepository {
     void save (Product product) ;
     boolean exists (Product product);
+    void delete (Product product);
 }

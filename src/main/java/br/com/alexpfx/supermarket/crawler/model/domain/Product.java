@@ -8,30 +8,25 @@ public class Product {
 
     private BarCode barCode;
 
+    private String alternativeId;
+
     private Manufacturer manufacturer;
 
     private String description;
 
     private Keywords keywords;
 
+    private String url;
 
-    private Product(BarCode barCode, String description, Keywords keywords) {
+
+    public Product(int id, BarCode barCode, String alternativeId, Manufacturer manufacturer, String description, Keywords keywords, String url) {
+        this.id = id;
         this.barCode = barCode;
+        this.alternativeId = alternativeId;
+        this.manufacturer = manufacturer;
         this.description = description;
         this.keywords = keywords;
-    }
-
-    private Product(Seller seller, String description, PriceHistory priceHistory, Keywords keywords) {
-        this.description = description;
-        this.keywords = keywords;
-    }
-
-    public static Product of(Seller seller, String description, PriceHistory priceHistory, Keywords keywords) {
-        return new Product(seller, description, priceHistory, keywords);
-    }
-
-    public static Product of(BarCode barCode, String description, Keywords keywords) {
-        return new Product(barCode, description, keywords);
+        this.url = url;
     }
 
     @Override
@@ -57,4 +52,16 @@ public class Product {
         return manufacturer;
     }
 
+
+    public boolean hasEanCode() {
+        return barCode.isEan();
+    }
+
+    public String getAlternativeId() {
+        return alternativeId;
+    }
+
+    public String getUrl() {
+        return url;
+    }
 }

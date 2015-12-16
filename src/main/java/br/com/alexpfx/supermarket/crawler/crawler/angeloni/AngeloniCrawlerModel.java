@@ -5,6 +5,7 @@ import br.com.alexpfx.supermarket.crawler.crawler.AlreadyVisitUrls;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerModel;
 import br.com.alexpfx.supermarket.crawler.model.ExtractProductError;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
+import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTOBuilder;
 import com.google.common.base.CharMatcher;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
@@ -30,7 +31,8 @@ public class AngeloniCrawlerModel implements CrawlerModel {
     }
 
     public ProductInfoTO extractProduct(Page page) throws ExtractProductError {
-        urls.add(page.getWebURL().getURL());
+        String url = page.getWebURL().getURL();
+        urls.add(url);
         HtmlParseData parseData = (HtmlParseData) page.getParseData();
         String html = parseData.getHtml();
         Document document = Jsoup.parse(html);
@@ -39,7 +41,8 @@ public class AngeloniCrawlerModel implements CrawlerModel {
         Element rgtProd = document.getElementById("rgtProd");
         String codigo = extractCodigo(rgtProd);
         BigDecimal price = extractPrice(rgtProd);
-        return ProductInfoTO.of(codigo, descricao, price);
+
+        return new ProductInfoTOBuilder().description(descricao).id(codigo).price(price).url(url).createProductInfoTO();
 
     }
 

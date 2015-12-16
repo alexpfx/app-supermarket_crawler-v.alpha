@@ -6,7 +6,7 @@ package br.com.alexpfx.supermarket.crawler.model.domain;
  */
 public class BarCode {
 
-    private String code;
+    private String code = "";
 
     private BarCodeType type;
 
@@ -32,4 +32,9 @@ public class BarCode {
     public String toString() {
         return String.format("%63s\t", code);
     }
+
+    public boolean isEan (){
+        return BarCodeType.EAN.equals(type);
+    }
+
 }

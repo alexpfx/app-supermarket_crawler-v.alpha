@@ -27,9 +27,9 @@ public class AngeloniCrawler extends Crawler {
             public void onProductVisit(ProductInfoTO productInfo) throws InterruptedException {
                 PriceHistory h = new PriceHistory();
                 h.add(PriceDate.of(new Date(), productInfo.getPrice()));
-                Product p = Product.of(Seller.of("Angeloni"), productInfo.getDescription(), h, Keywords.of(productInfo.getDescription()));
-                productInfoCrud.save("/angeloni/produtos/", p);
-                counter.add(p.getKeywords());
+//                Product p = Product.of(Seller.of("Angeloni"), productInfo.getDescription(), h, Keywords.of(productInfo.getDescription()));
+//                productInfoCrud.save("/angeloni/produtos/", p);
+//                counter.add(p.getKeywords());
                 System.out.println(counter.top(40));
                 System.out.println();
             }

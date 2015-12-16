@@ -61,15 +61,45 @@ public class ProductRepositoryMysql implements ProductRepository {
 
     @Override
     public boolean exists(Product product) {
-        try (PreparedStatement ps = connection.prepareStatement("select count(*) from produtos where codigo_ean = ?")) {
-            ps.setString(1, product.getBarCode().getCode());
-            ResultSet r = ps.executeQuery();
+
+        String findByEanSql = "select count(*) from produtos where codigo_ean = ?";
+        String findByAlternateIdSql = "select count(*) from produtos where codigo_nao_ean = ?";
+        String sql = product.hasEanCode()?findByEanSql:findByAlternateIdSql;
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ResultSet r;
+            if (product.hasEanCode()) {
+                ps.setString(1, product.getBarCode().getCode());
+
+            } else {
+                ps.setString(1, product.getAlternativeId());
+            }
+            r = ps.executeQuery();
             r.next();
             return r.getBoolean(1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public void delete(Product product) {
+        String deleteEan = "delete from produtos where codigo_ean = ?";
+        String deleteAlternative = "delete from produtos where codigo_nao_ean = ?";
+
+        String sql = (product.hasEanCode())?deleteEan:deleteAlternative;
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            if (product.hasEanCode()) {
+                ps.setString(1, product.getBarCode().getCode());
+
+            } else {
+                ps.setString(1, product.getAlternativeId());
+            }
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

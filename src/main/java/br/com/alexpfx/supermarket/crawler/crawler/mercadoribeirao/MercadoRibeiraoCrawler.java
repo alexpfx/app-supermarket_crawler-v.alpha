@@ -5,10 +5,7 @@ import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
 import br.com.alexpfx.supermarket.crawler.model.database.Crud;
 import br.com.alexpfx.supermarket.crawler.model.database.ProductRepository;
 import br.com.alexpfx.supermarket.crawler.model.database.ProductRepositoryMysql;
-import br.com.alexpfx.supermarket.crawler.model.domain.BarCode;
-import br.com.alexpfx.supermarket.crawler.model.domain.BarCodeType;
-import br.com.alexpfx.supermarket.crawler.model.domain.Keywords;
-import br.com.alexpfx.supermarket.crawler.model.domain.Product;
+import br.com.alexpfx.supermarket.crawler.model.domain.*;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
 import org.apache.log4j.Logger;
@@ -53,8 +50,19 @@ public class MercadoRibeiraoCrawler extends Crawler {
         setListener(new CrawlerListener() {
             @Override
             public void onProductVisit(ProductInfoTO productInfo) throws InterruptedException {
-                Product product = Product.of(BarCode.of(productInfo.getId(), BarCodeType.EAN), productInfo.getDescription(), Keywords.of(productInfo.getDescription()));
+
+                ProductBuilder builder = new ProductBuilder();
+                builder.description(productInfo.getDescription()).keywords(Keywords.of(productInfo.getDescription()));
+                if (productInfo.isValidEan()) {
+                    builder.barCode(BarCode.of(productInfo.getId(), BarCodeType.EAN));
+                } else {
+                    builder.alternativeId(productInfo.getId());
+                }
+                builder.url(productInfo.getUrl());
+
+                Product product = builder.createProduct();
                 System.out.println(product);
+
                 if (!productRepository.exists(product)) {
                     productRepository.save(product);
                 }
