@@ -3,22 +3,19 @@ package br.com.alexpfx.supermarket.crawler.model.database;
 import br.com.alexpfx.supermarket.crawler.model.domain.*;
 import org.junit.*;
 
-import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by alexandre on 13/12/2015.
  */
-public class ProductRepositoryMysqlTest extends BaseDatabaseTest {
+public class ProductDaoMysqlTest extends BaseDatabaseTest {
 
-    ProductRepository repository;
+    ProductDao repository;
 
 
     @Before
     public void setUp() throws ClassNotFoundException {
-        repository = new ProductRepositoryMysql(getConnection());
+        repository = new ProductDaoMysql(getConnection());
     }
 
     @After

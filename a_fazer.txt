@@ -1,0 +1,6 @@
+-
+[] rever codigo apontando necessidades de mudanças
+[] refatorar classes repository, criar camada intermediaria.
+[] verificar se há outro padrão de código de produto, que não EAN
+[] definir tratamento de produtos que não possuem código EAN
+[] obter quantidade de produto

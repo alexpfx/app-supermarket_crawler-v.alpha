@@ -9,15 +9,14 @@ import java.util.Iterator;
 /**
  * Created by alexandre on 13/12/2015.
  */
-public class ProductRepositoryMysql implements ProductRepository {
+public class ProductDaoMysql implements ProductDao {
 
 
     private Connection connection;
 
-    public ProductRepositoryMysql(Connection connection) {
+    public ProductDaoMysql(Connection connection) {
         this.connection = connection;
     }
-
 
     private int last_index_id() {
         try (Statement statement = connection.createStatement();) {
@@ -32,9 +31,10 @@ public class ProductRepositoryMysql implements ProductRepository {
 
     @Override
     public void save(Product product) {
-        try (PreparedStatement ps = connection.prepareStatement("insert into produtos (descricao, codigo_ean) values (?,?)");) {
+        try (PreparedStatement ps = connection.prepareStatement("insert into produtos (descricao, codigo_ean, url) values (?,?,?)");) {
             ps.setString(1, product.getDescription());
             ps.setString(2, product.getBarCode().getCode());
+            ps.setString(3, product.getUrl());
             ps.executeUpdate();
             int lastid = last_index_id();
             Keywords keywords = product.getKeywords();

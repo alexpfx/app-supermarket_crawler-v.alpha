@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * Created by alexandre on 12/12/2015.
  */
-public interface ProductRepository {
+public interface ProductDao {
     void save (Product product) ;
     boolean exists (Product product);
     void delete (Product product);

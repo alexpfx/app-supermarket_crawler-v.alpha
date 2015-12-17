@@ -3,12 +3,11 @@ package br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao;
 import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
 import br.com.alexpfx.supermarket.crawler.model.database.Crud;
-import br.com.alexpfx.supermarket.crawler.model.database.ProductRepository;
-import br.com.alexpfx.supermarket.crawler.model.database.ProductRepositoryMysql;
+import br.com.alexpfx.supermarket.crawler.model.database.ProductDao;
+import br.com.alexpfx.supermarket.crawler.model.database.ProductDaoMysql;
 import br.com.alexpfx.supermarket.crawler.model.domain.*;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
-import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,7 +23,7 @@ public class MercadoRibeiraoCrawler extends Crawler {
     public static final String REF_URL = "https://smket.firebaseio.com/";
     public static final String URL = "jdbc:mysql://localhost/smket";
     private Crud<Map.Entry> productInfoCrud = new Crud<>(new Firebase(REF_URL));
-    private ProductRepository productRepository;
+    private ProductDao productDao;
 
     @Override
     public void init() {
@@ -44,7 +43,7 @@ public class MercadoRibeiraoCrawler extends Crawler {
             e.printStackTrace();
         }
 
-        productRepository = new ProductRepositoryMysql(connection);
+        productDao = new ProductDaoMysql(connection);
 
         //TODO separar
         setListener(new CrawlerListener() {
@@ -63,8 +62,8 @@ public class MercadoRibeiraoCrawler extends Crawler {
                 Product product = builder.createProduct();
                 System.out.println(product);
 
-                if (!productRepository.exists(product)) {
-                    productRepository.save(product);
+                if (!productDao.exists(product)) {
+                    productDao.save(product);
                 }
             }
         });
