@@ -37,9 +37,16 @@ public class ProductDaoMysqlTest extends BaseDatabaseTest {
 
 
     }
-
-    @Test
     public void testExists() throws Exception {
 
     }
+
+    public void testSave1() throws Exception {
+
+    }
+
+    public void testExists1() throws Exception {
+
+    }
+
 }

@@ -5,13 +5,12 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
 /**
  * Created by alexandre on 08/12/2015.
  */
-public class Crud<T> implements Repository<T> {
+public class Crud<T> implements Dao<T> {
     private Firebase ref;
     public Crud(Firebase ref) {
         this.ref = ref;

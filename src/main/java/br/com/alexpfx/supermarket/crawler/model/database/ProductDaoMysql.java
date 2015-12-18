@@ -2,7 +2,11 @@ package br.com.alexpfx.supermarket.crawler.model.database;
 
 import br.com.alexpfx.supermarket.crawler.model.domain.Keywords;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.*;
+import java.net.URL;
 import java.sql.*;
 import java.util.Iterator;
 
@@ -16,7 +20,32 @@ public class ProductDaoMysql implements ProductDao {
 
     public ProductDaoMysql(Connection connection) {
         this.connection = connection;
+        URL resource = ProductDaoMysql.class.getClassLoader().getResource(".");
+        resource = ProductDaoMysql.class.getClassLoader().getResource("/");
+        URL resource1 = ProductDaoMysql.class.getResource("./product.json");
+        try {
+            FileInputStream fileInputStream = new FileInputStream("product.json");
+            Reader reader = new InputStreamReader(fileInputStream);
+            Gson gson = new GsonBuilder().create();
+            ProductQueries p = gson.fromJson(reader, ProductQueries.class);
+            System.out.println(p);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try (Reader reader = new InputStreamReader(ProductDaoMysql.class.getResourceAsStream("./product.json"), "UTF-8")) {
+            Gson gson = new GsonBuilder().create();
+            SqlQueries p = gson.fromJson(reader, SqlQueries.class);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
+
 
     private int last_index_id() {
         try (Statement statement = connection.createStatement();) {
@@ -64,7 +93,7 @@ public class ProductDaoMysql implements ProductDao {
 
         String findByEanSql = "select count(*) from produtos where codigo_ean = ?";
         String findByAlternateIdSql = "select count(*) from produtos where codigo_nao_ean = ?";
-        String sql = product.hasEanCode()?findByEanSql:findByAlternateIdSql;
+        String sql = product.hasEanCode() ? findByEanSql : findByAlternateIdSql;
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ResultSet r;
             if (product.hasEanCode()) {
@@ -87,7 +116,7 @@ public class ProductDaoMysql implements ProductDao {
         String deleteEan = "delete from produtos where codigo_ean = ?";
         String deleteAlternative = "delete from produtos where codigo_nao_ean = ?";
 
-        String sql = (product.hasEanCode())?deleteEan:deleteAlternative;
+        String sql = (product.hasEanCode()) ? deleteEan : deleteAlternative;
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             if (product.hasEanCode()) {
                 ps.setString(1, product.getBarCode().getCode());

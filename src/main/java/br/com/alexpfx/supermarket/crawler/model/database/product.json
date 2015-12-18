@@ -1,0 +1,3 @@
+{
+  "insert": "insert into produtos (descricao, url, data_cadastro) values (?,?,?)"
+}
