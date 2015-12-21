@@ -10,13 +10,12 @@ import java.util.concurrent.Semaphore;
 /**
  * Created by alexandre on 08/12/2015.
  */
-public class Crud<T> implements Dao<T> {
+public class Crud<T>  {
     private Firebase ref;
     public Crud(Firebase ref) {
         this.ref = ref;
     }
 
-    @Override
     public void save(String path, T value) throws InterruptedException {
         final Semaphore semaphore = new Semaphore(0);
         Firebase child = ref.child(path);

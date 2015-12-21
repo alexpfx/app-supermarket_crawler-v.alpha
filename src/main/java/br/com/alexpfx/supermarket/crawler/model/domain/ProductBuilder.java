@@ -1,26 +1,14 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
 public class ProductBuilder {
-    private int id;
-    private BarCode barCode;
-    private String alternativeId;
+    private ProductIdentityEan productIdentity;
     private Manufacturer manufacturer;
     private String description;
     private Keywords keywords;
     private String url;
 
-    public ProductBuilder id(int id) {
-        this.id = id;
-        return this;
-    }
-
-    public ProductBuilder barCode(BarCode barCode) {
-        this.barCode = barCode;
-        return this;
-    }
-
-    public ProductBuilder alternativeId(String alternativeId) {
-        this.alternativeId = alternativeId;
+    public ProductBuilder productIdentity(ProductIdentityEan productIdentity) {
+        this.productIdentity = productIdentity;
         return this;
     }
 
@@ -45,6 +33,6 @@ public class ProductBuilder {
     }
 
     public Product createProduct() {
-        return new Product(id, barCode, alternativeId, manufacturer, description, keywords, url);
+        return new Product(productIdentity, manufacturer, description, keywords, url);
     }
 }

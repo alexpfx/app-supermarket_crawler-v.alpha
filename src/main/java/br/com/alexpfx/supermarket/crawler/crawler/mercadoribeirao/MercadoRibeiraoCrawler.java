@@ -3,7 +3,6 @@ package br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao;
 import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
 import br.com.alexpfx.supermarket.crawler.model.database.Crud;
-import br.com.alexpfx.supermarket.crawler.model.database.JsonQueryFileImpl;
 import br.com.alexpfx.supermarket.crawler.model.database.ProductDao;
 import br.com.alexpfx.supermarket.crawler.model.database.ProductDaoMysql;
 import br.com.alexpfx.supermarket.crawler.model.domain.*;
@@ -44,7 +43,7 @@ public class MercadoRibeiraoCrawler extends Crawler {
             e.printStackTrace();
         }
 
-        productDao = new ProductDaoMysql(connection, new JsonQueryFileImpl("products.json"));
+        productDao = new ProductDaoMysql();
 
         //TODO separar
         setListener(new CrawlerListener() {
@@ -53,11 +52,11 @@ public class MercadoRibeiraoCrawler extends Crawler {
 
                 ProductBuilder builder = new ProductBuilder();
                 builder.description(productInfo.getDescription()).keywords(Keywords.of(productInfo.getDescription()));
-                if (productInfo.isValidEan()) {
-                    builder.barCode(BarCode.of(productInfo.getId(), BarCodeType.EAN));
-                } else {
-                    builder.alternativeId(productInfo.getId());
-                }
+//                if (productInfo.isValidEan()) {
+//                    builder.barCode(ProductIdentityEan.of(productInfo.getId(), ProductIdentityType.EAN));
+//                } else {
+//                    builder.alternativeId(productInfo.getId());
+//                }
                 builder.url(productInfo.getUrl());
 
                 Product product = builder.createProduct();

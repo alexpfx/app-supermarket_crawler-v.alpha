@@ -4,11 +4,8 @@ package br.com.alexpfx.supermarket.crawler.model.domain;
  * Created by alexandre on 09/12/2015.
  */
 public class Product {
-    private int id;
 
-    private BarCode barCode;
-
-    private String alternativeId;
+    private ProductIdentity productIdentity;
 
     private Manufacturer manufacturer;
 
@@ -18,11 +15,8 @@ public class Product {
 
     private String url;
 
-
-    public Product(int id, BarCode barCode, String alternativeId, Manufacturer manufacturer, String description, Keywords keywords, String url) {
-        this.id = id;
-        this.barCode = barCode;
-        this.alternativeId = alternativeId;
+    public Product(ProductIdentityEan productIdentity, Manufacturer manufacturer, String description, Keywords keywords, String url) {
+        this.productIdentity = productIdentity;
         this.manufacturer = manufacturer;
         this.description = description;
         this.keywords = keywords;
@@ -31,37 +25,32 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("%63s\t%63s\t%100s", description, barCode, keywords);
+        return String.format("%63s\t%63s\t%100s", description, productIdentity, keywords);
 
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-
-    public Keywords getKeywords() {
-        return keywords;
-    }
-
-    public BarCode getBarCode() {
-        return barCode;
     }
 
     public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
-
-    public boolean hasEanCode() {
-        return barCode.isEan();
+    public String getDescription() {
+        return description;
     }
 
-    public String getAlternativeId() {
-        return alternativeId;
+    public Keywords getKeywords() {
+        return keywords;
     }
 
     public String getUrl() {
         return url;
     }
+
+    public String getProductId (){
+        return productIdentity.getCode();
+    }
+
+    public ProductIdentityType getIdentityType (){
+        return productIdentity.getType();
+    }
+
 }

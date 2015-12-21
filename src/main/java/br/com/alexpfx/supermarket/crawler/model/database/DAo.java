@@ -2,11 +2,11 @@ package br.com.alexpfx.supermarket.crawler.model.database;
 
 import com.firebase.client.Firebase;
 
+import java.sql.Connection;
+
 /**
  * Created by alexandre on 08/12/2015.
  */
-public interface Dao<T> {
-
-    void save (String path, T value) throws InterruptedException;
-
+public interface Dao {
+    void setQueryManager (QueryManager manager);
 }

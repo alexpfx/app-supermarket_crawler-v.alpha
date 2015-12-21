@@ -15,7 +15,7 @@ public class ProductDaoMysqlTest extends BaseDatabaseTest {
 
     @Before
     public void setUp() throws ClassNotFoundException {
-        dao = new ProductDaoMysql(QueryManagerImpl.of(getConnection(),new JsonQueryFileImpl("products.json")));
+        dao = new ProductDaoMysql();
     }
 
     @After
@@ -29,7 +29,8 @@ public class ProductDaoMysqlTest extends BaseDatabaseTest {
         Keywords k = Keywords.of("um dois tres quatro cinco seis sete oito nove dez onze");
         ProductBuilder b = new ProductBuilder();
         String code = "00000000000";
-        Product produto = b.barCode(BarCode.of(code, BarCodeType.EAN)).description("produto").url("http").keywords(k).createProduct();
+        Product produto = b.url("url").description("produto").keywords(Keywords.of("bla bla blow")).productIdentity(new ProductIdentityEan("1234567")).createProduct();
+
         dao.save(produto);
         Assert.assertTrue(dao.exists(produto));
         dao.delete(produto);

@@ -8,8 +8,11 @@ import java.sql.ResultSet;
  */
 public interface QueryManager {
 
-    ResultSet executeQuery(String queryName, QueryParams params);
-
-
+    ResultSetManager executeQuery(String queryName, QueryParams params);
     void executeUpdate(String queryName, QueryParams params);
+
+    ResultSetManager executeQuery(String queryName);
+    void executeUpdate(String queryName);
+
+
 }

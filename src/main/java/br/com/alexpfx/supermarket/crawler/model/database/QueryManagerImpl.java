@@ -2,7 +2,6 @@ package br.com.alexpfx.supermarket.crawler.model.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -22,12 +21,13 @@ public class QueryManagerImpl implements QueryManager {
         return new QueryManagerImpl(connection, jsonQueryFile);
     }
 
+
     @Override
-    public ResultSet executeQuery(String queryName, QueryParams params) {
+    public ResultSetManager executeQuery(String queryName, QueryParams params) {
         String query = jsonQueryFile.get(queryName);
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             setParams(params, ps);
-            return ps.executeQuery();
+            return new ResultSetManagerImpl(ps.executeQuery());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -54,6 +54,16 @@ public class QueryManagerImpl implements QueryManager {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public ResultSetManager executeQuery(String queryName) {
+        return executeQuery(queryName, QueryParams.EMPTY);
+    }
+
+    @Override
+    public void executeUpdate(String queryName) {
+        executeUpdate(queryName, QueryParams.EMPTY);
     }
 
 }
