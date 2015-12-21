@@ -1,0 +1,6 @@
+{
+  "insert": "insert into produtos (descricao, url, data_cadastro) values (?,?,?)",
+  "atribuir_identificador": "insert into identificador_unico (id_tipo_identificador, id_produto) values (?,?)",
+  "exists": "select count (*) from produtos p join identificador_unico i on i.id_produto = p.id where i.identificador = ? and i.id_tipo_identificador = ?"
+
+}

@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.crawler.model.domain.repository;
 
 import br.com.alexpfx.supermarket.crawler.model.database.Dao;
+import br.com.alexpfx.supermarket.crawler.model.database.ProductDao;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import com.google.common.base.Preconditions;
 import org.apache.http.util.Asserts;
@@ -14,19 +15,16 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class ProductRepositoryImpl implements ProductRepository {
 
-    private Dao <Product> dao;
+    private ProductDao productDao;
+
 
     @Override
     public void add(Product p) {
-        checkNotNull(dao);
         checkNotNull(p);
-        
-
     }
 
     @Override
     public Collection<Product> find(Product p) {
-        checkNotNull(dao);
         checkNotNull(p);
 
         return null;
@@ -37,8 +35,5 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     }
 
-    @Override
-    public void setDao(Dao<Product> dao) {
-        this.dao = dao;
-    }
+
 }

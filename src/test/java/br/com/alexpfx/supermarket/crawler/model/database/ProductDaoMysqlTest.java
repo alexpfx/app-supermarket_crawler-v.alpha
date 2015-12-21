@@ -10,17 +10,17 @@ import java.sql.SQLException;
  */
 public class ProductDaoMysqlTest extends BaseDatabaseTest {
 
-    ProductDao repository;
+    ProductDao dao;
 
 
     @Before
     public void setUp() throws ClassNotFoundException {
-        repository = new ProductDaoMysql(getConnection());
+        dao = new ProductDaoMysql(QueryManagerImpl.of(getConnection(),new JsonQueryFileImpl("products.json")));
     }
 
     @After
     public void tearDown() throws SQLException {
-        repository = null;
+        dao = null;
         closeConnection();
     }
 
@@ -29,11 +29,10 @@ public class ProductDaoMysqlTest extends BaseDatabaseTest {
         Keywords k = Keywords.of("um dois tres quatro cinco seis sete oito nove dez onze");
         ProductBuilder b = new ProductBuilder();
         String code = "00000000000";
-        Product produto = b.barCode(BarCode.of(code, BarCodeType.EAN)).description("produto").keywords(k).createProduct();
-        repository.save(produto);
-        Assert.assertTrue(repository.exists(produto));
-
-        repository.delete(produto);
+        Product produto = b.barCode(BarCode.of(code, BarCodeType.EAN)).description("produto").url("http").keywords(k).createProduct();
+        dao.save(produto);
+        Assert.assertTrue(dao.exists(produto));
+        dao.delete(produto);
 
 
     }

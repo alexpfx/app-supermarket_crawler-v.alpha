@@ -8,7 +8,7 @@ import java.util.Collection;
 /**
  * Created by alexandre on 16/12/2015.
  */
-public interface ProductRepository extends Repository<Product> {
+public interface ProductRepository extends Repository<Product>{
 
     void add(Product p);
 

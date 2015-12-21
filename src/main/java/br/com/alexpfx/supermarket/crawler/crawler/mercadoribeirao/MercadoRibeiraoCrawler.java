@@ -3,6 +3,7 @@ package br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao;
 import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
 import br.com.alexpfx.supermarket.crawler.model.database.Crud;
+import br.com.alexpfx.supermarket.crawler.model.database.JsonQueryFileImpl;
 import br.com.alexpfx.supermarket.crawler.model.database.ProductDao;
 import br.com.alexpfx.supermarket.crawler.model.database.ProductDaoMysql;
 import br.com.alexpfx.supermarket.crawler.model.domain.*;
@@ -43,7 +44,7 @@ public class MercadoRibeiraoCrawler extends Crawler {
             e.printStackTrace();
         }
 
-        productDao = new ProductDaoMysql(connection);
+        productDao = new ProductDaoMysql(connection, new JsonQueryFileImpl("products.json"));
 
         //TODO separar
         setListener(new CrawlerListener() {

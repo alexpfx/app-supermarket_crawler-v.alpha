@@ -7,6 +7,5 @@ import br.com.alexpfx.supermarket.crawler.model.database.Dao;
  */
 public interface Repository <T> {
 
-    void setDao (Dao<T> dao);
 
 }
