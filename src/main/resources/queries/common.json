@@ -1,3 +1,3 @@
 {
-  "last_insert_id": "last_insert_id()"
+  "common.last_insert_id": "select last_insert_id()"
 }

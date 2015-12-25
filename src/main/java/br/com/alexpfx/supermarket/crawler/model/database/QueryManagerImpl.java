@@ -12,15 +12,10 @@ public class QueryManagerImpl implements QueryManager {
     private Connection connection;
     private JsonQueryFile jsonQueryFile;
 
-    private QueryManagerImpl(Connection connection, JsonQueryFile jsonQueryFile) {
+    public QueryManagerImpl(Connection connection, JsonQueryFile jsonQueryFile) {
         this.connection = connection;
         this.jsonQueryFile = jsonQueryFile;
     }
-
-    public static QueryManagerImpl of(Connection connection, JsonQueryFile jsonQueryFile) {
-        return new QueryManagerImpl(connection, jsonQueryFile);
-    }
-
 
     @Override
     public ResultSetManager executeQuery(String queryName, QueryParams params) {

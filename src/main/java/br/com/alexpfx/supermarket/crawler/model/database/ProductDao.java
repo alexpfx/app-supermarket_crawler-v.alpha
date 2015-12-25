@@ -8,7 +8,7 @@ import java.sql.SQLException;
  * Created by alexandre on 12/12/2015.
  */
 public interface ProductDao extends Dao{
-    void setMysqlCommonDao (MysqlCommonDao mysqlCommonDao);
+
     void save (Product product) ;
     boolean exists (Product product);
     void delete (Product product);

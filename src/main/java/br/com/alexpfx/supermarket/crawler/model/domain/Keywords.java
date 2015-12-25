@@ -25,14 +25,6 @@ public class Keywords {
         return String.format("%100s\t", wordList);
     }
 
-    public static Keywords of(String phrase) {
-        return new Keywords(phrase);
-    }
-
-    private static Keywords of(String phrase, Set<String> filtered) {
-        return new Keywords(phrase, filtered);
-    }
-
     public boolean contains(String keyword) {
         return wordList.contains(keyword);
     }

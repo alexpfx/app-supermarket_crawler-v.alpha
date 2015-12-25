@@ -1,10 +1,10 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
-/**
- * Created by alexandre on 21/12/2015.
- */
-public interface ProductIdentity {
-    String getCode();
+import javax.persistence.MappedSuperclass;
 
-    ProductIdentityType getType();
+/**
+ * Created by alexandre on 22/12/2015.
+ */
+@MappedSuperclass
+public interface ProductIdentity extends Entity {
 }

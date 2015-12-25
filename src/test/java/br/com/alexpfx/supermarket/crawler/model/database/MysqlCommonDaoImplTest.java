@@ -15,8 +15,7 @@ public class MysqlCommonDaoImplTest extends BaseDatabaseTest{
 
     @Before
     public void setUp(){
-        dao = new MysqlCommonDaoImpl();
-        dao.setQueryManager(QueryManagerImpl.of(getConnection(),new JsonQueryFileImpl("common.json")));
+        dao = new MysqlCommonDaoImpl(new QueryManagerImpl(getConnection(),new JsonQueryFileImpl("common.json")));
     }
     @Test
     public void testGetLastInsertId() throws Exception {

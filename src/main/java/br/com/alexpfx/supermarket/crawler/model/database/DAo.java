@@ -8,5 +8,5 @@ import java.sql.Connection;
  * Created by alexandre on 08/12/2015.
  */
 public interface Dao {
-    void setQueryManager (QueryManager manager);
+
 }

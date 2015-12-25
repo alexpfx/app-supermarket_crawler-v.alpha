@@ -2,12 +2,14 @@ package br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao;
 
 import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
-import br.com.alexpfx.supermarket.crawler.model.database.Crud;
-import br.com.alexpfx.supermarket.crawler.model.database.ProductDao;
-import br.com.alexpfx.supermarket.crawler.model.database.ProductDaoMysql;
+import br.com.alexpfx.supermarket.crawler.model.database.*;
+import br.com.alexpfx.supermarket.crawler.model.database.hibernate.util.HibernateUtil;
 import br.com.alexpfx.supermarket.crawler.model.domain.*;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,28 +45,36 @@ public class MercadoRibeiraoCrawler extends Crawler {
             e.printStackTrace();
         }
 
-        productDao = new ProductDaoMysql();
+        Configuration configuration = new Configuration().configure("/resources/hibernate.properties");
+        Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
+        currentSession.beginTransaction();
+        Product product = new ProductBuilder().description("teste").url("teste").id(1).createProduct();
+
+        currentSession.save(product);
+        currentSession.getTransaction().commit();
+
+
 
         //TODO separar
         setListener(new CrawlerListener() {
             @Override
             public void onProductVisit(ProductInfoTO productInfo) throws InterruptedException {
 
-                ProductBuilder builder = new ProductBuilder();
-                builder.description(productInfo.getDescription()).keywords(Keywords.of(productInfo.getDescription()));
-//                if (productInfo.isValidEan()) {
-//                    builder.barCode(ProductIdentityEan.of(productInfo.getId(), ProductIdentityType.EAN));
-//                } else {
-//                    builder.alternativeId(productInfo.getId());
+//                ProductBuilder builder = new ProductBuilder();
+//                builder.description(productInfo.getDescription()).keywords(Keywords.of(productInfo.getDescription()));
+////                if (productInfo.isValidEan()) {
+////                    builder.barCode(ProductIdentityEan.of(productInfo.getId(), ProductIdentityType.EAN));
+////                } else {
+////                    builder.alternativeId(productInfo.getId());
+////                }
+//                builder.url(productInfo.getUrl());
+//
+//                Product product = builder.createProduct();
+//                System.out.println(product);
+
+//                if (!productDao.exists(product)) {
+//                    productDao.save(product);
 //                }
-                builder.url(productInfo.getUrl());
-
-                Product product = builder.createProduct();
-                System.out.println(product);
-
-                if (!productDao.exists(product)) {
-                    productDao.save(product);
-                }
             }
         });
 

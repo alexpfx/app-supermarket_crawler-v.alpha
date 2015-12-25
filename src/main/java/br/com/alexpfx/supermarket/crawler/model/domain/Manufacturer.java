@@ -1,12 +1,23 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by alexandre on 12/12/2015.
  */
-public class Manufacturer {
+@javax.persistence.Entity
+@Table(name = "FABRICANTE")
+public class Manufacturer implements Entity {
+
+    @Id
+    @GeneratedValue
     private int id;
 
+    @Column(name = "nome")
     private String name;
 
     public Manufacturer() {

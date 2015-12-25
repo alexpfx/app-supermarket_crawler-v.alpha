@@ -1,14 +1,14 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
 public class ProductBuilder {
-    private ProductIdentityEan productIdentity;
+    private Integer id;
     private Manufacturer manufacturer;
     private String description;
-    private Keywords keywords;
     private String url;
+    private Keywords keywords;
 
-    public ProductBuilder productIdentity(ProductIdentityEan productIdentity) {
-        this.productIdentity = productIdentity;
+    public ProductBuilder id(Integer id) {
+        this.id = id;
         return this;
     }
 
@@ -22,17 +22,17 @@ public class ProductBuilder {
         return this;
     }
 
-    public ProductBuilder keywords(Keywords keywords) {
-        this.keywords = keywords;
-        return this;
-    }
-
     public ProductBuilder url(String url) {
         this.url = url;
         return this;
     }
 
+    public ProductBuilder keywords(Keywords keywords) {
+        this.keywords = keywords;
+        return this;
+    }
+
     public Product createProduct() {
-        return new Product(productIdentity, manufacturer, description, keywords, url);
+        return new Product(id, manufacturer, description, url, keywords);
     }
 }

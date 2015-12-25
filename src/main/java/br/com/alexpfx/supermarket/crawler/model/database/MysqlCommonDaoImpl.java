@@ -13,12 +13,9 @@ public class MysqlCommonDaoImpl implements MysqlCommonDao {
 
     private QueryManager queryManager;
 
-
-    @Override
-    public void setQueryManager(QueryManager queryManager) {
+    public MysqlCommonDaoImpl(QueryManager queryManager) {
         this.queryManager = queryManager;
     }
-
 
     @Override
     public Integer getLastInsertId() {

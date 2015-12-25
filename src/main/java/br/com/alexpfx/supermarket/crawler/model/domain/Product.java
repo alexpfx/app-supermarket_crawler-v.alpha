@@ -1,56 +1,37 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
+import javax.naming.NamingEnumeration;
+import javax.persistence.*;
+
 /**
  * Created by alexandre on 09/12/2015.
  */
-public class Product {
-
-    private ProductIdentity productIdentity;
-
-    private Manufacturer manufacturer;
-
-    private String description;
-
-    private Keywords keywords;
-
-    private String url;
-
-    public Product(ProductIdentityEan productIdentity, Manufacturer manufacturer, String description, Keywords keywords, String url) {
-        this.productIdentity = productIdentity;
+@javax.persistence.Entity
+@Table(name = "PRODUTOS")
+public class Product implements Entity {
+    Product(Integer id, Manufacturer manufacturer, String description, String url, Keywords keywords) {
+        this.id = id;
         this.manufacturer = manufacturer;
         this.description = description;
-        this.keywords = keywords;
         this.url = url;
+        this.keywords = keywords;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%63s\t%63s\t%100s", description, productIdentity, keywords);
+    @Id
+    @GeneratedValue
+    private Integer id;
 
-    }
+    @ManyToOne
+    @JoinColumn(name = "ID_FABRICANTE")
+    private Manufacturer manufacturer;
 
-    public Manufacturer getManufacturer() {
-        return manufacturer;
-    }
+    @Column(name = "DESCRICAO")
+    private String description;
 
-    public String getDescription() {
-        return description;
-    }
+    @Column(name = "URL")
+    private String url;
 
-    public Keywords getKeywords() {
-        return keywords;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public String getProductId (){
-        return productIdentity.getCode();
-    }
-
-    public ProductIdentityType getIdentityType (){
-        return productIdentity.getType();
-    }
+    @Transient
+    private Keywords keywords;
 
 }
