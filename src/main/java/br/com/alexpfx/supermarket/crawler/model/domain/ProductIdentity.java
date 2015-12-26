@@ -6,5 +6,5 @@ import javax.persistence.MappedSuperclass;
  * Created by alexandre on 22/12/2015.
  */
 @MappedSuperclass
-public interface ProductIdentity extends Entity {
+public interface ProductIdentity extends BaseEntity {
 }

@@ -10,8 +10,8 @@ import javax.persistence.Table;
  * Created by alexandre on 12/12/2015.
  */
 @javax.persistence.Entity
-@Table(name = "FABRICANTE")
-public class Manufacturer implements Entity {
+@Table(name = "tb_fabricante")
+public class Manufacturer implements BaseEntity {
 
     @Id
     @GeneratedValue

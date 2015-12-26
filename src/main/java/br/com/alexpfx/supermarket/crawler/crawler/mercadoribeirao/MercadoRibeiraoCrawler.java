@@ -9,12 +9,16 @@ import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * Created by alexandre on 12/12/2015.
@@ -29,23 +33,13 @@ public class MercadoRibeiraoCrawler extends Crawler {
 
     @Override
     public void init() {
-
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(URL, "alex", "alex00");
 
-        } catch (SQLException e) {
-
-            e.printStackTrace();
-        }
-
-        Configuration configuration = new Configuration().configure("/resources/hibernate.properties");
         Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
         currentSession.beginTransaction();
         Product product = new ProductBuilder().description("teste").url("teste").id(1).createProduct();
