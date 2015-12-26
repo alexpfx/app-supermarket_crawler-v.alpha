@@ -2,23 +2,18 @@ package br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao;
 
 import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
-import br.com.alexpfx.supermarket.crawler.model.database.*;
-import br.com.alexpfx.supermarket.crawler.model.database.hibernate.util.HibernateUtil;
-import br.com.alexpfx.supermarket.crawler.model.domain.*;
+import br.com.alexpfx.supermarket.crawler.model.database.Crud;
+import br.com.alexpfx.supermarket.crawler.model.database.ProductDao;
+import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * Created by alexandre on 12/12/2015.
@@ -39,14 +34,20 @@ public class MercadoRibeiraoCrawler extends Crawler {
             e.printStackTrace();
         }
 
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("smkt");
+        EntityManager entityManager = factory.createEntityManager();
+        Query q = entityManager.createQuery("select p from Product p");
+        List resultList = q.getResultList();
 
-        Session currentSession = HibernateUtil.getSessionFactory().getCurrentSession();
-        currentSession.beginTransaction();
-        Product product = new ProductBuilder().description("teste").url("teste").id(1).createProduct();
 
-        currentSession.save(product);
-        currentSession.getTransaction().commit();
+        entityManager.getTransaction().begin();
+        Product p = new Product();
+        p.setDescription("oiu");
+        p.setUrl("fafas");
+        entityManager.persist(p);
+        entityManager.getTransaction().commit();
 
+        entityManager.close();
 
 
         //TODO separar
