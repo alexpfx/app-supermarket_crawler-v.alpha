@@ -2,11 +2,14 @@ package br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao;
 
 import br.com.alexpfx.supermarket.crawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.crawler.crawler.CrawlerListener;
+import br.com.alexpfx.supermarket.crawler.model.bo.ProductBo;
 import br.com.alexpfx.supermarket.crawler.model.database.Crud;
 import br.com.alexpfx.supermarket.crawler.model.database.ProductDao;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import br.com.alexpfx.supermarket.crawler.model.to.ProductInfoTO;
 import com.firebase.client.Firebase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,10 +24,16 @@ import java.util.Map;
 public class MercadoRibeiraoCrawler extends Crawler {
 
 
+    @Autowired
+    private ProductBo productBo;
+
+    @Autowired
+    private ApplicationContext context;
+
+
     public static final String REF_URL = "https://smket.firebaseio.com/";
     public static final String URL = "jdbc:mysql://localhost/smket";
     private Crud<Map.Entry> productInfoCrud = new Crud<>(new Firebase(REF_URL));
-    private ProductDao productDao;
 
     @Override
     public void init() {
@@ -34,20 +43,13 @@ public class MercadoRibeiraoCrawler extends Crawler {
             e.printStackTrace();
         }
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("smkt");
-        EntityManager entityManager = factory.createEntityManager();
-        Query q = entityManager.createQuery("select p from Product p");
-        List resultList = q.getResultList();
+        String id = context.getId();
 
-
-        entityManager.getTransaction().begin();
         Product p = new Product();
-        p.setDescription("oiu");
-        p.setUrl("fafas");
-        entityManager.persist(p);
-        entityManager.getTransaction().commit();
+        p.setDescription("ofafafiu");
+        p.setUrl("vcfasfgasfa");
 
-        entityManager.close();
+        productBo.save(p);
 
 
         //TODO separar

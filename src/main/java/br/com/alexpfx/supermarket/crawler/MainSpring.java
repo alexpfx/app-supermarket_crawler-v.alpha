@@ -1,28 +1,42 @@
 package br.com.alexpfx.supermarket.crawler;
 
+import br.com.alexpfx.supermarket.crawler.jaunt.RibeiraoCrawler;
+import br.com.alexpfx.supermarket.crawler.jaunt.UserAgentFactory;
+import br.com.alexpfx.supermarket.crawler.model.bo.ProductBo;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.context.ApplicationContext;
+import br.com.alexpfx.supermarket.crawler.jaunt.Crawler;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by alexandre on 26/12/2015.
  */
 public class MainSpring {
+
+
+
+    void test() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring.xml");
+        UserAgentFactory factory = context.getBean(UserAgentFactory.class);
+        String startUrl = "https://www.mercadoribeirao.com.br/";
+        Thread t = new Thread(new Crawler(new RibeiraoCrawler(factory.createUserAgent(),startUrl)));
+        t.start();
+    }
+
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("/config/bean-locations.xml");
 
-        SessionFactory sessionFactory = (SessionFactory) context.getBean("sessionFactory");
+        new MainSpring().test();
+    }
 
-        Session session = sessionFactory.openSession();
+    public static void mainx(String[] args) {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring.xml");
+
+        ProductBo productBo = (ProductBo) context.getBean(ProductBo.class);
         Product p = new Product();
-        p.setDescription("lfsafa");
-        p.setUrl("fdasfaf");
-        session.save(p);
-        session.flush();
-        session.close();
+        p.setUrl("vfasfgaf");
+        p.setDescription("fasfasfa");
+        productBo.save(p);
 
+        context.close();
     }
 
 

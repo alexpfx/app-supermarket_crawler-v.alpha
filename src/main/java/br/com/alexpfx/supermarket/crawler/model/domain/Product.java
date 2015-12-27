@@ -2,13 +2,14 @@
 
 
     import javax.persistence.*;
+    import java.io.Serializable;
 
     /**
      * Created by alexandre on 09/12/2015.
      */
     @Entity
     @Table(name = "tb_produtos")
-    public class Product implements BaseEntity {
+    public class Product implements Serializable {
 
 
         public Product() {

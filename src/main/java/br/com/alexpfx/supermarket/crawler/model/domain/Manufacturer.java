@@ -5,13 +5,14 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 /**
  * Created by alexandre on 12/12/2015.
  */
 @javax.persistence.Entity
 @Table(name = "tb_fabricante")
-public class Manufacturer implements BaseEntity {
+public class Manufacturer implements Serializable {
 
     @Id
     @GeneratedValue

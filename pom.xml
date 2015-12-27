@@ -109,6 +109,19 @@
             <version>4.2.4.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jaunt1.1.2</groupId>
+            <artifactId>jaunt1.1.2</artifactId>
+            <scope>system</scope>
+            <version>1.1.2</version>
+            <systemPath>${basedir}\src\lib\jaunt1.1.2.jar</systemPath>
+        </dependency>
 
     </dependencies>
 
