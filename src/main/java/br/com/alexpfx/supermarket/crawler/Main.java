@@ -17,6 +17,9 @@ public class Main {
     }
 
     public void save() throws InterruptedException {
+
+
+
         Firebase.setDefaultConfig(new Config());
         final Firebase refri = new Firebase("https://supermarketcrawler.firebaseIO.com/");
 
