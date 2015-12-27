@@ -4,7 +4,7 @@ import br.com.alexpfx.supermarket.crawler.jaunt.RibeiraoCrawler;
 import br.com.alexpfx.supermarket.crawler.jaunt.UserAgentFactory;
 import br.com.alexpfx.supermarket.crawler.model.bo.ProductBo;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
-import br.com.alexpfx.supermarket.crawler.jaunt.Crawler;
+import br.com.alexpfx.supermarket.crawler.jaunt.CrawlerRunner;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -18,7 +18,7 @@ public class MainSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring.xml");
         UserAgentFactory factory = context.getBean(UserAgentFactory.class);
         String startUrl = "https://www.mercadoribeirao.com.br/";
-        Thread t = new Thread(new Crawler(new RibeiraoCrawler(factory.createUserAgent(),startUrl)));
+        Thread t = new Thread(new CrawlerRunner(new RibeiraoCrawler(factory.createUserAgent())));
         t.start();
     }
 

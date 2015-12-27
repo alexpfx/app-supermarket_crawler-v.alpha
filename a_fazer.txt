@@ -1,7 +1,12 @@
+
+[] criar validador de EAN
+[] fazer limpa no codigo eliminando classes de dominio nao usadas.
+[] eliminar bibliotecas crawler4j e jsoup
+
 -
-[] rever codigo apontando necessidades de mudanças
-[] refatorar classes repository, criar camada intermediaria.
-[] verificar se há outro padrão de código de produto, que não EAN
-[] definir tratamento de produtos que não possuem código EAN
-[] obter quantidade de produto
-[] usar hibernate
+[x] rever codigo apontando necessidades de mudanças
+[x] refatorar classes repository, criar camada intermediaria.
+[x] verificar se há outro padrão de código de produto, que não EAN
+[x] definir tratamento de produtos que não possuem código EAN
+[x] obter quantidade de produto
+[x] usar hibernate
