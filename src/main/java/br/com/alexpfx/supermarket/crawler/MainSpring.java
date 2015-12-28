@@ -16,9 +16,9 @@ public class MainSpring {
 
     void test() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring.xml");
-        UserAgentFactory factory = context.getBean(UserAgentFactory.class);
-        String startUrl = "https://www.mercadoribeirao.com.br/";
-        Thread t = new Thread(new CrawlerRunner(new RibeiraoCrawler(factory.createUserAgent())));
+        RibeiraoCrawler bean = context.getBean(RibeiraoCrawler.class);
+
+        Thread t = new Thread(new CrawlerRunner(bean));
         t.start();
     }
 

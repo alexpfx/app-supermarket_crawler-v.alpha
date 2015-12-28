@@ -30,8 +30,8 @@ public class Product implements Serializable {
     @Column(name = "URL")
     private String url;
 
-    @Column(name = "EAN_CODE")
-    private String eanCode;
+    @Embedded
+    private Ean13 ean;
 
     @Transient
     private Keywords keywords;

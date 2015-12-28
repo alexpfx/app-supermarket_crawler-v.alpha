@@ -1,8 +1,10 @@
 
-[] criar validador de EAN
-[] fazer limpa no codigo eliminando classes de dominio nao usadas.
-[] eliminar bibliotecas crawler4j e jsoup
+[] refatorar EAN
 
+[x] criar validador de EAN
+
+[x] eliminar bibliotecas crawler4j e jsoup
+[x] limpar codigo eliminando classes de dominio nao usadas.
 -
 [x] rever codigo apontando necessidades de mudanças
 [x] refatorar classes repository, criar camada intermediaria.

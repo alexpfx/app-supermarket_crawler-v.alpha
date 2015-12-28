@@ -1,7 +1,6 @@
 package br.com.alexpfx.supermarket.crawler.jaunt;
 
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
-import br.com.alexpfx.supermarket.crawler.model.domain.ProductBuilder;
 import com.jaunt.*;
 
 import java.util.ArrayList;
@@ -12,9 +11,8 @@ import java.util.List;
  */
 public class RibeiraoCrawler extends AbstractCrawler {
 
-
-    public RibeiraoCrawler(UserAgent userAgent) {
-        super(userAgent, "https://www.mercadoribeirao.com.br/");
+    public RibeiraoCrawler(UserAgentFactory userAgent) {
+        super(userAgent.createUserAgent(), "https://www.mercadoribeirao.com.br/");
     }
 
 
@@ -39,9 +37,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
         itemList.forEach(item -> {
             String name = extractName(item);
             String code = extractCode(item);
-            String url = extractProductUrl (item);
-
-
+            String url = extractProductUrl(item);
         });
         return null;
     }

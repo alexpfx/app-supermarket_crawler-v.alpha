@@ -1,11 +1,8 @@
 package br.com.alexpfx.supermarket.crawler.model.dao.impl;
 
-import br.com.alexpfx.supermarket.crawler.model.dao.CustomHibernateDaoSupport;
 import br.com.alexpfx.supermarket.crawler.model.dao.ProductDao;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -1,16 +1,13 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by alexandre on 12/12/2015.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "tb_fabricante")
 public class Manufacturer implements Serializable {
 

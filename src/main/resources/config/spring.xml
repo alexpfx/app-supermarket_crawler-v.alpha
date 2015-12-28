@@ -14,9 +14,9 @@
         ">
 
     <!-- Scans the classpath for annotated components that will be auto-registered as Spring beans -->
-    <context:component-scan base-package="br.com.alexpfx.supermarket.crawler.model" />
+    <context:component-scan base-package="br.com.alexpfx.supermarket.crawler.model"/>
     <!-- Activates various annotations to be detected in bean classes e.g: @Autowired -->
-    <context:annotation-config />
+    <context:annotation-config/>
 
     <import resource="../database/datasource.xml"/>
 
@@ -27,25 +27,23 @@
     >
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-                <property name="generateDdl" value="true" />
-                <property name="showSql" value="true" />
+                <property name="generateDdl" value="true"/>
+                <property name="showSql" value="true"/>
             </bean>
         </property>
     </bean>
 
     <!-- Transactions -->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory" />
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <bean class="br.com.alexpfx.supermarket.crawler.jaunt.UserAgentFactory"/>
-    <bean id="mercadoRibeiraoCrawlerConfig" class="br.com.alexpfx.supermarket.crawler.crawler.mercadoribeirao.MercadoRibeiraoCrawlerControllerConfig"/>
-
-    <bean id="CrawlerStarter" class="br.com.alexpfx.supermarket.crawler.crawler.CrawlerStarter">
-        <constructor-arg ref="mercadoRibeiraoCrawlerConfig"/>
+    <bean id="userAgentFactory" class="br.com.alexpfx.supermarket.crawler.jaunt.UserAgentFactory"/>
+    <bean class="br.com.alexpfx.supermarket.crawler.jaunt.RibeiraoCrawler">
+        <constructor-arg ref="userAgentFactory"/>
     </bean>
 
     <!-- enable the configuration of transactional behavior based on annotations -->
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>
