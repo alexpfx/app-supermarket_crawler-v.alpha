@@ -47,6 +47,8 @@ public class Ean13 {
         return 10 - (s % 10);
     }
 
+    //mover estes metodos para outra classe.
+    //TODO: Java 8.
     private int sumEven(String code) {
         int sum = 0;
         for (int i = 0; i < code.length(); i++) {
