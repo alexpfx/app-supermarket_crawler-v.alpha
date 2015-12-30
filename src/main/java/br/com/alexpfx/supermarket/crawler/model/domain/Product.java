@@ -11,10 +11,8 @@ import java.io.Serializable;
 @Table(name = "tb_produtos")
 public class Product implements Serializable {
 
-
     public Product() {
     }
-
 
     @Id
     @GeneratedValue

@@ -15,7 +15,6 @@ public class RibeiraoCrawler extends AbstractCrawler {
         super(userAgent.createUserAgent(), "https://www.mercadoribeirao.com.br/");
     }
 
-
     @Override
     List<String> extractSubPages(Document document) {
         List<String> list = new ArrayList<>();
