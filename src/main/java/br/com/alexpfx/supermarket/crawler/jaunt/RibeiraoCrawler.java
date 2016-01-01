@@ -33,12 +33,19 @@ public class RibeiraoCrawler extends AbstractCrawler {
     @Override
     protected List<Product> extractProducts(Document doc) {
         Elements itemList = doc.findEach("<div class=item-meta-container>");
+        List<Product> products = new ArrayList<>();
         itemList.forEach(item -> {
             String name = extractName(item);
             String code = extractCode(item);
             String url = extractProductUrl(item);
+            Product p = new Product();
+            p.setDescription(name);
+            p.setUrl(url);
+            p.setCode(code);
+
+
         });
-        return null;
+        return products;
     }
 
     private String extractProductUrl(Element item) {

@@ -42,6 +42,10 @@ public class Product implements Serializable {
         this.id = id;
     }
 
+    public void setCode(String code) {
+        ean = new Ean13(code);
+    }
+
     public Manufacturer getManufacturer() {
         return manufacturer;
     }
@@ -73,4 +77,6 @@ public class Product implements Serializable {
     public void setKeywords(Keywords keywords) {
         this.keywords = keywords;
     }
+
+
 }
