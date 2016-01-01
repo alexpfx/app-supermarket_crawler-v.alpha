@@ -1,4 +1,6 @@
+[] criar teste unitario para testar o uso da classe Crawler runner, configurando para usar as configuracoes do spring.
 
+[f] criar listeners
 [] refatorar EAN
 
 [x] criar validador de EAN

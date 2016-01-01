@@ -19,7 +19,7 @@ public abstract class AbstractCrawler implements Crawler {
 
     private ProductExtractedListener productExtractedListener;
 
-    abstract List<String> extractSubPages(Document document);
+    protected abstract List<String> extractSubPages(Document document);
 
     private String rootUrl;
 

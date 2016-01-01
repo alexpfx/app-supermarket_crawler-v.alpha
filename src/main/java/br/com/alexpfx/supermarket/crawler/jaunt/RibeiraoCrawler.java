@@ -16,7 +16,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
     }
 
     @Override
-    List<String> extractSubPages(Document document) {
+    protected List<String> extractSubPages(Document document) {
         List<String> list = new ArrayList<>();
         Elements submenu = document.findEvery("<a class=new_sub_menu>");
         submenu.findEvery("<a>").forEach(element -> {
