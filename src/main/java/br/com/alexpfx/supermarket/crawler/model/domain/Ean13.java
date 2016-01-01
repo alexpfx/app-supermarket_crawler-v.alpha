@@ -4,14 +4,13 @@ import com.google.common.base.CharMatcher;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import java.util.List;
 
 /**
  * Created by alexandre on 27/12/2015.
  */
 @Embeddable
 public class Ean13 {
-    private static final RuntimeException notValidEanException = new RuntimeException("NOT VALID EAN CODE");
+    private static final RuntimeException NOT_VALID_EAN_EXCEPTION = new RuntimeException("NOT VALID EAN CODE");
 
     @Column(name = "ean_code", nullable = true, length = 13)
     private String code;
@@ -26,10 +25,10 @@ public class Ean13 {
 
     private void validate(String code) {
         if (code == null || code.length() != 13) {
-            throw notValidEanException;
+            throw NOT_VALID_EAN_EXCEPTION;
         }
         if (!CharMatcher.DIGIT.matchesAllOf(code)) {
-            throw notValidEanException;
+            throw NOT_VALID_EAN_EXCEPTION;
         }
         String codeWithoutVd = code.substring(0, 12);
         int pretendVd = Integer.valueOf(code.substring(12, 13));
@@ -39,7 +38,7 @@ public class Ean13 {
         int s = me + e;
         int dv = getEanVd(s);
         if (!(pretendVd == dv)) {
-            throw notValidEanException;
+            throw NOT_VALID_EAN_EXCEPTION;
         }
     }
 
@@ -47,8 +46,6 @@ public class Ean13 {
         return 10 - (s % 10);
     }
 
-    //mover estes metodos para outra classe.
-    //TODO: Java 8.
     private int sumEven(String code) {
         int sum = 0;
         for (int i = 0; i < code.length(); i++) {
