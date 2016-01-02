@@ -1,8 +1,6 @@
-[] criar teste unitario para testar o uso da classe Crawler runner, configurando para usar as configuracoes do spring.
-
-[f] criar listeners
 [] refatorar EAN
-
+[x] criar teste unitario para testar o uso da classe Crawler runner, configurando para usar as configuracoes do spring.
+[x] criar listeners
 [x] criar validador de EAN
 
 [x] eliminar bibliotecas crawler4j e jsoup

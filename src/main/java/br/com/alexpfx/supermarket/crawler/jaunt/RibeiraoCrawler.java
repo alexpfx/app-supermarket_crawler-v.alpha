@@ -41,9 +41,12 @@ public class RibeiraoCrawler extends AbstractCrawler {
             Product p = new Product();
             p.setDescription(name);
             p.setUrl(url);
-            p.setCode(code);
+            try {
+                p.setCode(code);
 
-
+            }catch (RuntimeException e){
+                e.printStackTrace();
+            }
         });
         return products;
     }
@@ -62,7 +65,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
     private String extractCode(Element item_meta_container) {
         try {
             Element first = item_meta_container.findFirst("<div class=ratings-container>").findFirst("<a>");
-            return first.getText();
+            return first.getText().trim();
         } catch (NotFound notFound) {
             notFound.printStackTrace();
         }

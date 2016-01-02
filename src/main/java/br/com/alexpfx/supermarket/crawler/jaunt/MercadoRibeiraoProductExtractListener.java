@@ -5,7 +5,7 @@ import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * Created by alexandre on 01/01/2016.
+ * Created by alexandre on 01/01/2016.ervi
  */
 public class MercadoRibeiraoProductExtractListener implements ProductExtractedListener {
 

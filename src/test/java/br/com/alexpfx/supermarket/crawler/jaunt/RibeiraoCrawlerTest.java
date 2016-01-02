@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * Created by alexandre on 01/01/2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:config/spring.xml"})
+@ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class RibeiraoCrawlerTest {
     CrawlerRunner crawlerRunner;
 
@@ -28,7 +28,11 @@ public class RibeiraoCrawlerTest {
     @Test
     public void test (){
         Thread t = new Thread(crawlerRunner);
+        t.setDaemon(false);
         t.start();
+        while (t.isAlive()){
+
+        }
 
     }
 
