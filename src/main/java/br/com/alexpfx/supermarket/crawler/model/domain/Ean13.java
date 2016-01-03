@@ -35,10 +35,10 @@ public class Ean13 {
         String[] evenOdd = SplitterByIndex.split(codeWithoutVd, idx -> idx % 2 == 0);
         int evenSum = sumStringDigits(evenOdd[0]);
         int oddSum = sumStringDigits(evenOdd[1]);
-        int me = oddSum * 3;
-        int s = me + evenSum;
-        int dv = getEanVd(s);
-        if (!(pretendVd == dv)) {
+        int oddFator = oddSum * 3;
+        int sumResult = oddFator + evenSum;
+        int dv = getEanVd(sumResult);
+        if (pretendVd != dv) {
             throw new InvalidEANCodeException(code);
         }
     }
