@@ -1,5 +1,6 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
+import br.com.alexpfx.supermarket.crawler.model.exception.InvalidEANCodeException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,33 +17,33 @@ public class Ean13Test {
         try {
             e = new Ean13("7891627314050");
         } catch (RuntimeException re) {
-            Assert.assertEquals(re.getMessage(), "NOT VALID EAN CODE");
+            Assert.assertTrue(re instanceof InvalidEANCodeException);
         }
         try {
             e = new Ean13("7891627314056");
         } catch (RuntimeException re) {
-            Assert.assertEquals(re.getMessage(), "NOT VALID EAN CODE");
+            Assert.assertTrue(re instanceof InvalidEANCodeException);
         }
         try {
             e = new Ean13("7891627314052");
         } catch (RuntimeException re) {
-            Assert.assertEquals(re.getMessage(), "NOT VALID EAN CODE");
+            Assert.assertTrue(re instanceof InvalidEANCodeException);
         }
         try {
             e = new Ean13("7891627314053");
         } catch (RuntimeException re) {
-            Assert.assertEquals(re.getMessage(), "NOT VALID EAN CODE");
+            Assert.assertTrue(re instanceof InvalidEANCodeException);
         }
         try {
             e = new Ean13("7891627314054");
         } catch (RuntimeException re) {
-            Assert.assertEquals(re.getMessage(), "NOT VALID EAN CODE");
+            Assert.assertTrue(re instanceof InvalidEANCodeException);
         }
 
         try {
             e = new Ean13("7891627314055");
         } catch (RuntimeException re) {
-            Assert.assertEquals(re.getMessage(), "NOT VALID EAN CODE");
+            Assert.assertTrue(re instanceof InvalidEANCodeException);
         }
     }
 
