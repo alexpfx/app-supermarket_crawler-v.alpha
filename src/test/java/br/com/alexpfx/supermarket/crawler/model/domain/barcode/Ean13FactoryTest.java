@@ -1,7 +1,7 @@
-package br.com.alexpfx.supermarket.crawler.model.domain;
+package br.com.alexpfx.supermarket.crawler.model.domain.barcode;
 
-import br.com.alexpfx.supermarket.crawler.model.exception.InvalidEANCodeException;
-import org.junit.Assert;
+import br.com.alexpfx.supermarket.crawler.model.domain.barcode.Ean13Factory;
+import br.com.alexpfx.supermarket.crawler.model.exception.InvalidBarCodeException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,26 +31,26 @@ public class Ean13FactoryTest {
         try {
             factory.create("   7894900531008");
             fail();
-        } catch (InvalidEANCodeException e) {
+        } catch (InvalidBarCodeException e) {
 
         }
         try {
             factory.create("4343345532434");
             fail();
-        } catch (InvalidEANCodeException e) {
+        } catch (InvalidBarCodeException e) {
 
         }
         try {
             factory.create("1234567784552");
             fail();
-        } catch (InvalidEANCodeException e) {
+        } catch (InvalidBarCodeException e) {
 
         }
 
         try {
             factory.create(null);
             fail();
-        } catch (InvalidEANCodeException e) {
+        } catch (InvalidBarCodeException e) {
 
         }
 

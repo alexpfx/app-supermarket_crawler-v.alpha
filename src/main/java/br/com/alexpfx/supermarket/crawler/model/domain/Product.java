@@ -1,6 +1,8 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
 
+import br.com.alexpfx.supermarket.crawler.model.domain.barcode.Ean13;
+
 import javax.persistence.*;
 import java.io.Serializable;
 

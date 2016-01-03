@@ -3,11 +3,11 @@
     /**
      * Created by alexandre on 02/01/2016.
      */
-    public class InvalidEANCodeException extends Exception {
+    public class InvalidBarCodeException extends Exception {
         private String code;
         private static final String INVALID_EAN = "INVALID EAN CODE";
 
-        public InvalidEANCodeException(String code) {
+        public InvalidBarCodeException(String code) {
             super(INVALID_EAN + " "+code);
             this.code = code;
         }

@@ -1,8 +1,7 @@
-package br.com.alexpfx.supermarket.crawler.model.domain;
+package br.com.alexpfx.supermarket.crawler.model.domain.barcode;
 
-import br.com.alexpfx.supermarket.crawler.model.exception.InvalidEANCodeException;
+import br.com.alexpfx.supermarket.crawler.model.domain.SplitterByIndex;
 import com.google.common.base.CharMatcher;
-import com.google.common.base.Predicates;
 
 import java.util.function.Predicate;
 

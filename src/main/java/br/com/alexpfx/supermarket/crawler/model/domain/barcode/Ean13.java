@@ -1,6 +1,7 @@
-package br.com.alexpfx.supermarket.crawler.model.domain;
+package br.com.alexpfx.supermarket.crawler.model.domain.barcode;
 
-import br.com.alexpfx.supermarket.crawler.model.exception.InvalidEANCodeException;
+import br.com.alexpfx.supermarket.crawler.model.domain.SplitterByIndex;
+import br.com.alexpfx.supermarket.crawler.model.exception.InvalidBarCodeException;
 import com.google.common.base.CharMatcher;
 
 import javax.persistence.Column;
@@ -18,16 +19,16 @@ public class Ean13 implements BarCode {
     public Ean13() {
     }
 
-    public Ean13(String code) throws InvalidEANCodeException {
+    public Ean13(String code) throws InvalidBarCodeException {
         this.code = code;
     }
 
-    private void validate(String code) throws InvalidEANCodeException{
+    private void validate(String code) throws InvalidBarCodeException {
         if (code == null || code.length() != 13) {
-            throw new InvalidEANCodeException(code);
+            throw new InvalidBarCodeException(code);
         }
         if (!CharMatcher.DIGIT.matchesAllOf(code)) {
-            throw new InvalidEANCodeException(code);
+            throw new InvalidBarCodeException(code);
         }
         String codeWithoutVd = code.substring(0, 12);
         int pretendVd = Integer.valueOf(code.substring(12, 13));
@@ -38,7 +39,7 @@ public class Ean13 implements BarCode {
         int sumResult = oddFator + evenSum;
         int dv = getEanVd(sumResult);
         if (pretendVd != dv) {
-            throw new InvalidEANCodeException(code);
+            throw new InvalidBarCodeException(code);
         }
     }
 
