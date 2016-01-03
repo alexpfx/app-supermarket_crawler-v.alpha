@@ -3,7 +3,7 @@
     /**
      * Created by alexandre on 02/01/2016.
      */
-    public class InvalidEANCodeException extends RuntimeException {
+    public class InvalidEANCodeException extends Exception {
         private String code;
         private static final String INVALID_EAN = "INVALID EAN CODE";
 

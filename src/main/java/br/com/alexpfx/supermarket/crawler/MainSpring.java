@@ -13,7 +13,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class MainSpring {
 
 
-
     void test() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring.xml");
         RibeiraoCrawler bean = context.getBean(RibeiraoCrawler.class);

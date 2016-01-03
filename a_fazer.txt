@@ -1,11 +1,14 @@
-[] refatorar EAN
+[] colocar spring batch
+[] reorganizar pacotes
+[] criar classe para rodar programa
+[x] refatorar EAN
 [x] criar teste unitario para testar o uso da classe Crawler runner, configurando para usar as configuracoes do spring.
 [x] criar listeners
 [x] criar validador de EAN
 
 [x] eliminar bibliotecas crawler4j e jsoup
 [x] limpar codigo eliminando classes de dominio nao usadas.
--
+
 [x] rever codigo apontando necessidades de mudanças
 [x] refatorar classes repository, criar camada intermediaria.
 [x] verificar se há outro padrão de código de produto, que não EAN

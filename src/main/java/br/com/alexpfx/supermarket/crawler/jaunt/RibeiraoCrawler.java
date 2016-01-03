@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.crawler.jaunt;
 
-import br.com.alexpfx.supermarket.crawler.model.domain.Product;
+import br.com.alexpfx.supermarket.crawler.model.domain.*;
 import br.com.alexpfx.supermarket.crawler.model.exception.InvalidEANCodeException;
 import com.jaunt.*;
 import org.apache.commons.logging.Log;
@@ -44,15 +44,17 @@ public class RibeiraoCrawler extends AbstractCrawler {
             p.setDescription(name);
             p.setUrl(url);
             try {
-                p.setCode(code);
-            }catch (InvalidEANCodeException e){
-                logInvalidCode (e, code);
+                //TODO refatorar
+                BarCode ean = new Ean13Factory().create(code);
+                p.setEan((Ean13) ean);
+            } catch (InvalidEANCodeException e) {
+                logInvalidCode(e, code);
             }
         });
         return products;
     }
 
-    private void logInvalidCode(RuntimeException e, String code) {
+    private void logInvalidCode(InvalidEANCodeException e, String code) {
     }
 
     private String extractProductUrl(Element item) {

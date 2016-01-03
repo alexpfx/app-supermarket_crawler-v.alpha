@@ -42,8 +42,9 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public void setCode(String code) {
-        ean = new Ean13(code);
+
+    public void setEan(Ean13 ean) {
+        this.ean = ean;
     }
 
     public Manufacturer getManufacturer() {

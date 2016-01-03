@@ -2,32 +2,26 @@ package br.com.alexpfx.supermarket.crawler.model.domain;
 
 import br.com.alexpfx.supermarket.crawler.model.exception.InvalidEANCodeException;
 import com.google.common.base.CharMatcher;
+import com.google.common.base.Predicates;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import java.util.function.Predicate;
 
 /**
- * Created by alexandre on 27/12/2015.
+ * Created by alexandre on 03/01/2016.
  */
-@Embeddable
-public class Ean13 implements BarCode {
+public class Ean13Validation implements Predicate<String> {
 
-    @Column(name = "ean_code", nullable = true, length = 13)
-    private String code;
-
-    public Ean13() {
+    @Override
+    public boolean test(String s) {
+        return isValid(s);
     }
 
-    public Ean13(String code) throws InvalidEANCodeException {
-        this.code = code;
-    }
-
-    private void validate(String code) throws InvalidEANCodeException{
+    private boolean isValid(String code) {
         if (code == null || code.length() != 13) {
-            throw new InvalidEANCodeException(code);
+            return false;
         }
         if (!CharMatcher.DIGIT.matchesAllOf(code)) {
-            throw new InvalidEANCodeException(code);
+            return false;
         }
         String codeWithoutVd = code.substring(0, 12);
         int pretendVd = Integer.valueOf(code.substring(12, 13));
@@ -38,8 +32,9 @@ public class Ean13 implements BarCode {
         int sumResult = oddFator + evenSum;
         int dv = getEanVd(sumResult);
         if (pretendVd != dv) {
-            throw new InvalidEANCodeException(code);
+            return false;
         }
+        return true;
     }
 
     private int sumStringDigits(String s) {
@@ -52,8 +47,5 @@ public class Ean13 implements BarCode {
         return 10 - (s % 10);
     }
 
-    @Override
-    public String toString() {
-        return code;
-    }
+
 }
