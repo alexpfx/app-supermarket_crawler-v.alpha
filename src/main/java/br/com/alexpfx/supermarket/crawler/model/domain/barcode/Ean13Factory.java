@@ -9,7 +9,7 @@ public class Ean13Factory implements BarCodeFactory {
 
     @Override
     public BarCode create(String code) throws InvalidBarCodeException {
-        if (!isValid(code, new Ean13Validation())){
+        if (!isValid(code, BarCodePredicate.isValidEan13())){
             throw new InvalidBarCodeException(code);
         }
         return new Ean13(code);

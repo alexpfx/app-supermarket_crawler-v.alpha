@@ -1,6 +1,6 @@
-[] colocar spring batch
 [] reorganizar pacotes
-[] criar classe para rodar programa
+[x] configurar spring batch
+[x] rodar job basico spring batch
 [x] refatorar EAN
 [x] criar teste unitario para testar o uso da classe Crawler runner, configurando para usar as configuracoes do spring.
 [x] criar listeners

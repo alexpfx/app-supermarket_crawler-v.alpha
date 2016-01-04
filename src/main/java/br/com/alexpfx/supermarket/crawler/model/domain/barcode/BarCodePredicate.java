@@ -8,14 +8,14 @@ import java.util.function.Predicate;
 /**
  * Created by alexandre on 03/01/2016.
  */
-public class Ean13Validation implements Predicate<String> {
+public class BarCodePredicate {
 
-    @Override
-    public boolean test(String s) {
-        return isValid(s);
+    public static Predicate<String> isValidEan13() {
+        return p -> isValid(p);
     }
 
-    private boolean isValid(String code) {
+
+    private static boolean isValid(String code) {
         if (code == null || code.length() != 13) {
             return false;
         }
@@ -36,13 +36,13 @@ public class Ean13Validation implements Predicate<String> {
         return true;
     }
 
-    private int sumStringDigits(String s) {
+    private static int sumStringDigits(String s) {
         return s.chars().map(n ->
                 Character.getNumericValue(n)
         ).sum();
     }
 
-    private int getEanVd(int s) {
+    private static int getEanVd(int s) {
         return 10 - (s % 10);
     }
 
