@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by alexandre on 09/12/2015.
@@ -16,7 +17,7 @@ public class Keywords {
     }
 
     private Keywords(String phrase, Set<String> filtered) {
-        this (phrase);
+        this(phrase);
         this.filtered = filtered;
     }
 

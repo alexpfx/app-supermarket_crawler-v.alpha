@@ -1,14 +1,16 @@
 package br.com.alexpfx.supermarket.crawler.batch;
 
+import br.com.alexpfx.supermarket.crawler.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.item.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.batch.item.ItemReader;
+import org.springframework.batch.item.ItemWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -35,6 +37,14 @@ public class CrawlerBatchConfiguration {
                 .build();
     }
 
+    protected Step runCrawlerStep(StepBuilderFactory steps) {
+        return steps.get("runCrawlerStep").tasklet(tasklet()).build();
+    }
+
+    private Tasklet tasklet() {
+        return new RunCrawlerTasklet();
+    }
+
 
     public ItemProcessor<Product, Product> processor() {
         return new ItemProcessor<Product, Product>() {
@@ -47,13 +57,7 @@ public class CrawlerBatchConfiguration {
 
     @Bean
     public ItemReader<Product> reader() {
-        return new ItemReader<Product>() {
-            @Override
-            public Product read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-                return new Product();
-            }
-        };
-
+        return new ProductItemReader();
     }
 
     @Bean

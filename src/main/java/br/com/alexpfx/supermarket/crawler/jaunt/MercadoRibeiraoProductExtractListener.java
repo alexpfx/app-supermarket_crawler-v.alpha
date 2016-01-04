@@ -11,6 +11,7 @@ public class MercadoRibeiraoProductExtractListener implements ProductExtractedLi
 
     @Autowired
     private ProductBo productBo;
+
     @Override
     public void productExtracted(Product product) {
         productBo.save(product);

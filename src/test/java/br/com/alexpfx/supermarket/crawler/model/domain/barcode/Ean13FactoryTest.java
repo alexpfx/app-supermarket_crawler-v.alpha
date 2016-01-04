@@ -1,11 +1,10 @@
 package br.com.alexpfx.supermarket.crawler.model.domain.barcode;
 
-import br.com.alexpfx.supermarket.crawler.model.domain.barcode.Ean13Factory;
 import br.com.alexpfx.supermarket.crawler.model.exception.InvalidBarCodeException;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 /**
  * Created by alexandre on 03/01/2016.

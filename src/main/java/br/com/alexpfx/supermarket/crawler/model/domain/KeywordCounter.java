@@ -3,10 +3,9 @@ package br.com.alexpfx.supermarket.crawler.model.domain;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import static java.util.Map.Entry.comparingByValue;
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toMap;
 
 /**
  * Created by alexandre on 10/12/2015.

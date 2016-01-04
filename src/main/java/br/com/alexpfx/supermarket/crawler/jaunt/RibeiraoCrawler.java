@@ -1,11 +1,14 @@
 package br.com.alexpfx.supermarket.crawler.jaunt;
 
-import br.com.alexpfx.supermarket.crawler.model.domain.*;
+import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import br.com.alexpfx.supermarket.crawler.model.domain.barcode.BarCode;
 import br.com.alexpfx.supermarket.crawler.model.domain.barcode.Ean13;
 import br.com.alexpfx.supermarket.crawler.model.domain.barcode.Ean13Factory;
 import br.com.alexpfx.supermarket.crawler.model.exception.InvalidBarCodeException;
-import com.jaunt.*;
+import com.jaunt.Document;
+import com.jaunt.Element;
+import com.jaunt.Elements;
+import com.jaunt.NotFound;
 
 import java.util.ArrayList;
 import java.util.List;

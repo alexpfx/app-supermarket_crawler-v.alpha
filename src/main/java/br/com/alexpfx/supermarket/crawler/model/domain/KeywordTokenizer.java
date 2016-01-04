@@ -2,8 +2,8 @@ package br.com.alexpfx.supermarket.crawler.model.domain;
 
 import com.google.common.base.Splitter;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by alexandre on 13/12/2015.
@@ -28,7 +28,7 @@ public class KeywordTokenizer {
         Set<String> r = new TreeSet<>();
         Iterable<String> splited = Splitter.on(" ").trimResults().omitEmptyStrings().split(phrase);
         splited.forEach(s -> {
-            if ((s.length() >= minimumLength) && (!filtered.contains(s))){
+            if ((s.length() >= minimumLength) && (!filtered.contains(s))) {
                 r.add(s);
             }
         });

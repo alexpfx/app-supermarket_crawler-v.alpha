@@ -1,3 +1,5 @@
+[] criar taskletstep que starta o crawler.
+[] configurar reader do batch para pegar dados do crawler.
 [] reorganizar pacotes
 [x] configurar spring batch
 [x] rodar job basico spring batch

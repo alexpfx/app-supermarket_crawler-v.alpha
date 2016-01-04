@@ -1,7 +1,6 @@
 package br.com.alexpfx.supermarket.crawler.model.domain;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Iterator;

@@ -1,7 +1,6 @@
 package br.com.alexpfx.supermarket.crawler.jaunt;
 
 import com.jaunt.UserAgent;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**

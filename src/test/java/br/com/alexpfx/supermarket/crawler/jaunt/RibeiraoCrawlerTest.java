@@ -7,13 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
-import java.util.PrimitiveIterator;
-import java.util.StringJoiner;
-import java.util.StringTokenizer;
 import java.util.function.Predicate;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by alexandre on 01/01/2016.

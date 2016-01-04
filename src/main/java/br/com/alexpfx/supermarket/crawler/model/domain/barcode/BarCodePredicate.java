@@ -46,5 +46,4 @@ public class BarCodePredicate {
         return 10 - (s % 10);
     }
 
-
 }

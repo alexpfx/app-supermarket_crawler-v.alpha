@@ -1,9 +1,5 @@
 package br.com.alexpfx.supermarket.crawler.model.domain.barcode;
 
-import br.com.alexpfx.supermarket.crawler.model.domain.SplitterByIndex;
-import br.com.alexpfx.supermarket.crawler.model.exception.InvalidBarCodeException;
-import com.google.common.base.CharMatcher;
-
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -19,38 +15,8 @@ public class Ean13 implements BarCode {
     public Ean13() {
     }
 
-    public Ean13(String code) throws InvalidBarCodeException {
+    public Ean13(String code) {
         this.code = code;
-    }
-
-    private void validate(String code) throws InvalidBarCodeException {
-        if (code == null || code.length() != 13) {
-            throw new InvalidBarCodeException(code);
-        }
-        if (!CharMatcher.DIGIT.matchesAllOf(code)) {
-            throw new InvalidBarCodeException(code);
-        }
-        String codeWithoutVd = code.substring(0, 12);
-        int pretendVd = Integer.valueOf(code.substring(12, 13));
-        String[] evenOdd = SplitterByIndex.split(codeWithoutVd, idx -> idx % 2 == 0);
-        int evenSum = sumStringDigits(evenOdd[0]);
-        int oddSum = sumStringDigits(evenOdd[1]);
-        int oddFator = oddSum * 3;
-        int sumResult = oddFator + evenSum;
-        int dv = getEanVd(sumResult);
-        if (pretendVd != dv) {
-            throw new InvalidBarCodeException(code);
-        }
-    }
-
-    private int sumStringDigits(String s) {
-        return s.chars().map(n ->
-                Character.getNumericValue(n)
-        ).sum();
-    }
-
-    private int getEanVd(int s) {
-        return 10 - (s % 10);
     }
 
     @Override
