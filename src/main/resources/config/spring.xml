@@ -14,7 +14,7 @@
         ">
 
     <!-- Scans the classpath for annotated components that will be auto-registered as Spring beans -->
-    <context:component-scan base-package="br.com.alexpfx.supermarket.crawler.model"/>
+    <context:component-scan base-package="br.com.alexpfx.supermarket"/>
     <!-- Activates various annotations to be detected in bean classes e.g: @Autowired -->
     <context:annotation-config/>
 
@@ -38,8 +38,8 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <bean id="userAgentFactory" class="br.com.alexpfx.supermarket.crawler.jaunt.UserAgentFactory"/>
-    <bean class="br.com.alexpfx.supermarket.crawler.jaunt.RibeiraoCrawler">
+    <bean id="userAgentFactory" class="br.com.alexpfx.supermarket.crawler.UserAgentFactory"/>
+    <bean class="br.com.alexpfx.supermarket.crawler.RibeiraoCrawler">
         <constructor-arg ref="userAgentFactory"/>
     </bean>
 

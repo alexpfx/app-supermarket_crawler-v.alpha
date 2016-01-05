@@ -24,8 +24,8 @@ http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
         <property name="annotatedClasses">
             <list>
-                <value>br.com.alexpfx.supermarket.crawler.model.domain.Product</value>
-                <value>br.com.alexpfx.supermarket.crawler.model.domain.Manufacturer</value>
+                <value>br.com.alexpfx.supermarket.domain.Product</value>
+                <value>br.com.alexpfx.supermarket.domain.Manufacturer</value>
             </list>
         </property>
 

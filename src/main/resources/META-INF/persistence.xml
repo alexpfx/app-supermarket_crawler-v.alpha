@@ -4,8 +4,8 @@
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="smkt" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>br.com.alexpfx.supermarket.crawler.model.domain.Product</class>
-        <class>br.com.alexpfx.supermarket.crawler.model.domain.Manufacturer</class>
+        <class>br.com.alexpfx.supermarket.domain.Product</class>
+        <class>br.com.alexpfx.supermarket.domain.Manufacturer</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

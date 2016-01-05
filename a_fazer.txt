@@ -1,6 +1,7 @@
-[] criar taskletstep que starta o crawler.
+[] organizar metodos e nomes na classe CrawlerBatchConfiguration
 [] configurar reader do batch para pegar dados do crawler.
-[] reorganizar pacotes
+[f] reorganizar pacotes
+[x] criar taskletstep que starta o crawler.
 [x] configurar spring batch
 [x] rodar job basico spring batch
 [x] refatorar EAN

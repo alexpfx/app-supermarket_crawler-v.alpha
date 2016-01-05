@@ -1,9 +1,7 @@
 package br.com.alexpfx.supermarket.crawler;
 
-import br.com.alexpfx.supermarket.crawler.jaunt.CrawlerRunner;
-import br.com.alexpfx.supermarket.crawler.jaunt.RibeiraoCrawler;
-import br.com.alexpfx.supermarket.crawler.model.bo.ProductBo;
-import br.com.alexpfx.supermarket.crawler.model.domain.Product;
+import br.com.alexpfx.supermarket.bo.ProductBo;
+import br.com.alexpfx.supermarket.domain.Product;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
