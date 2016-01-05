@@ -1,8 +1,8 @@
-package br.com.alexpfx.supermarket.batch;
+package br.com.alexpfx.supermarket.webcrawler.listeners.impl;
 
 import br.com.alexpfx.supermarket.batch.reader.ProductList;
-import br.com.alexpfx.supermarket.crawler.ProductExtractedListener;
 import br.com.alexpfx.supermarket.domain.Product;
+import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

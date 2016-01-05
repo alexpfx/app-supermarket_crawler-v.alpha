@@ -22,7 +22,7 @@
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-          p:packagesToScan="br.com.alexpfx.supermarket.crawler"
+          p:packagesToScan="br.com.alexpfx.supermarket.webcrawler"
           p:dataSource-ref="dataSource"
     >
         <property name="jpaVendorAdapter">
@@ -38,8 +38,8 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <bean id="userAgentFactory" class="br.com.alexpfx.supermarket.crawler.UserAgentFactory"/>
-    <bean class="br.com.alexpfx.supermarket.crawler.RibeiraoCrawler">
+    <bean id="userAgentFactory" class="br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory"/>
+    <bean class="br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler">
         <constructor-arg ref="userAgentFactory"/>
     </bean>
 

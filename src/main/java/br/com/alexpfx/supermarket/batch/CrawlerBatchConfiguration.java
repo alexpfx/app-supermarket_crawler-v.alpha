@@ -2,7 +2,8 @@ package br.com.alexpfx.supermarket.batch;
 
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.batch.reader.ProductList;
-import br.com.alexpfx.supermarket.crawler.ProductExtractedListener;
+import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
+import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
 import br.com.alexpfx.supermarket.domain.Product;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -36,6 +37,10 @@ public class CrawlerBatchConfiguration {
         return jobs.get("myJob").start(step0()).next(step1()).build();
     }
 
+    protected Step step0() {
+        return steps.get("setupCrawlerStep").tasklet(tasklet()).build();
+    }
+
     @Bean
     protected Step step1() {
         return steps.get("processProductStep")
@@ -46,13 +51,9 @@ public class CrawlerBatchConfiguration {
                 .build();
     }
 
-    protected Step step0() {
-        return steps.get("setupCrawlerStep").tasklet(tasklet()).build();
-    }
-
     @Bean
     private Tasklet tasklet() {
-        return new InitializeCrawlerTasklet();
+        return new StartCrawlerTasklet();
     }
 
 

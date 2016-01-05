@@ -1,7 +1,7 @@
 package br.com.alexpfx.supermarket.batch;
 
-import br.com.alexpfx.supermarket.crawler.Crawler;
-import br.com.alexpfx.supermarket.crawler.CrawlerRunner;
+import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.CrawlerRunner;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by alexandre on 04/01/2016.
  */
-public class InitializeCrawlerTasklet implements Tasklet {
+public class StartCrawlerTasklet implements Tasklet {
     @Autowired
     private Crawler crawler;
 

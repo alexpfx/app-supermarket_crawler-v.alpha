@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler;
+package br.com.alexpfx.supermarket.webcrawler.crawler;
 
 /**
  * Created by alexandre on 27/12/2015.

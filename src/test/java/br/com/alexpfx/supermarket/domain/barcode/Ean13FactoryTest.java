@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.domain.barcode;
 
-import br.com.alexpfx.supermarket.crawler.model.exception.InvalidBarCodeException;
+import br.com.alexpfx.supermarket.webcrawler.exception.InvalidBarCodeException;
 import org.junit.Before;
 import org.junit.Test;
 

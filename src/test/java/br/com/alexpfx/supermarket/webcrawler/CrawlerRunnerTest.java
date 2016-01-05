@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler;
+package br.com.alexpfx.supermarket.webcrawler;
 
 import org.junit.After;
 import org.junit.Before;

@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.domain.barcode;
 
-import br.com.alexpfx.supermarket.crawler.model.exception.InvalidBarCodeException;
+import br.com.alexpfx.supermarket.webcrawler.exception.InvalidBarCodeException;
 
 /**
  * Created by alexandre on 03/01/2016.

@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler;
+package br.com.alexpfx.supermarket.webcrawler.factory;
 
 import com.jaunt.UserAgent;
 import org.springframework.stereotype.Component;

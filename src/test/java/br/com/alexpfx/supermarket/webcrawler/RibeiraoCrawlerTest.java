@@ -1,9 +1,9 @@
-package br.com.alexpfx.supermarket.crawler;
+package br.com.alexpfx.supermarket.webcrawler;
 
-import br.com.alexpfx.supermarket.crawler.CrawlerRunner;
-import br.com.alexpfx.supermarket.crawler.MercadoRibeiraoProductExtractListener;
-import br.com.alexpfx.supermarket.crawler.RibeiraoCrawler;
-import br.com.alexpfx.supermarket.crawler.UserAgentFactory;
+import br.com.alexpfx.supermarket.webcrawler.crawler.CrawlerRunner;
+import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
+import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
+import br.com.alexpfx.supermarket.webcrawler.listeners.impl.MercadoRibeiraoProductExtractListener;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

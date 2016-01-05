@@ -1,6 +1,7 @@
-package br.com.alexpfx.supermarket.crawler;
+package br.com.alexpfx.supermarket.webcrawler.crawler;
 
 import br.com.alexpfx.supermarket.bo.ProductBo;
+import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import br.com.alexpfx.supermarket.domain.Product;
 import com.jaunt.Document;
 import com.jaunt.ResponseException;

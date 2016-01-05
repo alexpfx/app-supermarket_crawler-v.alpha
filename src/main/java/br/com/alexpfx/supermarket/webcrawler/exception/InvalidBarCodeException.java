@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler.model.exception;
+package br.com.alexpfx.supermarket.webcrawler.exception;
 
 /**
  * Created by alexandre on 02/01/2016.

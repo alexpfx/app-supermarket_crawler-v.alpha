@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.crawler;
+package br.com.alexpfx.supermarket.webcrawler.listeners;
 
 import br.com.alexpfx.supermarket.domain.Product;
 

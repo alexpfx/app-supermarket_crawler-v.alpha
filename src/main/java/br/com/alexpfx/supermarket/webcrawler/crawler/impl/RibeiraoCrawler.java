@@ -1,10 +1,12 @@
-package br.com.alexpfx.supermarket.crawler;
+package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.domain.Product;
 import br.com.alexpfx.supermarket.domain.barcode.BarCode;
 import br.com.alexpfx.supermarket.domain.barcode.Ean13;
 import br.com.alexpfx.supermarket.domain.barcode.Ean13Factory;
-import br.com.alexpfx.supermarket.crawler.model.exception.InvalidBarCodeException;
+import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
+import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
+import br.com.alexpfx.supermarket.webcrawler.exception.InvalidBarCodeException;
 import com.jaunt.Document;
 import com.jaunt.Element;
 import com.jaunt.Elements;
