@@ -2,6 +2,7 @@ package br.com.alexpfx.supermarket.batch;
 
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.batch.reader.ProductList;
+import br.com.alexpfx.supermarket.batch.tasklet.StartCrawlerTasklet;
 import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
 import br.com.alexpfx.supermarket.domain.Product;

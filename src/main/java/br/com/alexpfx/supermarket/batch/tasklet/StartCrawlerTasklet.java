@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.batch;
+package br.com.alexpfx.supermarket.batch.tasklet;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CrawlerRunner;

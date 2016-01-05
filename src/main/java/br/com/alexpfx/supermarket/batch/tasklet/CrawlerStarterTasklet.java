@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.batch;
+package br.com.alexpfx.supermarket.batch.tasklet;
 
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
