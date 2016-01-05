@@ -1,6 +1,8 @@
 package br.com.alexpfx.supermarket.crawler.batch;
 
 import br.com.alexpfx.supermarket.crawler.batch.reader.ProductItemReader;
+import br.com.alexpfx.supermarket.crawler.batch.reader.ProductList;
+import br.com.alexpfx.supermarket.crawler.jaunt.ProductExtractedListener;
 import br.com.alexpfx.supermarket.crawler.model.domain.Product;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -11,8 +13,10 @@ import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import java.util.List;
 
@@ -22,27 +26,46 @@ import java.util.List;
 @Configuration
 @EnableBatchProcessing
 public class CrawlerBatchConfiguration {
+
+
+    @Autowired
+    private StepBuilderFactory steps;
+
     @Bean
-    public Job job(JobBuilderFactory jobs, Step step) {
-        return jobs.get("myJob").start(step).build();
+    public Job job(JobBuilderFactory jobs) {
+        return jobs.get("myJob").start(step0()).next(step1()).build();
     }
 
     @Bean
-    protected Step step(StepBuilderFactory steps) {
-        return steps.get("step")
-                .<Product, Product>chunk(11)
+    protected Step step1() {
+        return steps.get("processProductStep")
+                .<Product, Product>chunk(10)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())
                 .build();
     }
 
-    protected Step runCrawlerStep(StepBuilderFactory steps) {
-        return steps.get("runCrawlerStep").tasklet(tasklet()).build();
+    protected Step step0() {
+        return steps.get("setupCrawlerStep").tasklet(tasklet()).build();
     }
 
+    @Bean
     private Tasklet tasklet() {
-        return new RunCrawlerTasklet();
+        return new InitializeCrawlerTasklet();
+    }
+
+
+    @Bean
+    public ProductList getProductList() {
+        return new ProductList();
+    }
+
+    @Bean
+    @Scope("job")
+    public ProductExtractedListener productExtractedListener() {
+        ProductExtractedListener listener = new RibeiraoListener();
+        return listener;
     }
 
 
