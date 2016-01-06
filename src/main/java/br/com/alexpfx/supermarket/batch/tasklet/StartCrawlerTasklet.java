@@ -4,7 +4,10 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CrawlerRunner;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
+import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.StepContribution;
+import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.core.annotation.AfterStep;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
@@ -25,8 +28,9 @@ public class StartCrawlerTasklet implements Tasklet {
         CrawlerRunner crawlerRunner = new CrawlerRunner(crawler);
         crawler.setListener(listener);
         Thread t = new Thread(crawlerRunner);
-
+        t.setDaemon(true);
         t.start();
         return RepeatStatus.FINISHED;
     }
+
 }

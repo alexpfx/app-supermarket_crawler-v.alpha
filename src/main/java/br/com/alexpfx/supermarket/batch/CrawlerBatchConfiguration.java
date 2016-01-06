@@ -7,26 +7,32 @@ import br.com.alexpfx.supermarket.bo.ProductBo;
 import br.com.alexpfx.supermarket.bo.impl.ProductBoImpl;
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
+import br.com.alexpfx.supermarket.domain.Product;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
-import br.com.alexpfx.supermarket.domain.Product;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.job.builder.FlowBuilder;
+import org.springframework.batch.core.job.flow.Flow;
+import org.springframework.batch.core.job.flow.FlowExecutionStatus;
+import org.springframework.batch.core.job.flow.JobExecutionDecider;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 import java.util.List;
 
@@ -43,11 +49,36 @@ public class CrawlerBatchConfiguration {
 
     @Bean
     public Job job(JobBuilderFactory jobs) {
-        return jobs.get("myJob").start(step0()).next(step1()).build();
+        return jobs.get("myJob").start(flow()).end().build();
     }
 
     protected Step step0() {
         return steps.get("setupCrawlerStep").tasklet(tasklet()).build();
+    }
+
+    private Flow flow() {
+        FlowBuilder<Flow> builder = new FlowBuilder<>("flow1");
+        JobExecutionDecider decider = hasMoreTasks(true);
+        builder.start(step0())
+                .next(step1())
+                .next(decider)
+                .on("CONTINUE")
+                .to(step1())
+                .from(decider)
+                .on(FlowExecutionStatus.COMPLETED.getName())
+                .end();
+        return builder.build();
+    }
+
+
+    JobExecutionDecider hasMoreTasks(@Value("#{jobExecutionContext[hasMoreProducts]}") boolean hasMoreProducts) {
+        return new JobExecutionDecider() {
+            @Override
+            public FlowExecutionStatus decide(JobExecution jobExecution, StepExecution stepExecution) {
+
+                return hasMoreProducts ? new FlowExecutionStatus("CONTINUE") : FlowExecutionStatus.COMPLETED;
+            }
+        };
     }
 
     @Bean
@@ -103,19 +134,21 @@ public class CrawlerBatchConfiguration {
         };
     }
 
+
     @Bean
-    public Crawler crawler (){
+    public Crawler crawler() {
         return new RibeiraoCrawler(new UserAgentFactory());
     }
 
     @Bean
-    public ProductBo productBo (){
+    public ProductBo productBo() {
         return new ProductBoImpl();
     }
 
     @Bean
-    public ProductDao productDao (){
+    public ProductDao productDao() {
         return new ProductDaoImpl();
     }
+
 
 }

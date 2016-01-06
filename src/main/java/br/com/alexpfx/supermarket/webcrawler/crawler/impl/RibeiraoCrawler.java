@@ -57,6 +57,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
             } catch (InvalidBarCodeException e) {
                 logInvalidCode(e, code);
             }
+            products.add(p);
         });
         return products;
     }
