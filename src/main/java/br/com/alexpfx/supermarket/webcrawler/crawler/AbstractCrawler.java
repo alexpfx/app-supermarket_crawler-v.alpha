@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
 import br.com.alexpfx.supermarket.bo.ProductBo;
+import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import br.com.alexpfx.supermarket.domain.Product;
 import com.jaunt.Document;
@@ -60,8 +61,10 @@ public abstract class AbstractCrawler implements Crawler {
         });
     }
 
-    public void setProductExtractedListener(ProductExtractedListener productExtractedListener) {
-        this.productExtractedListener = productExtractedListener;
+
+    @Override
+    public void setListener(CrawlerListener listener) {
+        this.productExtractedListener = (ProductExtractedListener) listener;
     }
 
     protected abstract List<Product> extractProducts(Document visit);

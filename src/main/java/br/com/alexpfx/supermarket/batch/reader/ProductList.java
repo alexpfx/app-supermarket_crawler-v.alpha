@@ -17,7 +17,9 @@ public class ProductList {
     }
 
     public Product get (){
-        return products.get(index++);
+        if (index < products.size())
+            return products.get(index++);
+        return null;
     }
 
 }

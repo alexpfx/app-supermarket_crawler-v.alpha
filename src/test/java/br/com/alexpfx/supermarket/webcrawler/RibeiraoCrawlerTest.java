@@ -25,7 +25,7 @@ public class RibeiraoCrawlerTest {
     @Before
     public void setUp() throws Exception {
         RibeiraoCrawler crawler = new RibeiraoCrawler(new UserAgentFactory());
-        crawler.setProductExtractedListener(new MercadoRibeiraoProductExtractListener());
+        crawler.setListener(new MercadoRibeiraoProductExtractListener());
         crawlerRunner = new CrawlerRunner(crawler);
     }
 

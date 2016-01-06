@@ -3,6 +3,14 @@ package br.com.alexpfx.supermarket.batch;
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.batch.reader.ProductList;
 import br.com.alexpfx.supermarket.batch.tasklet.StartCrawlerTasklet;
+import br.com.alexpfx.supermarket.bo.ProductBo;
+import br.com.alexpfx.supermarket.bo.impl.ProductBoImpl;
+import br.com.alexpfx.supermarket.dao.ProductDao;
+import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
+import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
+import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
+import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
 import br.com.alexpfx.supermarket.domain.Product;
@@ -53,29 +61,29 @@ public class CrawlerBatchConfiguration {
     }
 
     @Bean
-    private Tasklet tasklet() {
+    protected Tasklet tasklet() {
         return new StartCrawlerTasklet();
     }
 
 
     @Bean
-    public ProductList getProductList() {
+    protected ProductList getProductList() {
         return new ProductList();
     }
 
     @Bean
-    @Scope("job")
-    public ProductExtractedListener productExtractedListener() {
+    public CrawlerListener listener() {
         ProductExtractedListener listener = new RibeiraoListener();
         return listener;
     }
 
 
+    @Bean
     public ItemProcessor<Product, Product> processor() {
         return new ItemProcessor<Product, Product>() {
             @Override
             public Product process(Product product) throws Exception {
-                return new Product();
+                return product;
             }
         };
     }
@@ -95,5 +103,19 @@ public class CrawlerBatchConfiguration {
         };
     }
 
+    @Bean
+    public Crawler crawler (){
+        return new RibeiraoCrawler(new UserAgentFactory());
+    }
+
+    @Bean
+    public ProductBo productBo (){
+        return new ProductBoImpl();
+    }
+
+    @Bean
+    public ProductDao productDao (){
+        return new ProductDaoImpl();
+    }
 
 }
