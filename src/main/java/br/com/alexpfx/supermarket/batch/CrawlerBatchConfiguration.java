@@ -58,28 +58,13 @@ public class CrawlerBatchConfiguration {
 
     private Flow flow() {
         FlowBuilder<Flow> builder = new FlowBuilder<>("flow1");
-        JobExecutionDecider decider = hasMoreTasks(true);
         builder.start(step0())
                 .next(step1())
-                .next(decider)
-                .on("CONTINUE")
-                .to(step1())
-                .from(decider)
-                .on(FlowExecutionStatus.COMPLETED.getName())
                 .end();
         return builder.build();
     }
 
 
-    JobExecutionDecider hasMoreTasks(@Value("#{jobExecutionContext[hasMoreProducts]}") boolean hasMoreProducts) {
-        return new JobExecutionDecider() {
-            @Override
-            public FlowExecutionStatus decide(JobExecution jobExecution, StepExecution stepExecution) {
-
-                return hasMoreProducts ? new FlowExecutionStatus("CONTINUE") : FlowExecutionStatus.COMPLETED;
-            }
-        };
-    }
 
     @Bean
     protected Step step1() {
@@ -114,6 +99,8 @@ public class CrawlerBatchConfiguration {
         return new ItemProcessor<Product, Product>() {
             @Override
             public Product process(Product product) throws Exception {
+                //
+
                 return product;
             }
         };

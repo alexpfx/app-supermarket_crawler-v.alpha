@@ -81,5 +81,9 @@ public class Product implements Serializable {
         this.keywords = keywords;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%63s\t%63s\t%100s", description, ean, keywords);
 
+    }
 }

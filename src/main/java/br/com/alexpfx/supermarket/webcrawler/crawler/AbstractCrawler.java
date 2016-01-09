@@ -59,6 +59,8 @@ public abstract class AbstractCrawler implements Crawler {
         products.forEach(product -> {
             productExtractedListener.productExtracted(product);
         });
+
+
     }
 
 

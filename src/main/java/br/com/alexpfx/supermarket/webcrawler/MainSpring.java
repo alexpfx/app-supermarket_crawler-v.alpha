@@ -2,7 +2,6 @@ package br.com.alexpfx.supermarket.webcrawler;
 
 import br.com.alexpfx.supermarket.bo.ProductBo;
 import br.com.alexpfx.supermarket.domain.Product;
-import br.com.alexpfx.supermarket.webcrawler.crawler.CrawlerRunner;
 import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,9 +14,6 @@ public class MainSpring {
     void test() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring.xml");
         RibeiraoCrawler bean = context.getBean(RibeiraoCrawler.class);
-
-        Thread t = new Thread(new CrawlerRunner(bean));
-        t.start();
     }
 
     public static void main(String[] args) {

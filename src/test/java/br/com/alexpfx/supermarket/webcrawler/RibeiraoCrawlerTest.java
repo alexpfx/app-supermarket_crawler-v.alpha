@@ -1,6 +1,5 @@
 package br.com.alexpfx.supermarket.webcrawler;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.CrawlerRunner;
 import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.MercadoRibeiraoProductExtractListener;
@@ -19,14 +18,14 @@ import java.util.function.Predicate;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:spring.xml"})
 public class RibeiraoCrawlerTest {
-    CrawlerRunner crawlerRunner;
+
 
 
     @Before
     public void setUp() throws Exception {
         RibeiraoCrawler crawler = new RibeiraoCrawler(new UserAgentFactory());
         crawler.setListener(new MercadoRibeiraoProductExtractListener());
-        crawlerRunner = new CrawlerRunner(crawler);
+        crawler.crawl();
     }
 
     @Test
@@ -36,20 +35,13 @@ public class RibeiraoCrawlerTest {
             return Character.getNumericValue(p);
         }).sum();
 
-
-        Thread t = new Thread(crawlerRunner);
-        t.setDaemon(false);
-        //   t.start();
-        while (t.isAlive()) {
-
-        }
         spliter("testeeee", x -> (x % 2 == 0));
 
     }
 
     @After
     public void tearDown() throws Exception {
-        crawlerRunner = null;
+
     }
 
     public String[] spliter(String rcv, Predicate<Integer> p) {

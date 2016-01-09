@@ -1,13 +1,8 @@
 package br.com.alexpfx.supermarket.batch.tasklet;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
-import br.com.alexpfx.supermarket.webcrawler.crawler.CrawlerRunner;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
-import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
-import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.StepContribution;
-import org.springframework.batch.core.StepExecution;
-import org.springframework.batch.core.annotation.AfterStep;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
@@ -25,11 +20,8 @@ public class StartCrawlerTasklet implements Tasklet {
 
     @Override
     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-        CrawlerRunner crawlerRunner = new CrawlerRunner(crawler);
         crawler.setListener(listener);
-        Thread t = new Thread(crawlerRunner);
-        t.setDaemon(true);
-        t.start();
+        crawler.crawl();
         return RepeatStatus.FINISHED;
     }
 
