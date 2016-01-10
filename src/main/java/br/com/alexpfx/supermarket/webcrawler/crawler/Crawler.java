@@ -7,5 +7,6 @@ import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
  */
 public interface Crawler {
     void crawl();
-    void setListener (CrawlerListener listener);
+
+    void setListener(CrawlerListener listener);
 }

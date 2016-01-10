@@ -7,7 +7,7 @@ public class ProdutoSuperMercadoTO implements TransferObject {
 
     private String url;
     private String description;
-    private String finalPrice ;
+    private String finalPrice;
     private String originalPrice;
     private String measureUnity;
     private String quantity;

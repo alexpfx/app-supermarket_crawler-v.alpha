@@ -8,16 +8,16 @@
         <class>br.com.alexpfx.supermarket.domain.Manufacturer</class>
 
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/smket" />
+                      value="jdbc:mysql://localhost:3306/smket"/>
 
-            <property name="javax.persistence.jdbc.user" value="alex" />
-            <property name="javax.persistence.jdbc.password" value="alex00" />
+            <property name="javax.persistence.jdbc.user" value="alex"/>
+            <property name="javax.persistence.jdbc.password" value="alex00"/>
 
             <!-- EclipseLink should create the database schema automatically -->
-            <property name="eclipselink.ddl-generation" value="create-tables" />
-            <property name="eclipselink.ddl-generation.output-mode" value="database" />
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
         </properties>
 
     </persistence-unit>

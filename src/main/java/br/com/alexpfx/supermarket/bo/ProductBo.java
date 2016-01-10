@@ -1,7 +1,6 @@
 package br.com.alexpfx.supermarket.bo;
 
 import br.com.alexpfx.supermarket.domain.Product;
-import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 
 /**
  * Created by alexandre on 27/12/2015.

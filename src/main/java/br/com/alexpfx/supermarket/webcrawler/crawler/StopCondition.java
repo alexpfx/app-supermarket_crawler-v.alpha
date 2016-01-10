@@ -5,7 +5,9 @@ package br.com.alexpfx.supermarket.webcrawler.crawler;
  */
 public interface StopCondition {
     void init(long startTime, String link, int actual, int size);
+
     boolean isReached();
+
     public StopCondition EMTPY = new StopCondition() {
         @Override
         public void init(long startTime, String link, int actual, int size) {

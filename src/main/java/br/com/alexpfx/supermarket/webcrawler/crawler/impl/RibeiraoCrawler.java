@@ -1,8 +1,8 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
-import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
 import br.com.alexpfx.supermarket.webcrawler.exception.InvalidBarCodeException;
+import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;

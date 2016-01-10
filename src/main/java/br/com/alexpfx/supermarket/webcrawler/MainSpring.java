@@ -1,10 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler;
 
 import br.com.alexpfx.supermarket.bo.ProductBo;
-import br.com.alexpfx.supermarket.domain.Product;
 import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
-import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
-import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
