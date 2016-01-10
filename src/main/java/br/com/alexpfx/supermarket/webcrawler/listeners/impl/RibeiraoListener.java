@@ -3,6 +3,7 @@ package br.com.alexpfx.supermarket.webcrawler.listeners.impl;
 import br.com.alexpfx.supermarket.batch.reader.ProductList;
 import br.com.alexpfx.supermarket.domain.Product;
 import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -14,7 +15,7 @@ public class RibeiraoListener implements ProductExtractedListener {
     ProductList productList;
 
     @Override
-    public void productExtracted(Product product) {
-        productList.add(product);
+    public void itemExtracted(TransferObject product) {
+
     }
 }

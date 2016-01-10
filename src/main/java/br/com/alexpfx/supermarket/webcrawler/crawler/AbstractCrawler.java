@@ -3,7 +3,7 @@ package br.com.alexpfx.supermarket.webcrawler.crawler;
 import br.com.alexpfx.supermarket.bo.ProductBo;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
-import br.com.alexpfx.supermarket.domain.Product;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
@@ -40,7 +40,7 @@ public abstract class AbstractCrawler implements Crawler {
 
             links.forEach(s -> {
                 try {
-                    List<Product> products = extractProducts(userAgent.visit(s));
+                    List<TransferObject> products = extract(userAgent.visit(s));
                     notifyListeners(products);
                 } catch (ResponseException e) {
                     e.printStackTrace();
@@ -52,12 +52,12 @@ public abstract class AbstractCrawler implements Crawler {
         }
     }
 
-    private void notifyListeners(List<Product> products) {
+    private void notifyListeners(List<TransferObject> products) {
         if (productExtractedListener == null) {
             return;
         }
         products.forEach(product -> {
-            productExtractedListener.productExtracted(product);
+            productExtractedListener.itemExtracted(product);
         });
 
 
@@ -69,7 +69,7 @@ public abstract class AbstractCrawler implements Crawler {
         this.productExtractedListener = (ProductExtractedListener) listener;
     }
 
-    protected abstract List<Product> extractProducts(Document visit);
+    protected abstract List<TransferObject> extract(Document visit);
 
 
 }

@@ -1,5 +1,8 @@
 package br.com.alexpfx.supermarket.dao;
 
+import br.com.alexpfx.supermarket.domain.Product;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
+
 import java.util.List;
 
 /**

@@ -3,6 +3,8 @@ package br.com.alexpfx.supermarket.webcrawler;
 import br.com.alexpfx.supermarket.bo.ProductBo;
 import br.com.alexpfx.supermarket.domain.Product;
 import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
+import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -25,11 +27,6 @@ public class MainSpring {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:config/spring.xml");
 
         ProductBo productBo = (ProductBo) context.getBean(ProductBo.class);
-        Product p = new Product();
-        p.setUrl("vfasfgaf");
-        p.setDescription("fasfasfa");
-        productBo.save(p);
-
         context.close();
     }
 

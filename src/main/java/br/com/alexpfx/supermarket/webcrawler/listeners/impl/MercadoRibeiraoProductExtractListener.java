@@ -3,6 +3,7 @@ package br.com.alexpfx.supermarket.webcrawler.listeners.impl;
 import br.com.alexpfx.supermarket.bo.ProductBo;
 import br.com.alexpfx.supermarket.domain.Product;
 import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -10,11 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class MercadoRibeiraoProductExtractListener implements ProductExtractedListener {
 
-    @Autowired
-    private ProductBo productBo;
-
     @Override
-    public void productExtracted(Product product) {
-        productBo.save(product);
+    public void itemExtracted(TransferObject product) {
+
     }
 }

@@ -1,12 +1,10 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
-import br.com.alexpfx.supermarket.domain.Product;
-import br.com.alexpfx.supermarket.domain.barcode.BarCode;
-import br.com.alexpfx.supermarket.domain.barcode.Ean13;
-import br.com.alexpfx.supermarket.domain.barcode.Ean13Factory;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
 import br.com.alexpfx.supermarket.webcrawler.exception.InvalidBarCodeException;
+import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
 import com.jaunt.Element;
 import com.jaunt.Elements;
@@ -40,24 +38,16 @@ public class RibeiraoCrawler extends AbstractCrawler {
     }
 
     @Override
-    protected List<Product> extractProducts(Document doc) {
+    protected List<TransferObject> extract(Document doc) {
         Elements itemList = doc.findEach("<div class=item-meta-container>");
-        List<Product> products = new ArrayList<>();
+        List<TransferObject> products = new ArrayList<>();
         itemList.forEach(item -> {
             String name = extractName(item);
             String code = extractCode(item);
             String url = extractProductUrl(item);
-            Product p = new Product();
-            p.setDescription(name);
-            p.setUrl(url);
-            try {
-                //TODO refatorar
-                BarCode ean = new Ean13Factory().create(code);
-                p.setEan((Ean13) ean);
-            } catch (InvalidBarCodeException e) {
-                logInvalidCode(e, code);
-            }
-            products.add(p);
+            ProdutoSuperMercadoTOBuilder builder = new ProdutoSuperMercadoTOBuilder();
+            TransferObject to = builder.descricao(name).url(url).code(code).create();
+            products.add(to);
         });
         return products;
     }

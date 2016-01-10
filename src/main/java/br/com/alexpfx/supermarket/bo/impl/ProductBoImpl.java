@@ -3,6 +3,7 @@ package br.com.alexpfx.supermarket.bo.impl;
 import br.com.alexpfx.supermarket.bo.ProductBo;
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.domain.Product;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

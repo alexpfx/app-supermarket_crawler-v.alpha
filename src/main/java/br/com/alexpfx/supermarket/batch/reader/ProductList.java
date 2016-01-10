@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.batch.reader;
 
 import br.com.alexpfx.supermarket.domain.Product;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 
 import java.util.ArrayList;
 import java.util.List;
