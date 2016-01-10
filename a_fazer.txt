@@ -1,8 +1,9 @@
-[] criar to especifico
-[] configurar processor
+
 [] configurar persistencia com hibernate
 [] organizar metodos e nomes na classe CrawlerBatchConfiguration
+[] configurar processor/transformar o to em produto
 [] configurar reader do batch para pegar dados do crawler.
+[x] criar to especifico
 [x] rodar app spring
 [x] reorganizar pacotes
 [x] criar taskletstep que starta o crawler.

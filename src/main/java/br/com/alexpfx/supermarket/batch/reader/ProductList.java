@@ -11,13 +11,13 @@ import java.util.List;
  */
 public class ProductList {
 
-    private List<Product> products = new ArrayList<>();
+    private List<TransferObject> products = new ArrayList<>();
     private int index = 0;
-    public void add (Product product){
+    public void add (TransferObject product){
         products.add(product);
     }
 
-    public Product get (){
+    public TransferObject get (){
         if (index < products.size())
             return products.get(index++);
         return null;

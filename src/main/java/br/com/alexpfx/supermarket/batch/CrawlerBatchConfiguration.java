@@ -14,23 +14,19 @@ import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.Step;
-import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.job.builder.FlowBuilder;
 import org.springframework.batch.core.job.flow.Flow;
-import org.springframework.batch.core.job.flow.FlowExecutionStatus;
-import org.springframework.batch.core.job.flow.JobExecutionDecider;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -65,11 +61,10 @@ public class CrawlerBatchConfiguration {
     }
 
 
-
     @Bean
     protected Step step1() {
         return steps.get("processProductStep")
-                .<Product, Product>chunk(10)
+                .<TransferObject, Product>chunk(10)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())
@@ -95,30 +90,21 @@ public class CrawlerBatchConfiguration {
 
 
     @Bean
-    public ItemProcessor<Product, Product> processor() {
-        return new ItemProcessor<Product, Product>() {
-            @Override
-            public Product process(Product product) throws Exception {
-                //
-
-                return product;
-            }
+    public ItemProcessor<TransferObject, Product> processor() {
+        return transferObject -> {
+            System.out.println(transferObject);
+            return new Product();
         };
     }
 
     @Bean
-    public ItemReader<Product> reader() {
+    public ItemReader<TransferObject> reader() {
         return new ProductItemReader();
     }
 
     @Bean
     public ItemWriter<Product> writer() {
-        return new ItemWriter<Product>() {
-            @Override
-            public void write(List<? extends Product> list) throws Exception {
-                list.forEach(p -> System.out.println(p));
-            }
-        };
+        return list -> list.forEach(p -> System.out.println(p));
     }
 
 

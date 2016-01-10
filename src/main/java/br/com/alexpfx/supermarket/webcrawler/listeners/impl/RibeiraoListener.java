@@ -15,7 +15,7 @@ public class RibeiraoListener implements ProductExtractedListener {
     ProductList productList;
 
     @Override
-    public void itemExtracted(TransferObject product) {
+    public void itemExtracted(TransferObject to) {
 
     }
 }
