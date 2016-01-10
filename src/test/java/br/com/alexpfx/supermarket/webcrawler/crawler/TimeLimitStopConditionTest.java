@@ -14,7 +14,6 @@ public class TimeLimitStopConditionTest {
     TimeLimitStopCondition timeLimitStopCondition;
 
 
-
     @Test
     public void testIsReached() throws Exception {
         timeLimitStopCondition = new TimeLimitStopCondition(10L, TimeUnit.SECONDS);

@@ -20,7 +20,6 @@ import java.util.function.Predicate;
 public class RibeiraoCrawlerTest {
 
 
-
     @Before
     public void setUp() throws Exception {
         RibeiraoCrawler crawler = new RibeiraoCrawler(new UserAgentFactory());
