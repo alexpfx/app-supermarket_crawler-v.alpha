@@ -61,7 +61,7 @@ public abstract class AbstractCrawler implements Crawler {
 
     private boolean evaluateStopCondition(String link, int actual, int size) {
         stopCondition.init(startTime, link, actual, size);
-        return stopCondition.evaluate();
+        return stopCondition.isReached();
     }
 
 
