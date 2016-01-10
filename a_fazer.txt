@@ -2,23 +2,24 @@
 [] configurar persistencia com hibernate
 [] organizar metodos e nomes na classe CrawlerBatchConfiguration
 [] configurar processor/transformar o to em produto
-[] configurar reader do batch para pegar dados do crawler.
+[] configurar reader do batch para pegar dados do crawler
+[x] criar condicao de parada para o crawler
 [x] criar to especifico
 [x] rodar app spring
 [x] reorganizar pacotes
-[x] criar taskletstep que starta o crawler.
+[x] criar taskletstep que starta o crawler
 [x] configurar spring batch
 [x] rodar job basico spring batch
 [x] refatorar EAN
-[x] criar teste unitario para testar o uso da classe Crawler runner, configurando para usar as configuracoes do spring.
+[x] criar teste unitario para testar o uso da classe Crawler runner, configurando para usar as configuracoes do spring
 [x] criar listeners
 [x] criar validador de EAN
 
 [x] eliminar bibliotecas crawler4j e jsoup
-[x] limpar codigo eliminando classes de dominio nao usadas.
+[x] limpar codigo eliminando classes de dominio nao usadas
 
 [x] rever codigo apontando necessidades de mudanças
-[x] refatorar classes repository, criar camada intermediaria.
+[x] refatorar classes repository, criar camada intermediaria
 [x] verificar se há outro padrão de código de produto, que não EAN
 [x] definir tratamento de produtos que não possuem código EAN
 [x] obter quantidade de produto
