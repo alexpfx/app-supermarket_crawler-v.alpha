@@ -2,7 +2,6 @@ package br.com.alexpfx.supermarket.dao.impl;
 
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.domain.Product;
-import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;

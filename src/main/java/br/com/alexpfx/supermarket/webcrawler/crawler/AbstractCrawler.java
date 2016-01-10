@@ -41,7 +41,7 @@ public abstract class AbstractCrawler implements Crawler {
             links.forEach(s -> {
                 try {
                     List<TransferObject> products = extract(userAgent.visit(s));
-                    notifyListeners(products);
+                     notifyListeners(products);
                 } catch (ResponseException e) {
                     e.printStackTrace();
                 }

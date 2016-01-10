@@ -10,7 +10,6 @@ import java.util.List;
  */
 public interface ProductDao<Product> {
 
-
     void save(br.com.alexpfx.supermarket.domain.Product product);
 
     void update(br.com.alexpfx.supermarket.domain.Product product);
