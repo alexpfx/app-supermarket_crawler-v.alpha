@@ -22,5 +22,12 @@ public class TimeLimitStopConditionTest {
 
         }
         assertEquals(timeLimitStopCondition.elapsed(TimeUnit.SECONDS), 10L);
+
+        timeLimitStopCondition = new TimeLimitStopCondition(1L, TimeUnit.MINUTES);
+        timeLimitStopCondition.init(System.currentTimeMillis(), "", 0, 0);
+        while (!timeLimitStopCondition.isReached()) {
+
+        }
+        assertEquals(timeLimitStopCondition.elapsed(TimeUnit.MINUTES), 1L);
     }
 }

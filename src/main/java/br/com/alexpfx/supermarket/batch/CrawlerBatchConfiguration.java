@@ -8,12 +8,13 @@ import br.com.alexpfx.supermarket.bo.impl.ProductBoImpl;
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
 import br.com.alexpfx.supermarket.domain.Product;
+import br.com.alexpfx.supermarket.domain.ProductBuilder;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
-import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
+import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -82,7 +83,7 @@ public class CrawlerBatchConfiguration {
 
     @Bean
     public CrawlerListener listener() {
-        ProductExtractedListener listener = new RibeiraoListener();
+        CrawlerListener listener = new RibeiraoListener();
         return listener;
     }
 
@@ -90,8 +91,11 @@ public class CrawlerBatchConfiguration {
     @Bean
     public ItemProcessor<TransferObject, Product> processor() {
         return transferObject -> {
-            System.out.println(transferObject);
-            return new Product();
+            Product p = new ProductBuilder().create();
+            ProdutoSuperMercadoTO to = (ProdutoSuperMercadoTO) transferObject;
+            p.setDescription(to.getDescricao());
+            p.setUrl(to.getUrl());
+            return p;
         };
     }
 

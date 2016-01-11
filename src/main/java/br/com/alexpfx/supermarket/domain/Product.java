@@ -16,6 +16,15 @@ public class Product implements Serializable {
     public Product() {
     }
 
+    public Product(Integer id, Manufacturer manufacturer, String description, String url, Ean13 ean, Keywords keywords) {
+        this.id = id;
+        this.manufacturer = manufacturer;
+        this.description = description;
+        this.url = url;
+        this.ean = ean;
+        this.keywords = keywords;
+    }
+
     @Id
     @GeneratedValue
     private Integer id;

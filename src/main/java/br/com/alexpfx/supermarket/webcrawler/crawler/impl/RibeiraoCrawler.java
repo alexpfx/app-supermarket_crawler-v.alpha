@@ -52,8 +52,6 @@ public class RibeiraoCrawler extends AbstractCrawler {
         return products;
     }
 
-    private void logInvalidCode(InvalidBarCodeException e, String code) {
-    }
 
     private String extractProductUrl(Element item) {
         try {

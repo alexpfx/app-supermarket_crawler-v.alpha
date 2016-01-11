@@ -1,7 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
-import br.com.alexpfx.supermarket.webcrawler.listeners.ProductExtractedListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
 import com.jaunt.ResponseException;
@@ -15,7 +14,7 @@ import java.util.List;
  */
 public abstract class AbstractCrawler implements Crawler {
 
-    private ProductExtractedListener productExtractedListener;
+    private CrawlerListener listener = CrawlerListener.EMPTY;
 
     private StopCondition stopCondition = StopCondition.EMTPY;
 
@@ -38,7 +37,7 @@ public abstract class AbstractCrawler implements Crawler {
         try {
             doc = userAgent.visit(rootUrl);
         } catch (ResponseException e) {
-            throw new IllegalArgumentException("erro ao visitar Root Url");
+            throw new IllegalArgumentException("erro ao visitar Root Url", e);
         }
         List<String> links = extractSubPages(doc);
         Iterator<String> iterator = links.iterator();
@@ -53,9 +52,8 @@ public abstract class AbstractCrawler implements Crawler {
             } catch (ResponseException e) {
                 e.printStackTrace();
             }
-            stop = evaluateStopCondition(link, i, size);
             notifyListeners(products);
-            i++;
+            stop = evaluateStopCondition(link, i++, size);
         }
     }
 
@@ -66,21 +64,22 @@ public abstract class AbstractCrawler implements Crawler {
 
 
     private void notifyListeners(List<TransferObject> products) {
-        if (productExtractedListener == null) {
-            return;
-        }
         products.forEach(product -> {
-            productExtractedListener.itemExtracted(product);
+            listener.itemExtracted(product);
         });
     }
 
 
     @Override
     public void setListener(CrawlerListener listener) {
-        this.productExtractedListener = (ProductExtractedListener) listener;
+        this.listener = listener;
     }
 
     protected abstract List<TransferObject> extract(Document visit);
+
+    public void setStopCondition(StopCondition stopCondition) {
+        this.stopCondition = stopCondition;
+    }
 
 
 }

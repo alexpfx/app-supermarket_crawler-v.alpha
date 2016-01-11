@@ -6,51 +6,57 @@ package br.com.alexpfx.supermarket.webcrawler.to;
 public class ProdutoSuperMercadoTO implements TransferObject {
 
     private String url;
-    private String description;
-    private String finalPrice;
-    private String originalPrice;
-    private String measureUnity;
-    private String quantity;
+    private String descricao;
+    private String precoFinal;
+    private String precoOriginal;
+    private String unidadeMedida;
+    private String quantidade;
     private String codigo;
+    private String fabricante;
 
     public ProdutoSuperMercadoTO() {
     }
 
-    public ProdutoSuperMercadoTO(String url, String description, String finalPrice, String originalPrice, String measureUnity, String quantity, String codigo) {
+    ProdutoSuperMercadoTO(String url, String descricao, String precoFinal, String precoOriginal, String unidadeMedida, String quantidade, String codigo, String fabricante) {
         this.url = url;
-        this.description = description;
-        this.finalPrice = finalPrice;
-        this.originalPrice = originalPrice;
-        this.measureUnity = measureUnity;
-        this.quantity = quantity;
+        this.descricao = descricao;
+        this.precoFinal = precoFinal;
+        this.precoOriginal = precoOriginal;
+        this.unidadeMedida = unidadeMedida;
+        this.quantidade = quantidade;
         this.codigo = codigo;
+        this.fabricante = fabricante;
     }
 
     public String getUrl() {
         return url;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public String getFinalPrice() {
-        return finalPrice;
+    public String getPrecoFinal() {
+        return precoFinal;
     }
 
-    public String getOriginalPrice() {
-        return originalPrice;
+    public String getPrecoOriginal() {
+        return precoOriginal;
     }
 
-    public String getMeasureUnity() {
-        return measureUnity;
+    public String getUnidadeMedida() {
+        return unidadeMedida;
     }
 
-    public String getQuantity() {
-        return quantity;
+    public String getQuantidade() {
+        return quantidade;
     }
 
     public String getCodigo() {
         return codigo;
+    }
+
+    public String getFabricante() {
+        return fabricante;
     }
 }

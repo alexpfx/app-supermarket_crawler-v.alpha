@@ -1,8 +1,8 @@
-
+[] logar informacoes sobre o crawler: motivo de parada, tempo em execucao, etc.
 [] configurar persistencia com hibernate
 [] organizar metodos e nomes na classe CrawlerBatchConfiguration
-[] configurar processor/transformar o to em produto
 [] configurar reader do batch para pegar dados do crawler
+[x] configurar processor/transformar o to em produto
 [x] criar condicao de parada para o crawler
 [x] criar to especifico
 [x] rodar app spring

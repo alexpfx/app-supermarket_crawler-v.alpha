@@ -8,6 +8,7 @@ public class ProdutoSuperMercadoTOBuilder {
     private String unidadeMedida;
     private String quantidade;
     private String codigo;
+    private String fabricante;
 
     public ProdutoSuperMercadoTOBuilder url(String url) {
         this.url = url;
@@ -21,6 +22,12 @@ public class ProdutoSuperMercadoTOBuilder {
 
     public ProdutoSuperMercadoTOBuilder precoFinal(String precoFinal) {
         this.precoFinal = precoFinal;
+        return this;
+    }
+
+
+    public ProdutoSuperMercadoTOBuilder fabricante(String fabricante) {
+        this.fabricante = fabricante;
         return this;
     }
 
@@ -45,6 +52,6 @@ public class ProdutoSuperMercadoTOBuilder {
     }
 
     public ProdutoSuperMercadoTO create() {
-        return new ProdutoSuperMercadoTO(url, descricao, precoFinal, precoOriginal, unidadeMedida, quantidade, codigo);
+        return new ProdutoSuperMercadoTO(url, descricao, precoFinal, precoOriginal, unidadeMedida, quantidade, codigo, fabricante);
     }
 }
