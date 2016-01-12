@@ -24,8 +24,7 @@ public class StartCrawlerTasklet implements Tasklet {
     @Override
     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
         crawler.setListener(listener);
-        crawler.setStopCondition(new TimeLimitStopCondition(5, TimeUnit.MINUTES));
-
+        crawler.setStopCondition(new TimeLimitStopCondition(1, TimeUnit.MINUTES));
         crawler.crawl();
         return RepeatStatus.FINISHED;
     }

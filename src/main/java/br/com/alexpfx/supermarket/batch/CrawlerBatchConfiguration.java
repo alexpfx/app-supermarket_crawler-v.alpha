@@ -1,20 +1,20 @@
 package br.com.alexpfx.supermarket.batch;
 
+import br.com.alexpfx.supermarket.batch.processor.ProductProcessor;
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.batch.reader.ProductList;
 import br.com.alexpfx.supermarket.batch.tasklet.StartCrawlerTasklet;
+import br.com.alexpfx.supermarket.batch.writer.HIbernateProductsItemWriter;
 import br.com.alexpfx.supermarket.bo.ProductBo;
 import br.com.alexpfx.supermarket.bo.impl.ProductBoImpl;
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
 import br.com.alexpfx.supermarket.domain.Product;
-import br.com.alexpfx.supermarket.domain.ProductBuilder;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
-import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -28,19 +28,45 @@ import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+import javax.sql.DataSource;
+import java.util.Properties;
 
 /**
  * Created by alexandre on 03/01/2016.
  */
 @Configuration
 @EnableBatchProcessing
+@PropertySource("classpath:database.properties")
 public class CrawlerBatchConfiguration {
 
 
+    @Value("jdbc.url")
+    String url;
+
+    @Value("${jdbc.driverClassName}")
+    String driverClassName;
+
+    @Value("jdbc.username")
+    String username;
+
+    @Value("jdbc.password")
+    String password;
+
     @Autowired
     private StepBuilderFactory steps;
+    @Autowired
+    Environment environment;
+
 
     @Bean
     public Job job(JobBuilderFactory jobs) {
@@ -52,6 +78,7 @@ public class CrawlerBatchConfiguration {
     }
 
     private Flow flow() {
+        System.out.println(driverClassName);
         FlowBuilder<Flow> builder = new FlowBuilder<>("flow1");
         builder.start(step0())
                 .next(step1())
@@ -83,20 +110,41 @@ public class CrawlerBatchConfiguration {
 
     @Bean
     public CrawlerListener listener() {
+        String dbUrl = environment.getProperty("db.url");
+
         CrawlerListener listener = new RibeiraoListener();
         return listener;
     }
 
 
+    public DataSource dataSource() {
+        return DataSourceBuilder.create().url(url).driverClassName(driverClassName).username(username).password(password).build();
+    }
+
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan("");
+
+        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(additionalJpaProperties());
+        return em;
+    }
+
+    private Properties additionalJpaProperties() {
+        Properties properties = new Properties();
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        properties.setProperty("hibernate.show_sql", "true");
+
+        return properties;
+    }
+
+
     @Bean
     public ItemProcessor<TransferObject, Product> processor() {
-        return transferObject -> {
-            Product p = new ProductBuilder().create();
-            ProdutoSuperMercadoTO to = (ProdutoSuperMercadoTO) transferObject;
-            p.setDescription(to.getDescricao());
-            p.setUrl(to.getUrl());
-            return p;
-        };
+        return new ProductProcessor();
     }
 
     @Bean
@@ -106,7 +154,7 @@ public class CrawlerBatchConfiguration {
 
     @Bean
     public ItemWriter<Product> writer() {
-        return list -> list.forEach(p -> System.out.println(p));
+        return new HIbernateProductsItemWriter();
     }
 
 
