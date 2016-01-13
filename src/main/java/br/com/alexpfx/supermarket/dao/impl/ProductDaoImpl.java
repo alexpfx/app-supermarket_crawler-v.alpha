@@ -2,15 +2,10 @@ package br.com.alexpfx.supermarket.dao.impl;
 
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.domain.Product;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.sql.DataSource;
 import java.util.List;
 
 /**
@@ -39,7 +34,6 @@ public class ProductDaoImpl implements ProductDao<Product> {
 
 
     }
-
 
 
     @Override

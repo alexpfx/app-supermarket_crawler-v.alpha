@@ -17,7 +17,7 @@ public class HIbernateProductsItemWriter implements ItemWriter<Product> {
 
     @Override
     public void write(List<? extends Product> list) throws Exception {
-        for (Product p:list){
+        for (Product p : list) {
             productDao.save(p);
         }
     }

@@ -11,7 +11,7 @@ import javax.sql.DataSource;
  */
 public interface InfrastructureConfiguration {
     @Bean
-    DataSource getDataSource ();
+    DataSource getDataSource();
 
     @Bean
     PlatformTransactionManager transactionManager();

@@ -9,5 +9,6 @@ public interface Crawler {
     void crawl();
 
     void setListener(CrawlerListener listener);
-    void setStopCondition (StopCondition condition);
+
+    void setStopCondition(StopCondition condition);
 }

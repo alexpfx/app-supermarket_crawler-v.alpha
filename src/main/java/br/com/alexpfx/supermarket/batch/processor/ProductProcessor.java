@@ -17,8 +17,9 @@ import java.util.logging.Logger;
  */
 public class ProductProcessor implements ItemProcessor<TransferObject, Product> {
     Logger LOG = Logger.getLogger(ProductProcessor.class.getSimpleName());
+
     @Override
-    public Product process(TransferObject transferObject)  {
+    public Product process(TransferObject transferObject) {
         ProdutoSuperMercadoTO to = (ProdutoSuperMercadoTO) transferObject;
 
         Ean13Factory ean13Factory = new Ean13Factory();
@@ -26,7 +27,7 @@ public class ProductProcessor implements ItemProcessor<TransferObject, Product> 
         try {
             ean13 = (Ean13) ean13Factory.create(to.getCodigo());
         } catch (InvalidBarCodeException e) {
-            LOG.warning("invalid ean: "+e.getCode());
+            LOG.warning("invalid ean: " + e.getCode());
         }
         Manufacturer manufacturer = new Manufacturer(to.getFabricante());
         return new ProductBuilder().description(to.getDescricao()).url(to.getUrl()).ean(ean13).manufacturer(manufacturer).manufacturer(manufacturer).create();
