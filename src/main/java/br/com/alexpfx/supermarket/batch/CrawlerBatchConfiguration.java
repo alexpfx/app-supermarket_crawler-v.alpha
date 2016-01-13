@@ -62,10 +62,10 @@ public class CrawlerBatchConfiguration {
     @Value("${jdbc.driverClassName}")
     String driverClassName;
 
-    @Value("jdbc.username")
+    @Value("${jdbc.username}")
     String username;
 
-    @Value("jdbc.password")
+    @Value("${jdbc.password}")
     String password;
 
     @Autowired
@@ -76,11 +76,11 @@ public class CrawlerBatchConfiguration {
 
     @Bean
     public Job job(JobBuilderFactory jobs) {
-        return jobs.get("myJob").start(flow()).end().build();
+        return jobs.get("myjb").start(flow()).end().build();
     }
 
     protected Step step0() {
-        return steps.get("setupCrawlerStep").tasklet(tasklet()).build();
+        return steps.get("xx").tasklet(tasklet()).build();
     }
 
     private Flow flow() {
@@ -150,7 +150,7 @@ public class CrawlerBatchConfiguration {
 
     private Properties additionalJpaProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "update");
+        properties.setProperty("hibernate.hbm2ddl.auto", "create");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         properties.setProperty("hibernate.show_sql", "true");
         properties.setProperty("current_session_context_class", "thread");

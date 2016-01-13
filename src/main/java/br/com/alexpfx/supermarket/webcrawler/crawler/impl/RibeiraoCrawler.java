@@ -45,11 +45,16 @@ public class RibeiraoCrawler extends AbstractCrawler {
             String name = extractName(item);
             String code = extractCode(item);
             String url = extractProductUrl(item);
+
             ProdutoSuperMercadoTOBuilder builder = new ProdutoSuperMercadoTOBuilder();
-            TransferObject to = builder.descricao(name).url(url).code(code).create();
+            TransferObject to = builder.descricao(name).url(url).code(code).fabricante(extractFabricante()).create();
             products.add(to);
         });
         return products;
+    }
+
+    private String extractFabricante() {
+        return "fabricante";
     }
 
 
