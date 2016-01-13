@@ -34,10 +34,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -47,10 +52,11 @@ import java.util.Properties;
 @Configuration
 @EnableBatchProcessing
 @PropertySource("classpath:database.properties")
+@EnableJpaRepositories(basePackages = {"br.com.alexpfx.supermarket.domain"})
 public class CrawlerBatchConfiguration {
 
 
-    @Value("jdbc.url")
+    @Value("${jdbc.url}")
     String url;
 
     @Value("${jdbc.driverClassName}")
@@ -117,19 +123,29 @@ public class CrawlerBatchConfiguration {
     }
 
 
+    @Bean
     public DataSource dataSource() {
-        return DataSourceBuilder.create().url(url).driverClassName(driverClassName).username(username).password(password).build();
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName(driverClassName);
+        ds.setUrl(url);
+        ds.setUsername(username);
+        ds.setPassword(password);
+
+
+        return ds;
     }
 
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    @Bean
+    public EntityManagerFactory  entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("");
+        em.setPackagesToScan(new String []{"br.com.alexpfx.supermarket.domain"});
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalJpaProperties());
-        return em;
+        em.afterPropertiesSet();
+        return em.getObject();
     }
 
     private Properties additionalJpaProperties() {
@@ -137,10 +153,17 @@ public class CrawlerBatchConfiguration {
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         properties.setProperty("hibernate.show_sql", "true");
-
+        properties.setProperty("current_session_context_class", "thread");
         return properties;
     }
 
+    @Bean
+    public PlatformTransactionManager transactionManager(){
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory());
+        transactionManager.setDataSource(dataSource());
+        return transactionManager;
+    }
 
     @Bean
     public ItemProcessor<TransferObject, Product> processor() {
