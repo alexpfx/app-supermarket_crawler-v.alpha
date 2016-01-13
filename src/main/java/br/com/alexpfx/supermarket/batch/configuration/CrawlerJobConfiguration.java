@@ -3,7 +3,7 @@ package br.com.alexpfx.supermarket.batch.configuration;
 import br.com.alexpfx.supermarket.batch.processor.ProductProcessor;
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.batch.tasklet.StartCrawlerTasklet;
-import br.com.alexpfx.supermarket.batch.writer.HIbernateProductsItemWriter;
+import br.com.alexpfx.supermarket.batch.writer.HibernateProductsItemWriter;
 import br.com.alexpfx.supermarket.domain.Product;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.batch.core.Job;
@@ -74,7 +74,7 @@ public class CrawlerJobConfiguration {
     }
 
     private ItemWriter<Product> writer() {
-        return new HIbernateProductsItemWriter();
+        return new HibernateProductsItemWriter();
     }
 
 

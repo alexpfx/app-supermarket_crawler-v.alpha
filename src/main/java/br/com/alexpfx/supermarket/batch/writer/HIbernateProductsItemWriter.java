@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by alexandre on 10/01/2016.
  */
-public class HIbernateProductsItemWriter implements ItemWriter<Product> {
+public class HibernateProductsItemWriter implements ItemWriter<Product> {
 
     @Autowired
     private ProductDao productDao;
