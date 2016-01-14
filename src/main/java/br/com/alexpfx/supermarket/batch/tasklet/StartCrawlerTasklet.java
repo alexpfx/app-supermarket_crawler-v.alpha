@@ -16,11 +16,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class StartCrawlerTasklet implements Tasklet {
 
-    @Autowired
     private Crawler crawler;
 
     @Autowired
     private CrawlerListener listener;
+
+    public StartCrawlerTasklet(Crawler crawler) {
+        this.crawler = crawler;
+    }
 
     @Override
     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {

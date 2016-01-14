@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 /**
  * Created by alexandre on 13/01/2016.
  */
-public interface InfrastructureConfiguration {
+public interface InfrastructureConfig {
     @Bean
     DataSource getDataSource();
 

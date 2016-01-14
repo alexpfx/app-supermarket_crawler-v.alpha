@@ -6,11 +6,13 @@ import br.com.alexpfx.supermarket.bo.impl.ProductBoImpl;
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.impl.AngeloniCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,11 +21,18 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @EnableBatchProcessing
-public class Beans {
+public class CommonBeansConfig {
 
     @Bean
+    @Qualifier(value = "ribeiraoCrawler")
     public Crawler crawler() {
         return new RibeiraoCrawler(new UserAgentFactory());
+    }
+
+    @Bean
+    @Qualifier(value = "angeloniCrawler")
+    public Crawler angeloniCrawler (){
+        return new AngeloniCrawler(new UserAgentFactory());
     }
 
     @Bean

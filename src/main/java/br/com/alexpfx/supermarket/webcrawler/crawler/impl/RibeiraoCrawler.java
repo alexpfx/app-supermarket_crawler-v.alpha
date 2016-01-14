@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class RibeiraoCrawler extends AbstractCrawler {
 
-    public RibeiraoCrawler(UserAgentFactory userAgent) {
-        super(userAgent.createUserAgent(), "https://www.mercadoribeirao.com.br/");
+    public RibeiraoCrawler(UserAgentFactory userAgentFactory) {
+        super(userAgentFactory.createUserAgent(), "https://www.mercadoribeirao.com.br/");
     }
 
     @Override

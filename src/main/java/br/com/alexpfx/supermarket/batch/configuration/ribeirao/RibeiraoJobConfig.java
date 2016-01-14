@@ -1,10 +1,12 @@
-package br.com.alexpfx.supermarket.batch.configuration;
+package br.com.alexpfx.supermarket.batch.configuration.ribeirao;
 
+import br.com.alexpfx.supermarket.batch.configuration.InfrastructureConfig;
 import br.com.alexpfx.supermarket.batch.processor.ProductProcessor;
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.batch.tasklet.StartCrawlerTasklet;
 import br.com.alexpfx.supermarket.batch.writer.HibernateProductsItemWriter;
 import br.com.alexpfx.supermarket.domain.Product;
+import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -18,9 +20,9 @@ import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 
 /**
@@ -28,17 +30,21 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 @EnableBatchProcessing
-@Import(value = {MysqlInfrastructureConfiguration.class, Beans.class})
-public class CrawlerJobConfiguration {
+public class RibeiraoJobConfig {
 
 
     @Autowired
-    private InfrastructureConfiguration infrastructureConfiguration;
+    private InfrastructureConfig infrastructureConfig;
 
     @Autowired
     private StepBuilderFactory steps;
+
     @Autowired
     Environment environment;
+
+    @Autowired
+    @Qualifier(value = "ribeiraoCrawler")
+    Crawler crawler;
 
 
     @Bean
@@ -71,7 +77,7 @@ public class CrawlerJobConfiguration {
 
     @Bean
     public Tasklet crawlerTasklet() {
-        return new StartCrawlerTasklet();
+        return new StartCrawlerTasklet(crawler);
     }
 
     @Bean

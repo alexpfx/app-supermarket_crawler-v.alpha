@@ -24,7 +24,7 @@ import java.util.Properties;
 @EnableBatchProcessing
 @PropertySource("classpath:database.properties")
 @EnableJpaRepositories(basePackages = {"br.com.alexpfx.supermarket.domain"})
-public class MysqlInfrastructureConfiguration implements InfrastructureConfiguration {
+public class MYSQLHibernateInfrastructureConfig implements InfrastructureConfig {
 
     @Value("${jdbc.url}")
     String url;
