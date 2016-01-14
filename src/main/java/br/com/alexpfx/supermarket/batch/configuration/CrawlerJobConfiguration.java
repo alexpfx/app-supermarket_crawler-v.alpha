@@ -20,6 +20,7 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 
 /**
@@ -27,6 +28,7 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 @EnableBatchProcessing
+@Import(value = {MysqlInfrastructureConfiguration.class, Beans.class})
 public class CrawlerJobConfiguration {
 
 
@@ -66,19 +68,24 @@ public class CrawlerJobConfiguration {
         return processProductStep;
     }
 
-    private Tasklet crawlerTasklet() {
+
+    @Bean
+    public Tasklet crawlerTasklet() {
         return new StartCrawlerTasklet();
     }
 
-    private ItemProcessor<TransferObject, Product> processor() {
+    @Bean
+    public ItemProcessor<TransferObject, Product> processor() {
         return new ProductProcessor();
     }
 
-    private ItemReader<TransferObject> reader() {
+    @Bean
+    public ItemReader<TransferObject> reader() {
         return new ProductItemReader();
     }
 
-    private ItemWriter<Product> writer() {
+    @Bean
+    public ItemWriter<Product> writer() {
         return new HibernateProductsItemWriter();
     }
 
