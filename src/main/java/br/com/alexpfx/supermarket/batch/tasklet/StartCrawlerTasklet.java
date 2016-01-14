@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
  * Created by alexandre on 04/01/2016.
  */
 public class StartCrawlerTasklet implements Tasklet {
+
     @Autowired
     private Crawler crawler;
 

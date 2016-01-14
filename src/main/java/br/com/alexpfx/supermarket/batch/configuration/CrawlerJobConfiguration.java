@@ -13,6 +13,7 @@ import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.job.AbstractJob;
 import org.springframework.batch.core.step.tasklet.Tasklet;
+import org.springframework.batch.core.step.tasklet.TaskletStep;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
@@ -20,14 +21,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * Created by alexandre on 03/01/2016.
  */
 @Configuration
 @EnableBatchProcessing
-@EnableJpaRepositories(basePackages = {"br.com.alexpfx.supermarket.domain"})
 public class CrawlerJobConfiguration {
 
 
@@ -48,17 +47,23 @@ public class CrawlerJobConfiguration {
 
     }
 
-    private Step crawlerStep() {
-        return steps.get("crawlerStep").tasklet(crawlerTasklet()).build();
+    @Bean
+    public Step crawlerStep() {
+        TaskletStep crawlerStep = steps.get("crawlerStep").tasklet(crawlerTasklet()).build();
+        crawlerStep.setAllowStartIfComplete(true);
+        return crawlerStep;
     }
 
-    private Step processProductStep() {
-        return steps.get("processProductStep")
+    @Bean
+    public Step processProductStep() {
+        TaskletStep processProductStep = steps.get("processProductStep")
                 .<TransferObject, Product>chunk(10)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())
                 .build();
+        processProductStep.setAllowStartIfComplete(true);
+        return processProductStep;
     }
 
     private Tasklet crawlerTasklet() {
