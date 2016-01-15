@@ -9,7 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
+    public static final String ANGELONI_JOB = "job";
+
     public static void main(String[] args) {
+//        System.setProperty("spring.batch.job.names", ANGELONI_JOB);
         SpringApplication.run(Application.class, args);
     }
 }

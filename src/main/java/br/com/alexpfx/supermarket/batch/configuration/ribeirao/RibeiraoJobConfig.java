@@ -44,12 +44,16 @@ public class RibeiraoJobConfig {
 
     @Autowired
     @Qualifier(value = "ribeiraoCrawler")
-    Crawler crawler;
+    Crawler ribeiraoCrawler;
+
+    @Autowired
+    @Qualifier(value = "angeloniCrawler")
+    Crawler angeloniCrawler;
 
 
     @Bean
     public Job job(JobBuilderFactory jobs) {
-        Job theJob = jobs.get("job").start(crawlerStep()).next(processProductStep()).build();
+        Job theJob = jobs.get("crawlerJob").start(crawlerStep()).next(processProductStep()).build();
         ((AbstractJob) theJob).setRestartable(true);
         return theJob;
 
@@ -77,7 +81,7 @@ public class RibeiraoJobConfig {
 
     @Bean
     public Tasklet crawlerTasklet() {
-        return new StartCrawlerTasklet(crawler);
+        return new StartCrawlerTasklet(angeloniCrawler);
     }
 
     @Bean
