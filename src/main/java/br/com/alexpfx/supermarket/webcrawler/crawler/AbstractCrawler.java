@@ -6,6 +6,7 @@ import com.jaunt.Document;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public abstract class AbstractCrawler implements Crawler {
 
     private StopCondition stopCondition = StopCondition.EMTPY;
 
-    protected abstract List<String> extractSubPages(Document document);
+    protected abstract FlowControl extractUrlsToVisit(List<String> outputUrlList, Document document);
 
     private String rootUrl;
 
@@ -39,11 +40,16 @@ public abstract class AbstractCrawler implements Crawler {
         } catch (ResponseException e) {
             throw new IllegalArgumentException("erro ao visitar Root Url", e);
         }
-        List<String> links = extractSubPages(doc);
-        Iterator<String> iterator = links.iterator();
+        List<String> urlsToVisit = new ArrayList<>();
+        FlowControl flowControl = FlowControl.REPEAT;
+        while (FlowControl.REPEAT == flowControl){
+            extractUrlsToVisit(urlsToVisit, doc);
+        }
+
+        Iterator<String> iterator = urlsToVisit.iterator();
         boolean stop = false;
         int i = 0;
-        int size = links.size();
+        int size = urlsToVisit.size();
         while (iterator.hasNext() && !stop) {
             String link = iterator.next();
             List<TransferObject> products = null;

@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.FlowControl;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
@@ -22,7 +23,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
     }
 
     @Override
-    protected List<String> extractSubPages(Document document) {
+    protected FlowControl extractUrlsToVisit(List<String> outputUrlList, Document document) {
         List<String> list = new ArrayList<>();
         Elements submenu = document.findEvery("<a class=new_sub_menu>");
         submenu.findEvery("<a>").forEach(element -> {
@@ -33,7 +34,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
                 notFound.printStackTrace();
             }
         });
-        return list;
+        return FlowControl.REPEAT;
     }
 
     @Override

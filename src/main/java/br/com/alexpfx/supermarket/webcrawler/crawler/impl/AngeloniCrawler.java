@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.FlowControl;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
@@ -21,9 +22,15 @@ public class AngeloniCrawler extends AbstractCrawler {
     }
 
     @Override
-    protected List<String> extractSubPages(Document document) {
+    protected FlowControl extractUrlsToVisit(List<String> outputUrlList, Document document) {
         List<String> list = new ArrayList<>();
+        extrair(document, list);
+        return FlowControl.DONE;
+    }
+
+    private void extrair(Document document, List<String> list) {
         Elements submenu = document.findEach("<a class='lnkTp01 '>");
+
         submenu.findEvery("<a>").forEach(element -> {
             String href = null;
             try {
@@ -33,8 +40,6 @@ public class AngeloniCrawler extends AbstractCrawler {
                 notFound.printStackTrace();
             }
         });
-
-        return list;
     }
 
     @Override

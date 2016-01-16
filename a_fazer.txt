@@ -1,3 +1,4 @@
+[] adicionar recursividade ao crawler para pagar todas as paginas.
 [] logar informacoes sobre o crawler: motivo de parada, tempo em execucao, etc.
 [x] configurar persistencia com hibernate
 [x] organizar metodos e nomes na classe CrawlerBatchConfiguration
