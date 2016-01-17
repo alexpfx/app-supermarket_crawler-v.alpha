@@ -25,7 +25,7 @@ public class Collector {
     }
 
 
-    public List<String> collect()  {
+    public List<String> collect() {
         return collect(startUrls, new ArrayList<>());
     }
 

@@ -2,7 +2,6 @@ package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Collector;
-import br.com.alexpfx.supermarket.webcrawler.crawler.FlowControl;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
@@ -22,20 +21,20 @@ public class AngeloniCrawler extends AbstractCrawler {
     private static final String ROOT_URL = "http://www.angeloni.com.br/super/index";
 
     private static final CollectorRule VISITOR_RULE = doc -> {
-            List<String> list = new ArrayList<String>();
-            Elements elements = doc.findEach("<a class='lnkTp01 '>");
-            Element lnkTp02 = doc.findEach("<a class='lnkTp02 '>");
-            elements.addChildren(0, lnkTp02.getChildNodes());
-            elements.findEach("<a>").forEach(element -> {
-                String href = null;
-                try {
-                    href = element.getAt("href");
-                    list.add(href);
-                } catch (NotFound notFound) {
-                    notFound.printStackTrace();
-                }
-            });
-            return list;
+        List<String> list = new ArrayList<String>();
+        Elements elements = doc.findEach("<a class='lnkTp01 '>");
+        Element lnkTp02 = doc.findEach("<a class='lnkTp02 '>");
+        elements.addChildren(0, lnkTp02.getChildNodes());
+        elements.findEach("<a>").forEach(element -> {
+            String href = null;
+            try {
+                href = element.getAt("href");
+                list.add(href);
+            } catch (NotFound notFound) {
+                notFound.printStackTrace();
+            }
+        });
+        return list;
     };
 
 

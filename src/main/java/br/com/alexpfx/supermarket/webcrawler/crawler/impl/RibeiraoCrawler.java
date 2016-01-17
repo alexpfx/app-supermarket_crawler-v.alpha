@@ -3,7 +3,6 @@ package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Collector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
-import br.com.alexpfx.supermarket.webcrawler.crawler.FlowControl;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
