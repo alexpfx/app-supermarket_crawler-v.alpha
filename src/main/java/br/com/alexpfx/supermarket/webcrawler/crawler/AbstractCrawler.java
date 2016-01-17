@@ -21,9 +21,9 @@ public abstract class AbstractCrawler implements Crawler {
 
     private long startTime;
 
-    private Collector collector;
+    private UrlCollector collector;
 
-    public AbstractCrawler(Collector collector) {
+    public AbstractCrawler(UrlCollector collector) {
         this.collector = collector;
     }
 
