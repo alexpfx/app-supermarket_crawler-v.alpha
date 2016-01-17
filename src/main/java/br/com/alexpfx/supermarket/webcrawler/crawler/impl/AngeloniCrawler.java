@@ -2,6 +2,8 @@ package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.FlowControl;
+import br.com.alexpfx.supermarket.webcrawler.crawler.Visitor;
+import br.com.alexpfx.supermarket.webcrawler.crawler.VisitorRule;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
@@ -9,6 +11,7 @@ import com.jaunt.Elements;
 import com.jaunt.NotFound;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,8 +20,13 @@ import java.util.List;
 public class AngeloniCrawler extends AbstractCrawler {
     private static final String ROOT_URL = "http://www.angeloni.com.br/super/index";
 
+    private static final VisitorRule VISITOR_RULE = doc -> {
+        return null;
+    };
+
+
     public AngeloniCrawler(UserAgentFactory userAgentFactory) {
-        super(userAgentFactory.createUserAgent(), ROOT_URL);
+        super(new Visitor(userAgentFactory.createUserAgent(), VISITOR_RULE, Collections.singletonList(ROOT_URL)));
     }
 
     @Override

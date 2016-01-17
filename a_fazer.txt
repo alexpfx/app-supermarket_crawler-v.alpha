@@ -1,6 +1,9 @@
+[] eliminar construtores nao utilzados da classe visitor
+[] adequar testes unitarios classe visitor
+[] refatorar ribeirao crawler para adequar ao novo esquema para pegar links para visita
 [] adicionar limite de recursividade
-[] adicionar recursividade ao crawler para pagar todas as paginas.
 [] logar informacoes sobre o crawler: motivo de parada, tempo em execucao, etc.
+[x] adicionar recursividade ao crawler para pagar todas as paginas.
 [x] configurar persistencia com hibernate
 [x] organizar metodos e nomes na classe CrawlerBatchConfiguration
 [x] configurar reader do batch para pegar dados do crawler

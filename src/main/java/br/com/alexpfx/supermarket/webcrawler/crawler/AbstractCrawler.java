@@ -4,9 +4,8 @@ import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
 import com.jaunt.ResponseException;
-import com.jaunt.UserAgent;
 
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,29 +20,23 @@ public abstract class AbstractCrawler implements Crawler {
 
     protected abstract FlowControl extractUrlsToVisit(List<String> outputUrlList, Document document);
 
-    private String rootUrl;
 
-    private UserAgent userAgent;
     private long startTime;
 
-    public AbstractCrawler(UserAgent userAgent, String rootUrl) {
-        this.userAgent = userAgent;
-        this.rootUrl = rootUrl;
+    private Visitor visitor;
+
+    public AbstractCrawler(Visitor visitor) {
+        this.visitor = visitor;
     }
 
     @Override
     public void crawl() {
         startTime = System.currentTimeMillis();
-        Document doc = null;
+        List<String> urlsToVisit = Collections.emptyList();
         try {
-            doc = userAgent.visit(rootUrl);
+            urlsToVisit = visitor.collect();
         } catch (ResponseException e) {
-            throw new IllegalArgumentException("erro ao visitar Root Url", e);
-        }
-        List<String> urlsToVisit = new ArrayList<>();
-        FlowControl flowControl = FlowControl.REPEAT;
-        while (FlowControl.REPEAT == flowControl){
-            extractUrlsToVisit(urlsToVisit, doc);
+            e.printStackTrace();
         }
 
         Iterator<String> iterator = urlsToVisit.iterator();
@@ -54,7 +47,8 @@ public abstract class AbstractCrawler implements Crawler {
             String link = iterator.next();
             List<TransferObject> products = null;
             try {
-                products = extract(userAgent.visit(link));
+                //TODO: ruim
+                products = extract(visitor.getUserAgent().visit(link));
             } catch (ResponseException e) {
                 e.printStackTrace();
             }

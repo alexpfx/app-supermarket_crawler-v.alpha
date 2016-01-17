@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by alexandre on 17/01/2016.
  */
+@FunctionalInterface
 public interface VisitorRule {
     List<String> evaluate(Document doc);
 

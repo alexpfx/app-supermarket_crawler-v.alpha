@@ -2,6 +2,8 @@ package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.FlowControl;
+import br.com.alexpfx.supermarket.webcrawler.crawler.Visitor;
+import br.com.alexpfx.supermarket.webcrawler.crawler.VisitorRule;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
@@ -11,6 +13,7 @@ import com.jaunt.Elements;
 import com.jaunt.NotFound;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,8 +21,12 @@ import java.util.List;
  */
 public class RibeiraoCrawler extends AbstractCrawler {
 
+    private static final VisitorRule VISITOR_RULE = doc -> {
+        return null;
+    };
+
     public RibeiraoCrawler(UserAgentFactory userAgentFactory) {
-        super(userAgentFactory.createUserAgent(), "https://www.mercadoribeirao.com.br/");
+        super(new Visitor(userAgentFactory.createUserAgent(), VISITOR_RULE, Collections.singletonList("https://www.mercadoribeirao.com.br/")));
     }
 
     @Override

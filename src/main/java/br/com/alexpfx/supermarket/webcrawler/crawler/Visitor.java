@@ -17,12 +17,22 @@ public class Visitor {
     private UserAgent userAgent;
 
     private VisitorRule visitorRule;
+    private List<String> startUrls;
+
+    public Visitor(UserAgent userAgent, VisitorRule visitorRule, List<String> startUrls) {
+        this.userAgent = userAgent;
+        this.visitorRule = visitorRule;
+        this.startUrls = startUrls;
+    }
+
+
+
 
     public Visitor(UserAgent userAgent) {
         this.userAgent = userAgent;
     }
 
-    public List<String> collect(List<String> startUrls) throws ResponseException {
+    public List<String> collect() throws ResponseException {
         return collect(startUrls, new ArrayList<>());
     }
 
@@ -55,5 +65,9 @@ public class Visitor {
 
     private List<String> evaluate(Document doc) {
         return visitorRule.evaluate(doc);
+    }
+
+    public UserAgent getUserAgent() {
+        return userAgent;
     }
 }
