@@ -1,5 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
+import com.jaunt.UserAgent;
+
 import java.util.List;
 
 /**
@@ -11,6 +13,9 @@ public interface Collector<T> {
     List<T> collect();
 
     void setCollectorListener(CollectorListener<T> collectorListener);
+
+
+    void setUserAgent (UserAgent userAgent);
 
 
 }

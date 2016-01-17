@@ -1,9 +1,11 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
+import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
 import com.jaunt.ResponseException;
+import com.jaunt.UserAgent;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -23,8 +25,11 @@ public abstract class AbstractCrawler implements Crawler {
 
     private UrlCollector collector;
 
-    public AbstractCrawler(UrlCollector collector) {
+    private UserAgent userAgent;
+
+    public AbstractCrawler(UrlCollector collector, UserAgent userAgent) {
         this.collector = collector;
+        this.userAgent = userAgent;
     }
 
     @Override
@@ -42,7 +47,7 @@ public abstract class AbstractCrawler implements Crawler {
             List<TransferObject> products = null;
             try {
                 //TODO: ruim
-                products = extract(collector.getUserAgent().visit(link));
+                products = extract(userAgent.visit(link));
             } catch (ResponseException e) {
                 e.printStackTrace();
             }

@@ -26,13 +26,14 @@ public class CommonBeansConfig {
     @Bean
     @Qualifier(value = "ribeiraoCrawler")
     public Crawler crawler() {
-        return new RibeiraoCrawler(new UserAgentFactory());
+
+        return new RibeiraoCrawler(new UserAgentFactory().createUserAgent());
     }
 
     @Bean
     @Qualifier(value = "angeloniCrawler")
     public Crawler angeloniCrawler() {
-        return new AngeloniCrawler(new UserAgentFactory());
+        return new AngeloniCrawler(new UserAgentFactory().createUserAgent());
     }
 
     @Bean

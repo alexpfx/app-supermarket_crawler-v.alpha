@@ -1,5 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
+import com.google.common.base.Preconditions;
 import com.jaunt.Document;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
@@ -19,8 +20,7 @@ public class UrlCollector implements Collector<String> {
     private List<String> startUrls;
     private CollectorListener<String> collectorListener = CollectorListener.EMPTY;
 
-    public UrlCollector(UserAgent userAgent, CollectorRule collectorRule, List<String> startUrls) {
-        this.userAgent = userAgent;
+    public UrlCollector(CollectorRule collectorRule, List<String> startUrls) {
         this.collectorRule = collectorRule;
         this.startUrls = startUrls;
     }
@@ -31,42 +31,44 @@ public class UrlCollector implements Collector<String> {
         this.collectorRule = collectorRule;
     }
 
-    public List<String> collect() {
-        return collect(startUrls, new ArrayList<>());
-    }
-
     @Override
     public void setCollectorListener(CollectorListener<String> collectorListener) {
         this.collectorListener = collectorListener;
     }
 
-    private List<String> collect(List<String> toVisit, List<String> lista) {
-        if (toVisit.isEmpty()) {
-            return lista;
-        }
+    @Override
+    public void setUserAgent(UserAgent userAgent) {
+        this.userAgent = userAgent;
+    }
 
-        List<String> l = new ArrayList<>();
+    @Override
+    public List<String> collect() {
+        Preconditions.checkNotNull(userAgent);
+        return collect(startUrls, new ArrayList<>());
+    }
+
+    private List<String> collect(List<String> toVisit, List<String> lista) {
+        List<String> subList = new ArrayList<>();
         for (String url : toVisit) {
             System.out.println(url);
             List<String> evaluated = Collections.EMPTY_LIST;
             try {
                 evaluated = evaluate(userAgent.visit(url));
             } catch (ResponseException e) {
-                System.out.println(e);
+                //TODO: log
             }
             evaluated = evaluated.stream().filter(p -> !(lista.contains(p))).collect(Collectors.toList());
-            l.addAll(evaluated);
+            evaluated.forEach(s -> {
+                collectorListener.collected(s);
+                subList.add(s);
+            });
         }
-        lista.addAll(l);
-        return collect(l, lista);
-
+        lista.addAll(subList);
+        return toVisit.isEmpty() ? lista : collect(subList, lista);
     }
 
     private List<String> evaluate(Document doc) {
         return collectorRule.evaluate(doc);
     }
 
-    public UserAgent getUserAgent() {
-        return userAgent;
-    }
 }

@@ -5,10 +5,7 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.UrlCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
-import com.jaunt.Document;
-import com.jaunt.Element;
-import com.jaunt.Elements;
-import com.jaunt.NotFound;
+import com.jaunt.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,8 +35,8 @@ public class AngeloniCrawler extends AbstractCrawler {
     };
 
 
-    public AngeloniCrawler(UserAgentFactory userAgentFactory) {
-        super(new UrlCollector(userAgentFactory.createUserAgent(), VISITOR_RULE, Collections.singletonList(ROOT_URL)));
+    public AngeloniCrawler(UserAgent userAgent) {
+        super(new UrlCollector(VISITOR_RULE, Collections.singletonList(ROOT_URL)), userAgent);
     }
 
     private void extrair(Document document, List<String> list) {

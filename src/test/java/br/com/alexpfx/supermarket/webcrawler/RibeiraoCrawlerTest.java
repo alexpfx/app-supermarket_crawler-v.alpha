@@ -22,7 +22,7 @@ public class RibeiraoCrawlerTest {
 
     @Before
     public void setUp() throws Exception {
-        RibeiraoCrawler crawler = new RibeiraoCrawler(new UserAgentFactory());
+        RibeiraoCrawler crawler = new RibeiraoCrawler(new UserAgentFactory().createUserAgent());
         crawler.setListener(new RibeiraoListener());
         crawler.crawl();
     }
