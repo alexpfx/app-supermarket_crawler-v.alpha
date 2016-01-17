@@ -3,7 +3,6 @@ package br.com.alexpfx.supermarket.webcrawler.crawler;
 import com.jaunt.Document;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,30 +12,24 @@ import java.util.stream.Collectors;
 /**
  * Created by alexandre on 16/01/2016.
  */
-public class Visitor {
+public class Collector {
     private UserAgent userAgent;
 
-    private VisitorRule visitorRule;
+    private CollectorRule collectorRule;
     private List<String> startUrls;
 
-    public Visitor(UserAgent userAgent, VisitorRule visitorRule, List<String> startUrls) {
+    public Collector(UserAgent userAgent, CollectorRule collectorRule, List<String> startUrls) {
         this.userAgent = userAgent;
-        this.visitorRule = visitorRule;
+        this.collectorRule = collectorRule;
         this.startUrls = startUrls;
     }
 
 
-
-
-    public Visitor(UserAgent userAgent) {
-        this.userAgent = userAgent;
-    }
-
-    public List<String> collect() throws ResponseException {
+    public List<String> collect()  {
         return collect(startUrls, new ArrayList<>());
     }
 
-    private List<String> collect(List<String> toVisit, List<String> lista) throws ResponseException {
+    private List<String> collect(List<String> toVisit, List<String> lista) {
         if (toVisit.isEmpty()) {
             return lista;
         }
@@ -59,12 +52,8 @@ public class Visitor {
 
     }
 
-    public void setVisitorRule(VisitorRule visitorRule) {
-        this.visitorRule = visitorRule;
-    }
-
     private List<String> evaluate(Document doc) {
-        return visitorRule.evaluate(doc);
+        return collectorRule.evaluate(doc);
     }
 
     public UserAgent getUserAgent() {

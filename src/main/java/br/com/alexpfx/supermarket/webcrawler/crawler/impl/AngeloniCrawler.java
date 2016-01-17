@@ -1,12 +1,13 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.Collector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.FlowControl;
-import br.com.alexpfx.supermarket.webcrawler.crawler.Visitor;
-import br.com.alexpfx.supermarket.webcrawler.crawler.VisitorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
+import com.jaunt.Element;
 import com.jaunt.Elements;
 import com.jaunt.NotFound;
 
@@ -20,20 +21,26 @@ import java.util.List;
 public class AngeloniCrawler extends AbstractCrawler {
     private static final String ROOT_URL = "http://www.angeloni.com.br/super/index";
 
-    private static final VisitorRule VISITOR_RULE = doc -> {
-        return null;
+    private static final CollectorRule VISITOR_RULE = doc -> {
+            List<String> list = new ArrayList<String>();
+            Elements elements = doc.findEach("<a class='lnkTp01 '>");
+            Element lnkTp02 = doc.findEach("<a class='lnkTp02 '>");
+            elements.addChildren(0, lnkTp02.getChildNodes());
+            elements.findEach("<a>").forEach(element -> {
+                String href = null;
+                try {
+                    href = element.getAt("href");
+                    list.add(href);
+                } catch (NotFound notFound) {
+                    notFound.printStackTrace();
+                }
+            });
+            return list;
     };
 
 
     public AngeloniCrawler(UserAgentFactory userAgentFactory) {
-        super(new Visitor(userAgentFactory.createUserAgent(), VISITOR_RULE, Collections.singletonList(ROOT_URL)));
-    }
-
-    @Override
-    protected FlowControl extractUrlsToVisit(List<String> outputUrlList, Document document) {
-        List<String> list = new ArrayList<>();
-        extrair(document, list);
-        return FlowControl.DONE;
+        super(new Collector(userAgentFactory.createUserAgent(), VISITOR_RULE, Collections.singletonList(ROOT_URL)));
     }
 
     private void extrair(Document document, List<String> list) {

@@ -1,9 +1,9 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.Collector;
+import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
 import br.com.alexpfx.supermarket.webcrawler.crawler.FlowControl;
-import br.com.alexpfx.supermarket.webcrawler.crawler.Visitor;
-import br.com.alexpfx.supermarket.webcrawler.crawler.VisitorRule;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
@@ -21,18 +21,9 @@ import java.util.List;
  */
 public class RibeiraoCrawler extends AbstractCrawler {
 
-    private static final VisitorRule VISITOR_RULE = doc -> {
-        return null;
-    };
-
-    public RibeiraoCrawler(UserAgentFactory userAgentFactory) {
-        super(new Visitor(userAgentFactory.createUserAgent(), VISITOR_RULE, Collections.singletonList("https://www.mercadoribeirao.com.br/")));
-    }
-
-    @Override
-    protected FlowControl extractUrlsToVisit(List<String> outputUrlList, Document document) {
+    private static final CollectorRule VISITOR_RULE = doc -> {
         List<String> list = new ArrayList<>();
-        Elements submenu = document.findEvery("<a class=new_sub_menu>");
+        Elements submenu = doc.findEvery("<a class=new_sub_menu>");
         submenu.findEvery("<a>").forEach(element -> {
             try {
                 String href = element.getAt("href");
@@ -41,8 +32,13 @@ public class RibeiraoCrawler extends AbstractCrawler {
                 notFound.printStackTrace();
             }
         });
-        return FlowControl.REPEAT;
+        return list;
+    };
+
+    public RibeiraoCrawler(UserAgentFactory userAgentFactory) {
+        super(new Collector(userAgentFactory.createUserAgent(), VISITOR_RULE, Collections.singletonList("https://www.mercadoribeirao.com.br/")));
     }
+
 
     @Override
     protected List<TransferObject> extract(Document doc) {

@@ -8,13 +8,13 @@ import java.util.List;
  * Created by alexandre on 17/01/2016.
  */
 @FunctionalInterface
-public interface VisitorRule {
+public interface CollectorRule {
     List<String> evaluate(Document doc);
 
-    VisitorRule EMPTY = new VisitorRule() {
+    CollectorRule EMPTY = new CollectorRule() {
         @Override
         public List<String> evaluate(Document doc) {
-            throw new RuntimeException("VisitorRule not setted");
+            throw new RuntimeException("CollectorRule not setted");
         }
     };
 }

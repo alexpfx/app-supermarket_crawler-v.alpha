@@ -10,43 +10,41 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by alexandre on 17/01/2016.
  */
-public class VisitorTest {
+public class CollectorTest {
 
-    private Visitor visitor;
+    private Collector collector;
+    private UserAgentFactory userAgentFactory;
 
     @Before
     public void setUp() throws Exception {
-        visitor = new Visitor(new UserAgentFactory().createUserAgent());
-
+        userAgentFactory = new UserAgentFactory();
     }
 
 
-    private VisitorRule getVisitorRuleGoogle() {
-        return new VisitorRule() {
-            @Override
-            public List<String> evaluate(Document doc) {
-                List<String> list = new ArrayList<String>();
-                Elements elements = doc.findEvery("<h3 class=r>").findEvery("<a>");
-                elements.forEach(element -> {
-                    try {
-                        String href = element.getAt("href");
-                        list.add(href);
-                    } catch (NotFound notFound) {
-                        notFound.printStackTrace();
-                    }
-                });
-                return list;
-            }
+    private CollectorRule getVisitorRuleGoogle() {
+        return doc -> {
+            List<String> list = new ArrayList<String>();
+            Elements elements = doc.findEvery("<h3 class=r>").findEvery("<a>");
+            elements.forEach(element -> {
+                try {
+                    String href = element.getAt("href");
+                    list.add(href);
+                } catch (NotFound notFound) {
+                    notFound.printStackTrace();
+                }
+            });
+            return list;
         };
     }
 
-    private VisitorRule getVisitorRuleAngeloni() {
-        return new VisitorRule() {
+    private CollectorRule getVisitorRuleAngeloni() {
+        return new CollectorRule() {
             @Override
             public List<String> evaluate(Document doc) {
                 List<String> list = new ArrayList<String>();
@@ -68,26 +66,22 @@ public class VisitorTest {
     }
 
 
-
-
     @After
     public void tearDown() throws Exception {
 
     }
 
-//    @Test
+    //    @Test
     public void testCollectGoogle() throws Exception {
-        visitor.setVisitorRule(getVisitorRuleGoogle());
-        ArrayList<String> objects = new ArrayList<>();
-        objects.add("https://www.google.com.br/search?q=test&oq=test&aqs=chrome..69i57j69i60l3j69i59l2.7151j0j8&sourceid=chrome&es_sm=93&ie=UTF-8");
-        List<String> collect = visitor.collect();
+        userAgentFactory = new UserAgentFactory();
+        collector = new Collector(userAgentFactory.createUserAgent(), getVisitorRuleGoogle(), Collections.singletonList("https://www.google.com.br/search?q=test&oq=test&aqs=chrome..69i57j69i60l3j69i59l2.7151j0j8&sourceid=chrome&es_sm=93&ie=UTF-8"));
+        List<String> collect = collector.collect();
     }
 
     @Test
     public void testCollectAngeloni() throws Exception {
-        visitor.setVisitorRule(getVisitorRuleAngeloni());
-        ArrayList<String> objects = new ArrayList<>();
-        objects.add("http://www.angeloni.com.br/super/index");
-        List<String> collect = visitor.collect();
+        userAgentFactory = new UserAgentFactory();
+        collector = new Collector(userAgentFactory.createUserAgent(), getVisitorRuleAngeloni(), Collections.singletonList("http://www.angeloni.com.br/super/index"));
+        List<String> collect = collector.collect();
     }
 }

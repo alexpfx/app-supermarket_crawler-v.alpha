@@ -18,26 +18,20 @@ public abstract class AbstractCrawler implements Crawler {
 
     private StopCondition stopCondition = StopCondition.EMTPY;
 
-    protected abstract FlowControl extractUrlsToVisit(List<String> outputUrlList, Document document);
-
 
     private long startTime;
 
-    private Visitor visitor;
+    private Collector collector;
 
-    public AbstractCrawler(Visitor visitor) {
-        this.visitor = visitor;
+    public AbstractCrawler(Collector collector) {
+        this.collector = collector;
     }
 
     @Override
     public void crawl() {
         startTime = System.currentTimeMillis();
         List<String> urlsToVisit = Collections.emptyList();
-        try {
-            urlsToVisit = visitor.collect();
-        } catch (ResponseException e) {
-            e.printStackTrace();
-        }
+        urlsToVisit = collector.collect();
 
         Iterator<String> iterator = urlsToVisit.iterator();
         boolean stop = false;
@@ -48,7 +42,7 @@ public abstract class AbstractCrawler implements Crawler {
             List<TransferObject> products = null;
             try {
                 //TODO: ruim
-                products = extract(visitor.getUserAgent().visit(link));
+                products = extract(collector.getUserAgent().visit(link));
             } catch (ResponseException e) {
                 e.printStackTrace();
             }
