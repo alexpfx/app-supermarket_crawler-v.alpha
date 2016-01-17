@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Created by alexandre on 16/01/2016.
  */
-public class Collector {
+public class Collector<T> {
     private UserAgent userAgent;
 
     private CollectorRule collectorRule;
