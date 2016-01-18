@@ -6,6 +6,7 @@ import com.jaunt.Document;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -45,17 +46,13 @@ public abstract class AbstractCrawler implements Crawler {
         int i = 0;
         int size = urlsToVisit.size();
         while (iterator.hasNext() && !stop) {
-            String link = iterator.next();
+            String url = iterator.next();
             List<TransferObject> products = null;
-            try {
-                //TODO: ruim
-                products = extract(userAgent.visit(link));
-                itemsCollector.collect(urlsToVisit);
-            } catch (ResponseException e) {
-                e.printStackTrace();
-            }
+            itemsCollector.collect(Collections.singletonList(url));
+
+
             notifyListeners(products);
-            stop = evaluateStopCondition(link, i++, size);
+            stop = evaluateStopCondition(url, i++, size);
         }
     }
 

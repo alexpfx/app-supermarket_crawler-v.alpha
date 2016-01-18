@@ -1,14 +1,16 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
-import br.com.alexpfx.supermarket.webcrawler.crawler.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.UrlsCollector;
+import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by alexandre on 14/01/2016.
@@ -31,6 +33,11 @@ public class AngeloniCrawler extends AbstractCrawler {
             }
         });
         return list;
+    };
+
+    private static final CollectorRule<TransferObject> ITEM_RULE = doc -> {
+        Elements lstProd = doc.findEach("<ul class='lstProd '");
+        return Collections.singletonList(new ProdutoSuperMercadoTO());
     };
 
 

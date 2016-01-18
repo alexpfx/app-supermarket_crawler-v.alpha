@@ -12,8 +12,6 @@ public interface Collector<T> {
 
     List<T> collect(List<String> urls);
 
-    void setCollectorListener(CollectorListener<T> collectorListener);
-
 
     void setUserAgent(UserAgent userAgent);
 

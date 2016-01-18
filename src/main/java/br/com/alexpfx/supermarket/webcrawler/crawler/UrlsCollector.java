@@ -27,10 +27,7 @@ public class UrlsCollector extends AbstractCollector<String> {
             System.out.println(url);
             List<String> evaluated = evaluate(url);
             evaluated = evaluated.stream().filter(p -> !(lista.contains(p))).collect(Collectors.toList());
-            evaluated.forEach(s -> {
-                collectorListener.collected(s);
-                subList.add(s);
-            });
+            subList.addAll(evaluated);
         }
         lista.addAll(subList);
         return toVisit.isEmpty() ? lista : doCollect(subList, lista);

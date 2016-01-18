@@ -14,7 +14,6 @@ public abstract class AbstractCollector<T> implements Collector<T> {
 
     // fields are to be used ("exclusively") in subclasses, so I use protected modifier.
     protected CollectorRule<T> collectorRule = (CollectorRule<T>) CollectorRule.EMPTY;
-    protected CollectorListener<T> collectorListener = CollectorListener.EMPTY;
     protected UserAgent userAgent;
 
     @Override
@@ -22,10 +21,6 @@ public abstract class AbstractCollector<T> implements Collector<T> {
         this.collectorRule = collectorRule;
     }
 
-    @Override
-    public final void setCollectorListener(CollectorListener<T> collectorListener) {
-        this.collectorListener = collectorListener;
-    }
 
     @Override
     public final void setUserAgent(UserAgent userAgent) {

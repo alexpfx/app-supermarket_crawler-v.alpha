@@ -28,7 +28,6 @@ public class ItemsCollector extends AbstractCollector<TransferObject> {
             try {
                 List<TransferObject> eList = collectorRule.evaluate(userAgent.visit(url));
                 eList.forEach(e -> {
-                    collectorListener.collected(e);
                     list.add(e);
                 });
             } catch (ResponseException e) {
