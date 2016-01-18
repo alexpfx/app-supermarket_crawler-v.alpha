@@ -3,7 +3,6 @@ package br.com.alexpfx.supermarket.webcrawler.crawler;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
-import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
 
 import java.util.Collections;
@@ -22,36 +21,32 @@ public abstract class AbstractCrawler implements Crawler {
 
     private long startTime;
 
-    private UrlsCollector collector;
+    private UrlsCollector urlsCollector;
 
     private ItemsCollector itemsCollector;
 
-    private UserAgent userAgent;
 
     private List<String> startUrls;
 
-    public AbstractCrawler(UrlsCollector collector, UserAgent userAgent, List<String> startUrls) {
-        this.collector = collector;
+    public AbstractCrawler(UrlsCollector urlsCollector, ItemsCollector itemsCollector, UserAgent userAgent, List<String> startUrls) {
+        this.urlsCollector = urlsCollector;
+        this.itemsCollector = itemsCollector;
         this.startUrls = startUrls;
-        collector.setUserAgent(userAgent);
-        this.userAgent = userAgent;
+        urlsCollector.setUserAgent(userAgent);
     }
 
     @Override
     public void crawl() {
         startTime = System.currentTimeMillis();
-        List<String> urlsToVisit = collector.collect(startUrls);
+        List<String> urlsToVisit = urlsCollector.collect(startUrls);
         Iterator<String> iterator = urlsToVisit.iterator();
         boolean stop = false;
         int i = 0;
         int size = urlsToVisit.size();
         while (iterator.hasNext() && !stop) {
             String url = iterator.next();
-            List<TransferObject> products = null;
-            itemsCollector.collect(Collections.singletonList(url));
-
-
-            notifyListeners(products);
+            List<TransferObject> collected = itemsCollector.collect(Collections.singletonList(url));
+            notifyListeners(collected);
             stop = evaluateStopCondition(url, i++, size);
         }
     }
@@ -74,7 +69,6 @@ public abstract class AbstractCrawler implements Crawler {
         this.listener = listener;
     }
 
-    protected abstract List<TransferObject> extract(Document visit);
 
     public void setStopCondition(StopCondition stopCondition) {
         this.stopCondition = stopCondition;

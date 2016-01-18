@@ -17,12 +17,6 @@ public abstract class AbstractCollector<T> implements Collector<T> {
     protected UserAgent userAgent;
 
     @Override
-    public final void setCollectorRule(CollectorRule<T> collectorRule) {
-        this.collectorRule = collectorRule;
-    }
-
-
-    @Override
     public final void setUserAgent(UserAgent userAgent) {
         this.userAgent = userAgent;
     }

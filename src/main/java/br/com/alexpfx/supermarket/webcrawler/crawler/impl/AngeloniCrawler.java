@@ -2,15 +2,18 @@ package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.ItemsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
-import com.jaunt.*;
+import com.jaunt.Element;
+import com.jaunt.Elements;
+import com.jaunt.NotFound;
+import com.jaunt.UserAgent;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by alexandre on 14/01/2016.
@@ -42,9 +45,10 @@ public class AngeloniCrawler extends AbstractCrawler {
 
 
     public AngeloniCrawler(UserAgent userAgent) {
-        super(new UrlsCollector(VISITOR_RULE), userAgent, Collections.singletonList(ROOT_URL));
+        super(new UrlsCollector(VISITOR_RULE), new ItemsCollector(ITEM_RULE), userAgent, Collections.singletonList(ROOT_URL));
     }
 
+    /*
     private void extrair(Document document, List<String> list) {
         Elements submenu = document.findEach("<a class='lnkTp01 '>");
 
@@ -58,9 +62,6 @@ public class AngeloniCrawler extends AbstractCrawler {
             }
         });
     }
+    */
 
-    @Override
-    protected List<TransferObject> extract(Document visit) {
-        return null;
-    }
 }

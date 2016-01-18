@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class ItemsCollector extends AbstractCollector<TransferObject> {
 
-    private String url;
+    private CollectorRule<TransferObject> collectorRule;
 
-    public ItemsCollector(String url) {
-        this.url = url;
+    public ItemsCollector(CollectorRule<TransferObject> collectorRule) {
+        this.collectorRule = collectorRule;
     }
 
     @Override

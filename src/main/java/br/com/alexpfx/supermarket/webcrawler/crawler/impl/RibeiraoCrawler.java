@@ -1,11 +1,14 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
-import br.com.alexpfx.supermarket.webcrawler.crawler.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
-import com.jaunt.*;
+import com.jaunt.Element;
+import com.jaunt.Elements;
+import com.jaunt.NotFound;
+import com.jaunt.UserAgent;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,13 +33,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
         return list;
     };
 
-    public RibeiraoCrawler(UserAgent userAgent) {
-        super(new UrlsCollector(VISITOR_RULE), userAgent, Collections.singletonList("https://www.mercadoribeirao.com.br/"));
-    }
-
-
-    @Override
-    protected List<TransferObject> extract(Document doc) {
+    private static final CollectorRule<TransferObject> ITEM_RULE = doc -> {
         Elements itemList = doc.findEach("<div class=item-meta-container>");
         List<TransferObject> products = new ArrayList<>();
         itemList.forEach(item -> {
@@ -49,14 +46,19 @@ public class RibeiraoCrawler extends AbstractCrawler {
             products.add(to);
         });
         return products;
+    };
+
+    public RibeiraoCrawler(UserAgent userAgent) {
+        super(new UrlsCollector(VISITOR_RULE), null, userAgent, Collections.singletonList("https://www.mercadoribeirao.com.br/"));
     }
 
-    private String extractFabricante() {
+
+    private static String extractFabricante() {
         return "fabricante";
     }
 
 
-    private String extractProductUrl(Element item) {
+    private static String extractProductUrl(Element item) {
         try {
             Element first = item.findFirst("<div class=ratings-container>").findFirst("<a>");
             return first.getAt("href");
@@ -67,7 +69,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
     }
 
 
-    private String extractCode(Element item_meta_container) {
+    private static String extractCode(Element item_meta_container) {
         try {
             Element first = item_meta_container.findFirst("<div class=ratings-container>").findFirst("<a>");
             return first.getText().trim();
@@ -77,7 +79,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
         return null;
     }
 
-    private String extractName(Element item_meta_container) {
+    private static String extractName(Element item_meta_container) {
         try {
             Element first = item_meta_container.findFirst("<h3 class=item-name>").findFirst("<a>");
             return first.getText();
