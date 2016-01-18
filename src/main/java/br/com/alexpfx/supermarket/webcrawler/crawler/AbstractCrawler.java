@@ -1,13 +1,11 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
-import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.Document;
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,20 +21,20 @@ public abstract class AbstractCrawler implements Crawler {
 
     private long startTime;
 
-    private UrlCollector collector;
+    private UrlsCollector collector;
 
     private UserAgent userAgent;
 
-    public AbstractCrawler(UrlCollector collector, UserAgent userAgent) {
+    public AbstractCrawler(UrlsCollector collector, UserAgent userAgent) {
         this.collector = collector;
+        collector.setUserAgent(userAgent);
         this.userAgent = userAgent;
     }
 
     @Override
     public void crawl() {
         startTime = System.currentTimeMillis();
-        List<String> urlsToVisit = Collections.emptyList();
-        urlsToVisit = collector.collect();
+        List<String> urlsToVisit = collector.collect();
 
         Iterator<String> iterator = urlsToVisit.iterator();
         boolean stop = false;

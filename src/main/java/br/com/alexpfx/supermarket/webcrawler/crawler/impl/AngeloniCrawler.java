@@ -1,9 +1,8 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
-import br.com.alexpfx.supermarket.webcrawler.crawler.UrlCollector;
+import br.com.alexpfx.supermarket.webcrawler.crawler.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
-import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.*;
 
@@ -36,7 +35,7 @@ public class AngeloniCrawler extends AbstractCrawler {
 
 
     public AngeloniCrawler(UserAgent userAgent) {
-        super(new UrlCollector(VISITOR_RULE, Collections.singletonList(ROOT_URL)), userAgent);
+        super(new UrlsCollector(VISITOR_RULE, Collections.singletonList(ROOT_URL)), userAgent);
     }
 
     private void extrair(Document document, List<String> list) {

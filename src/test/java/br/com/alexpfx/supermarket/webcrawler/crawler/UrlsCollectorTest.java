@@ -16,9 +16,9 @@ import java.util.List;
 /**
  * Created by alexandre on 17/01/2016.
  */
-public class UrlCollectorTest {
+public class UrlsCollectorTest {
 
-    private UrlCollector collector;
+    private UrlsCollector collector;
     private UserAgentFactory userAgentFactory;
 
     @Before
@@ -74,14 +74,14 @@ public class UrlCollectorTest {
     //    @Test
     public void testCollectGoogle() throws Exception {
         userAgentFactory = new UserAgentFactory();
-        collector = new UrlCollector(getVisitorRuleGoogle(), Collections.singletonList("https://www.google.com.br/search?q=test&oq=test&aqs=chrome..69i57j69i60l3j69i59l2.7151j0j8&sourceid=chrome&es_sm=93&ie=UTF-8"));
+        collector = new UrlsCollector(getVisitorRuleGoogle(), Collections.singletonList("https://www.google.com.br/search?q=test&oq=test&aqs=chrome..69i57j69i60l3j69i59l2.7151j0j8&sourceid=chrome&es_sm=93&ie=UTF-8"));
         List<String> collect = collector.collect();
     }
 
     @Test
     public void testCollectAngeloni() throws Exception {
         userAgentFactory = new UserAgentFactory();
-        collector = new UrlCollector(getVisitorRuleAngeloni(), Collections.singletonList("http://www.angeloni.com.br/super/index"));
+        collector = new UrlsCollector(getVisitorRuleAngeloni(), Collections.singletonList("http://www.angeloni.com.br/super/index"));
         List<String> collect = collector.collect();
     }
 }
