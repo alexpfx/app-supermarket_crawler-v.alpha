@@ -33,6 +33,7 @@ public abstract class AbstractCrawler implements Crawler {
         this.itemsCollector = itemsCollector;
         this.startUrls = startUrls;
         urlsCollector.setUserAgent(userAgent);
+        itemsCollector.setUserAgent(userAgent);
     }
 
     @Override

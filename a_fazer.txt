@@ -1,8 +1,8 @@
-[] eliminar construtores nao utilzados da classe collector
 [] adequar testes unitarios classe collector
 [] refatorar ribeirao crawler para adequar ao novo esquema para pegar links para visita
 [] adicionar limite de recursividade
 [] logar informacoes sobre o crawler: motivo de parada, tempo em execucao, etc.
+[x] eliminar construtores nao utilzados da classe collector
 [x] adicionar recursividade ao crawler para pagar todas as paginas.
 [x] configurar persistencia com hibernate
 [x] organizar metodos e nomes na classe CrawlerBatchConfiguration
