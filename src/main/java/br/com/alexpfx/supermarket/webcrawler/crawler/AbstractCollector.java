@@ -33,10 +33,10 @@ public abstract class AbstractCollector<T> implements Collector<T> {
     }
 
     @Override
-    public final List<T> collect() {
+    public final List<T> collect(List<String> urls) {
         Preconditions.checkNotNull(userAgent);
-        return doCollect();
+        return doCollect(urls);
     }
 
-    protected abstract List<T> doCollect();
+    protected abstract List<T> doCollect(List<String> urls);
 }

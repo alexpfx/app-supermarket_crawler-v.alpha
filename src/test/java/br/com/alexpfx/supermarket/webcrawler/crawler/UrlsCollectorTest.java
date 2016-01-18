@@ -74,14 +74,14 @@ public class UrlsCollectorTest {
     //    @Test
     public void testCollectGoogle() throws Exception {
         userAgentFactory = new UserAgentFactory();
-        collector = new UrlsCollector(getVisitorRuleGoogle(), Collections.singletonList("https://www.google.com.br/search?q=test&oq=test&aqs=chrome..69i57j69i60l3j69i59l2.7151j0j8&sourceid=chrome&es_sm=93&ie=UTF-8"));
-        List<String> collect = collector.collect();
+        collector = new UrlsCollector(getVisitorRuleGoogle());
+        List<String> collect = collector.collect(Collections.singletonList("https://www.google.com.br/search?q=test&oq=test&aqs=chrome..69i57j69i60l3j69i59l2.7151j0j8&sourceid=chrome&es_sm=93&ie=UTF-8"));
     }
 
     @Test
     public void testCollectAngeloni() throws Exception {
         userAgentFactory = new UserAgentFactory();
-        collector = new UrlsCollector(getVisitorRuleAngeloni(), Collections.singletonList("http://www.angeloni.com.br/super/index"));
-        List<String> collect = collector.collect();
+        collector = new UrlsCollector(getVisitorRuleAngeloni());
+        List<String> collect = collector.collect(Collections.singletonList("http://www.angeloni.com.br/super/index"));
     }
 }

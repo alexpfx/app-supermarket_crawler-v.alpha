@@ -31,7 +31,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
     };
 
     public RibeiraoCrawler(UserAgent userAgent) {
-        super(new UrlsCollector(VISITOR_RULE, Collections.singletonList("https://www.mercadoribeirao.com.br/")), userAgent);
+        super(new UrlsCollector(VISITOR_RULE), userAgent, Collections.singletonList("https://www.mercadoribeirao.com.br/"));
     }
 
 

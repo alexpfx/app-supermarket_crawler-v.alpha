@@ -1,7 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
-import com.jaunt.Elements;
 import com.jaunt.ResponseException;
 
 import java.util.Collections;
@@ -19,7 +18,7 @@ public class ItemsCollector extends AbstractCollector <TransferObject>  {
     }
 
     @Override
-    protected List<TransferObject> doCollect() {
+    protected List<TransferObject> doCollect(List<String> urls) {
         return evaluate();
     }
 

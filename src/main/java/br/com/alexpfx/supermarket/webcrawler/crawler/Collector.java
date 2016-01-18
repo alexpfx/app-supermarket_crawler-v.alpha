@@ -10,12 +10,12 @@ import java.util.List;
 public interface Collector<T> {
     void setCollectorRule(CollectorRule<T> collectorRule);
 
-    List<T> collect();
+    List<T> collect(List<String> urls);
 
     void setCollectorListener(CollectorListener<T> collectorListener);
 
 
-    void setUserAgent (UserAgent userAgent);
+    void setUserAgent(UserAgent userAgent);
 
 
 }

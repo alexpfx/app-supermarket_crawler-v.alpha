@@ -35,7 +35,7 @@ public class AngeloniCrawler extends AbstractCrawler {
 
 
     public AngeloniCrawler(UserAgent userAgent) {
-        super(new UrlsCollector(VISITOR_RULE, Collections.singletonList(ROOT_URL)), userAgent);
+        super(new UrlsCollector(VISITOR_RULE), userAgent, Collections.singletonList(ROOT_URL));
     }
 
     private void extrair(Document document, List<String> list) {

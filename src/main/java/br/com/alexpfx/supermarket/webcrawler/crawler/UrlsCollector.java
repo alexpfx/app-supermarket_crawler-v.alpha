@@ -11,16 +11,14 @@ import java.util.stream.Collectors;
  * Created by alexandre on 16/01/2016.
  */
 public class UrlsCollector extends AbstractCollector<String> {
-    private List<String> startUrls;
 
-    public UrlsCollector(CollectorRule collectorRule, List<String> startUrls) {
+    public UrlsCollector(CollectorRule collectorRule) {
         this.collectorRule = collectorRule;
-        this.startUrls = startUrls;
     }
 
     @Override
-    public List<String> doCollect() {
-        return doCollect(startUrls, new ArrayList<>());
+    public List<String> doCollect(List<String> urls) {
+        return doCollect(urls, new ArrayList<>());
     }
 
     private List<String> doCollect(List<String> toVisit, List<String> lista) {

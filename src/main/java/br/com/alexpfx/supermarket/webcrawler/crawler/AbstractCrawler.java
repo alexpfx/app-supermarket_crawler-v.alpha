@@ -23,10 +23,15 @@ public abstract class AbstractCrawler implements Crawler {
 
     private UrlsCollector collector;
 
+    private ItemsCollector itemsCollector;
+
     private UserAgent userAgent;
 
-    public AbstractCrawler(UrlsCollector collector, UserAgent userAgent) {
+    private List<String> startUrls;
+
+    public AbstractCrawler(UrlsCollector collector, UserAgent userAgent, List<String> startUrls) {
         this.collector = collector;
+        this.startUrls = startUrls;
         collector.setUserAgent(userAgent);
         this.userAgent = userAgent;
     }
@@ -34,8 +39,7 @@ public abstract class AbstractCrawler implements Crawler {
     @Override
     public void crawl() {
         startTime = System.currentTimeMillis();
-        List<String> urlsToVisit = collector.collect();
-
+        List<String> urlsToVisit = collector.collect(startUrls);
         Iterator<String> iterator = urlsToVisit.iterator();
         boolean stop = false;
         int i = 0;
@@ -46,6 +50,7 @@ public abstract class AbstractCrawler implements Crawler {
             try {
                 //TODO: ruim
                 products = extract(userAgent.visit(link));
+                itemsCollector.collect(urlsToVisit);
             } catch (ResponseException e) {
                 e.printStackTrace();
             }
