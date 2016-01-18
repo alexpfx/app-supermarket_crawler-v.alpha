@@ -3,13 +3,13 @@ package br.com.alexpfx.supermarket.webcrawler.crawler;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import com.jaunt.ResponseException;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by alexandre on 18/01/2016.
  */
-public class ItemsCollector extends AbstractCollector <TransferObject>  {
+public class ItemsCollector extends AbstractCollector<TransferObject> {
 
     private String url;
 
@@ -19,16 +19,23 @@ public class ItemsCollector extends AbstractCollector <TransferObject>  {
 
     @Override
     protected List<TransferObject> doCollect(List<String> urls) {
-        return evaluate();
+        return evaluate(urls);
     }
 
-    private List<TransferObject> evaluate() {
-        try {
-            return collectorRule.evaluate(userAgent.visit(url));
-        } catch (ResponseException e) {
-            //LOG
-            return Collections.EMPTY_LIST;
-        }
+    private List<TransferObject> evaluate(List<String> urls) {
+        List<TransferObject> list = new ArrayList<>();
+        urls.forEach(url -> {
+            try {
+                List<TransferObject> eList = collectorRule.evaluate(userAgent.visit(url));
+                eList.forEach(e -> {
+                    collectorListener.collected(e);
+                    list.add(e);
+                });
+            } catch (ResponseException e) {
+                //TODO LOG
+            }
+        });
+        return list;
     }
 }
 
