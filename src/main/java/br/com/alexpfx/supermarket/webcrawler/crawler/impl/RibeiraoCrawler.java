@@ -2,6 +2,7 @@ package br.com.alexpfx.supermarket.webcrawler.crawler.impl;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.AbstractCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.CollectorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.ItemsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
@@ -49,7 +50,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
     };
 
     public RibeiraoCrawler(UserAgent userAgent) {
-        super(new UrlsCollector(VISITOR_RULE), null, userAgent, Collections.singletonList("https://www.mercadoribeirao.com.br/"));
+        super(new UrlsCollector(VISITOR_RULE), new ItemsCollector(ITEM_RULE), userAgent, Collections.singletonList("https://www.mercadoribeirao.com.br/"));
     }
 
 
