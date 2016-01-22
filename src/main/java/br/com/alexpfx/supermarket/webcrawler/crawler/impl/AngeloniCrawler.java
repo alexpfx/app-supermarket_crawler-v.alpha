@@ -48,20 +48,4 @@ public class AngeloniCrawler extends AbstractCrawler {
         super(new UrlsCollector(VISITOR_RULE), new ItemsCollector(ITEM_RULE), userAgent, Collections.singletonList(ROOT_URL));
     }
 
-    /*
-    private void extrair(Document document, List<String> list) {
-        Elements submenu = document.findEach("<a class='lnkTp01 '>");
-
-        submenu.findEvery("<a>").forEach(element -> {
-            String href = null;
-            try {
-                href = element.getAt("href");
-                list.add(href);
-            } catch (NotFound notFound) {
-                notFound.printStackTrace();
-            }
-        });
-    }
-    */
-
 }
