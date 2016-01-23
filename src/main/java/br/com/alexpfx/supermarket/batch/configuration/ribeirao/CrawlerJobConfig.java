@@ -30,7 +30,7 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 @EnableBatchProcessing
-public class RibeiraoJobConfig {
+public class CrawlerJobConfig {
 
 
     @Autowired
@@ -49,6 +49,11 @@ public class RibeiraoJobConfig {
     @Autowired
     @Qualifier(value = "angeloniCrawler")
     Crawler angeloniCrawler;
+
+    @Bean
+    public Tasklet crawlerTasklet() {
+        return new StartCrawlerTasklet(ribeiraoCrawler);
+    }
 
 
     @Bean
@@ -78,11 +83,6 @@ public class RibeiraoJobConfig {
         return processProductStep;
     }
 
-
-    @Bean
-    public Tasklet crawlerTasklet() {
-        return new StartCrawlerTasklet(angeloniCrawler);
-    }
 
     @Bean
     public ItemProcessor<TransferObject, Product> processor() {

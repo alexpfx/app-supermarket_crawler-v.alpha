@@ -22,8 +22,8 @@ public class RibeiraoCrawler extends AbstractCrawler {
 
     private static final CollectorRule VISITOR_RULE = doc -> {
         List<String> list = new ArrayList<>();
-        Elements submenu = doc.findEvery("<a class=new_sub_menu>");
-        submenu.findEvery("<a>").forEach(element -> {
+        Elements submenu = doc.findEach("<a class=new_sub_menu>");
+        submenu.findEach("<a>").forEach(element -> {
             try {
                 String href = element.getAt("href");
                 list.add(href);
@@ -50,6 +50,7 @@ public class RibeiraoCrawler extends AbstractCrawler {
     };
 
     public RibeiraoCrawler(UserAgent userAgent) {
+        userAgent.
         super(new UrlsCollector(VISITOR_RULE), new ItemsCollector(ITEM_RULE), userAgent, Collections.singletonList("https://www.mercadoribeirao.com.br/"));
     }
 

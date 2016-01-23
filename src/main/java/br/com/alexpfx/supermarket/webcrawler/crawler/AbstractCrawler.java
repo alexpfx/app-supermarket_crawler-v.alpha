@@ -2,7 +2,6 @@ package br.com.alexpfx.supermarket.webcrawler.crawler;
 
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
-import com.jaunt.Document;
 import com.jaunt.UserAgent;
 
 import java.util.Collections;
@@ -33,7 +32,6 @@ public abstract class AbstractCrawler implements Crawler {
         this.itemsCollector = itemsCollector;
         this.startUrls = startUrls;
         urlsCollector.setUserAgent(userAgent);
-        itemsCollector.setUserAgent(userAgent);
     }
 
     @Override
