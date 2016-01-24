@@ -38,6 +38,7 @@ public class UrlsCollector extends AbstractCollector<String> {
 
     private List<String> evaluate(String url) {
         try {
+
             return collectorRule.evaluate(userAgent.visit(url));
         } catch (ResponseException e) {
             //LOG
