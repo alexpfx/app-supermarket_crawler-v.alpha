@@ -26,8 +26,8 @@ public class UrlsCollector extends AbstractCollector<String> {
         for (String url : toVisit) {
             System.out.println(url);
             List<String> evaluated = evaluate(url);
-             evaluated = evaluated.stream().filter(p -> !(lista.contains(p))).collect(Collectors.toList());
-            if (evaluated.size() > 0){
+            evaluated = evaluated.stream().filter(p -> !(lista.contains(p))).collect(Collectors.toList());
+            if (evaluated.size() > 0) {
                 System.out.println(evaluated);
             }
             subList.addAll(evaluated);
@@ -38,7 +38,6 @@ public class UrlsCollector extends AbstractCollector<String> {
 
     private List<String> evaluate(String url) {
         try {
-            userAgent.settings
             return collectorRule.evaluate(userAgent.visit(url));
         } catch (ResponseException e) {
             //LOG
