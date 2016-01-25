@@ -23,30 +23,26 @@ public class AngeloniCrawler extends AbstractCrawler {
 
     private static final CollectorRule VISITOR_RULE = doc -> {
         List<String> list = new ArrayList<String>();
-        Elements elements = doc.findEach("<a class='lnkTp01 '>");
-        Element lnkTp02 = doc.findEach("<a class='lnkTp02 '>");
-        elements.addChildren(0, lnkTp02.getChildNodes());
-        elements.findEach("<a>").forEach(element -> {
-            String href = null;
-            try {
-                href = element.getAt("href");
-                list.add(href);
-            } catch (NotFound notFound) {
-                notFound.printStackTrace();
-            }
+        org.jsoup.select.Elements elements = doc.select("a.lnkTp01 ");
+
+        org.jsoup.select.Elements lnkTp02 = doc.select("a.lnkTp02 ");
+        elements.addAll(lnkTp02);
+
+        elements.forEach(element1 -> {
+            String href = element1.attr("abs:href");
+            list.add(href);
         });
         return list;
     };
 
     private static final CollectorRule<TransferObject> ITEM_RULE = doc -> {
-        Elements lstProd = doc.findEach("<ul class='lstProd '");
+        org.jsoup.select.Elements lstProd = doc.select("ul.lstProd");
         return Collections.singletonList(new ProdutoSuperMercadoTO());
     };
 
 
-    public AngeloniCrawler(UserAgent userAgent) {
-
-        super(new UrlsCollector(VISITOR_RULE), new ItemsCollector(ITEM_RULE), userAgent, Collections.singletonList(ROOT_URL));
+    public AngeloniCrawler() {
+        super(new UrlsCollector(VISITOR_RULE), new ItemsCollector(ITEM_RULE), Collections.singletonList(ROOT_URL));
     }
 
 }

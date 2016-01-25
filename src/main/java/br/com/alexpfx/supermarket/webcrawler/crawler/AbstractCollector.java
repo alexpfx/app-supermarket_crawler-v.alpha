@@ -14,16 +14,11 @@ public abstract class AbstractCollector<T> implements Collector<T> {
 
     // fields are to be used ("exclusively") in subclasses, so I use protected modifier.
     protected CollectorRule<T> collectorRule = (CollectorRule<T>) CollectorRule.EMPTY;
-    protected UserAgent userAgent;
 
-    @Override
-    public final void setUserAgent(UserAgent userAgent) {
-        this.userAgent = userAgent;
-    }
+
 
     @Override
     public final List<T> collect(List<String> urls) {
-        Preconditions.checkNotNull(userAgent);
         return doCollect(urls);
     }
 

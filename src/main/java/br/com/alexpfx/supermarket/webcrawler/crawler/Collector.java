@@ -9,5 +9,4 @@ import java.util.List;
  */
 public interface Collector<T> {
     List<T> collect(List<String> urls);
-    void setUserAgent(UserAgent userAgent);
 }

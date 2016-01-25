@@ -33,7 +33,7 @@ public class CommonBeansConfig {
     @Bean
     @Qualifier(value = "angeloniCrawler")
     public Crawler angeloniCrawler() {
-        return new AngeloniCrawler(new UserAgentFactory().createUserAgent());
+        return new AngeloniCrawler();
     }
 
     @Bean

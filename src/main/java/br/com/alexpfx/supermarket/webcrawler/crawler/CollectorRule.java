@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
-import com.jaunt.Document;
+import org.jsoup.nodes.Document;
 
 import java.util.List;
 

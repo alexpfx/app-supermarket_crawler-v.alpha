@@ -27,11 +27,10 @@ public abstract class AbstractCrawler implements Crawler {
 
     private List<String> startUrls;
 
-    public AbstractCrawler(UrlsCollector urlsCollector, ItemsCollector itemsCollector, UserAgent userAgent, List<String> startUrls) {
+    public AbstractCrawler(UrlsCollector urlsCollector, ItemsCollector itemsCollector, List<String> startUrls) {
         this.urlsCollector = urlsCollector;
         this.itemsCollector = itemsCollector;
         this.startUrls = startUrls;
-        urlsCollector.setUserAgent(userAgent);
     }
 
     @Override

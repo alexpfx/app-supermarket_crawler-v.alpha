@@ -1,9 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
-import com.jaunt.ResponseException;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,13 +34,7 @@ public class UrlsCollector extends AbstractCollector<String> {
     }
 
     private List<String> evaluate(String url) {
-        try {
-
-            return collectorRule.evaluate(userAgent.visit(url));
-        } catch (ResponseException e) {
-            //LOG
-            return Collections.EMPTY_LIST;
-        }
+        return collectorRule.evaluate(JsopHandler.visit(url));
     }
 
 }
