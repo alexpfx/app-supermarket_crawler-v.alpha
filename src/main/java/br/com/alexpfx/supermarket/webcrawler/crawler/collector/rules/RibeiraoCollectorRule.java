@@ -12,7 +12,7 @@ public class RibeiraoCollectorRule extends ProductCollectorFromPageListAdapter {
 
     @Override
     public Elements extractItemList(Document doc) {
-        return super.extractItemList(doc);
+        return doc.select("div.item-meta-container");
     }
 
     @Override

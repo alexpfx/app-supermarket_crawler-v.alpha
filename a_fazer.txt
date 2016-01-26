@@ -1,9 +1,10 @@
+[] evoluir parte de gravacao no banco
 [] adequar testes unitarios classe collector
 [] adicionar limite de recursividade
 [] eliminar erro quando job eh rodado pela segunda vez
 [] logar informacoes sobre o crawler: motivo de parada, tempo em execucao, etc.
-[] eliminar implementações de AbstractCrawler
-[] alterar abstract crawler para ser classe concreta, mudar nome para SuperMercadoCrawler
+[x] eliminar implementações de AbstractCrawler
+[x] alterar abstract crawler para ser classe concreta, mudar nome para SuperMercadoCrawler
 [x] testar api jsoup
 [x] refatorar ribeirao crawler para adequar ao novo esquema para pegar links para visita
 [x] eliminar construtores nao utilzados da classe collector
