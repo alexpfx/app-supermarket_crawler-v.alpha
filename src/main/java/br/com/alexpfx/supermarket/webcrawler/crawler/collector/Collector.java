@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler;
+package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
 import com.jaunt.UserAgent;
 

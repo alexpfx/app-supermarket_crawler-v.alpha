@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler;
+package br.com.alexpfx.supermarket.webcrawler.crawler.api;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -19,7 +19,7 @@ public class JsopHandler {
                     .get();
             return document;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(url, e);
         }
     }
 

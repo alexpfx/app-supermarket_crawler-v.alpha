@@ -6,15 +6,20 @@ import br.com.alexpfx.supermarket.bo.impl.ProductBoImpl;
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
-import br.com.alexpfx.supermarket.webcrawler.crawler.impl.AngeloniCrawler;
-import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
-import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ItemsCollector;
+import br.com.alexpfx.supermarket.webcrawler.crawler.SupermarketCrawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.UrlsCollector;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.AngeloniCollectorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.AngeloniVisitorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.RibeiraoVisitorRule;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Collections;
 
 /**
  * Created by alexandre on 13/01/2016.
@@ -25,15 +30,14 @@ public class CommonBeansConfig {
 
     @Bean
     @Qualifier(value = "ribeiraoCrawler")
-    public Crawler crawler() {
-
-        return new RibeiraoCrawler(new UserAgentFactory().createUserAgent());
+    public Crawler ribeiraoCrawler() {
+        return new SupermarketCrawler(new UrlsCollector(new RibeiraoVisitorRule()), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("https://www.mercadoribeirao.com.br/"));
     }
 
     @Bean
     @Qualifier(value = "angeloniCrawler")
     public Crawler angeloniCrawler() {
-        return new AngeloniCrawler();
+        return new SupermarketCrawler(new UrlsCollector(new AngeloniVisitorRule()), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("http://www.angeloni.com.br/super/index"));
     }
 
     @Bean

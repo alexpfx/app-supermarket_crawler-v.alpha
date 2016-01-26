@@ -1,8 +1,5 @@
 package br.com.alexpfx.supermarket.webcrawler;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.impl.RibeiraoCrawler;
-import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
-import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,9 +19,7 @@ public class RibeiraoCrawlerTest {
 
     @Before
     public void setUp() throws Exception {
-        RibeiraoCrawler crawler = new RibeiraoCrawler(new UserAgentFactory().createUserAgent());
-        crawler.setListener(new RibeiraoListener());
-        crawler.crawl();
+
     }
 
     @Test

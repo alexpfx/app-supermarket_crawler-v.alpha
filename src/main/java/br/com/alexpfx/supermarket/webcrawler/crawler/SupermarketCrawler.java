@@ -1,8 +1,9 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ItemsCollector;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
-import com.jaunt.UserAgent;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -11,12 +12,11 @@ import java.util.List;
 /**
  * Created by alexandre on 27/12/2015.
  */
-public abstract class AbstractCrawler implements Crawler {
+public class SupermarketCrawler implements Crawler {
 
     private CrawlerListener listener = CrawlerListener.EMPTY;
 
     private StopCondition stopCondition = StopCondition.EMTPY;
-
 
     private long startTime;
 
@@ -27,7 +27,7 @@ public abstract class AbstractCrawler implements Crawler {
 
     private List<String> startUrls;
 
-    public AbstractCrawler(UrlsCollector urlsCollector, ItemsCollector itemsCollector, List<String> startUrls) {
+    public SupermarketCrawler(UrlsCollector urlsCollector, ItemsCollector itemsCollector, List<String> startUrls) {
         this.urlsCollector = urlsCollector;
         this.itemsCollector = itemsCollector;
         this.startUrls = startUrls;

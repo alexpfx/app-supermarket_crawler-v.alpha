@@ -1,7 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler;
-
-import com.google.common.base.Preconditions;
-import com.jaunt.UserAgent;
+package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
 import java.util.List;
 
