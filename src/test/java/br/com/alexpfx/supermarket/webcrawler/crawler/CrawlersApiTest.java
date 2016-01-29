@@ -10,7 +10,18 @@ import com.crawljax.core.configuration.BrowserConfiguration;
 import com.crawljax.core.configuration.CrawljaxConfiguration;
 import com.crawljax.core.plugin.OnNewStatePlugin;
 import com.crawljax.core.state.StateVertex;
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
+import com.gargoylesoftware.htmlunit.Page;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.jaunt.*;
+import com.jaunt.Document;
+import com.jaunt.Element;
+import com.jaunt.Elements;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.*;
+import org.jsoup.select.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -69,6 +80,35 @@ public class CrawlersApiTest {
         CrawljaxRunner runner = new CrawljaxRunner(config);
         runner.call();
 
+    }
+
+
+    @Test
+    public void htmlUnitTest () throws IOException, ResponseException {
+        WebClient webClient = new WebClient(BrowserVersion.CHROME);
+        webClient.getOptions().setJavaScriptEnabled(true);
+        webClient.getOptions().setCssEnabled(false);
+        webClient.getOptions().setThrowExceptionOnScriptError(false);
+        webClient.setAjaxController(new NicelyResynchronizingAjaxController());
+        webClient.waitForBackgroundJavaScript(10000);
+        HtmlPage page = webClient.getPage(URL);
+
+
+        String contentAsString = page.getWebResponse().getContentAsString();
+        String s = page.asXml();
+        System.out.println(s);
+
+        org.jsoup.nodes.Document parse = Jsoup.parse(s);
+        org.jsoup.select.Elements elementsByClass = parse.select("ul.lstProd ");
+        System.out.println(elementsByClass);
+
+        UserAgent userAgent = new UserAgentFactory().createUserAgent();
+        Document document = userAgent.openContent(s);
+        System.out.println(contentAsString);
+        Elements each = document.findEach("<ul class='lstProd '>");
+        for (Element element : each) {
+            System.out.println(element);
+        }
 
 
 
