@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by alexandre on 26/01/2016.
  */
-public abstract class ProductCollectorFromPageList implements CollectorRule<ProdutoSuperMercadoTO> {
+public abstract class ProductCollectorFromPageList <T> implements CollectorRule<ProdutoSuperMercadoTO> {
 
 
     @Override

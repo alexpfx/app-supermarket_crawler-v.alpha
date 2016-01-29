@@ -52,7 +52,7 @@ public class CrawlerJobConfig {
 
     @Bean
     public Tasklet crawlerTasklet() {
-        return new StartCrawlerTasklet(ribeiraoCrawler);
+        return new StartCrawlerTasklet(angeloniCrawler);
     }
 
 

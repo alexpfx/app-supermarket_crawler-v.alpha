@@ -60,6 +60,12 @@
             <version>1.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>1.4.01</version>
+        </dependency>
+
 
         <dependency>
             <groupId>mysql</groupId>
@@ -159,6 +165,51 @@
             <artifactId>jsoup</artifactId>
             <version>1.8.3</version>
         </dependency>
+        <dependency>
+            <groupId>edu.uci.ics</groupId>
+            <artifactId>crawler4j</artifactId>
+            <version>4.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.webdriver</groupId>
+            <artifactId>webdriver-common</artifactId>
+            <version>0.9.7376</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.webdriver</groupId>
+            <artifactId>webdriver-common</artifactId>
+            <version>0.9.7376</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>2.50.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.crawljax</groupId>
+            <artifactId>crawljax-core</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.crawljax.plugins</groupId>
+            <artifactId>crawloverview-plugin</artifactId>
+            <version>3.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.webdriver</groupId>
+            <artifactId>webdriver-firefox</artifactId>
+            <version>0.9.7376</version>
+        </dependency>
+
+
+
 
     </dependencies>
 

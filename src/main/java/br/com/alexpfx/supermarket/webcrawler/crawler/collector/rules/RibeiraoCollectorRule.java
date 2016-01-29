@@ -1,5 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
+import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -7,7 +8,7 @@ import org.jsoup.select.Elements;
 /**
  * Created by alexandre on 25/01/2016.
  */
-public class RibeiraoCollectorRule extends ProductCollectorFromPageListAdapter {
+public class RibeiraoCollectorRule extends ProductCollectorFromPageListAdapter <ProdutoSuperMercadoTO> {
 
 
     @Override
