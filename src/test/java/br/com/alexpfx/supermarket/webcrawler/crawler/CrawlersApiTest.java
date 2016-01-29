@@ -79,8 +79,9 @@ public class CrawlersApiTest {
 
         CrawljaxRunner runner = new CrawljaxRunner(config);
         runner.call();
-
     }
+
+
 
 
     @Test
