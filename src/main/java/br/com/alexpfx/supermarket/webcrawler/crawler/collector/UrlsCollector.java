@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.api.JsopHandler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.api.JSoupHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class UrlsCollector extends AbstractCollector<String> {
     }
 
     private List<String> evaluate(String url) {
-        return collectorRule.evaluate(JsopHandler.visit(url));
+        return collectorRule.evaluate(JSoupHandler.visit(url));
     }
 
 }

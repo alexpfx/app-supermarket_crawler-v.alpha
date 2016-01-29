@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.api.JsopHandler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.api.JSoupHandler;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class ItemsCollector extends AbstractCollector<TransferObject> {
     private List<TransferObject> evaluate(List<String> urls) {
         List<TransferObject> list = new ArrayList<>();
         urls.forEach(url -> {
-            List<TransferObject> eList = collectorRule.evaluate(JsopHandler.visit(url));
+            List<TransferObject> eList = collectorRule.evaluate(JSoupHandler.visit(url));
             eList.forEach(e -> {
                 list.add(e);
             });

@@ -8,7 +8,8 @@ import java.io.IOException;
 /**
  * Created by alexandre on 24/01/2016.
  */
-public class JsopHandler {
+public class JSoupHandler {
+
 
 
     public static final Document visit(String url) {

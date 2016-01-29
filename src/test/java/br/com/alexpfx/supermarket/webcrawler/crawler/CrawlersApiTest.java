@@ -1,9 +1,8 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.api.JsopHandler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.api.JSoupHandler;
 import br.com.alexpfx.supermarket.webcrawler.factory.UserAgentFactory;
 import com.crawljax.browser.EmbeddedBrowser;
-import com.crawljax.core.CrawlSession;
 import com.crawljax.core.CrawlerContext;
 import com.crawljax.core.CrawljaxRunner;
 import com.crawljax.core.configuration.BrowserConfiguration;
@@ -12,7 +11,6 @@ import com.crawljax.core.plugin.OnNewStatePlugin;
 import com.crawljax.core.state.StateVertex;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
-import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.jaunt.*;
@@ -20,11 +18,8 @@ import com.jaunt.Document;
 import com.jaunt.Element;
 import com.jaunt.Elements;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.*;
-import org.jsoup.select.*;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.IOException;
@@ -51,7 +46,7 @@ public class CrawlersApiTest {
 
 //    @Test
     public void jsopTest () throws IOException, ResponseException {
-        org.jsoup.nodes.Document doc = JsopHandler.visit("https://www.mercadoribeirao.com.br/produtos.php?id_sub=167&pageNum=VER-TUDO&limpeza-da-cozinha");
+        org.jsoup.nodes.Document doc = JSoupHandler.visit("https://www.mercadoribeirao.com.br/produtos.php?id_sub=167&pageNum=VER-TUDO&limpeza-da-cozinha");
         org.jsoup.select.Elements itemList = doc.select("div.item-meta-container");
         for (org.jsoup.nodes.Element e:itemList){
             org.jsoup.nodes.Element s = e.select("h3.item-name").select("a").first();
@@ -60,7 +55,7 @@ public class CrawlersApiTest {
         }
 
 
-        org.jsoup.nodes.Document document = JsopHandler.visit(URL);
+        org.jsoup.nodes.Document document = JSoupHandler.visit(URL);
         UserAgentFactory userAgentFactory = new UserAgentFactory();
         UserAgent userAgent = userAgentFactory.createUserAgent();
     }
