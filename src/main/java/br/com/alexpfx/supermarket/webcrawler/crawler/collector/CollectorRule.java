@@ -1,7 +1,5 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
-import org.jsoup.nodes.Document;
-
 import java.util.List;
 
 /**
@@ -9,11 +7,11 @@ import java.util.List;
  */
 @FunctionalInterface
 public interface CollectorRule <T> {
-    List<T> evaluate(Document doc);
+    List<T> evaluate(String htmlCode);
 
     CollectorRule<String> EMPTY = new CollectorRule() {
         @Override
-        public List<String> evaluate(Document doc) {
+        public List<String> evaluate(String htmlCode) {
             throw new RuntimeException("CollectorRule not setted");
         }
     };

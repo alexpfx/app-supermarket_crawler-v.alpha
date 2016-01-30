@@ -37,6 +37,7 @@ public class JauntCrawlerApi implements CrawlerApi {
             Document document = userAgent.openContent(htmlCode);
             return (T) document;
         } catch (ResponseException e) {
+            // Ideally return an empty but not null object.
             return null;
         }
     }

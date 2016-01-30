@@ -14,13 +14,13 @@ public class JsoupCrawlerApi implements CrawlerApi {
     public static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36";
 
 
-
     @Override
     public String visit(String url) {
         return connect.apply(url).html();
     }
 
-
+    //I made this static because of the peculiarity of api that is static and because I have to
+    //set some config parameters.
     private static Function<String, Document> connect = url -> {
         try {
             return Jsoup.connect(url).timeout(TIMEOUT).userAgent(USER_AGENT).postDataCharset(CHARSET).get();
@@ -40,6 +40,5 @@ public class JsoupCrawlerApi implements CrawlerApi {
     public <T> T getDocument(String htmlCode, Class<T> type) {
         return (T) parse.apply(htmlCode);
     }
-
 
 }

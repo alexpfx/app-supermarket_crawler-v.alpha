@@ -1,7 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.CollectorRule;
-import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,9 @@ import java.util.List;
  */
 public class AngeloniVisitorRule implements CollectorRule<String> {
     @Override
-    public List<String> evaluate(Document doc) {
+    public List<String> evaluate(String htmlCode) {
         List<String> list = new ArrayList<String>();
+        Element doc = null;
         org.jsoup.select.Elements elements = doc.select("a.lnkTp01 ");
 
         org.jsoup.select.Elements lnkTp02 = doc.select("a.lnkTp02 ");

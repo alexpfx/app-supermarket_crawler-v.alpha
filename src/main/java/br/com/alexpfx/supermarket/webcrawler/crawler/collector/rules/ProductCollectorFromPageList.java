@@ -17,7 +17,8 @@ public abstract class ProductCollectorFromPageList <T> implements CollectorRule<
 
 
     @Override
-    public List<ProdutoSuperMercadoTO> evaluate(Document doc) {
+    public List<ProdutoSuperMercadoTO> evaluate(String htmlCode) {
+        Document doc = null;
         Elements list = extractItemList(doc);
         List<ProdutoSuperMercadoTO> pList = new ArrayList<>();
         list.forEach(p -> {

@@ -1,0 +1,2437 @@
+"C:\Program Files\Java\jdk1.8.0_60\bin\java" -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:62351,suspend=y,server=n -ea -Didea.junit.sm_runner -Dfile.encoding=UTF-8 -classpath "C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\lib\idea_rt.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 15.0.2\plugins\junit\lib\junit-rt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext\zipfs.jar;C:\Users\alexandre\IdeaProjects\supermarket-crawler\target\test-classes;C:\Users\alexandre\IdeaProjects\supermarket-crawler\target\classes;C:\Users\alexandre\IdeaProjects\supermarket-crawler\src\lib\jaunt1.1.3.1.jar;C:\Users\alexandre\.m2\repository\com\google\guava\guava\18.0\guava-18.0.jar;C:\Users\alexandre\.m2\repository\com\firebase\firebase-client-jvm\2.4.1\firebase-client-jvm-2.4.1.jar;C:\Users\alexandre\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.6.5\jackson-databind-2.6.5.jar;C:\Users\alexandre\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.6.5\jackson-annotations-2.6.5.jar;C:\Users\alexandre\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.6.5\jackson-core-2.6.5.jar;C:\Users\alexandre\.m2\repository\com\firebase\tubesock\0.0.12\tubesock-0.0.12.jar;C:\Users\alexandre\.m2\repository\org\apache\httpcomponents\httpclient\4.5.1\httpclient-4.5.1.jar;C:\Users\alexandre\.m2\repository\org\apache\httpcomponents\httpcore\4.4.4\httpcore-4.4.4.jar;C:\Users\alexandre\.m2\repository\junit\junit\4.12\junit-4.12.jar;C:\Users\alexandre\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\alexandre\.m2\repository\javax\transaction\jta\1.1\jta-1.1.jar;C:\Users\alexandre\.m2\repository\xml-apis\xml-apis\1.4.01\xml-apis-1.4.01.jar;C:\Users\alexandre\.m2\repository\mysql\mysql-connector-java\5.1.37\mysql-connector-java-5.1.37.jar;C:\Users\alexandre\.m2\repository\com\google\code\gson\gson\2.5\gson-2.5.jar;C:\Users\alexandre\.m2\repository\org\aspectj\aspectjweaver\1.8.7\aspectjweaver-1.8.7.jar;C:\Users\alexandre\.m2\repository\org\hibernate\hibernate-entitymanager\4.3.11.Final\hibernate-entitymanager-4.3.11.Final.jar;C:\Users\alexandre\.m2\repository\org\jboss\logging\jboss-logging\3.3.0.Final\jboss-logging-3.3.0.Final.jar;C:\Users\alexandre\.m2\repository\org\jboss\logging\jboss-logging-annotations\1.2.0.Beta1\jboss-logging-annotations-1.2.0.Beta1.jar;C:\Users\alexandre\.m2\repository\org\hibernate\hibernate-core\4.3.11.Final\hibernate-core-4.3.11.Final.jar;C:\Users\alexandre\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\alexandre\.m2\repository\org\jboss\jandex\1.1.0.Final\jandex-1.1.0.Final.jar;C:\Users\alexandre\.m2\repository\dom4j\dom4j\1.6.1\dom4j-1.6.1.jar;C:\Users\alexandre\.m2\repository\org\hibernate\common\hibernate-commons-annotations\4.0.5.Final\hibernate-commons-annotations-4.0.5.Final.jar;C:\Users\alexandre\.m2\repository\org\hibernate\javax\persistence\hibernate-jpa-2.1-api\1.0.0.Final\hibernate-jpa-2.1-api-1.0.0.Final.jar;C:\Users\alexandre\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.0.0.Final\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Users\alexandre\.m2\repository\org\javassist\javassist\3.18.1-GA\javassist-3.18.1-GA.jar;C:\Users\alexandre\.m2\repository\org\hibernate\hibernate-c3p0\4.3.11.Final\hibernate-c3p0-4.3.11.Final.jar;C:\Users\alexandre\.m2\repository\com\mchange\c3p0\0.9.2.1\c3p0-0.9.2.1.jar;C:\Users\alexandre\.m2\repository\com\mchange\mchange-commons-java\0.2.3.4\mchange-commons-java-0.2.3.4.jar;C:\Users\alexandre\.m2\repository\org\hibernate\hibernate-ehcache\4.3.11.Final\hibernate-ehcache-4.3.11.Final.jar;C:\Users\alexandre\.m2\repository\net\sf\ehcache\ehcache-core\2.4.3\ehcache-core-2.4.3.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-context\4.2.4.RELEASE\spring-context-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-aop\4.2.4.RELEASE\spring-aop-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-expression\4.2.4.RELEASE\spring-expression-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-core\4.2.4.RELEASE\spring-core-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\data\spring-data-jpa\1.9.2.RELEASE\spring-data-jpa-1.9.2.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\data\spring-data-commons\1.11.2.RELEASE\spring-data-commons-1.11.2.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-tx\4.2.4.RELEASE\spring-tx-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\aspectj\aspectjrt\1.8.8\aspectjrt-1.8.8.jar;C:\Users\alexandre\.m2\repository\org\slf4j\slf4j-api\1.7.13\slf4j-api-1.7.13.jar;C:\Users\alexandre\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.13\jcl-over-slf4j-1.7.13.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-beans\4.2.4.RELEASE\spring-beans-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-orm\4.2.4.RELEASE\spring-orm-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-jdbc\4.2.4.RELEASE\spring-jdbc-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\spring-test\4.2.4.RELEASE\spring-test-4.2.4.RELEASE.jar;C:\Users\alexandre\.m2\repository\cglib\cglib\2.2\cglib-2.2.jar;C:\Users\alexandre\.m2\repository\asm\asm\3.1\asm-3.1.jar;C:\Users\alexandre\.m2\repository\org\springframework\boot\spring-boot-starter-batch\1.3.2.BUILD-SNAPSHOT\spring-boot-starter-batch-1.3.2.BUILD-20160122.002152-57.jar;C:\Users\alexandre\.m2\repository\org\springframework\boot\spring-boot-starter\1.3.2.BUILD-SNAPSHOT\spring-boot-starter-1.3.2.BUILD-20160122.002152-57.jar;C:\Users\alexandre\.m2\repository\org\springframework\boot\spring-boot\1.3.2.BUILD-SNAPSHOT\spring-boot-1.3.2.BUILD-20160122.002152-57.jar;C:\Users\alexandre\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\1.3.2.BUILD-SNAPSHOT\spring-boot-autoconfigure-1.3.2.BUILD-20160122.002152-57.jar;C:\Users\alexandre\.m2\repository\org\springframework\boot\spring-boot-starter-logging\1.3.2.BUILD-SNAPSHOT\spring-boot-starter-logging-1.3.2.BUILD-20160122.002152-57.jar;C:\Users\alexandre\.m2\repository\org\slf4j\log4j-over-slf4j\1.7.13\log4j-over-slf4j-1.7.13.jar;C:\Users\alexandre\.m2\repository\org\yaml\snakeyaml\1.16\snakeyaml-1.16.jar;C:\Users\alexandre\.m2\repository\org\hsqldb\hsqldb\2.3.3\hsqldb-2.3.3.jar;C:\Users\alexandre\.m2\repository\org\springframework\batch\spring-batch-core\3.0.6.RELEASE\spring-batch-core-3.0.6.RELEASE.jar;C:\Users\alexandre\.m2\repository\com\ibm\jbatch\com.ibm.jbatch-tck-spi\1.0\com.ibm.jbatch-tck-spi-1.0.jar;C:\Users\alexandre\.m2\repository\javax\batch\javax.batch-api\1.0\javax.batch-api-1.0.jar;C:\Users\alexandre\.m2\repository\com\thoughtworks\xstream\xstream\1.4.7\xstream-1.4.7.jar;C:\Users\alexandre\.m2\repository\xmlpull\xmlpull\1.1.3.1\xmlpull-1.1.3.1.jar;C:\Users\alexandre\.m2\repository\xpp3\xpp3_min\1.1.4c\xpp3_min-1.1.4c.jar;C:\Users\alexandre\.m2\repository\org\codehaus\jettison\jettison\1.2\jettison-1.2.jar;C:\Users\alexandre\.m2\repository\org\springframework\batch\spring-batch-infrastructure\3.0.6.RELEASE\spring-batch-infrastructure-3.0.6.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\springframework\retry\spring-retry\1.1.2.RELEASE\spring-retry-1.1.2.RELEASE.jar;C:\Users\alexandre\.m2\repository\org\jsoup\jsoup\1.8.3\jsoup-1.8.3.jar;C:\Users\alexandre\.m2\repository\edu\uci\ics\crawler4j\4.2\crawler4j-4.2.jar;C:\Users\alexandre\.m2\repository\uk\org\lidalia\lidalia-slf4j-ext\1.0.0\lidalia-slf4j-ext-1.0.0.jar;C:\Users\alexandre\.m2\repository\com\sleepycat\je\5.0.73\je-5.0.73.jar;C:\Users\alexandre\.m2\repository\org\apache\tika\tika-parsers\1.5\tika-parsers-1.5.jar;C:\Users\alexandre\.m2\repository\org\apache\tika\tika-core\1.5\tika-core-1.5.jar;C:\Users\alexandre\.m2\repository\org\gagravarr\vorbis-java-tika\0.1\vorbis-java-tika-0.1.jar;C:\Users\alexandre\.m2\repository\org\gagravarr\vorbis-java-core\0.1\vorbis-java-core-0.1-tests.jar;C:\Users\alexandre\.m2\repository\edu\ucar\netcdf\4.2-min\netcdf-4.2-min.jar;C:\Users\alexandre\.m2\repository\org\apache\james\apache-mime4j-core\0.7.2\apache-mime4j-core-0.7.2.jar;C:\Users\alexandre\.m2\repository\org\apache\james\apache-mime4j-dom\0.7.2\apache-mime4j-dom-0.7.2.jar;C:\Users\alexandre\.m2\repository\org\apache\commons\commons-compress\1.5\commons-compress-1.5.jar;C:\Users\alexandre\.m2\repository\org\tukaani\xz\1.2\xz-1.2.jar;C:\Users\alexandre\.m2\repository\org\apache\pdfbox\pdfbox\1.8.4\pdfbox-1.8.4.jar;C:\Users\alexandre\.m2\repository\org\apache\pdfbox\fontbox\1.8.4\fontbox-1.8.4.jar;C:\Users\alexandre\.m2\repository\org\apache\pdfbox\jempbox\1.8.4\jempbox-1.8.4.jar;C:\Users\alexandre\.m2\repository\org\bouncycastle\bcmail-jdk15\1.45\bcmail-jdk15-1.45.jar;C:\Users\alexandre\.m2\repository\org\bouncycastle\bcprov-jdk15\1.45\bcprov-jdk15-1.45.jar;C:\Users\alexandre\.m2\repository\org\apache\poi\poi\3.10-beta2\poi-3.10-beta2.jar;C:\Users\alexandre\.m2\repository\org\apache\poi\poi-scratchpad\3.10-beta2\poi-scratchpad-3.10-beta2.jar;C:\Users\alexandre\.m2\repository\org\apache\poi\poi-ooxml\3.10-beta2\poi-ooxml-3.10-beta2.jar;C:\Users\alexandre\.m2\repository\org\apache\poi\poi-ooxml-schemas\3.10-beta2\poi-ooxml-schemas-3.10-beta2.jar;C:\Users\alexandre\.m2\repository\org\apache\xmlbeans\xmlbeans\2.3.0\xmlbeans-2.3.0.jar;C:\Users\alexandre\.m2\repository\org\apache\geronimo\specs\geronimo-stax-api_1.0_spec\1.0.1\geronimo-stax-api_1.0_spec-1.0.1.jar;C:\Users\alexandre\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\alexandre\.m2\repository\org\ow2\asm\asm-debug-all\4.1\asm-debug-all-4.1.jar;C:\Users\alexandre\.m2\repository\com\googlecode\mp4parser\isoparser\1.0-RC-1\isoparser-1.0-RC-1.jar;C:\Users\alexandre\.m2\repository\com\drewnoakes\metadata-extractor\2.6.2\metadata-extractor-2.6.2.jar;C:\Users\alexandre\.m2\repository\com\adobe\xmp\xmpcore\5.1.2\xmpcore-5.1.2.jar;C:\Users\alexandre\.m2\repository\de\l3s\boilerpipe\boilerpipe\1.1.0\boilerpipe-1.1.0.jar;C:\Users\alexandre\.m2\repository\rome\rome\0.9\rome-0.9.jar;C:\Users\alexandre\.m2\repository\jdom\jdom\1.0\jdom-1.0.jar;C:\Users\alexandre\.m2\repository\org\gagravarr\vorbis-java-core\0.1\vorbis-java-core-0.1.jar;C:\Users\alexandre\.m2\repository\com\googlecode\juniversalchardet\juniversalchardet\1.0.3\juniversalchardet-1.0.3.jar;C:\Users\alexandre\.m2\repository\com\uwyn\jhighlight\1.0\jhighlight-1.0.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\webdriver\webdriver-common\0.9.7376\webdriver-common-0.9.7376.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\selenium\selenium-api\2.50.0\selenium-api-2.50.0.jar;C:\Users\alexandre\.m2\repository\net\sourceforge\htmlunit\htmlunit\2.19\htmlunit-2.19.jar;C:\Users\alexandre\.m2\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar;C:\Users\alexandre\.m2\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar;C:\Users\alexandre\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar;C:\Users\alexandre\.m2\repository\org\apache\commons\commons-lang3\3.4\commons-lang3-3.4.jar;C:\Users\alexandre\.m2\repository\org\apache\httpcomponents\httpmime\4.5.1\httpmime-4.5.1.jar;C:\Users\alexandre\.m2\repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar;C:\Users\alexandre\.m2\repository\net\sourceforge\htmlunit\htmlunit-core-js\2.17\htmlunit-core-js-2.17.jar;C:\Users\alexandre\.m2\repository\xerces\xercesImpl\2.11.0\xercesImpl-2.11.0.jar;C:\Users\alexandre\.m2\repository\net\sourceforge\nekohtml\nekohtml\1.9.22\nekohtml-1.9.22.jar;C:\Users\alexandre\.m2\repository\net\sourceforge\cssparser\cssparser\0.9.18\cssparser-0.9.18.jar;C:\Users\alexandre\.m2\repository\org\w3c\css\sac\1.3\sac-1.3.jar;C:\Users\alexandre\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\alexandre\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\alexandre\.m2\repository\org\eclipse\jetty\websocket\websocket-client\9.2.13.v20150730\websocket-client-9.2.13.v20150730.jar;C:\Users\alexandre\.m2\repository\org\eclipse\jetty\jetty-util\9.2.14.v20151106\jetty-util-9.2.14.v20151106.jar;C:\Users\alexandre\.m2\repository\org\eclipse\jetty\jetty-io\9.2.14.v20151106\jetty-io-9.2.14.v20151106.jar;C:\Users\alexandre\.m2\repository\org\eclipse\jetty\websocket\websocket-common\9.2.13.v20150730\websocket-common-9.2.13.v20150730.jar;C:\Users\alexandre\.m2\repository\org\eclipse\jetty\websocket\websocket-api\9.2.13.v20150730\websocket-api-9.2.13.v20150730.jar;C:\Users\alexandre\.m2\repository\com\crawljax\crawljax-core\3.6\crawljax-core-3.6.jar;C:\Users\alexandre\.m2\repository\commons-math\commons-math\1.2\commons-math-1.2.jar;C:\Users\alexandre\.m2\repository\net\sf\jgrapht\jgrapht\0.8.3\jgrapht-0.8.3.jar;C:\Users\alexandre\.m2\repository\xmlunit\xmlunit\1.5\xmlunit-1.5.jar;C:\Users\alexandre\.m2\repository\net\jcip\jcip-annotations\1.0\jcip-annotations-1.0.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\2.50.0\selenium-firefox-driver-2.50.0.jar;C:\Users\alexandre\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\2.50.0\selenium-chrome-driver-2.50.0.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\2.50.0\selenium-ie-driver-2.50.0.jar;C:\Users\alexandre\.m2\repository\net\java\dev\jna\jna\4.1.0\jna-4.1.0.jar;C:\Users\alexandre\.m2\repository\net\java\dev\jna\jna-platform\4.1.0\jna-platform-4.1.0.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\selenium\selenium-support\2.50.0\selenium-support-2.50.0.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\2.50.0\selenium-remote-driver-2.50.0.jar;C:\Users\alexandre\.m2\repository\cglib\cglib-nodep\2.1_3\cglib-nodep-2.1_3.jar;C:\Users\alexandre\.m2\repository\com\google\inject\guice\3.0\guice-3.0.jar;C:\Users\alexandre\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\alexandre\.m2\repository\com\google\inject\extensions\guice-assistedinject\3.0\guice-assistedinject-3.0.jar;C:\Users\alexandre\.m2\repository\com\codahale\metrics\metrics-core\3.0.2\metrics-core-3.0.2.jar;C:\Users\alexandre\.m2\repository\com\codeborne\phantomjsdriver\1.2.1\phantomjsdriver-1.2.1.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\selenium\selenium-java\2.44.0\selenium-java-2.44.0.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\2.44.0\selenium-safari-driver-2.44.0.jar;C:\Users\alexandre\.m2\repository\org\webbitserver\webbit\0.4.14\webbit-0.4.14.jar;C:\Users\alexandre\.m2\repository\io\netty\netty\3.5.2.Final\netty-3.5.2.Final.jar;C:\Users\alexandre\.m2\repository\org\slf4j\jul-to-slf4j\1.7.13\jul-to-slf4j-1.7.13.jar;C:\Users\alexandre\.m2\repository\ch\qos\logback\logback-classic\1.1.3\logback-classic-1.1.3.jar;C:\Users\alexandre\.m2\repository\ch\qos\logback\logback-core\1.1.3\logback-core-1.1.3.jar;C:\Users\alexandre\.m2\repository\com\google\code\findbugs\jsr305\3.0.0\jsr305-3.0.0.jar;C:\Users\alexandre\.m2\repository\com\crawljax\plugins\crawloverview-plugin\3.6\crawloverview-plugin-3.6.jar;C:\Users\alexandre\.m2\repository\org\apache\velocity\velocity\1.7\velocity-1.7.jar;C:\Users\alexandre\.m2\repository\commons-lang\commons-lang\2.4\commons-lang-2.4.jar;C:\Users\alexandre\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-guava\2.4.1\jackson-datatype-guava-2.4.1.jar;C:\Users\alexandre\.m2\repository\org\seleniumhq\webdriver\webdriver-firefox\0.9.7376\webdriver-firefox-0.9.7376.jar;C:\Users\alexandre\.m2\repository\org\json\json\20140107\json-20140107.jar" com.intellij.rt.execution.junit.JUnitStarter -ideVersion5 br.com.alexpfx.supermarket.webcrawler.crawler.api.CrawlerApiTest,testVisit_Jaunt
+Connected to the target VM, address: '127.0.0.1:62351', transport: 'socket'
+<#document>ï»¿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+    <head>
+        <meta http-equiv="content-type" content="application/xhtml+xml;url=http://www.angeloni.com.br/super/utf-8">
+        <link rel="author" href="http://www.ag2.com.br" title="AG2">
+        <link rel="shortcut icon" href="http://www.angeloni.com.br/files/resources/favicon.ico" type="image/x-icon">
+        <link type="text/css" rel="Stylesheet" href="http://www.angeloni.com.br/files/resources/_css/default.css?v=201508070819">
+        <link type="text/css" media="screen" rel="stylesheet" href="http://www.angeloni.com.br/files/resources/_css/colorbox.css">
+        <link type="text/css" media="screen" rel="stylesheet" href="http://www.angeloni.com.br/files/resources/_css/datePicker.css">
+
+        <style type="text/css">
+            .hiddenUntilIsReady {display: none;}
+        </style>
+
+        <!--[if lt IE 7]>
+        <script type="text/javascript">
+	try {
+	  document.execCommand("BackgroundImageCache", false, true);
+	} catch(err) {}
+	</script>
+        <link type="text/css" rel="stylesheet" href="http://www.angeloni.com.br/files/resources/_css/default_ie.css" />
+        <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/iepngfix_tilebg.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/swfobject.js"></script>
+        <title>Angeloni</title>
+
+        <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-18104716-2']);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+
+  	  (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+        <link type="text/css" rel="stylesheet" href="http://www.angeloni.com.br/files/resources/_css/super.css?v=201508070819">
+    </head>
+    <body class="thSuper">
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-F9C6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-F9C6');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- HEADER -->
+    <div id="boxBgRgt">
+        <div id="boxBgLft"><!-- --></div>
+        <div id="boxCenter">
+            <div id="header">
+                <!-- top header -->
+            <span id="txtIntro">
+	<div class="userTxt">
+
+		<span>OlÃ¡
+        	<strong> visitante</strong>.
+    	</span>
+
+        <span>Aproveite nossas ofertas! Boas compras. </span>
+    </div>
+
+	<div class="ctrls">
+        ( Login, clique <a id="login" href="">aqui</a> ).
+    </div>
+
+	<script type="text/javascript">
+			var url = new String('http://www.angeloni.com.br/super/index?grupo=15022');
+			while(url.indexOf("&")!=-1)
+				url =  url.replace("&","||");
+
+																		document.getElementById('login').href = '/login/loja?idNegocio=1';
+													</script>
+
+</span>
+
+                <ul id="navSup" class="nav after">
+                    <li class="itm01"><a href="http://www.angeloni.com.br/index_home">Home</a></li>
+                    <li class="itm02"><a href="http://www.angeloni.com.br/grupoangeloni/index">Grupo Angeloni</a></li>
+                    <li class="itm03"><a href="http://www.angeloni.com.br/lojas/index">Lojas</a></li>
+                    <li class="itm04"><a href="http://www.angeloni.com.br/clubeangeloni/index">Clube Angeloni</a></li>
+                    <li class="itm05"><a href="http://www.angeloni.com.br/servicos/index">ServiÃ§os</a></li>
+                    <li class="itm06"><a href="http://www.angeloni.com.br/faleconosco/index">Fale Conosco</a></li>
+                </ul>
+                <div id="rowHtxt" class="clr after">
+                    <span id="txtAcesseNLV">Acesse nossas Lojas Virtuais:</span>
+
+                    <span id="txtNavLoja">VocÃª estÃ¡ navegando e vendo preÃ§os de <strong>Florianopolis Ilha</strong></span>
+
+	<span id="txtHTelevendas" class="toolTipTelevendas">
+		<a href="http://www.angeloni.com.br/super/index?grupo=15022#">
+            <img src="http://www.angeloni.com.br/files/resources/_img/txtTelevendas.gif" width="182" height="19" alt="Televendas (48) 4002.6060">
+            <div>
+                <img src="http://www.angeloni.com.br/files/resources/_img/televendas_super.png" alt="Televendas (48) 4002.6060">
+            </div>
+        </a>
+	</span>
+                </div>
+
+                <script type="text/javascript">
+    // FunÃ§Ã£o chamada pelo ao alterar carrinho de super/farma
+    // (flash da Ã¡rea promocional, vitrine) para atualizar a tooltip do carrinho.
+
+    /*
+     * Atalho sintÃ¡tico para alteraToolTip(null, null);
+     * Prefira esta a usar parÃ¢metros nulos
+     */
+    function alteraToolTip() {
+    	alteraToolTip(null, null);
+    }
+
+    /*
+     * Os parÃ¢metros nÃ£o tem utilidade, use alteraToolTip().
+	 *
+     * Essa versÃ£o com parÃ¢metros Ã© utilizada pelo flash da Ã¡rea promocional
+     */
+    function alteraToolTip(quantidade, idProduto) {
+
+    	jQuery.get('http://www.angeloni.com.br/super/atualizaTooltip.action', function(data){
+    		document.getElementById("tooltipCarrinhoBox").innerHTML = data;
+
+    		// over do botao de carrinho
+    		var $btnCarrinho=$('#btnCarrinho');
+    		var $tooltipCarrinho=$('#tooltipCarrinho');
+    		var offsetCarr=$btnCarrinho.offset();
+    		if(offsetCarr){
+    			$('#tooltipCarrinho').css("top",offsetCarr.top+28);
+    			$('#tooltipCarrinho').css("left",offsetCarr.left-80);
+    		}
+    		if (jQuery.browser.IE6){
+    			$('<iframe />')
+    				.attr({
+    					width: $tooltipCarrinho.width(),
+    					height: parseInt($tooltipCarrinho.height(), 10) - 28 || 0
+    				})
+    				.css({background:'transparent', position: 'absolute', top: 28, left: 0, zIndex:0 })
+    				.appendTo( $tooltipCarrinho );
+    		};
+    		$('#btnCarrinho').hover(function(){
+    			$tooltipCarrinho.show();
+    		},function(){
+    			$tooltipCarrinho.hide();
+    		});
+
+    	});
+
+    	jQuery.get('http://www.angeloni.com.br/super/atualizaTooltipTotal.action', function(data){
+    		document.getElementById("tooltipCarrinhoTotal").innerHTML = data;
+    	});
+
+	}
+</script>            <!-- / top header -->
+                <a href="http://www.angeloni.com.br/super/index" id="logo">Super Angeloni</a>
+                <div id="boxCtrlH">
+                    <div id="rowFormNav">
+                        <ul id="navLV" class="nav after">
+                            <li class="itm01"><a href="http://www.angeloni.com.br/eletro" title="Eletro&amp;Bazar">Eletro&amp;Bazar</a></li>
+                            <li class="itm02"><a href="http://www.angeloni.com.br/farma/index" title="FarmÃ¡cia">FarmÃ¡cia</a></li>
+                        </ul>
+                        <!-- bottom header -->
+                        <div id="boxBuscaPor" style="display:block;">
+                            <form id="formBuscaPor" action="javascript:busca();" method="post">
+                                <fieldset id="fsBuscaPor">
+                                    <label for="txtPCouCod" id="labBuscarPor">Buscar por:</label>
+            <span id="bgPCouCod" class="customField">
+                <input id="txtPCouCod" name="txtPCouCod" type="text" class="frmTxt defTxt disabledUntilIsReady" value="Palavra-chave ou CÃ³digo" style="width:145px" disabled="disabled" maxlength="49" onclick="javascript: if(this.value == 'Palavra-chave ou CÃ³digo') this.value = '';" onblur="javascript: if(this.value == '') this.value = 'Palavra-chave ou CÃ³digo';">
+            </span>
+                                    <label id="labEm">em</label>
+                                    <div id="bgCorredores" class="customField">
+                                        <ul id="dhtmlCorredores">
+
+
+                                            <li id="liComboCorr">
+                                                <input id="valDhtmlCorredores" name="valDhtmlCorredores" type="hidden" value="00">
+                                                <a href="javascript:;" id="lnkComboCorr"><span>Todos os Corredores</span></a>
+                                                <div id="hiddenComboCorr">
+                                                    <ul>
+                                                        <li class="atv"><a href="javascript:;" rel="00">Todos os Corredores</a></li>
+                                                        <li><a href="javascript:;" rel="1">Adega</a></li>
+                                                        <li><a href="javascript:;" rel="2">Automotivo</a></li>
+                                                        <li><a href="javascript:;" rel="3">Bazar</a></li>
+                                                        <li><a href="javascript:;" rel="33">BebÃª e Gestante</a></li>
+                                                        <li><a href="javascript:;" rel="4">Bebidas</a></li>
+                                                        <li><a href="javascript:;" rel="5">Beleza</a></li>
+                                                        <li><a href="javascript:;" rel="6">Biscoitos e Aperitivos</a></li>
+                                                        <li><a href="javascript:;" rel="7">Bomboniere</a></li>
+                                                        <li><a href="javascript:;" rel="9">Carnes, Aves e Peixes</a></li>
+                                                        <li><a href="javascript:;" rel="12">Congelados</a></li>
+                                                        <li><a href="javascript:;" rel="52">Diet</a></li>
+                                                        <li><a href="javascript:;" rel="14">Frios</a></li>
+                                                        <li><a href="javascript:;" rel="15">Higiene</a></li>
+                                                        <li><a href="javascript:;" rel="16">Horta, Pomar e Granja</a></li>
+                                                        <li><a href="javascript:;" rel="17">InstalaÃ§Ãµes</a></li>
+                                                        <li><a href="javascript:;" rel="19">LaticÃ­nios</a></li>
+                                                        <li><a href="javascript:;" rel="20">Limpeza</a></li>
+                                                        <li><a href="javascript:;" rel="21">Massas</a></li>
+                                                        <li><a href="javascript:;" rel="22">Matinal</a></li>
+                                                        <li><a href="javascript:;" rel="23">Mercearia</a></li>
+                                                        <li><a href="javascript:;" rel="24">Molhos e Condimentos</a></li>
+                                                        <li><a href="javascript:;" rel="48">Novos Produtos</a></li>
+                                                        <li><a href="javascript:;" rel="25">Padaria e Confeitaria</a></li>
+                                                        <li><a href="javascript:;" rel="28">Papelaria</a></li>
+                                                        <li><a href="javascript:;" rel="26">Pet Shop</a></li>
+                                                        <li><a href="javascript:;" rel="27">Produtos Orientais</a></li>
+                                                        <li><a href="javascript:;" rel="50">Sem GlÃºten</a></li>
+                                                        <li><a href="javascript:;" rel="51">Sem Lactose</a></li>
+                                                        <li><a href="javascript:;" rel="41">Suplemento Alimentar</a></li>
+                                                    </ul>
+                                                    <div id="bgBtComboCorr"><!-- --></div>
+                                                </div>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                    <input name="btnBuscaPorOk" onclick="busca()" id="btnBuscaPorOk" class="frmImg" type="image" src="http://www.angeloni.com.br/files/resources/_img/pix.gif" alt="ok">
+                                </fieldset>
+                            </form>
+                        </div>
+
+                        <script type="text/javascript">
+
+/** "/'ParamBuscar'/g" na expressÃ£o serve para identificar com expressao
+     regular assim o o replace retira todos os caracteres que nÃ£o queremos da string
+**/
+
+function busca(){
+	var palavraChave = jQuery.trim($('#txtPCouCod').val().replace(/'/g, "").replace(/"/g, ""));
+	var grupo        = $('#valDhtmlCorredores').val();
+
+	var url = "http://www.angeloni.com.br/super/busca";
+	url = url.replace("adega","super");
+
+	var palavrasChave = "";
+
+	if(palavraChave.length > 1){
+		if(palavraChave == "Palavra-chave ou CÃ³digo") {
+			$("#formBuscaPor").attr("action", url);
+			$('#formBuscaPor').submit();
+		} else {
+			//Converte "+" para " "
+			palavraChave = palavraChave.replace(/\+/g, " ");
+			var termos = palavraChave.split(" ");
+			for(var pos=0; pos < termos.length; pos++){
+			    word = jQuery.trim(termos[pos]);
+				if(word != "" && word != " "){
+					if(pos == 0){
+						palavrasChave = palavrasChave + word;
+					}
+					else{
+						palavrasChave = palavrasChave + ","  + word;
+					}
+				}
+			}
+
+			if(grupo == "00") {
+				url += "?q="+retiraAcentos(palavrasChave);
+			} else {
+				url += "?q="+retiraAcentos(palavrasChave)+"&grupo="+grupo;
+			}
+
+			$("#formBuscaPor").attr("action", url);
+		    $('#formBuscaPor').submit();
+		}
+	} else {
+		$("#formBuscaPor").attr("action", url);
+		$('#formBuscaPor').submit();
+	}
+}
+</script>					                    <!-- / bottom header -->
+                    </div>
+                    <div id="rowCompras">
+                        <a href="http://www.angeloni.com.br/institucional/topicosAjuda" id="btnAjudaPComprar" class="lnkAjudaComprar">Ajuda para Comprar?</a>
+                        <ul id="lnksPData">
+                            <li class="itm01"><a href="http://www.angeloni.com.br/login/login?idNegocio=1&goTo=http://www.angeloni.com.br/meusdados/index" id="lnkSeusDados">Seus Dados</a></li>
+
+                            <li class="itm02"><a href="http://www.angeloni.com.br/login/login?idNegocio=1&goTo=http://www.angeloni.com.br/listas_pedidos/super" id="lnkSuasLP">Suas Listas e Pedidos</a></li>
+
+                        </ul>
+
+                        <a href="http://www.angeloni.com.br/login/login?idNegocio=1&goTo=http://www.angeloni.com.br/super/carrinho1" id="btnCarrinho">Carrinho | Supermercado</a>
+
+						<span id="tooltipCarrinhoTotal">
+													</span>
+
+                    </div>
+                    <!-- tooltipCarrinho -->
+                    <div id="tooltipCarrinhoBox">
+                        <div id="tooltipCarrinho">
+                            <span class="seta"><!-- --></span>
+                            <div class="boxIn">
+                                <div class="after">
+                                    <h3 id="ttlMeuCarrinho">Meu Carrinho</h3>
+                                </div>
+                                <table border="0" cellspacing="0" cellpadding="0">
+                                    <colgroup>
+                                        <col width="6">
+                                        <col width="223">
+                                        <col width="5">
+                                        <col width="81">
+                                        <col width="4">
+                                    </colgroup>
+
+
+                                    <tbody>
+                                    <!-- MENSAGEM DE CARRINHO VAZIO -->
+                                    <tr>
+                                        <td><!-- --></td>
+                                        <td colspan="3" align="center">Carrinho vazio</td>
+                                        <td><!-- --></td>
+                                    </tr>
+                                    <!-- // MENSAGEM DE CARRINHO VAZIO -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>                				</div>
+                    <!-- // tooltipCarrinho -->
+                </div>
+
+                <div id="breadcrumb">
+                    <div class="boxIn">
+                        <div class="boxInIn">
+                            <ul>
+                                <li><a href="http://www.angeloni.com.br/index">PÃ¡gina Inicial</a></li>
+                                <li class="sep">&#62;</li>
+                                <li><a href="http://www.angeloni.com.br/super/index">Supermercado</a></li>
+                                <li class="sep">&#62;</li>
+                                <li><a href="http://www.angeloni.com.br/super/index?grupo=15">Higiene</a></li>
+                                <li class="sep">&#62;</li>
+                                <li><a href="http://www.angeloni.com.br/super/index?grupo=15002">Bucal</a></li>
+                                <li class="sep">&#62;</li>
+                                <li>Creme e gel dental</li>
+                            </ul>
+                            <!-- Facebook Plugin -->
+                            <div class="social-plugin">
+                                <div class="fb-like" data-href="https://www.facebook.com/RedeAngeloni" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" data-font="lucida grande"></div>
+                            </div>
+                            <!-- Facebook Plugin -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>	<!-- // HEADER -->
+    <!-- CENTRAL -->
+    <div id="boxMd">
+        <div id="boxMdIn">
+
+
+            <div id="contentLft">
+                <div id="contentLftBg">
+                    <!-- NAVBAR -->
+                    <div id="nav">
+                        <div id="navBgB">
+                            <div id="navBgV">
+                                <div id="navbar" class="navSubNiveis">
+                                    <ul id="navRoot">
+
+
+
+
+                                        <li>
+                                            <ul class="navSection">
+                                                <li>
+                                                    <ul class="navItens">
+                                                        <li><a class="lnkTpBack2" href="http://www.angeloni.com.br/super/index">Todos os corredores</a></li>
+                                                        <li><a class="lnkTpBack" href="http://www.angeloni.com.br/super/index?grupo=15">Higiene</a></li>
+                                                        <li><h2><a href="http://www.angeloni.com.br/super/index?grupo=15002">Bucal</a></h2></li>
+                                                        <li> <a class="on" id="15022" href="http://www.angeloni.com.br/super/index?grupo=15022">Creme e gel dental</a></li>
+                                                        <li> <a id="15023" href="http://www.angeloni.com.br/super/index?grupo=15023">Enxaguante</a></li>
+                                                        <li> <a id="15024" href="http://www.angeloni.com.br/super/index?grupo=15024">Escova dental</a></li>
+                                                        <li> <a id="15025" href="http://www.angeloni.com.br/super/index?grupo=15025">Fio e fita dental</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>					<!-- // NAVBAR -->
+
+
+
+                    <!-- newsletter -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <form method="post" action="http://www.angeloni.com.br/super/insertNewsLetter" id="formHome">
+                        <div class="boxContLft">
+                            <div class="boxInTop"><!-- --></div>
+                            <div class="boxIn">
+                                <h3 id="ttlNewsletter"><!-- --></h3>
+                                <div id="boxRecebaH" class="sepH">
+                                    <fieldset id="fsRecebaH">
+                                        <label class="itm01">
+                                            <input type="text" class="frmTxt defTxt" id="txtNome" name="emailOptInTO.nome" title="Informe seu Nome" maxlength="90" value="Informe seu Nome">
+                                        </label>
+                                        <label class="itm02">
+                                            <input type="text" class="frmTxt defTxt" id="txtEmail" name="emailOptInTO.email" title="Informe seu Email" maxlength="90" value="Informe seu Email">
+                                        </label>
+                                        <input name="btnOk" id="btnOk" type="image" src="http://www.angeloni.com.br/files/resources/_img/pix.gif" alt="ok">
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="modais">
+                        <!-- Msgs form Erro -->
+                        <div id="msgsFrmErro" class="modalBox">
+                            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+                            <div class="cml">
+                                <div class="cmr">
+                                    <div class="cmm">
+                                        <h2><img src="http://www.angeloni.com.br/files/resources/_img/home/ttl_recebaNovPromo_home.gif" alt="RECEBA NOVIDADES &amp; PROMOÃÃES" width="206" height="16"></h2>
+                                        <div class="modalIn">
+                                            <div class="msgAtencao">
+                                                <ul class="lstErros">
+                                                    <li class="msgErro01">Preencha seu nome</li>
+                                                    <li class="msgErro02">Preencha seu e-mail</li>
+                                                    <li class="msgErro03">E-mail invÃ¡lido. NÃ£o esqueÃ§a de incluir o sÃ­mbolo "@"</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+                        </div>
+
+                        <!-- Msgs form Sucesso -->
+                        <div id="msgsFrmFinal" class="modalBox modalTp3">
+                            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+                            <div class="cml">
+                                <div class="cmr">
+                                    <div class="cmm">
+                                        <h2><img src="http://www.angeloni.com.br/files/resources/_img/home/ttl_recebaNovPromo_home.gif" alt="RECEBA NOVIDADES &amp; PROMOÃÃES" width="206" height="16"></h2>
+                                        <div class="modalIn pb20">
+                                            <div class="msgSucesso">
+                                                <strong>Cadastro realizado com sucesso!</strong><br>
+                                                Em breve vocÃª receberÃ¡ novidades e promoÃ§Ãµes do Angeloni.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+                        </div>
+
+
+                    </div>
+                    <!-- // newsletter -->
+
+                    <!-- BANNERS -->
+                    <div id="bannersLft" class="boxContLft">
+                        <div class="boxInTop"><!-- --></div>
+                        <div class="boxIn">
+                            <ul class="lstBanners01 after">
+                                <!-- banner 'banner_11.png' vai aparecer somente no super -->
+                                <li class="line"><a href="http://www.angeloni.com.br/super/compraRapida" title="Compra RÃ¡pida">
+                                    <img src="http://www.angeloni.com.br/files/resources/_img/comprarapida_11.jpg" width="165" height="45" alt="Compra RÃ¡pida">
+                                </a></li>
+                            </ul>
+
+
+                            <ul class="lstBanners01 after">
+                            </ul>
+
+
+
+                            <ul class="lstBanners02 after pl5">
+
+
+                            </ul>
+                        </div>
+                    </div>						<!-- // BANNERS -->
+
+                </div>
+            </div>
+
+            <!-- CONTENT -->
+            <div id="content">
+
+                <!-- MSGS DE FEEDBACK  -->
+                <div id="msgsFeedback">
+                    <!--
+                    <div class="msgFeedbackSucesso"></div>
+                    <div class="msgFeedbackErro"></div>
+                    -->
+                </div>
+
+                <div id="jsSliderProd"><!-- -->	</div>
+
+                <!--Colocado o faixa promocional esse div estava no corredor.shtm nÃ£o serÃ¡ usado-->
+
+                <div class="rddBx01 mt50">
+                    <div class="boxIn">
+                        <ul class="abaTp01 lstAbaAjax after">
+
+
+
+
+
+
+                            <li class="one">
+                                <a href="http://www.angeloni.com.br/super/produtos?grupo=15022&ordem=0" class="abaOn" onclick="javascript: return false;">
+
+                                    <span class="cntAbaLft"><!-- canto esquerdo da aba --></span>
+                                    <span class="txtAba lnkProdutos">produtos</span>
+                                    <span class="cntAbaRgt"><!-- canto direito da aba --></span>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <div id="ctrlView">
+                            <ul>
+                                <li><a href="javascript:;" id="lnkLista">lista</a></li>
+                                <li><a href="javascript:;" id="lnkTabela">tabela</a></li>
+                            </ul>
+
+                            <fieldset>
+                                <label>Ordenar por:</label>
+                                <select id="comboOrdenacao" name="comboOrdenacao" class="frmSel">
+
+
+                                    <option value="0" selected="selected"></option>
+                                    <option value="1">Nome ( A - Z )</option>
+                                    <option value="2">Nome ( Z - A )</option>
+                                    <option value="3">Menor valor</option>
+                                    <option value="4">Maior valor</option>
+                                    <option value="5">Ofertas</option>
+                                    <option value="6">Mais vendidos</option>
+                                    <option value="7">LanÃ§amentos</option>
+
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <form id="formLstProds" method="post" action="">
+                            <div id="abaProd">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="boxContInfRgt">
+
+                    <ul class="lstAlerts">
+                        <li class="icoImportant">
+                            <span><!-- --></span>
+
+                        </li><p>
+                        VocÃª estÃ¡ navegando e vendo preÃ§os de <strong>Florianopolis Ilha</strong>
+                    </p>
+                        <br>
+
+                        <p>
+                            Os produtos em oferta possuem quantidade limitada para venda no varejo de 12 unidades / Kg por cliente.
+                        </p>
+                        <br><br>
+                        <p>
+                            Os produtos em oferta no site sÃ£o relativos a loja virtual, exceto os que o sistema mostrarÃ¡ apÃ³s o cliente clicar no banner "Panfleto de Ofertas", os produtos que aparecerÃ£o sÃ£o as mesmas ofertas existentes nas lojas fÃ­sicas.
+                        </p>
+                        <br><br>
+                        <p>
+                            As imagens dos produtos no site sÃ£o meramente ilustrativas.
+                        </p>
+                        <br><br>
+                        <p>
+                            Nas lojas virtuais de Supermercado e FarmÃ¡cia, os preÃ§os apresentados sÃ£o os da regiÃ£o indicada para entrega.
+                        </p>
+                        <br><br>
+                        <p>
+                            NÃ£o vendemos bebidas alcoÃ³licas para menores de 18 anos. Lei nÃºmero 8069/90.
+                        </p>
+                        <br><br>
+                        <p>
+                            O Angeloni informa que nÃ£o recebe qualquer tipo de vasilhame vazio de cerveja.
+                        </p>
+                        <br><br>
+                        <p>
+                            NÃ£o vendemos cigarros para menores de 18 anos. Lei 8.069/1990 e lei 10.702/2003
+                        </p>
+                        <br><br>
+                        <p>
+                            O Angeloni oferece a opÃ§Ã£o de poder retirar as compras na loja, desde que sejam observados os mesmos prazos de entrega. Neste caso, apenas incidirÃ¡ uma taxa de serviÃ§o fixa, no valor de R$ 4,50 (independentemente da regiÃ£o de seu domicÃ­lio).
+                        </p>
+                        <br><br>
+                        <p>
+                            Os preÃ§os sÃ£o vÃ¡lidos somente no site!
+                        </p>
+
+                    </ul>
+                </div>
+
+            </div>
+            <!-- // CONTENT -->
+
+        </div>
+    </div>
+    <div id="boxContInf" class="after">
+        <div id="boxContInfIn">
+
+            <div id="boxInf">
+
+                <ul id="navCtrl" class="after">
+                    <li class="itm01"><a href="http://www.angeloni.com.br/lojas/index">Nossas Lojas</a></li>
+                    <li class="itm02"><a href="javascript:;" id="lnkTrocasDevolucoes">Trocas e DevoluÃ§Ãµes</a></li>
+                    <li class="itm03"><a href="http://www.angeloni.com.br/faleconosco/index">Fale Conosco</a></li>
+                    <li class="itm04"><a href="http://www.angeloni.com.br/institucional/sitemap">Mapa do site</a></li>
+                </ul>
+
+                <div id="boxFormaPag">
+                    <h3>Formas de Pagamento</h3>
+                    <ul>
+
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_07.gif" width="31" height="19" class="cardBand" alt="Clube Angeloni Bradescard" title="Clube Angeloni<br />Bradescard"></li>
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_08.gif" width="31" height="19" class="cardBand" alt="Clube Angeloni Mastercard Bradescard" title="Clube Angeloni<br />Mastercard Bradescard"></li>
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_01.gif" width="31" height="19" class="cardBand" alt="Clube Angeloni Visa Bradescard" title="Clube Angeloni<br />Visa Bradescard"></li>
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_02.gif" width="31" height="19" class="cardBand" alt="CartÃ£o Visa" title="CartÃ£o Visa"></li>
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_03.gif" width="31" height="19" class="cardBand" alt="CartÃ£o Master Card" title="CartÃ£o Master Card"></li>
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_04.gif" width="31" height="19" class="cardBand" alt="CartÃ£o Dinners" title="CartÃ£o Dinners"></li>
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_06.gif" width="31" height="19" class="cardBand" alt="CartÃ£o American Express" title="CartÃ£o American Express"></li>
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_13.gif" width="31" height="19" class="cardBand" alt="CartÃ£o Hipercard" title="CartÃ£o Hipercard"></li>
+
+
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_10.gif" width="31" height="19" class="cardBand" alt="Cheque" title="Cheque da PraÃ§a"></li> <!-- SOMENTE EM SUPER E FARMA-->
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_11.gif" width="31" height="19" class="cardBand" alt="Dinheiro" title="Dinheiro"></li> <!-- SOMENTE EM SUPER E FARMA-->
+                        <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_12.gif" width="31" height="19" class="cardBand" alt="ConvÃªnio" title="ConvÃªnio"></li> <!-- SOMENTE EM SUPER E FARMA-->
+
+                    </ul>
+                </div>
+
+                <div id="boxThawte">
+                    <a href="https://sealinfo.thawte.com/thawtesplash?form_file=fdf/thawtesplash.fdf&dn=WWW.ANGELONI.COM.BR&lang=br" title="saiba mais" id="lnkThawte">Site Seguro Thawte</a>
+                </div>
+
+                <div id="boxebit">
+                    <a id="seloEbit" href="http://www.ebit.com.br/#angeloni" target="_blank" onclick="redir(this.href);">AvaliaÃ§Ã£o de Lojas e-bit</a>
+                    <script type="text/javascript" id="getSelo" src="https://a248.e.akamai.net/f/248/52872/0s/img.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?9485">
+                    </script>
+                </div>
+
+                <div id="boxRedesSociais" class="sepH">
+
+                    <div class="boxCompartilhe">
+                        <h2 class="ttlCompartilhe">compartilhe</h2>
+                    </div>
+
+                    <div class="lstRedesSociais" style="width:148px;">
+                        <a href="http://www.blogangeloni.com.br" target="_blank">
+                            <img src="http://assets.angeloni.com.br/files/images/E/4D/06/blogangeloni.jpg" title="Blog Angeloni" alt="Blog Angeloni" width="45" height="45">
+                        </a>
+
+                        <a href="http://www.facebook.com/redeangeloni" target="_blank">
+                            <img src="http://assets.angeloni.com.br/files/images/2/62/B2/facebook.jpg" title="Facebook" alt="Facebook" width="30" height="32">
+                        </a>
+
+                        <a href="http://www.twitter.com/@redeangeloni" target="_blank">
+                            <img src="http://assets.angeloni.com.br/files/images/3/3B/28/twitter.jpg" title="Twitter" alt="Twitter" width="31" height="32">
+                        </a>
+
+                        <a href="https://instagram.com/redeangeloni/" target="_blank">
+                            <img src="http://www.angeloni.com.br/files/images/D/15/25/Insta-32x32.jpg" title="Instagram" alt="Instagram" width="31" height="32">
+                        </a>
+                    </div>
+                </div>
+
+                <div id="boxTempo">time</div>
+            </div>
+        </div>
+    </div>
+    <!-- // CENTRAL -->
+
+
+    <!-- FOOTER -->
+    <div id="footer">
+        <div class="boxIn">
+            <div id="copyright" class="after">
+                <span id="txtCopyright">Copyright 2010 Angeloni -</span><a href="http://www.angeloni.com.br/privacidade/index" id="lnkPolPrivSeg">PolÃ­ticas de Privacidade e SeguranÃ§a</a> <span id="txtDirRes">- Todos os direitos reservados</span>
+            </div>
+            <div class="infoEmpresa" style=" color: #FFFFFF ">
+                A.Angeloni & Cia Ltda - Rod. BR 101, s/n Km 156,5 Sala 01 - Alto PerequÃª - Porto Belo - Santa Catarina - CEP 88210-000
+                CNPJ 83.646.984/0071-12 I.E 255394845 - Fone: (48) 4002-6060 - Email: ouvidoria@angeloni.com.br - <a href="http://www.angeloni.com.br/lojas/index" style=" color: #FFFFFF ">EndereÃ§o de nossas lojas</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modais">
+
+        <!-- MODAL AJUDA PARA COMPRAR -->
+        <div id="modalAjudaComprar" class="modalBox">
+            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <h2 class="ttlAjudaComprar">Ajuda para comprar</h2>
+                        <div class="modalIn">
+
+                            <p>Por favor, escolha abaixo a forma de visualizaÃ§Ã£o de sua preferÃªncia.</p>
+
+                            <ul>
+                                <li><a href="http://www.angeloni.com.br/institucional/topicosAjuda" class="ttlTexto">Quero ajuda em forma de texto</a></li>
+                                <li><a href="javascript:;" class="ttlVideo lnkAjudaComprarVideo">Quero ajuda em forma de video</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+        </div>
+        <!-- // MODAL AJUDA PARA COMPRAR -->
+
+
+        <!-- MODAL AJUDA PARA COMPRAR VIDEO -->
+        <div id="modalAjudaComprarVideo" class="modalBox">
+            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <h2 class="ttlAjudaComprar">Ajuda para comprar</h2>
+                        <div class="modalIn">
+                            <div id="swfContent">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+        </div>
+        <!-- // MODAL AJUDA PARA COMPRAR VIDEO -->
+
+
+        <!-- MODAL TROCAS E DEVOLUCOES -->
+        <div id="modalTrocasDevolucoes" class="modalBox">
+            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <h2 id="ttlTrocasDevolucoes">Trocas e DevoluÃ§Ãµes</h2>
+
+                        <div class="modalIn"><!-- --></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+        </div>
+        <!-- // MODAL TROCAS E DEVOLUCOES -->
+
+
+        <!-- MODAL COMPRA CANCELADA -->
+        <div id="modalCompraCancelada" class="modalBox">
+            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <h2 class="ttlCompraInterrompida">Compra interrompida</h2>
+                        <div class="modalIn">
+                            <p>Prezado cliente, vocÃª possui uma compra interrompida, deseja continuar ou iniciar uma nova compra?</p>
+                            <div class="boxBotoes pt25 pb10 after">
+                                <a class="lnkIniciarNovaCompra" title="Iniciar nova compra" href="http://www.angeloni.com.br/super/index?grupo=15022#">Iniciar nova compra</a>
+                                <a class="lnkContinuarCompra" title="Continuar compra" href="http://www.angeloni.com.br/super/recuperarCarrinho">Continuar compra</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+        </div>
+        <!-- // MODAL COMPRA CANCELADA -->
+
+        <!-- MODAL CARREGANDO -->
+        <div id="modalAguarde" class="modalBox">
+            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <div class="ajaxLoading">Por favor, aguarde.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+        </div>
+        <!-- // MODAL CARREGANDO -->
+
+        <!-- MODAL PAFLETOS -->
+        <div class="modalBox modalTp3" id="panfleto">
+            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <h2 class="ttl panfletos">Panfletos</h2>
+
+                        <div class="modalIn pb20">
+                            <p class="pl30">VÃ¡lido para a cidade de Florianopolis.</p>
+
+
+                            <dl>
+                                <!-- BEGIN SUPER -->
+                                <dt class="after tmSuper">
+                                    <span class="ttl">SUPERMERCADO</span>
+                                </dt>
+
+                                <dd class="after tmSuper">
+                                    <ul>
+                                        <li class="after borderNone">
+                                            <img width="71px" height="96px" alt="Encarte Verao 02 - Fpolis / Baln. Camb - ENCARTE" src="http://www.angeloni.com.br/files/images/D/13/68/7445.jpg">
+                                            <div class="boxDet">
+                                                <span class="data">31/01/2016</span>
+                                                <p>Encarte Verao 02 - Fpolis / Baln. Camb - ENCARTE</p>
+
+
+                                                <a title="VISUALIZAR" href="http://www.angeloni.com.br/super/panfleto?idPanfleto=100338" class="lnkVisualizar">VISUALIZAR</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </dd>                                                                                                       <!-- END SUPER -->
+
+
+                                <!-- BEGIN FARMACIA -->
+
+
+                                <!-- END FARMACIA -->
+
+
+                                <!-- BEGIN ELETRO -->
+
+
+                                <!-- END ELETRO -->
+
+                            </dl>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+        </div>
+        <!-- // MODAL PAFLETOS -->
+    </div>	<!-- // FOOTER -->
+
+    <div id="modais">
+
+        <!-- MODAL DE EXCESSO DE ITENS EM COMPARACAO -->
+        <div id="modalExcessoComp" class="modalBox">
+            <div class="ctm">
+                <div class="ctl"></div>
+                <div class="ctr"></div>
+            </div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <div class="modalIn">
+                            <div class="msgAtencao">
+                                VocÃª pode comparar no mÃ¡ximo 4 produtos.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm">
+                <div class="cbl"></div>
+                <div class="cbr"></div>
+            </div>
+        </div>
+        <!-- // MODAL DE EXCESSO DE ITENS EM COMPARACAO -->
+
+        <!-- MODAL ITENS INSUFICIENTES PARA COMPARACAO -->
+        <div id="modalInsuficienteComp" class="modalBox">
+            <div class="ctm">
+                <div class="ctl"></div>
+                <div class="ctr"></div>
+            </div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <div class="modalIn">
+                            <div class="msgAtencao">
+                                Ã necessÃ¡rio selecionar ao menos dois produtos para comparaÃ§Ã£o
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm">
+                <div class="cbl"></div>
+                <div class="cbr"></div>
+            </div>
+        </div>
+        <!-- // MODAL ITENS INSUFICIENTES PARA COMPARACAO -->
+
+        <!-- MODAL DE PRODUTO INDISPONIVEL -->
+        <div id="modalProdIndisp" class="modalBox">
+
+            <div class="ctm">
+                <div class="ctl"></div>
+                <div class="ctr"></div>
+            </div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+
+                        <h2 id="nomeProduto"><!-- content carregado dinamicamente --></h2>
+
+
+                        <div class="modalIn">
+                            <form id="formAviseme" method="post" action="http://www.angeloni.com.br/super/aviseme">
+
+                                <div id="msgRetorno" class="msgSucesso">
+                                    <strong>E-mail nome@email.com.br cadastrado com sucesso.</strong>
+                                    <br>
+                                    Voc&ecirc; receber&aacute; um aviso assim que este produto estiver dispon&iacute;vel.
+                                </div>
+
+                                <!-- value carregado dinamicamente -->
+                                <input type="hidden" id="idProduto" name="produtoIndisponivel.idProduto" value="">
+
+                                <fieldset>
+                                    <h4 id="ttlAvisemeQdDisponivel">Avise-me quando este produto estiver dispon&iacute;vel</h4>
+                                    <ul class="lstFrm">
+                                        <li>
+                                            <label for="txtSD_Nome">Nome:</label>
+                                            <input id="txtSD_Nome" name="produtoIndisponivel.nomeCliente" class="frmTxt" type="text" style="width:285px">
+                                            <span class="msgErro">Preencha seu nome</span>
+                                        </li>
+                                        <li>
+                                            <label for="txtSD_Email">E-mail:</label>
+                                            <input id="txtSD_Email" name="produtoIndisponivel.emailCliente" class="frmTxt" type="text" style="width:285px">
+                                            <span class="msgErro">E-mail inv&aacute;lido. NÃ£o esqueÃ§a de incluir o s&iacute;mbolo "@"</span>
+                                        </li>
+                                    </ul>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="fl pt3">
+
+                                        <label for="">Aguardar no m&aacute;ximo:</label>
+                                        <select class="frmSel" id="comboPrazo" name="produtoIndisponivel.prazo">
+
+                                            <option value="7" selected="selected">7 dias</option>
+                                            <option value="15">15 dias</option>
+                                            <option value="30">30 dias</option>
+
+                                        </select></div>
+                                    <input id="btnEnviarAviso" name="btnEnviarAviso" class="btnEnviar" type="image" src="http://www.angeloni.com.br/files/resources/_img/pix.gif" alt="Enviar">
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm">
+                <div class="cbl"></div>
+                <div class="cbr"></div>
+            </div>
+        </div>
+        <!-- // MODAL DE PRODUTO INDISPONIVEL -->
+
+        <!-- Msgs form Sucesso -->
+        <div id="msgsFrmFinal2" class="modalBox modalTp3">
+            <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+            <div class="cml">
+                <div class="cmr">
+                    <div class="cmm">
+                        <h2><img src="http://www.angeloni.com.br/files/resources/_img/home/ttl_recebaNovPromo_home.gif" alt="RECEBA NOVIDADES &amp; PROMOÃÃES" width="206" height="16"></h2>
+                        <div class="modalIn pb20">
+                            <div class="msgSucesso">
+                                <strong>Cadastro realizado com sucesso!</strong><br>
+                                Em breve vocÃª receberÃ¡ novidades e promoÃ§Ãµes do Angeloni.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+        </div>
+
+
+    </div>
+    ï»¿<!-- MODAL DE VÃDEO -->
+    <div id="modalVideoDrag" class="modalBox modalAlone">
+        <a href="javascript:;" class="btnModalFechar">fechar</a>
+        <div class="ctm"><div class="ctl"><!-- --></div><div class="ctr"><!-- --></div></div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+
+                    <h2><!-- --></h2>
+
+                    <div class="modalIn">
+                        <iframe class="youtube-player" width="640" height="505" src="" frameborder="0"></iframe>
+                        <a href="javascript:;" id="lnkModalProd" class="lnkVerMaisDetalhes">
+                            Ver mais detalhes
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cbm"><div class="cbl"><!-- --></div><div class="cbr"><!-- --></div></div>
+    </div>
+    <!-- // MODAL DE VÃDEO -->
+
+    <script type="text/javascript">
+	var filesdir = "http://www.angeloni.com.br/files/resources";
+</script>
+
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.scrollTo.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.easing.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.tooltip.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.maskedinput.js"></script>
+
+
+
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/ag2.packed.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/default.js?v=201508070819"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/abas.js?v=201508070819"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/date.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.datePicker.js"></script>
+
+
+
+
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.bgiframe.js"></script>
+    <![endif]-->
+
+
+
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/functions.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.form.js"></script>
+
+
+    <script type="text/javascript">
+	//<![CDATA[
+	    $(function () {
+	        var logo = $("body").attr("class");
+	        var flashvars = {};
+
+	        flashvars.baseURL = "http://www.angeloni.com.br/files/resources/";
+
+	        if (logo.indexOf("thEletro") !== -1) {
+	            flashvars.requestURL = "http://www.angeloni.com.br/institucional/ajudaVideoEletro";}
+	        else if (logo.indexOf("thFarma") !== -1) {
+	            flashvars.requestURL = "http://www.angeloni.com.br/institucional/ajudaVideoFarma";}
+	        else if (logo.indexOf("thAdega") !== -1) {
+	            flashvars.requestURL = "http://www.angeloni.com.br/institucional/ajudaVideoAdega";}
+	        else if (logo.indexOf("thSuper") !== -1) {
+	            flashvars.requestURL = "http://www.angeloni.com.br/institucional/ajudaVideoSuper";}
+
+	        var params = {};
+	        params.scale = "noscale";
+	        params.wmode = "transparent";
+	        params.allowFullScreen = true;
+	        params.AllowScriptAccess = "always";
+	        var attributes = {};
+	        attributes.id = "swfContent";
+	        var swfModal = new SWFObject("http://www.angeloni.com.br/files/resources/_swf/helpToBuy.swf", "swfContent", "610", "556", "10.0.0");
+	        swfModal.addParam("quality", "high");
+	        swfModal.addParam("wmode", "transparent");
+	        swfModal.addVariable('requestURL', flashvars.requestURL);
+
+				        if (logo.indexOf("thSuper") !== -1 && logo.indexOf("thAdega") == -1) {
+    						} else {
+    						}
+
+			swfModal.useExpressInstall('http://www.angeloni.com.br/files/resources/_swf/expressInstall.swf');
+	        swfModal.write("swfContent");
+	    });
+	//]]>
+
+	</script>
+
+
+
+    <script type="text/javascript">
+	$(document).ready(function() {
+		//$("#txtPCouCod").val("Palavra-chave ou CÃ³digo");
+		//$("#boxBuscaPor").fadeIn(1000);
+
+		$(".disabledUntilIsReady").removeAttr("disabled");
+		$(".disabledUntilIsReady").removeAttr("readonly");
+		$(".hiddenUntilIsReady").show();
+
+		$(".lnkContinuarCompra").live("click", function(e) {
+			jQuery.fn.colorbox({
+				width:"500px",inline:true,href:"#modalAguarde",opacity: 0.2,overlayClose:false,
+				onLoad:function(){$('#cboxClose').hide();},
+				onClosed:function(){$('#cboxClose').show();}
+			});
+		});
+	});
+
+	jQuery.ajaxSetup({
+		cache: false
+	});
+</script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/sifr.js"></script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jcarousellite_1.0.1.min.js"></script>
+    <script type="text/javascript">
+//<![CDATA[
+
+	if(typeof sIFR=="function"){
+		sIFR.replaceElement(named({sSelector:".sIfr", sFlashSrc:"http://www.angeloni.com.br/files/resources/_swf/vagRoundedLt.swf", sColor:"#AE7C2D", sWmode:"transparent", sFlashVars:"textalign=left"}));
+	};
+
+	//]]>
+</script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/newsletter.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+                            $('a.abaOn').click(); // ativa aba no onload
+
+                            $('#jsSliderProd').hide();
+
+            // Recuperacao do carrinho
+                    });
+
+        function loadShowcaseProductJS() {
+            jQuery.ajax({
+                url: "/super/areaPromocional.action?idNegocio=1&grupo=15022&seloMarca=",
+                success: function(data) {
+                    $('#jsSliderProd').html(data);
+                }, error: function(xhr) {
+                    $('#jsSliderProd').hide();
+                }
+            });
+        }
+
+        $('.lstAbaAjax a').click(function(){
+            aba = $(this).attr('href');
+            //restoreStateComboOrdenacao(aba);
+        });
+
+        $('#comboOrdenacao').change( function() {
+
+                    var ordem = $(this).val();
+
+                    if (ordem == undefined) return false;
+
+                    var aba = $('a.abaOn').attr("href");
+
+                    aba = addOrReplaceURLParameter(aba, "ordem", ordem);
+
+                    if (ordem > 4) {
+                        aba = addOrReplaceURLParameter(aba, "page", 1);
+                    }
+
+                    $('a.abaOn').attr("href", aba).click();
+
+                    return false;
+        });
+
+        function restoreStateComboOrdenacao(aba) {
+
+                    if (aba == undefined) return false;
+
+                    ordem = /[0-9]+/.exec(/ordem=[0-9]+/.exec(aba));
+
+                    if (ordem == null || ordem == undefined || isNaN(ordem)) ordem = 0;
+
+                    $('#comboOrdenacao').val(ordem);
+
+        }
+
+        /*
+         * FunÃ§Ãµes e Eventos para manipular o AVISE-ME QUANDO DISPONÃVEL
+         */
+
+    	$("a.lnkAviseme").live("click", function() {
+    		$("#modalProdIndisp").find("#nomeProduto").empty();
+
+    		var nomeProduto = $(this).nextAll("#nomeProduto").val()
+    		var idProduto = $(this).nextAll("#idProduto").val()
+
+    		$("#modalProdIndisp").find("#nomeProduto").append(nomeProduto);
+    		$("#formAviseme").find("#idProduto").val(idProduto);
+    		$("#formAviseme").find(".msgErro, #msgRetorno").hide();
+
+    	});
+
+    	$(document).ready(function() {
+	    	$('#formAviseme').submit(function() {
+			$(this).ajaxSubmit({beforeSubmit: validateAviseme,
+				                success: handleAvisemeSuccess,
+				                error: handleAvisemeError
+				                });
+			return false;
+		}).find(".msgErro, #msgRetorno").hide();
+
+    	});
+
+    	function validateAviseme(formData, jqForm, options) {
+
+           	markAsValid($("#txtSD_Nome")); markAsValid($("#txtSD_Email"));
+
+		if ( ! formData[1].value) { //Nome nÃ£o informado
+        		markAsInvalid($("#txtSD_Nome"));
+                    	$("#modalProdIndisp").colorbox.resize();
+                    	return false;
+		}
+       		if ( ! checkMail(formData[2])) { //E-mail nÃ£o informado ou invÃ¡lido
+       			markAsInvalid($("#txtSD_Email"));
+       			$("#modalProdIndisp").colorbox.resize();
+       			return false;
+       		}
+
+       	}
+
+		function handleAvisemeSuccess(response) {
+			var successMessage = "<strong>E-mail " + $('#formAviseme').find("#txtSD_Email").val() + " cadastrado com sucesso.</strong><br />VocÃª receberÃ¡ um aviso assim que este produto estiver disponÃ­vel."
+
+        		$('#formAviseme').find("input[id^='txtSD']").each(function() {
+		        	$(this).val("");
+			});
+
+			$("#msgRetorno").empty().append(successMessage).fadeIn();
+			$("#modalProdIndisp").colorbox.resize();
+		}
+
+		function handleAvisemeError(xhr) {
+			alert(xhr.responseText);
+		}
+
+    </script>
+
+    <script>var loginUrl = '/login/loja?idNegocio=1';</script>
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/voiza_spinner_qtd_uilogic.js"></script>
+
+    </body>
+    </html></#document>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8">
+    <link rel="author" href="http://www.ag2.com.br" title="AG2">
+    <link rel="shortcut icon" href="http://www.angeloni.com.br/files/resources/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="Stylesheet" href="http://www.angeloni.com.br/files/resources/_css/default.css?v=201508070819">
+    <link type="text/css" media="screen" rel="stylesheet" href="http://www.angeloni.com.br/files/resources/_css/colorbox.css">
+    <link type="text/css" media="screen" rel="stylesheet" href="http://www.angeloni.com.br/files/resources/_css/datePicker.css">
+    <style type="text/css">
+        .hiddenUntilIsReady {display: none;}
+    </style>
+    <!--[if lt IE 7]>
+    <script type="text/javascript">
+	try {
+	  document.execCommand("BackgroundImageCache", false, true);
+	} catch(err) {}
+	</script>
+    <link type="text/css" rel="stylesheet" href="http://www.angeloni.com.br/files/resources/_css/default_ie.css" />
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/iepngfix_tilebg.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/swfobject.js"></script>
+    <title>Angeloni</title>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-18104716-2']);
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+
+  	  (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    <link type="text/css" rel="stylesheet" href="http://www.angeloni.com.br/files/resources/_css/super.css?v=201508070819">
+</head>
+<body class="thSuper">
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-F9C6" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-F9C6');</script>
+<!-- End Google Tag Manager -->
+<!-- HEADER -->
+<div id="boxBgRgt">
+    <div id="boxBgLft">
+        <!-- -->
+    </div>
+    <div id="boxCenter">
+        <div id="header">
+            <!-- top header -->
+     <span id="txtIntro">
+      <div class="userTxt">
+          <span>Olá <strong> visitante</strong>. </span>
+          <span>Aproveite nossas ofertas! Boas compras. </span>
+      </div>
+      <div class="ctrls">
+          ( Login, clique
+          <a id="login" href="">aqui</a> ).
+      </div> <script type="text/javascript">
+			var url = new String('http://www.angeloni.com.br/super/index?grupo=15022');
+			while(url.indexOf("&")!=-1)
+				url =  url.replace("&","||");
+
+																		document.getElementById('login').href = '/login/loja?idNegocio=1';
+													</script> </span>
+            <ul id="navSup" class="nav after">
+                <li class="itm01"><a href="http://www.angeloni.com.br/index_home">Home</a></li>
+                <li class="itm02"><a href="http://www.angeloni.com.br/grupoangeloni/index">Grupo Angeloni</a></li>
+                <li class="itm03"><a href="http://www.angeloni.com.br/lojas/index">Lojas</a></li>
+                <li class="itm04"><a href="http://www.angeloni.com.br/clubeangeloni/index">Clube Angeloni</a></li>
+                <li class="itm05"><a href="http://www.angeloni.com.br/servicos/index">Serviços</a></li>
+                <li class="itm06"><a href="http://www.angeloni.com.br/faleconosco/index">Fale Conosco</a></li>
+            </ul>
+            <div id="rowHtxt" class="clr after">
+                <span id="txtAcesseNLV">Acesse nossas Lojas Virtuais:</span>
+                <span id="txtNavLoja">Você está navegando e vendo preços de <strong>Florianopolis Ilha</strong></span>
+      <span id="txtHTelevendas" class="toolTipTelevendas"> <a href="#"> <img src="http://www.angeloni.com.br/files/resources/_img/txtTelevendas.gif" width="182" height="19" alt="Televendas (48) 4002.6060">
+          <div>
+              <img src="http://www.angeloni.com.br/files/resources/_img/televendas_super.png" alt="Televendas (48) 4002.6060">
+          </div> </a> </span>
+            </div>
+            <script type="text/javascript">
+    // Função chamada pelo ao alterar carrinho de super/farma
+    // (flash da área promocional, vitrine) para atualizar a tooltip do carrinho.
+
+    /*
+     * Atalho sintático para alteraToolTip(null, null);
+     * Prefira esta a usar parâmetros nulos
+     */
+    function alteraToolTip() {
+    	alteraToolTip(null, null);
+    }
+
+    /*
+     * Os parâmetros não tem utilidade, use alteraToolTip().
+	 *
+     * Essa versão com parâmetros é utilizada pelo flash da área promocional
+     */
+    function alteraToolTip(quantidade, idProduto) {
+
+    	jQuery.get('http://www.angeloni.com.br/super/atualizaTooltip.action', function(data){
+    		document.getElementById("tooltipCarrinhoBox").innerHTML = data;
+
+    		// over do botao de carrinho
+    		var $btnCarrinho=$('#btnCarrinho');
+    		var $tooltipCarrinho=$('#tooltipCarrinho');
+    		var offsetCarr=$btnCarrinho.offset();
+    		if(offsetCarr){
+    			$('#tooltipCarrinho').css("top",offsetCarr.top+28);
+    			$('#tooltipCarrinho').css("left",offsetCarr.left-80);
+    		}
+    		if (jQuery.browser.IE6){
+    			$('<iframe />')
+    				.attr({
+    					width: $tooltipCarrinho.width(),
+    					height: parseInt($tooltipCarrinho.height(), 10) - 28 || 0
+    				})
+    				.css({background:'transparent', position: 'absolute', top: 28, left: 0, zIndex:0 })
+    				.appendTo( $tooltipCarrinho );
+    		};
+    		$('#btnCarrinho').hover(function(){
+    			$tooltipCarrinho.show();
+    		},function(){
+    			$tooltipCarrinho.hide();
+    		});
+
+    	});
+
+    	jQuery.get('http://www.angeloni.com.br/super/atualizaTooltipTotal.action', function(data){
+    		document.getElementById("tooltipCarrinhoTotal").innerHTML = data;
+    	});
+
+	}
+</script>
+            <!-- / top header -->
+            <a href="http://www.angeloni.com.br/super/index" id="logo">Super Angeloni</a>
+            <div id="boxCtrlH">
+                <div id="rowFormNav">
+                    <ul id="navLV" class="nav after">
+                        <li class="itm01"><a href="http://www.angeloni.com.br/eletro" title="Eletro&amp;Bazar">Eletro&amp;Bazar</a></li>
+                        <li class="itm02"><a href="http://www.angeloni.com.br/farma/index" title="Farmácia">Farmácia</a></li>
+                    </ul>
+                    <!-- bottom header -->
+                    <div id="boxBuscaPor" style="display:block;">
+                        <form id="formBuscaPor" action="javascript:busca();" method="post">
+                            <fieldset id="fsBuscaPor">
+                                <label for="txtPCouCod" id="labBuscarPor">Buscar por:</label>
+                                <span id="bgPCouCod" class="customField"> <input id="txtPCouCod" name="txtPCouCod" type="text" class="frmTxt defTxt disabledUntilIsReady" value="Palavra-chave ou Código" style="width:145px" disabled maxlength="49" onclick="javascript: if(this.value == 'Palavra-chave ou Código') this.value = '';" onblur="javascript: if(this.value == '') this.value = 'Palavra-chave ou Código';"> </span>
+                                <label id="labEm">em</label>
+                                <div id="bgCorredores" class="customField">
+                                    <ul id="dhtmlCorredores">
+                                        <li id="liComboCorr"> <input id="valDhtmlCorredores" name="valDhtmlCorredores" type="hidden" value="00"> <a href="javascript:;" id="lnkComboCorr"><span>Todos os Corredores</span></a>
+                                            <div id="hiddenComboCorr">
+                                                <ul>
+                                                    <li class="atv"><a href="javascript:;" rel="00">Todos os Corredores</a></li>
+                                                    <li><a href="javascript:;" rel="1">Adega</a></li>
+                                                    <li><a href="javascript:;" rel="2">Automotivo</a></li>
+                                                    <li><a href="javascript:;" rel="3">Bazar</a></li>
+                                                    <li><a href="javascript:;" rel="33">Bebê e Gestante</a></li>
+                                                    <li><a href="javascript:;" rel="4">Bebidas</a></li>
+                                                    <li><a href="javascript:;" rel="5">Beleza</a></li>
+                                                    <li><a href="javascript:;" rel="6">Biscoitos e Aperitivos</a></li>
+                                                    <li><a href="javascript:;" rel="7">Bomboniere</a></li>
+                                                    <li><a href="javascript:;" rel="9">Carnes, Aves e Peixes</a></li>
+                                                    <li><a href="javascript:;" rel="12">Congelados</a></li>
+                                                    <li><a href="javascript:;" rel="52">Diet</a></li>
+                                                    <li><a href="javascript:;" rel="14">Frios</a></li>
+                                                    <li><a href="javascript:;" rel="15">Higiene</a></li>
+                                                    <li><a href="javascript:;" rel="16">Horta, Pomar e Granja</a></li>
+                                                    <li><a href="javascript:;" rel="17">Instalações</a></li>
+                                                    <li><a href="javascript:;" rel="19">Laticínios</a></li>
+                                                    <li><a href="javascript:;" rel="20">Limpeza</a></li>
+                                                    <li><a href="javascript:;" rel="21">Massas</a></li>
+                                                    <li><a href="javascript:;" rel="22">Matinal</a></li>
+                                                    <li><a href="javascript:;" rel="23">Mercearia</a></li>
+                                                    <li><a href="javascript:;" rel="24">Molhos e Condimentos</a></li>
+                                                    <li><a href="javascript:;" rel="48">Novos Produtos</a></li>
+                                                    <li><a href="javascript:;" rel="25">Padaria e Confeitaria</a></li>
+                                                    <li><a href="javascript:;" rel="28">Papelaria</a></li>
+                                                    <li><a href="javascript:;" rel="26">Pet Shop</a></li>
+                                                    <li><a href="javascript:;" rel="27">Produtos Orientais</a></li>
+                                                    <li><a href="javascript:;" rel="50">Sem Glúten</a></li>
+                                                    <li><a href="javascript:;" rel="51">Sem Lactose</a></li>
+                                                    <li><a href="javascript:;" rel="41">Suplemento Alimentar</a></li>
+                                                </ul>
+                                                <div id="bgBtComboCorr">
+                                                    <!-- -->
+                                                </div>
+                                            </div> </li>
+                                    </ul>
+                                </div>
+                                <input name="btnBuscaPorOk" onclick="busca()" id="btnBuscaPorOk" class="frmImg" type="image" src="http://www.angeloni.com.br/files/resources/_img/pix.gif" alt="ok">
+                            </fieldset>
+                        </form>
+                    </div>
+                    <script type="text/javascript">
+
+/** "/'ParamBuscar'/g" na expressão serve para identificar com expressao
+     regular assim o o replace retira todos os caracteres que não queremos da string
+**/
+
+function busca(){
+	var palavraChave = jQuery.trim($('#txtPCouCod').val().replace(/'/g, "").replace(/"/g, ""));
+	var grupo        = $('#valDhtmlCorredores').val();
+
+	var url = "http://www.angeloni.com.br/super/busca";
+	url = url.replace("adega","super");
+
+	var palavrasChave = "";
+
+	if(palavraChave.length > 1){
+		if(palavraChave == "Palavra-chave ou Código") {
+			$("#formBuscaPor").attr("action", url);
+			$('#formBuscaPor').submit();
+		} else {
+			//Converte "+" para " "
+			palavraChave = palavraChave.replace(/\+/g, " ");
+			var termos = palavraChave.split(" ");
+			for(var pos=0; pos < termos.length; pos++){
+			    word = jQuery.trim(termos[pos]);
+				if(word != "" && word != " "){
+					if(pos == 0){
+						palavrasChave = palavrasChave + word;
+					}
+					else{
+						palavrasChave = palavrasChave + ","  + word;
+					}
+				}
+			}
+
+			if(grupo == "00") {
+				url += "?q="+retiraAcentos(palavrasChave);
+			} else {
+				url += "?q="+retiraAcentos(palavrasChave)+"&grupo="+grupo;
+			}
+
+			$("#formBuscaPor").attr("action", url);
+		    $('#formBuscaPor').submit();
+		}
+	} else {
+		$("#formBuscaPor").attr("action", url);
+		$('#formBuscaPor').submit();
+	}
+}
+</script>
+                    <!-- / bottom header -->
+                </div>
+                <div id="rowCompras">
+                    <a href="http://www.angeloni.com.br/institucional/topicosAjuda" id="btnAjudaPComprar" class="lnkAjudaComprar">Ajuda para Comprar?</a>
+                    <ul id="lnksPData">
+                        <li class="itm01"><a href="/login/login?idNegocio=1&amp;goTo=http://www.angeloni.com.br/meusdados/index" id="lnkSeusDados">Seus Dados</a></li>
+                        <li class="itm02"><a href="/login/login?idNegocio=1&amp;goTo=http://www.angeloni.com.br/listas_pedidos/super" id="lnkSuasLP">Suas Listas e Pedidos</a></li>
+                    </ul>
+                    <a href="/login/login?idNegocio=1&amp;goTo=http://www.angeloni.com.br/super/carrinho1" id="btnCarrinho">Carrinho | Supermercado</a>
+                    <span id="tooltipCarrinhoTotal"> </span>
+                </div>
+                <!-- tooltipCarrinho -->
+                <div id="tooltipCarrinhoBox">
+                    <div id="tooltipCarrinho">
+        <span class="seta">
+         <!-- --></span>
+                        <div class="boxIn">
+                            <div class="after">
+                                <h3 id="ttlMeuCarrinho">Meu Carrinho</h3>
+                            </div>
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <colgroup>
+                                    <col width="6">
+                                    <col width="223">
+                                    <col width="5">
+                                    <col width="81">
+                                    <col width="4">
+                                </colgroup>
+                                <tbody>
+                                <!-- MENSAGEM DE CARRINHO VAZIO -->
+                                <tr>
+                                    <td>
+                                        <!-- --></td>
+                                    <td colspan="3" align="center">Carrinho vazio</td>
+                                    <td>
+                                        <!-- --></td>
+                                </tr>
+                                <!-- // MENSAGEM DE CARRINHO VAZIO -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- // tooltipCarrinho -->
+            </div>
+            <div id="breadcrumb">
+                <div class="boxIn">
+                    <div class="boxInIn">
+                        <ul>
+                            <li><a href="http://www.angeloni.com.br/index">Página Inicial</a></li>
+                            <li class="sep">&gt;</li>
+                            <li><a href="http://www.angeloni.com.br/super/index">Supermercado</a></li>
+                            <li class="sep">&gt;</li>
+                            <li><a href="http://www.angeloni.com.br/super/index?grupo=15">Higiene</a></li>
+                            <li class="sep">&gt;</li>
+                            <li><a href="http://www.angeloni.com.br/super/index?grupo=15002">Bucal</a></li>
+                            <li class="sep">&gt;</li>
+                            <li>Creme e gel dental</li>
+                        </ul>
+                        <!-- Facebook Plugin -->
+                        <div class="social-plugin">
+                            <div class="fb-like" data-href="https://www.facebook.com/RedeAngeloni" data-send="false" data-layout="button_count" data-width="75" data-show-faces="false" data-font="lucida grande"></div>
+                        </div>
+                        <!-- Facebook Plugin -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // HEADER -->
+<!-- CENTRAL -->
+<div id="boxMd">
+    <div id="boxMdIn">
+        <div id="contentLft">
+            <div id="contentLftBg">
+                <!-- NAVBAR -->
+                <div id="nav">
+                    <div id="navBgB">
+                        <div id="navBgV">
+                            <div id="navbar" class="navSubNiveis">
+                                <ul id="navRoot">
+                                    <li>
+                                        <ul class="navSection">
+                                            <li>
+                                                <ul class="navItens">
+                                                    <li><a class="lnkTpBack2" href="http://www.angeloni.com.br/super/index">Todos os corredores</a></li>
+                                                    <li><a class="lnkTpBack" href="http://www.angeloni.com.br/super/index?grupo=15">Higiene</a></li>
+                                                    <li><h2><a href="http://www.angeloni.com.br/super/index?grupo=15002">Bucal</a></h2></li>
+                                                    <li> <a class="on" id="15022" href="http://www.angeloni.com.br/super/index?grupo=15022">Creme e gel dental</a></li>
+                                                    <li> <a id="15023" href="http://www.angeloni.com.br/super/index?grupo=15023">Enxaguante</a></li>
+                                                    <li> <a id="15024" href="http://www.angeloni.com.br/super/index?grupo=15024">Escova dental</a></li>
+                                                    <li> <a id="15025" href="http://www.angeloni.com.br/super/index?grupo=15025">Fio e fita dental</a></li>
+                                                </ul> </li>
+                                        </ul> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // NAVBAR -->
+                <!-- newsletter -->
+                <form method="post" action="insertNewsLetter" id="formHome">
+                    <div class="boxContLft">
+                        <div class="boxInTop">
+                            <!-- -->
+                        </div>
+                        <div class="boxIn">
+                            <h3 id="ttlNewsletter">
+                                <!-- --></h3>
+                            <div id="boxRecebaH" class="sepH">
+                                <fieldset id="fsRecebaH">
+                                    <label class="itm01"> <input type="text" class="frmTxt defTxt" id="txtNome" name="emailOptInTO.nome" title="Informe seu Nome" maxlength="90" value="Informe seu Nome"> </label>
+                                    <label class="itm02"> <input type="text" class="frmTxt defTxt" id="txtEmail" name="emailOptInTO.email" title="Informe seu Email" maxlength="90" value="Informe seu Email"> </label>
+                                    <input name="btnOk" id="btnOk" type="image" src="http://www.angeloni.com.br/files/resources/_img/pix.gif" alt="ok">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div id="modais">
+                    <!-- Msgs form Erro -->
+                    <div id="msgsFrmErro" class="modalBox">
+                        <div class="ctm">
+                            <div class="ctl">
+                                <!-- -->
+                            </div>
+                            <div class="ctr">
+                                <!-- -->
+                            </div>
+                        </div>
+                        <div class="cml">
+                            <div class="cmr">
+                                <div class="cmm">
+                                    <h2><img src="http://www.angeloni.com.br/files/resources/_img/home/ttl_recebaNovPromo_home.gif" alt="RECEBA NOVIDADES &amp; PROMOÇÕES" width="206" height="16"></h2>
+                                    <div class="modalIn">
+                                        <div class="msgAtencao">
+                                            <ul class="lstErros">
+                                                <li class="msgErro01">Preencha seu nome</li>
+                                                <li class="msgErro02">Preencha seu e-mail</li>
+                                                <li class="msgErro03">E-mail inválido. Não esqueça de incluir o símbolo "@"</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbm">
+                            <div class="cbl">
+                                <!-- -->
+                            </div>
+                            <div class="cbr">
+                                <!-- -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Msgs form Sucesso -->
+                    <div id="msgsFrmFinal" class="modalBox modalTp3">
+                        <div class="ctm">
+                            <div class="ctl">
+                                <!-- -->
+                            </div>
+                            <div class="ctr">
+                                <!-- -->
+                            </div>
+                        </div>
+                        <div class="cml">
+                            <div class="cmr">
+                                <div class="cmm">
+                                    <h2><img src="http://www.angeloni.com.br/files/resources/_img/home/ttl_recebaNovPromo_home.gif" alt="RECEBA NOVIDADES &amp; PROMOÇÕES" width="206" height="16"></h2>
+                                    <div class="modalIn pb20">
+                                        <div class="msgSucesso">
+                                            <strong>Cadastro realizado com sucesso!</strong>
+                                            <br> Em breve você receberá novidades e promoções do Angeloni.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbm">
+                            <div class="cbl">
+                                <!-- -->
+                            </div>
+                            <div class="cbr">
+                                <!-- -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // newsletter -->
+                <!-- BANNERS -->
+                <div id="bannersLft" class="boxContLft">
+                    <div class="boxInTop">
+                        <!-- -->
+                    </div>
+                    <div class="boxIn">
+                        <ul class="lstBanners01 after">
+                            <!-- banner 'banner_11.png' vai aparecer somente no super -->
+                            <li class="line"><a href="/super/compraRapida" title="Compra Rápida"> <img src="http://www.angeloni.com.br/files/resources/_img/comprarapida_11.jpg" width="165" height="45" alt="Compra Rápida"> </a></li>
+                        </ul>
+                        <ul class="lstBanners01 after">
+                        </ul>
+                        <ul class="lstBanners02 after pl5">
+                        </ul>
+                    </div>
+                </div>
+                <!-- // BANNERS -->
+            </div>
+        </div>
+        <!-- CONTENT -->
+        <div id="content">
+            <!-- MSGS DE FEEDBACK  -->
+            <div id="msgsFeedback">
+                <!--
+                              <div class="msgFeedbackSucesso"></div>
+                              <div class="msgFeedbackErro"></div>
+                              -->
+            </div>
+            <div id="jsSliderProd">
+                <!-- -->
+            </div>
+            <!--Colocado o faixa promocional esse div estava no corredor.shtm não será usado-->
+            <div class="rddBx01 mt50">
+                <div class="boxIn">
+                    <ul class="abaTp01 lstAbaAjax after">
+                        <li class="one"> <a href="/super/produtos?grupo=15022&amp;ordem=0" class="abaOn" onclick="javascript: return false;"> <span class="cntAbaLft">
+           <!-- canto esquerdo da aba --></span> <span class="txtAba lnkProdutos">produtos</span> <span class="cntAbaRgt">
+           <!-- canto direito da aba --></span> </a> </li>
+                    </ul>
+                    <div id="ctrlView">
+                        <ul>
+                            <li><a href="javascript:;" id="lnkLista">lista</a></li>
+                            <li><a href="javascript:;" id="lnkTabela">tabela</a></li>
+                        </ul>
+                        <fieldset>
+                            <label>Ordenar por:</label>
+                            <select id="comboOrdenacao" name="comboOrdenacao" class="frmSel"> <option value="0" selected></option> <option value="1">Nome ( A - Z )</option> <option value="2">Nome ( Z - A )</option> <option value="3">Menor valor</option> <option value="4">Maior valor</option> <option value="5">Ofertas</option> <option value="6">Mais vendidos</option> <option value="7">Lançamentos</option> </select>
+                        </fieldset>
+                    </div>
+                    <form id="formLstProds" method="post" action="">
+                        <div id="abaProd">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="boxContInfRgt">
+                <ul class="lstAlerts">
+                    <li class="icoImportant"> <span>
+         <!-- --></span> <p> Você está navegando e vendo preços de <strong>Florianopolis Ilha</strong> </p> <br> <p> Os produtos em oferta possuem quantidade limitada para venda no varejo de 12 unidades / Kg por cliente. </p> <br><br> <p> Os produtos em oferta no site são relativos a loja virtual, exceto os que o sistema mostrará após o cliente clicar no banner "Panfleto de Ofertas", os produtos que aparecerão são as mesmas ofertas existentes nas lojas físicas. </p> <br><br> <p> As imagens dos produtos no site são meramente ilustrativas. </p> <br><br> <p> Nas lojas virtuais de Supermercado e Farmácia, os preços apresentados são os da região indicada para entrega. </p> <br><br> <p> Não vendemos bebidas alcoólicas para menores de 18 anos. Lei número 8069/90. </p> <br><br> <p> O Angeloni informa que não recebe qualquer tipo de vasilhame vazio de cerveja. </p> <br><br> <p> Não vendemos cigarros para menores de 18 anos. Lei 8.069/1990 e lei 10.702/2003 </p> <br><br> <p> O Angeloni oferece a opção de poder retirar as compras na loja, desde que sejam observados os mesmos prazos de entrega. Neste caso, apenas incidirá uma taxa de serviço fixa, no valor de R$ 4,50 (independentemente da região de seu domicílio). </p> <br><br> <p> Os preços são válidos somente no site! </p> </li>
+                </ul>
+            </div>
+        </div>
+        <!-- // CONTENT -->
+    </div>
+</div>
+<div id="boxContInf" class="after">
+    <div id="boxContInfIn">
+        <div id="boxInf">
+            <ul id="navCtrl" class="after">
+                <li class="itm01"><a href="http://www.angeloni.com.br/lojas/index">Nossas Lojas</a></li>
+                <li class="itm02"><a href="javascript:;" id="lnkTrocasDevolucoes">Trocas e Devoluções</a></li>
+                <li class="itm03"><a href="http://www.angeloni.com.br/faleconosco/index">Fale Conosco</a></li>
+                <li class="itm04"><a href="http://www.angeloni.com.br/institucional/sitemap">Mapa do site</a></li>
+            </ul>
+            <div id="boxFormaPag">
+                <h3>Formas de Pagamento</h3>
+                <ul>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_07.gif" width="31" height="19" class="cardBand" alt="Clube Angeloni Bradescard" title="Clube Angeloni<br />Bradescard"></li>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_08.gif" width="31" height="19" class="cardBand" alt="Clube Angeloni Mastercard Bradescard" title="Clube Angeloni<br />Mastercard Bradescard"></li>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_01.gif" width="31" height="19" class="cardBand" alt="Clube Angeloni Visa Bradescard" title="Clube Angeloni<br />Visa Bradescard"></li>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_02.gif" width="31" height="19" class="cardBand" alt="Cartão Visa" title="Cartão Visa"></li>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_03.gif" width="31" height="19" class="cardBand" alt="Cartão Master Card" title="Cartão Master Card"></li>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_04.gif" width="31" height="19" class="cardBand" alt="Cartão Dinners" title="Cartão Dinners"></li>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_06.gif" width="31" height="19" class="cardBand" alt="Cartão American Express" title="Cartão American Express"></li>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_13.gif" width="31" height="19" class="cardBand" alt="Cartão Hipercard" title="Cartão Hipercard"></li>
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_10.gif" width="31" height="19" class="cardBand" alt="Cheque" title="Cheque da Praça"></li>
+                    <!-- SOMENTE EM SUPER E FARMA-->
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_11.gif" width="31" height="19" class="cardBand" alt="Dinheiro" title="Dinheiro"></li>
+                    <!-- SOMENTE EM SUPER E FARMA-->
+                    <li><img src="http://www.angeloni.com.br/files/resources/_img/img_card_12.gif" width="31" height="19" class="cardBand" alt="Convênio" title="Convênio"></li>
+                    <!-- SOMENTE EM SUPER E FARMA-->
+                </ul>
+            </div>
+            <div id="boxThawte">
+                <a href="https://sealinfo.thawte.com/thawtesplash?form_file=fdf/thawtesplash.fdf&amp;dn=WWW.ANGELONI.COM.BR&amp;lang=br" title="saiba mais" id="lnkThawte">Site Seguro Thawte</a>
+            </div>
+            <div id="boxebit">
+                <a id="seloEbit" href="http://www.ebit.com.br/#angeloni" target="_blank" onclick="redir(this.href);">Avaliação de Lojas e-bit</a>
+                <script type="text/javascript" id="getSelo" src="https://a248.e.akamai.net/f/248/52872/0s/img.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?9485">
+                </script>
+            </div>
+            <div id="boxRedesSociais" class="sepH">
+                <div class="boxCompartilhe">
+                    <h2 class="ttlCompartilhe">compartilhe</h2>
+                </div>
+                <div class="lstRedesSociais" style="width:148px;">
+                    <a href="http://www.blogangeloni.com.br" target="_blank"> <img src="http://assets.angeloni.com.br/files/images/E/4D/06/blogangeloni.jpg" title="Blog Angeloni" alt="Blog Angeloni" width="45" height="45"> </a>
+                    <a href="http://www.facebook.com/redeangeloni" target="_blank"> <img src="http://assets.angeloni.com.br/files/images/2/62/B2/facebook.jpg" title="Facebook" alt="Facebook" width="30" height="32"> </a>
+                    <a href="http://www.twitter.com/@redeangeloni" target="_blank"> <img src="http://assets.angeloni.com.br/files/images/3/3B/28/twitter.jpg" title="Twitter" alt="Twitter" width="31" height="32"> </a>
+                    <a href="https://instagram.com/redeangeloni/" target="_blank"> <img src="http://www.angeloni.com.br/files/images/D/15/25/Insta-32x32.jpg" title="Instagram" alt="Instagram" width="31" height="32"> </a>
+                </div>
+            </div>
+            <div id="boxTempo">
+                time
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // CENTRAL -->
+<!-- FOOTER -->
+<div id="footer">
+    <div class="boxIn">
+        <div id="copyright" class="after">
+            <span id="txtCopyright">Copyright 2010 Angeloni -</span>
+            <a href="http://www.angeloni.com.br/privacidade/index" id="lnkPolPrivSeg">Políticas de Privacidade e Segurança</a>
+            <span id="txtDirRes">- Todos os direitos reservados</span>
+        </div>
+        <div class="infoEmpresa" style=" color: #FFFFFF ">
+            A.Angeloni &amp; Cia Ltda - Rod. BR 101, s/n Km 156,5 Sala 01 - Alto Perequê - Porto Belo - Santa Catarina - CEP 88210-000 CNPJ 83.646.984/0071-12 I.E 255394845 - Fone: (48) 4002-6060 - Email: ouvidoria@angeloni.com.br -
+            <a href="http://www.angeloni.com.br/lojas/index" style=" color: #FFFFFF ">Endereço de nossas lojas</a>
+        </div>
+    </div>
+</div>
+<div class="modais">
+    <!-- MODAL AJUDA PARA COMPRAR -->
+    <div id="modalAjudaComprar" class="modalBox">
+        <div class="ctm">
+            <div class="ctl">
+                <!-- -->
+            </div>
+            <div class="ctr">
+                <!-- -->
+            </div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <h2 class="ttlAjudaComprar">Ajuda para comprar</h2>
+                    <div class="modalIn">
+                        <p>Por favor, escolha abaixo a forma de visualização de sua preferência.</p>
+                        <ul>
+                            <li><a href="http://www.angeloni.com.br/institucional/topicosAjuda" class="ttlTexto">Quero ajuda em forma de texto</a></li>
+                            <li><a href="javascript:;" class="ttlVideo lnkAjudaComprarVideo">Quero ajuda em forma de video</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl">
+                <!-- -->
+            </div>
+            <div class="cbr">
+                <!-- -->
+            </div>
+        </div>
+    </div>
+    <!-- // MODAL AJUDA PARA COMPRAR -->
+    <!-- MODAL AJUDA PARA COMPRAR VIDEO -->
+    <div id="modalAjudaComprarVideo" class="modalBox">
+        <div class="ctm">
+            <div class="ctl">
+                <!-- -->
+            </div>
+            <div class="ctr">
+                <!-- -->
+            </div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <h2 class="ttlAjudaComprar">Ajuda para comprar</h2>
+                    <div class="modalIn">
+                        <div id="swfContent">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl">
+                <!-- -->
+            </div>
+            <div class="cbr">
+                <!-- -->
+            </div>
+        </div>
+    </div>
+    <!-- // MODAL AJUDA PARA COMPRAR VIDEO -->
+    <!-- MODAL TROCAS E DEVOLUCOES -->
+    <div id="modalTrocasDevolucoes" class="modalBox">
+        <div class="ctm">
+            <div class="ctl">
+                <!-- -->
+            </div>
+            <div class="ctr">
+                <!-- -->
+            </div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <h2 id="ttlTrocasDevolucoes">Trocas e Devoluções</h2>
+                    <div class="modalIn">
+                        <!-- -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl">
+                <!-- -->
+            </div>
+            <div class="cbr">
+                <!-- -->
+            </div>
+        </div>
+    </div>
+    <!-- // MODAL TROCAS E DEVOLUCOES -->
+    <!-- MODAL COMPRA CANCELADA -->
+    <div id="modalCompraCancelada" class="modalBox">
+        <div class="ctm">
+            <div class="ctl">
+                <!-- -->
+            </div>
+            <div class="ctr">
+                <!-- -->
+            </div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <h2 class="ttlCompraInterrompida">Compra interrompida</h2>
+                    <div class="modalIn">
+                        <p>Prezado cliente, você possui uma compra interrompida, deseja continuar ou iniciar uma nova compra?</p>
+                        <div class="boxBotoes pt25 pb10 after">
+                            <a class="lnkIniciarNovaCompra" title="Iniciar nova compra" href="#">Iniciar nova compra</a>
+                            <a class="lnkContinuarCompra" title="Continuar compra" href="http://www.angeloni.com.br/super/recuperarCarrinho">Continuar compra</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl">
+                <!-- -->
+            </div>
+            <div class="cbr">
+                <!-- -->
+            </div>
+        </div>
+    </div>
+    <!-- // MODAL COMPRA CANCELADA -->
+    <!-- MODAL CARREGANDO -->
+    <div id="modalAguarde" class="modalBox">
+        <div class="ctm">
+            <div class="ctl">
+                <!-- -->
+            </div>
+            <div class="ctr">
+                <!-- -->
+            </div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <div class="ajaxLoading">
+                        Por favor, aguarde.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl">
+                <!-- -->
+            </div>
+            <div class="cbr">
+                <!-- -->
+            </div>
+        </div>
+    </div>
+    <!-- // MODAL CARREGANDO -->
+    <!-- MODAL PAFLETOS -->
+    <div class="modalBox modalTp3" id="panfleto">
+        <div class="ctm">
+            <div class="ctl">
+                <!-- -->
+            </div>
+            <div class="ctr">
+                <!-- -->
+            </div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <h2 class="ttl panfletos">Panfletos</h2>
+                    <div class="modalIn pb20">
+                        <p class="pl30">Válido para a cidade de Florianopolis.</p>
+                        <dl>
+                            <!-- BEGIN SUPER -->
+                            <dt class="after tmSuper">
+                                <span class="ttl">SUPERMERCADO</span>
+                            </dt>
+                            <dd class="after tmSuper">
+                                <ul>
+                                    <li class="after borderNone"> <img width="71px" height="96px" alt="Encarte Verao 02 - Fpolis / Baln. Camb - ENCARTE" src="http://www.angeloni.com.br/files/images/D/13/68/7445.jpg">
+                                        <div class="boxDet">
+                                            <span class="data">31/01/2016</span>
+                                            <p>Encarte Verao 02 - Fpolis / Baln. Camb - ENCARTE</p>
+                                            <a title="VISUALIZAR" href="http://www.angeloni.com.br/super/panfleto?idPanfleto=100338" class="lnkVisualizar">VISUALIZAR</a>
+                                        </div> </li>
+                                </ul>
+                            </dd>
+                            <!-- END SUPER -->
+                            <!-- BEGIN FARMACIA -->
+                            <!-- END FARMACIA -->
+                            <!-- BEGIN ELETRO -->
+                            <!-- END ELETRO -->
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl">
+                <!-- -->
+            </div>
+            <div class="cbr">
+                <!-- -->
+            </div>
+        </div>
+    </div>
+    <!-- // MODAL PAFLETOS -->
+</div>
+<!-- // FOOTER -->
+<div id="modais">
+    <!-- MODAL DE EXCESSO DE ITENS EM COMPARACAO -->
+    <div id="modalExcessoComp" class="modalBox">
+        <div class="ctm">
+            <div class="ctl"></div>
+            <div class="ctr"></div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <div class="modalIn">
+                        <div class="msgAtencao">
+                            Você pode comparar no máximo 4 produtos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl"></div>
+            <div class="cbr"></div>
+        </div>
+    </div>
+    <!-- // MODAL DE EXCESSO DE ITENS EM COMPARACAO -->
+    <!-- MODAL ITENS INSUFICIENTES PARA COMPARACAO -->
+    <div id="modalInsuficienteComp" class="modalBox">
+        <div class="ctm">
+            <div class="ctl"></div>
+            <div class="ctr"></div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <div class="modalIn">
+                        <div class="msgAtencao">
+                            É necessário selecionar ao menos dois produtos para comparação
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl"></div>
+            <div class="cbr"></div>
+        </div>
+    </div>
+    <!-- // MODAL ITENS INSUFICIENTES PARA COMPARACAO -->
+    <!-- MODAL DE PRODUTO INDISPONIVEL -->
+    <div id="modalProdIndisp" class="modalBox">
+        <div class="ctm">
+            <div class="ctl"></div>
+            <div class="ctr"></div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <h2 id="nomeProduto">
+                        <!-- content carregado dinamicamente --></h2>
+                    <div class="modalIn">
+                        <form id="formAviseme" method="post" action="aviseme">
+                            <div id="msgRetorno" class="msgSucesso">
+                                <strong>E-mail nome@email.com.br cadastrado com sucesso.</strong>
+                                <br> Você receberá um aviso assim que este produto estiver disponível.
+                            </div>
+                            <!-- value carregado dinamicamente -->
+                            <input type="hidden" id="idProduto" name="produtoIndisponivel.idProduto" value="">
+                            <fieldset>
+                                <h4 id="ttlAvisemeQdDisponivel">Avise-me quando este produto estiver disponível</h4>
+                                <ul class="lstFrm">
+                                    <li> <label for="txtSD_Nome">Nome:</label> <input id="txtSD_Nome" name="produtoIndisponivel.nomeCliente" class="frmTxt" type="text" style="width:285px"> <span class="msgErro">Preencha seu nome</span> </li>
+                                    <li> <label for="txtSD_Email">E-mail:</label> <input id="txtSD_Email" name="produtoIndisponivel.emailCliente" class="frmTxt" type="text" style="width:285px"> <span class="msgErro">E-mail inválido. Não esqueça de incluir o símbolo "@"</span> </li>
+                                </ul>
+                            </fieldset>
+                            <fieldset>
+                                <div class="fl pt3">
+                                    <label for="">Aguardar no máximo:</label>
+                                    <select class="frmSel" id="comboPrazo" name="produtoIndisponivel.prazo"> <option value="7" selected>7 dias</option> <option value="15">15 dias</option> <option value="30">30 dias</option>  </select>
+                                    <input id="btnEnviarAviso" name="btnEnviarAviso" class="btnEnviar" type="image" src="http://www.angeloni.com.br/files/resources/_img/pix.gif" alt="Enviar">
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl"></div>
+            <div class="cbr"></div>
+        </div>
+    </div>
+    <!-- // MODAL DE PRODUTO INDISPONIVEL -->
+    <!-- Msgs form Sucesso -->
+    <div id="msgsFrmFinal2" class="modalBox modalTp3">
+        <div class="ctm">
+            <div class="ctl">
+                <!-- -->
+            </div>
+            <div class="ctr">
+                <!-- -->
+            </div>
+        </div>
+        <div class="cml">
+            <div class="cmr">
+                <div class="cmm">
+                    <h2><img src="http://www.angeloni.com.br/files/resources/_img/home/ttl_recebaNovPromo_home.gif" alt="RECEBA NOVIDADES &amp; PROMOÇÕES" width="206" height="16"></h2>
+                    <div class="modalIn pb20">
+                        <div class="msgSucesso">
+                            <strong>Cadastro realizado com sucesso!</strong>
+                            <br> Em breve você receberá novidades e promoções do Angeloni.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cbm">
+            <div class="cbl">
+                <!-- -->
+            </div>
+            <div class="cbr">
+                <!-- -->
+            </div>
+        </div>
+    </div>
+</div> ﻿
+<!-- MODAL DE VÍDEO -->
+<div id="modalVideoDrag" class="modalBox modalAlone">
+    <a href="javascript:;" class="btnModalFechar">fechar</a>
+    <div class="ctm">
+        <div class="ctl">
+            <!-- -->
+        </div>
+        <div class="ctr">
+            <!-- -->
+        </div>
+    </div>
+    <div class="cml">
+        <div class="cmr">
+            <div class="cmm">
+                <h2>
+                    <!-- --></h2>
+                <div class="modalIn">
+                    <iframe class="youtube-player" width="640" height="505" src="" frameborder="0"></iframe>
+                    <a href="javascript:;" id="lnkModalProd" class="lnkVerMaisDetalhes"> Ver mais detalhes </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cbm">
+        <div class="cbl">
+            <!-- -->
+        </div>
+        <div class="cbr">
+            <!-- -->
+        </div>
+    </div>
+</div>
+<!-- // MODAL DE VÍDEO -->
+<script type="text/javascript">
+	var filesdir = "http://www.angeloni.com.br/files/resources";
+</script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery-ui.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.scrollTo.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.easing.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.tooltip.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.maskedinput.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/ag2.packed.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/default.js?v=201508070819"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/abas.js?v=201508070819"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/date.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.datePicker.js"></script>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.bgiframe.js"></script>
+<![endif]-->
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/functions.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jquery.form.js"></script>
+<script type="text/javascript">
+	//<![CDATA[
+	    $(function () {
+	        var logo = $("body").attr("class");
+	        var flashvars = {};
+
+	        flashvars.baseURL = "http://www.angeloni.com.br/files/resources/";
+
+	        if (logo.indexOf("thEletro") !== -1) {
+	            flashvars.requestURL = "http://www.angeloni.com.br/institucional/ajudaVideoEletro";}
+	        else if (logo.indexOf("thFarma") !== -1) {
+	            flashvars.requestURL = "http://www.angeloni.com.br/institucional/ajudaVideoFarma";}
+	        else if (logo.indexOf("thAdega") !== -1) {
+	            flashvars.requestURL = "http://www.angeloni.com.br/institucional/ajudaVideoAdega";}
+	        else if (logo.indexOf("thSuper") !== -1) {
+	            flashvars.requestURL = "http://www.angeloni.com.br/institucional/ajudaVideoSuper";}
+
+	        var params = {};
+	        params.scale = "noscale";
+	        params.wmode = "transparent";
+	        params.allowFullScreen = true;
+	        params.AllowScriptAccess = "always";
+	        var attributes = {};
+	        attributes.id = "swfContent";
+	        var swfModal = new SWFObject("http://www.angeloni.com.br/files/resources/_swf/helpToBuy.swf", "swfContent", "610", "556", "10.0.0");
+	        swfModal.addParam("quality", "high");
+	        swfModal.addParam("wmode", "transparent");
+	        swfModal.addVariable('requestURL', flashvars.requestURL);
+
+				        if (logo.indexOf("thSuper") !== -1 && logo.indexOf("thAdega") == -1) {
+    						} else {
+    						}
+
+			swfModal.useExpressInstall('http://www.angeloni.com.br/files/resources/_swf/expressInstall.swf');
+	        swfModal.write("swfContent");
+	    });
+	//]]>
+
+	</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//$("#txtPCouCod").val("Palavra-chave ou Código");
+		//$("#boxBuscaPor").fadeIn(1000);
+
+		$(".disabledUntilIsReady").removeAttr("disabled");
+		$(".disabledUntilIsReady").removeAttr("readonly");
+		$(".hiddenUntilIsReady").show();
+
+		$(".lnkContinuarCompra").live("click", function(e) {
+			jQuery.fn.colorbox({
+				width:"500px",inline:true,href:"#modalAguarde",opacity: 0.2,overlayClose:false,
+				onLoad:function(){$('#cboxClose').hide();},
+				onClosed:function(){$('#cboxClose').show();}
+			});
+		});
+	});
+
+	jQuery.ajaxSetup({
+		cache: false
+	});
+</script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/sifr.js"></script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/jcarousellite_1.0.1.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+	if(typeof sIFR=="function"){
+		sIFR.replaceElement(named({sSelector:".sIfr", sFlashSrc:"http://www.angeloni.com.br/files/resources/_swf/vagRoundedLt.swf", sColor:"#AE7C2D", sWmode:"transparent", sFlashVars:"textalign=left"}));
+	};
+
+	//]]>
+</script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/newsletter.js"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+
+                            $('a.abaOn').click(); // ativa aba no onload
+
+                            $('#jsSliderProd').hide();
+
+            // Recuperacao do carrinho
+                    });
+
+        function loadShowcaseProductJS() {
+            jQuery.ajax({
+                url: "/super/areaPromocional.action?idNegocio=1&grupo=15022&seloMarca=",
+                success: function(data) {
+                    $('#jsSliderProd').html(data);
+                }, error: function(xhr) {
+                    $('#jsSliderProd').hide();
+                }
+            });
+        }
+
+        $('.lstAbaAjax a').click(function(){
+            aba = $(this).attr('href');
+            //restoreStateComboOrdenacao(aba);
+        });
+
+        $('#comboOrdenacao').change( function() {
+
+                    var ordem = $(this).val();
+
+                    if (ordem == undefined) return false;
+
+                    var aba = $('a.abaOn').attr("href");
+
+                    aba = addOrReplaceURLParameter(aba, "ordem", ordem);
+
+                    if (ordem > 4) {
+                        aba = addOrReplaceURLParameter(aba, "page", 1);
+                    }
+
+                    $('a.abaOn').attr("href", aba).click();
+
+                    return false;
+        });
+
+        function restoreStateComboOrdenacao(aba) {
+
+                    if (aba == undefined) return false;
+
+                    ordem = /[0-9]+/.exec(/ordem=[0-9]+/.exec(aba));
+
+                    if (ordem == null || ordem == undefined || isNaN(ordem)) ordem = 0;
+
+                    $('#comboOrdenacao').val(ordem);
+
+        }
+
+        /*
+         * Funções e Eventos para manipular o AVISE-ME QUANDO DISPONÍVEL
+         */
+
+    	$("a.lnkAviseme").live("click", function() {
+    		$("#modalProdIndisp").find("#nomeProduto").empty();
+
+    		var nomeProduto = $(this).nextAll("#nomeProduto").val()
+    		var idProduto = $(this).nextAll("#idProduto").val()
+
+    		$("#modalProdIndisp").find("#nomeProduto").append(nomeProduto);
+    		$("#formAviseme").find("#idProduto").val(idProduto);
+    		$("#formAviseme").find(".msgErro, #msgRetorno").hide();
+
+    	});
+
+    	$(document).ready(function() {
+	    	$('#formAviseme').submit(function() {
+			$(this).ajaxSubmit({beforeSubmit: validateAviseme,
+				                success: handleAvisemeSuccess,
+				                error: handleAvisemeError
+				                });
+			return false;
+		}).find(".msgErro, #msgRetorno").hide();
+
+    	});
+
+    	function validateAviseme(formData, jqForm, options) {
+
+           	markAsValid($("#txtSD_Nome")); markAsValid($("#txtSD_Email"));
+
+		if ( ! formData[1].value) { //Nome não informado
+        		markAsInvalid($("#txtSD_Nome"));
+                    	$("#modalProdIndisp").colorbox.resize();
+                    	return false;
+		}
+       		if ( ! checkMail(formData[2])) { //E-mail não informado ou inválido
+       			markAsInvalid($("#txtSD_Email"));
+       			$("#modalProdIndisp").colorbox.resize();
+       			return false;
+       		}
+
+       	}
+
+		function handleAvisemeSuccess(response) {
+			var successMessage = "<strong>E-mail " + $('#formAviseme').find("#txtSD_Email").val() + " cadastrado com sucesso.</strong><br />Você receberá um aviso assim que este produto estiver disponível."
+
+        		$('#formAviseme').find("input[id^='txtSD']").each(function() {
+		        	$(this).val("");
+			});
+
+			$("#msgRetorno").empty().append(successMessage).fadeIn();
+			$("#modalProdIndisp").colorbox.resize();
+		}
+
+		function handleAvisemeError(xhr) {
+			alert(xhr.responseText);
+		}
+
+    </script>
+<script>var loginUrl = '/login/loja?idNegocio=1';</script>
+<script type="text/javascript" src="http://www.angeloni.com.br/files/resources/_js/voiza_spinner_qtd_uilogic.js"></script>
+</body>
+</html>

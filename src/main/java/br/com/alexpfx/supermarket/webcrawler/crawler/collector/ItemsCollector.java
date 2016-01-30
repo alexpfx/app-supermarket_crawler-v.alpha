@@ -25,7 +25,7 @@ public class ItemsCollector extends AbstractCollector<TransferObject> {
     private List<TransferObject> evaluate(List<String> urls) {
         List<TransferObject> list = new ArrayList<>();
         urls.forEach(url -> {
-            List<TransferObject> eList = collectorRule.evaluate(JSoupHandler.connectAndGet(url));
+            List<TransferObject> eList = collectorRule.evaluate(JSoupHandler.connectAndGet(url).toString());
             eList.forEach(e -> {
                 list.add(e);
             });

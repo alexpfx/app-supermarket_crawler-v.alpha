@@ -6,6 +6,8 @@ import br.com.alexpfx.supermarket.bo.impl.ProductBoImpl;
 import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.api.HtmlUnitCrawlerApi;
+import br.com.alexpfx.supermarket.webcrawler.crawler.api.JsoupCrawlerApi;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ItemsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.SupermarketCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.UrlsCollector;
@@ -31,13 +33,13 @@ public class CommonBeansConfig {
     @Bean
     @Qualifier(value = "ribeiraoCrawler")
     public Crawler ribeiraoCrawler() {
-        return new SupermarketCrawler(new UrlsCollector(new RibeiraoVisitorRule()), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("https://www.mercadoribeirao.com.br/"));
+        return new SupermarketCrawler(new UrlsCollector(new RibeiraoVisitorRule(), new JsoupCrawlerApi()), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("https://www.mercadoribeirao.com.br/"));
     }
 
     @Bean
     @Qualifier(value = "angeloniCrawler")
     public Crawler angeloniCrawler() {
-        return new SupermarketCrawler(new UrlsCollector(new AngeloniVisitorRule()), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("http://www.angeloni.com.br/super/index"));
+        return new SupermarketCrawler(new UrlsCollector(new AngeloniVisitorRule(), new HtmlUnitCrawlerApi()), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("http://www.angeloni.com.br/super/index"));
     }
 
     @Bean
