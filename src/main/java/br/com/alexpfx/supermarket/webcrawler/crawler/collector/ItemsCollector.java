@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.api.JSoupHandler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.JSoupHandler;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 
 import java.util.ArrayList;

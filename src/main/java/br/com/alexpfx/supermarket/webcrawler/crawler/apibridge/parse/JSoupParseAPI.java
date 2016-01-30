@@ -1,11 +1,11 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler.api.parse;
+package br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.parse;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.nio.charset.Charset;
 
-import static br.com.alexpfx.supermarket.webcrawler.crawler.api.Constants.CHARSET;
+import static br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.Constants.CHARSET;
 
 /**
  * Created by alexandre on 30/01/2016.

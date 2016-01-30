@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler.api.visitor;
+package br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.visitor;
 
 import com.jaunt.ResponseException;
 import com.jaunt.UserAgent;

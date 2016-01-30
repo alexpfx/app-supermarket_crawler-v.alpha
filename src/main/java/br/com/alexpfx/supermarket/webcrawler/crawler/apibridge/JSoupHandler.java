@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler.api;
+package br.com.alexpfx.supermarket.webcrawler.crawler.apibridge;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler.api;
+package br.com.alexpfx.supermarket.webcrawler.crawler.apibridge;
 
 /**
  * Created by alexandre on 30/01/2016.

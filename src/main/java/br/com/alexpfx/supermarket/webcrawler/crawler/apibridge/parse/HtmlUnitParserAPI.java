@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler.api.parse;
+package br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.parse;
 
 import com.gargoylesoftware.htmlunit.Page;
 
