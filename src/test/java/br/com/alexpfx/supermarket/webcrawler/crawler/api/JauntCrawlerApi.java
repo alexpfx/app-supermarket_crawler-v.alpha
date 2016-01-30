@@ -6,10 +6,10 @@ import com.jaunt.UserAgent;
 /**
  * Created by alexandre on 29/01/2016.
  */
-public class JauntApiHandlerImpl implements CrawlerApiHandler {
+public class JauntCrawlerApi implements CrawlerApi {
     UserAgent userAgent;
 
-    public JauntApiHandlerImpl(UserAgent userAgent) {
+    public JauntCrawlerApi(UserAgent userAgent) {
         this.userAgent = userAgent;
     }
 
