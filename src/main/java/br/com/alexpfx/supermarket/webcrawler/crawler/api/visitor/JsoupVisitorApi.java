@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler.api;
+package br.com.alexpfx.supermarket.webcrawler.crawler.api.visitor;
 
 import org.jsoup.Jsoup;
 

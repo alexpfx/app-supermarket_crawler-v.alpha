@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.webcrawler.crawler.api;
+package br.com.alexpfx.supermarket.webcrawler.crawler.api.htmlparse;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -10,7 +10,7 @@ import static br.com.alexpfx.supermarket.webcrawler.crawler.api.Constants.CHARSE
 /**
  * Created by alexandre on 30/01/2016.
  */
-public class JsoupHtmlParseAPI<T> implements HtmlParseAPI<Document> {
+public class JsoupParserAPI<T> implements ParserAPI<Document> {
 
     @Override
     public Document parseDocument(String htmlCode) {
