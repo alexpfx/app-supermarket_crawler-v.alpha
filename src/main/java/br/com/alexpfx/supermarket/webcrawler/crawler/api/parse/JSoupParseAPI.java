@@ -10,7 +10,7 @@ import static br.com.alexpfx.supermarket.webcrawler.crawler.api.Constants.CHARSE
 /**
  * Created by alexandre on 30/01/2016.
  */
-public class JSopCrawlerAPI implements ParserAPI<Document> {
+public class JSoupParseAPI implements ParserAPI<Document> {
 
     @Override
     public Document parseDocument(String htmlCode) {
