@@ -46,7 +46,7 @@ public class CrawlersApiTest {
 
 //    @Test
     public void jsopTest () throws IOException, ResponseException {
-        org.jsoup.nodes.Document doc = JSoupHandler.visit("https://www.mercadoribeirao.com.br/produtos.php?id_sub=167&pageNum=VER-TUDO&limpeza-da-cozinha");
+        org.jsoup.nodes.Document doc = JSoupHandler.connectAndGet("https://www.mercadoribeirao.com.br/produtos.php?id_sub=167&pageNum=VER-TUDO&limpeza-da-cozinha");
         org.jsoup.select.Elements itemList = doc.select("div.item-meta-container");
         for (org.jsoup.nodes.Element e:itemList){
             org.jsoup.nodes.Element s = e.select("h3.item-name").select("a").first();
@@ -55,7 +55,7 @@ public class CrawlersApiTest {
         }
 
 
-        org.jsoup.nodes.Document document = JSoupHandler.visit(URL);
+        org.jsoup.nodes.Document document = JSoupHandler.connectAndGet(URL);
         UserAgentFactory userAgentFactory = new UserAgentFactory();
         UserAgent userAgent = userAgentFactory.createUserAgent();
     }
