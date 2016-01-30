@@ -7,7 +7,7 @@ import com.jaunt.UserAgent;
 /**
  * Created by alexandre on 29/01/2016.
  */
-public class JauntCrawlerApi implements CrawlerApi {
+public class JauntCrawlerApi implements OldCrawlerApi {
 
     UserAgent userAgent;
 
@@ -23,7 +23,7 @@ public class JauntCrawlerApi implements CrawlerApi {
 
 
     @Override
-    public String visit(String url) {
+    public String crawl(String url) {
         try {
             return userAgent.visit(url).innerHTML();
         } catch (ResponseException e) {

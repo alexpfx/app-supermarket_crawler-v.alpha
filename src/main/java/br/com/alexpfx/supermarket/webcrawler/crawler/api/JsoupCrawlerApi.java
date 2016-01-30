@@ -10,12 +10,12 @@ import java.util.function.Function;
 /**
  * Created by alexandre on 29/01/2016.
  */
-public class JsoupCrawlerApi implements CrawlerApi {
+public class JsoupCrawlerApi implements OldCrawlerApi {
     public static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36";
 
 
     @Override
-    public String visit(String url) {
+    public String crawl(String url) {
         return connect.apply(url).html();
     }
 

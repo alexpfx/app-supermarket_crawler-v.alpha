@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.api.CrawlerApi;
+import br.com.alexpfx.supermarket.webcrawler.crawler.api.OldCrawlerApi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
  * Created by alexandre on 16/01/2016.
  */
 public class UrlsCollector extends AbstractCollector<String> {
-    private CrawlerApi crawlerApi;
+    private OldCrawlerApi crawlerApi;
 
-    public UrlsCollector(CollectorRule collectorRule, CrawlerApi crawlerApi) {
+    public UrlsCollector(CollectorRule collectorRule, OldCrawlerApi crawlerApi) {
         this.collectorRule = collectorRule;
         this.crawlerApi = crawlerApi;
     }
@@ -35,7 +35,7 @@ public class UrlsCollector extends AbstractCollector<String> {
     }
 
     private List<String> evaluate(String url) {
-        return collectorRule.evaluate(crawlerApi.visit(url));
+        return collectorRule.evaluate(crawlerApi.crawl(url));
     }
 
 }
