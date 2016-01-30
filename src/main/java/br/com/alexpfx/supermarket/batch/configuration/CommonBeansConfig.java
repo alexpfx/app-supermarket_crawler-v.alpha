@@ -8,7 +8,7 @@ import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.SupermarketCrawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.api.HtmlUnitCrawlerAPI;
-import br.com.alexpfx.supermarket.webcrawler.crawler.api.JsoupCrawlerAPI;
+import br.com.alexpfx.supermarket.webcrawler.crawler.api.JSOPCrawlerAPI;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ItemsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.AngeloniCollectorRule;
@@ -33,7 +33,7 @@ public class CommonBeansConfig {
     @Bean
     @Qualifier(value = "ribeiraoCrawler")
     public Crawler ribeiraoCrawler() {
-        return new SupermarketCrawler(new UrlsCollector(new RibeiraoVisitorRule(), new JsoupCrawlerAPI()), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("https://www.mercadoribeirao.com.br/"));
+        return new SupermarketCrawler(new UrlsCollector(new RibeiraoVisitorRule(), new JSOPCrawlerAPI()), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("https://www.mercadoribeirao.com.br/"));
     }
 
     @Bean
