@@ -35,7 +35,7 @@ public class UrlsCollector extends AbstractCollector<String> {
     }
 
     private List<String> evaluate(String url) {
-        return collectorRule.evaluate(crawlerApi.getVisitorApi().visit(url));
+        return collectorRule.evaluate(crawlerApi.visit(url));
     }
 
 }
