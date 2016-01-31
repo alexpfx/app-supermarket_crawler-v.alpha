@@ -52,6 +52,7 @@ public class ProdutoSuperMercadoTOBuilder {
     }
 
     public ProdutoSuperMercadoTO create() {
-        return new ProdutoSuperMercadoTO(url, descricao, precoFinal, precoOriginal, unidadeMedida, quantidade, codigo, fabricante);
+        return new ProdutoSuperMercadoTO(url, descricao, precoFinal, precoOriginal, unidadeMedida, quantidade, codigo,
+                                         fabricante);
     }
 }

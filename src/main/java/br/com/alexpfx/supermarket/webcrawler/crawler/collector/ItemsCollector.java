@@ -1,5 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
+import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.JSoupHandler;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 
@@ -13,7 +14,9 @@ public class ItemsCollector extends AbstractCollector<TransferObject> {
 
     private CollectorRule<TransferObject> collectorRule;
 
-    public ItemsCollector(CollectorRule<TransferObject> collectorRule) {
+
+    public ItemsCollector(CollectorRule<TransferObject> collectorRule, CrawlerAPI crawlerAPI) {
+        super(crawlerAPI);
         this.collectorRule = collectorRule;
     }
 

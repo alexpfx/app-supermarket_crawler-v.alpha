@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
  * Created by alexandre on 16/01/2016.
  */
 public class UrlsCollector extends AbstractCollector<String> {
-    private CrawlerAPI crawlerApi;
 
-    public UrlsCollector(CollectorRule collectorRule, CrawlerAPI crawlerApi) {
+    public UrlsCollector(CollectorRule collectorRule, CrawlerAPI crawlerAPI) {
+        super(crawlerAPI);
         this.collectorRule = collectorRule;
-        this.crawlerApi = crawlerApi;
+
     }
 
     @Override
@@ -35,7 +35,7 @@ public class UrlsCollector extends AbstractCollector<String> {
     }
 
     private List<String> evaluate(String url) {
-        return collectorRule.evaluate(crawlerApi.visit(url));
+        return collectorRule.evaluate(crawlerAPI.visit(url));
     }
 
 }

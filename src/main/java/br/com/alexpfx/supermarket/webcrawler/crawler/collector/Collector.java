@@ -1,7 +1,5 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
-import com.jaunt.UserAgent;
-
 import java.util.List;
 
 /**

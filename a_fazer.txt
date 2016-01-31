@@ -1,3 +1,4 @@
+[] construtores de visitor rule e collector ruler estao ambiguos.
 [] evoluir parte de gravacao no banco
 [] adequar testes unitarios classe collector
 [] adicionar limite de recursividade

@@ -1,18 +1,14 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.collector.CollectorRule;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
-import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.List;
-
 /**
  * Created by alexandre on 25/01/2016.
  */
-public class AngeloniCollectorRule <T> extends ProductCollectorFromPageListAdapter <ProdutoSuperMercadoTO> {
+public class AngeloniCollectorRule<T> extends ProductCollectorFromPageListAdapter<ProdutoSuperMercadoTO> {
 
     @Override
     public Elements extractItemList(Document doc) {
@@ -33,8 +29,6 @@ public class AngeloniCollectorRule <T> extends ProductCollectorFromPageListAdapt
     protected String extractQuantidade(Element p) {
         return super.extractQuantidade(p);
     }
-
-
 
 
 }

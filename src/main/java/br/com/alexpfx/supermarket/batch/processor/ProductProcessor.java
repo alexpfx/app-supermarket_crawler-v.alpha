@@ -30,6 +30,7 @@ public class ProductProcessor implements ItemProcessor<TransferObject, Product> 
             LOG.warning("invalid ean: " + e.getCode());
         }
         Manufacturer manufacturer = new Manufacturer(to.getFabricante());
-        return new ProductBuilder().description(to.getDescricao()).url(to.getUrl()).ean(ean13).manufacturer(manufacturer).manufacturer(manufacturer).create();
+        return new ProductBuilder().description(to.getDescricao()).url(to.getUrl()).ean(ean13).manufacturer(
+                manufacturer).manufacturer(manufacturer).create();
     }
 }

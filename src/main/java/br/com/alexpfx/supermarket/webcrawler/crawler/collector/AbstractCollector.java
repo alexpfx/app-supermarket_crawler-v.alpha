@@ -1,5 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
+import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
+
 import java.util.List;
 
 /**
@@ -8,10 +10,14 @@ import java.util.List;
  */
 public abstract class AbstractCollector<T> implements Collector<T> {
 
+    public AbstractCollector(CrawlerAPI crawlerAPI) {
+        this.crawlerAPI = crawlerAPI;
+    }
 
     // fields are to be used ("exclusively") in subclasses, so I use protected modifier.
     protected CollectorRule<T> collectorRule = (CollectorRule<T>) CollectorRule.EMPTY;
 
+    protected CrawlerAPI crawlerAPI;
 
 
     @Override

@@ -42,11 +42,14 @@ public class KeywordCounter {
 
 
     public Map<String, Integer> top(int q) {
-        Collector<Entry<String, Integer>, ?, LinkedHashMap<String, Integer>> collector = toMap(Entry::getKey, Entry::getValue, (x, y) -> {
-                    throw new AssertionError();
-                },
-                LinkedHashMap::new);
-        LinkedHashMap<String, Integer> collected = wordMap.entrySet().stream().sorted(comparingByValue(Comparator.reverseOrder())).collect(collector);
+        Collector<Entry<String, Integer>, ?, LinkedHashMap<String, Integer>> collector = toMap(Entry::getKey,
+                                                                                               Entry::getValue,
+                                                                                               (x, y) -> {
+                                                                                                   throw new AssertionError();
+                                                                                               },
+                                                                                               LinkedHashMap::new);
+        LinkedHashMap<String, Integer> collected = wordMap.entrySet().stream().sorted(
+                comparingByValue(Comparator.reverseOrder())).collect(collector);
         return collected.entrySet().stream().limit(q).collect(collector);
 
     }

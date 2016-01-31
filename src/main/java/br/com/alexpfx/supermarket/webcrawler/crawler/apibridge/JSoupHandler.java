@@ -15,9 +15,9 @@ public class JSoupHandler {
     public static final Document connectAndGet(String url) {
         try {
             Document document = Jsoup.connect(url)
-                    .timeout(20000)
-                    .userAgent(USER_AGENT)
-                    .get();
+                                     .timeout(20000)
+                                     .userAgent(USER_AGENT)
+                                     .get();
             return document;
         } catch (IOException e) {
             throw new RuntimeException(url, e);

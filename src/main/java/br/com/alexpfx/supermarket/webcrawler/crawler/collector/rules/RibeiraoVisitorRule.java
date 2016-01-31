@@ -1,6 +1,5 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.CollectorRule;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;

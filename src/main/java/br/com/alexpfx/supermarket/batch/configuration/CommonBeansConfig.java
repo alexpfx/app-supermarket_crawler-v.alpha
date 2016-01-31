@@ -35,13 +35,24 @@ public class CommonBeansConfig {
     @Bean
     @Qualifier(value = "ribeiraoCrawler")
     public Crawler ribeiraoCrawler() {
-        return new SupermarketCrawler(new UrlsCollector(new RibeiraoVisitorRule(), new CrawlerAPIImpl(new JsoupVisitorAPI(), new JSoupParseAPI())), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("https://www.mercadoribeirao.com.br/"));
+        return new SupermarketCrawler(new UrlsCollector(new RibeiraoVisitorRule(),
+                                                        new CrawlerAPIImpl(new JsoupVisitorAPI(), new JSoupParseAPI())),
+                                      new ItemsCollector(new RibeiraoVisitorRule(),
+                                                         new CrawlerAPIImpl(new JsoupVisitorAPI(),
+                                                                            new JSoupParseAPI())),
+                                      Collections.singletonList("https://www.mercadoribeirao.com.br/"));
     }
 
     @Bean
     @Qualifier(value = "angeloniCrawler")
     public Crawler angeloniCrawler() {
-        return new SupermarketCrawler(new UrlsCollector(new AngeloniVisitorRule(), new CrawlerAPIImpl(new HtmlUnitVisitorAPI(), new JSoupParseAPI())), new ItemsCollector(new AngeloniCollectorRule()), Collections.singletonList("http://www.angeloni.com.br/super/index"));
+        return new SupermarketCrawler(new UrlsCollector(new AngeloniVisitorRule(),
+                                                        new CrawlerAPIImpl(new HtmlUnitVisitorAPI(),
+                                                                           new JSoupParseAPI())),
+                                      new ItemsCollector(new AngeloniCollectorRule(),
+                                                         new CrawlerAPIImpl(new HtmlUnitVisitorAPI(),
+                                                                            new JSoupParseAPI())),
+                                      Collections.singletonList("http://www.angeloni.com.br/super/index"));
     }
 
     @Bean

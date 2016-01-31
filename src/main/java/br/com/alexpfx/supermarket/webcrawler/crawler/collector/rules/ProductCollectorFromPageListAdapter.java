@@ -8,7 +8,7 @@ import org.jsoup.select.Elements;
 /**
  * Created by alexandre on 26/01/2016.
  */
-public class ProductCollectorFromPageListAdapter <T> extends ProductCollectorFromPageList <ProdutoSuperMercadoTO> {
+public class ProductCollectorFromPageListAdapter<T> extends ProductCollectorFromPageList<ProdutoSuperMercadoTO> {
     @Override
     protected String extractQuantidade(Element p) {
         return null;

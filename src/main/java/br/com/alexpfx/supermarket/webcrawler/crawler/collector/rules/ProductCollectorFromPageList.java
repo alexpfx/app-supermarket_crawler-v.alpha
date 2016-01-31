@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by alexandre on 26/01/2016.
  */
-public abstract class ProductCollectorFromPageList <T> implements CollectorRule<ProdutoSuperMercadoTO> {
+public abstract class ProductCollectorFromPageList<T> implements CollectorRule<ProdutoSuperMercadoTO> {
 
 
     @Override
@@ -23,7 +23,10 @@ public abstract class ProductCollectorFromPageList <T> implements CollectorRule<
         List<ProdutoSuperMercadoTO> pList = new ArrayList<>();
         list.forEach(p -> {
             ProdutoSuperMercadoTOBuilder builder = new ProdutoSuperMercadoTOBuilder();
-            ProdutoSuperMercadoTO produtoSuperMercadoTO = builder.fabricante(extractFabricante(p)).url(extractUrl(p)).code(extractCodigo(p)).descricao(extractDescricao(p)).precoFinal(extractPrecoFinal(p)).precoOriginal(extractPrecoOriginal(p)).quantidade(extractQuantidade(p)).unidadeMedida(extractUnidadeMedida(p)).create();
+            ProdutoSuperMercadoTO produtoSuperMercadoTO = builder.fabricante(extractFabricante(p)).url(
+                    extractUrl(p)).code(extractCodigo(p)).descricao(extractDescricao(p)).precoFinal(
+                    extractPrecoFinal(p)).precoOriginal(extractPrecoOriginal(p)).quantidade(
+                    extractQuantidade(p)).unidadeMedida(extractUnidadeMedida(p)).create();
             pList.add(produtoSuperMercadoTO);
         });
 

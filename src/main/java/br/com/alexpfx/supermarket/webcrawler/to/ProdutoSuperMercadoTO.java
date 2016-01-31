@@ -17,7 +17,8 @@ public class ProdutoSuperMercadoTO implements TransferObject {
     public ProdutoSuperMercadoTO() {
     }
 
-    ProdutoSuperMercadoTO(String url, String descricao, String precoFinal, String precoOriginal, String unidadeMedida, String quantidade, String codigo, String fabricante) {
+    ProdutoSuperMercadoTO(String url, String descricao, String precoFinal, String precoOriginal, String unidadeMedida,
+                          String quantidade, String codigo, String fabricante) {
         this.url = url;
         this.descricao = descricao;
         this.precoFinal = precoFinal;

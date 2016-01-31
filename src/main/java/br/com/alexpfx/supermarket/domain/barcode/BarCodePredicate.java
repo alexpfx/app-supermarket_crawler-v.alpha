@@ -38,7 +38,7 @@ public class BarCodePredicate {
 
     private static int sumStringDigits(String s) {
         return s.chars().map(n ->
-                Character.getNumericValue(n)
+                                     Character.getNumericValue(n)
         ).sum();
     }
 
