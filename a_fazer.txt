@@ -1,9 +1,9 @@
-[] construtores de visitor rule e collector ruler estao ambiguos.
 [] evoluir parte de gravacao no banco
-[] adequar testes unitarios classe collector
+[] testes unitarios do que precisa
 [] adicionar limite de recursividade
 [] eliminar erro quando job eh rodado pela segunda vez
 [] logar informacoes sobre o crawler: motivo de parada, tempo em execucao, etc.
+[x] construtores de visitor rule e collector ruler estao ambiguos.
 [x] eliminar implementações de AbstractCrawler
 [x] alterar abstract crawler para ser classe concreta, mudar nome para SuperMercadoCrawler
 [x] testar api jsoup
