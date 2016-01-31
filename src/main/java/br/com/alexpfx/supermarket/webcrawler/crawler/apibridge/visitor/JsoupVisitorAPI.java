@@ -4,16 +4,12 @@ import org.jsoup.Jsoup;
 
 import java.io.IOException;
 
-import static br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.Constants.CHARSET;
-import static br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.Constants.TIMEOUT;
-import static br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.Constants.USER_AGENT;
+import static br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.Constants.*;
 
 /**
  * Created by alexandre on 30/01/2016.
  */
 public class JsoupVisitorAPI implements VisitorAPI {
-
-
 
     @Override
     public String visit(String url) {

@@ -6,12 +6,12 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.visitor.VisitorAP
 /**
  * Created by alexandre on 30/01/2016.
  */
-public class AbstractCrawlerAPI implements CrawlerAPI {
+public class CrawlerAPIImpl implements CrawlerAPI {
 
     private VisitorAPI visitorAPI;
     private ParserAPI parserAPI;
 
-    public AbstractCrawlerAPI(VisitorAPI visitorAPI, ParserAPI parserAPI) {
+    public CrawlerAPIImpl(VisitorAPI visitorAPI, ParserAPI parserAPI) {
         this.visitorAPI = visitorAPI;
         this.parserAPI = parserAPI;
     }

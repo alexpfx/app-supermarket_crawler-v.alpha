@@ -19,6 +19,7 @@ public class JauntParserAPI implements ParserAPI<Document> {
         try {
             return userAgent.openContent(htmlCode);
         } catch (ResponseException e) {
+            //I don't want to return Null, but its difficult to implement an Empty Jaunt Document
             return null;
         }
     }
