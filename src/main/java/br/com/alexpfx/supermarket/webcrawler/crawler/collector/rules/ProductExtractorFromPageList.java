@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
-import br.com.alexpfx.supermarket.webcrawler.crawler.collector.CollectorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ExtractionRules;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
 import org.jsoup.nodes.Document;
@@ -13,11 +13,11 @@ import java.util.List;
 /**
  * Created by alexandre on 26/01/2016.
  */
-public abstract class ProductCollectorFromPageList<T> implements CollectorRule<ProdutoSuperMercadoTO> {
+public abstract class ProductExtractorFromPageList<T> implements ExtractionRules<ProdutoSuperMercadoTO> {
 
 
     @Override
-    public List<ProdutoSuperMercadoTO> evaluate(String htmlCode) {
+    public List<ProdutoSuperMercadoTO> extract(String htmlCode) {
         Document doc = null;
         Elements list = extractItemList(doc);
         List<ProdutoSuperMercadoTO> pList = new ArrayList<>();

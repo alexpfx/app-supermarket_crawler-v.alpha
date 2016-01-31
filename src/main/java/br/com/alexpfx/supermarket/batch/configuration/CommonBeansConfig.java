@@ -13,8 +13,9 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.visitor.HtmlUnitV
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.visitor.JsoupVisitorAPI;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ItemsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.UrlsCollector;
-import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.AngeloniCollectorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.AngeloniExtractionRules;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.AngeloniVisitorRule;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.RibeiraoExtractionRules;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.RibeiraoVisitorRule;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
@@ -35,9 +36,10 @@ public class CommonBeansConfig {
     @Bean
     @Qualifier(value = "ribeiraoCrawler")
     public Crawler ribeiraoCrawler() {
-        return new SupermarketCrawler(new UrlsCollector(new RibeiraoVisitorRule(),
-                                                        new CrawlerAPIImpl(new JsoupVisitorAPI(), new JSoupParseAPI())),
-                                      new ItemsCollector(new RibeiraoVisitorRule(),
+        return new SupermarketCrawler(new UrlsCollector(
+                new RibeiraoVisitorRule(new CrawlerAPIImpl(new JsoupVisitorAPI(), new JSoupParseAPI())),
+                new CrawlerAPIImpl(new JsoupVisitorAPI(), new JSoupParseAPI())),
+                                      new ItemsCollector(new RibeiraoExtractionRules(),
                                                          new CrawlerAPIImpl(new JsoupVisitorAPI(),
                                                                             new JSoupParseAPI())),
                                       Collections.singletonList("https://www.mercadoribeirao.com.br/"));
@@ -46,10 +48,11 @@ public class CommonBeansConfig {
     @Bean
     @Qualifier(value = "angeloniCrawler")
     public Crawler angeloniCrawler() {
-        return new SupermarketCrawler(new UrlsCollector(new AngeloniVisitorRule(),
-                                                        new CrawlerAPIImpl(new HtmlUnitVisitorAPI(),
-                                                                           new JSoupParseAPI())),
-                                      new ItemsCollector(new AngeloniCollectorRule(),
+        return new SupermarketCrawler(new UrlsCollector(
+                new AngeloniVisitorRule(new CrawlerAPIImpl<>(new JsoupVisitorAPI(), new JSoupParseAPI())),
+                new CrawlerAPIImpl(new HtmlUnitVisitorAPI(),
+                                   new JSoupParseAPI())),
+                                      new ItemsCollector(new AngeloniExtractionRules(),
                                                          new CrawlerAPIImpl(new HtmlUnitVisitorAPI(),
                                                                             new JSoupParseAPI())),
                                       Collections.singletonList("http://www.angeloni.com.br/super/index"));

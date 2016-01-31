@@ -8,12 +8,15 @@ import java.util.stream.Collectors;
 
 /**
  * Created by alexandre on 16/01/2016.
+ * <p>
+ * Classe responsável pela lógica de coleta de urls das páginas. Realiza a busca por links de maneira
+ * recursiva até que não haja mais urls novas ou que uma condição de parada seja satisfeita.
  */
-public class UrlsCollector extends AbstractCollector<String> {
+public class UrlsCollector<A extends CrawlerAPI<?>> extends AbstractCollector<String, A> {
 
-    public UrlsCollector(CollectorRule collectorRule, CrawlerAPI crawlerAPI) {
+    public UrlsCollector(ExtractionRules extractionRules, A crawlerAPI) {
         super(crawlerAPI);
-        this.collectorRule = collectorRule;
+        this.extractionRules = extractionRules;
 
     }
 
@@ -35,7 +38,7 @@ public class UrlsCollector extends AbstractCollector<String> {
     }
 
     private List<String> evaluate(String url) {
-        return collectorRule.evaluate(crawlerAPI.visit(url));
+        return extractionRules.extract(getCrawlerAPI().visit(url));
     }
 
 }

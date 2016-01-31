@@ -8,7 +8,7 @@ import org.jsoup.select.Elements;
 /**
  * Created by alexandre on 25/01/2016.
  */
-public class AngeloniCollectorRule<T> extends ProductCollectorFromPageListAdapter<ProdutoSuperMercadoTO> {
+public class AngeloniExtractionRules<T> extends ProductExtractorFromPageListAdapter<ProdutoSuperMercadoTO> {
 
     @Override
     public Elements extractItemList(Document doc) {

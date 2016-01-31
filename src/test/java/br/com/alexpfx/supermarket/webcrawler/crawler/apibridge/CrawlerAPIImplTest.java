@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class CrawlerAPIImplTest {
 
-    CrawlerAPI crawlerAPI;
+    CrawlerAPI <Document> crawlerAPI;
 
     @Before
     public void setUp() {
@@ -31,7 +31,7 @@ public class CrawlerAPIImplTest {
 
     @Test
     public void testParse() throws Exception {
-        Document document = crawlerAPI.<Document>parse("<html> <body> </body> </html>");
+        Document document = crawlerAPI.parse("<html> <body> </body> </html>");
         assertNotNull(document);
     }
 }

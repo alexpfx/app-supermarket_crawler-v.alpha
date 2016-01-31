@@ -1,7 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
-import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.JSoupHandler;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 
 import java.util.ArrayList;
@@ -10,14 +9,14 @@ import java.util.List;
 /**
  * Created by alexandre on 18/01/2016.
  */
-public class ItemsCollector extends AbstractCollector<TransferObject> {
+public class ItemsCollector<A extends CrawlerAPI<?>> extends AbstractCollector<TransferObject, A> {
 
-    private CollectorRule<TransferObject> collectorRule;
+    private ExtractionRules<TransferObject> extractionRules;
 
 
-    public ItemsCollector(CollectorRule<TransferObject> collectorRule, CrawlerAPI crawlerAPI) {
+    public ItemsCollector(ExtractionRules<TransferObject> extractionRules, A crawlerAPI) {
         super(crawlerAPI);
-        this.collectorRule = collectorRule;
+        this.extractionRules = extractionRules;
     }
 
     @Override
@@ -28,7 +27,7 @@ public class ItemsCollector extends AbstractCollector<TransferObject> {
     private List<TransferObject> evaluate(List<String> urls) {
         List<TransferObject> list = new ArrayList<>();
         urls.forEach(url -> {
-            List<TransferObject> eList = collectorRule.evaluate(JSoupHandler.connectAndGet(url).toString());
+            List<TransferObject> eList = extractionRules.extract(getCrawlerAPI().visit(url));
             eList.forEach(e -> {
                 list.add(e);
             });

@@ -6,12 +6,12 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.visitor.VisitorAP
 /**
  * Created by alexandre on 30/01/2016.
  */
-public class CrawlerAPIImpl implements CrawlerAPI {
+public class CrawlerAPIImpl<D> implements CrawlerAPI<D> {
 
     private VisitorAPI visitorAPI;
-    private ParserAPI parserAPI;
+    private ParserAPI<D> parserAPI;
 
-    public CrawlerAPIImpl(VisitorAPI visitorAPI, ParserAPI parserAPI) {
+    public CrawlerAPIImpl(VisitorAPI visitorAPI, ParserAPI<D> parserAPI) {
         this.visitorAPI = visitorAPI;
         this.parserAPI = parserAPI;
     }
@@ -22,7 +22,7 @@ public class CrawlerAPIImpl implements CrawlerAPI {
     }
 
     @Override
-    public <T> T parse(String htmlCode) {
-        return (T) parserAPI.parseDocument(htmlCode);
+    public D parse(String htmlCode) {
+        return parserAPI.parseDocument(htmlCode);
     }
 }
