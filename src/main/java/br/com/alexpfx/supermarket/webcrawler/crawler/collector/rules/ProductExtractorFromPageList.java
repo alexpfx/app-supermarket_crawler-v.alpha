@@ -19,6 +19,7 @@ public abstract class ProductExtractorFromPageList<T> implements ExtractionRules
     @Override
     public List<ProdutoSuperMercadoTO> extract(String htmlCode) {
         Document doc = null;
+        //TODO: PASSAR CRAWLER API. REFATORAR.
         Elements list = extractItemList(doc);
         List<ProdutoSuperMercadoTO> pList = new ArrayList<>();
         list.forEach(p -> {

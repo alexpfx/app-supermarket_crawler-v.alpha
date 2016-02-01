@@ -12,6 +12,8 @@ import java.util.List;
  */
 public class AngeloniVisitorRule extends AbstractExtractionRules <String, CrawlerAPI<Document>> {
 
+    public static final String BASE_URI = "http://www.angeloni.com.br/";
+
     public AngeloniVisitorRule(){
 
     }
@@ -26,6 +28,7 @@ public class AngeloniVisitorRule extends AbstractExtractionRules <String, Crawle
 
         List<String> list = new ArrayList<String>();
         Document doc = getCrawlerAPI().parse(htmlCode);
+        doc.setBaseUri(BASE_URI);
 
         org.jsoup.select.Elements elements = doc.select("a.lnkTp01 ");
         org.jsoup.select.Elements lnkTp02 = doc.select("a.lnkTp02 ");
