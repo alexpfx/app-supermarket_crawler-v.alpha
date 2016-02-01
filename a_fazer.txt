@@ -1,3 +1,4 @@
+[] falta refatorar a parte do product collector.
 [] evoluir parte de gravacao no banco
 [] testes unitarios do que precisa
 [] adicionar limite de recursividade

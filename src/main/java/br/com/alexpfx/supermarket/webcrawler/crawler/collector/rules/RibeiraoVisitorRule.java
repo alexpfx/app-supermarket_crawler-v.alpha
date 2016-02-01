@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
+import com.google.common.base.Preconditions;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
@@ -12,12 +13,17 @@ import java.util.List;
  */
 public class RibeiraoVisitorRule extends AbstractExtractionRules<String, CrawlerAPI<Document>> {
 
+    public RibeiraoVisitorRule() {
+    }
+
     public RibeiraoVisitorRule(CrawlerAPI<Document> parserAPI) {
-        super(parserAPI);
+        setCrawlerAPI(parserAPI);
     }
 
     @Override
     public List extract(String htmlCode) {
+        Preconditions.checkNotNull(getCrawlerAPI());
+
         List<String> list = new ArrayList<>();
         Document doc = getCrawlerAPI().parse(htmlCode);
 

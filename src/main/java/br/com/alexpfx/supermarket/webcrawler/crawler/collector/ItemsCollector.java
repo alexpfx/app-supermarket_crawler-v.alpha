@@ -14,7 +14,7 @@ public class ItemsCollector<A extends CrawlerAPI<?>> extends AbstractCollector<T
     private ExtractionRules<TransferObject> extractionRules;
 
 
-    public ItemsCollector(ExtractionRules<TransferObject> extractionRules, A crawlerAPI) {
+    public ItemsCollector(A crawlerAPI, ExtractionRules<TransferObject> extractionRules) {
         super(crawlerAPI);
         this.extractionRules = extractionRules;
     }

@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
+import com.google.common.base.Preconditions;
 import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
@@ -11,12 +12,18 @@ import java.util.List;
  */
 public class AngeloniVisitorRule extends AbstractExtractionRules <String, CrawlerAPI<Document>> {
 
+    public AngeloniVisitorRule(){
+
+    }
+
     public AngeloniVisitorRule(CrawlerAPI<Document> parserAPI) {
-        super(parserAPI);
+        setCrawlerAPI(parserAPI);
     }
 
     @Override
     public List<String> extract(String htmlCode) {
+        Preconditions.checkNotNull(getCrawlerAPI());
+
         List<String> list = new ArrayList<String>();
         Document doc = getCrawlerAPI().parse(htmlCode);
 

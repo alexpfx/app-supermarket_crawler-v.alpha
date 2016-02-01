@@ -14,9 +14,10 @@ import java.util.stream.Collectors;
  */
 public class UrlsCollector<A extends CrawlerAPI<?>> extends AbstractCollector<String, A> {
 
-    public UrlsCollector(ExtractionRules extractionRules, A crawlerAPI) {
+    public UrlsCollector(A crawlerAPI, ExtractionRules extractionRules) {
         super(crawlerAPI);
         this.extractionRules = extractionRules;
+
 
     }
 
@@ -26,7 +27,7 @@ public class UrlsCollector<A extends CrawlerAPI<?>> extends AbstractCollector<St
     }
 
     private List<String> doCollect(List<String> toVisit, List<String> lista) {
-        List<String> subList = new ArrayList<>();
+        List<String> subList =  new ArrayList<>();
         for (String url : toVisit) {
             System.out.println(url);
             List<String> evaluated = evaluate(url);

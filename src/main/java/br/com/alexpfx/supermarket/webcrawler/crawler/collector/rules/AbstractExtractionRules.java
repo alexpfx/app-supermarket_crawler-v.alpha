@@ -9,14 +9,13 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ExtractionRules;
 
 
 public abstract class AbstractExtractionRules<T, D extends CrawlerAPI<?>> implements ExtractionRules<T> {
+    private D crawlerAPI;
 
-    private D parserAPI;
-
-    public AbstractExtractionRules(D parserAPI) {
-        this.parserAPI = parserAPI;
+    public void setCrawlerAPI (D crawlerAPI){
+        this.crawlerAPI = crawlerAPI;
     }
 
     public D getCrawlerAPI() {
-        return parserAPI;
+        return crawlerAPI;
     }
 }
