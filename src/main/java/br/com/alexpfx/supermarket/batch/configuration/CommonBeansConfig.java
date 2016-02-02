@@ -57,6 +57,7 @@ public class CommonBeansConfig {
 
 
         AngeloniExtractionRules angeloniProductExtractRules = new AngeloniExtractionRules();
+        angeloniProductExtractRules.setCrawlerAPI(jsoupCrawlerAPI);
 
         CrawlerAPIImpl htmlUnitVisitorApi = new CrawlerAPIImpl(new HtmlUnitVisitorAPI(),
                                                                new JSoupParseAPI());
