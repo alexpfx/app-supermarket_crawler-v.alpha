@@ -8,7 +8,7 @@ import org.jsoup.select.Elements;
 /**
  * Created by alexandre on 25/01/2016.
  */
-public class RibeiraoExtractionRules extends ProductExtractorFromPageListAdapter<ProdutoSuperMercadoTO> {
+public class RibeiraoExtractionRules extends ProductExtractorFromPageListAdapter {
 
 
     @Override
