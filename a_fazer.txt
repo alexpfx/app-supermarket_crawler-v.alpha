@@ -1,3 +1,5 @@
+[] getByXpath htmlunit
+[] angeloni: nao esta pegando pagina de vinhos.
 [] falta refatorar a parte do product collector.
 [] evoluir parte de gravacao no banco
 [] testes unitarios do que precisa

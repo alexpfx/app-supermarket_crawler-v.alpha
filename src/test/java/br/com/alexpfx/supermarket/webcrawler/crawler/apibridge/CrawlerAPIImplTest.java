@@ -26,7 +26,7 @@ public class CrawlerAPIImplTest {
         String visit = crawlerAPI.visit("http://www.angeloni.com.br/super/index?grupo=20");
         assertNotNull(visit);
         assertNotEquals("", visit);
-
+//        http://www.angeloni.com.br/super/index?grupo=17004
     }
 
     @Test

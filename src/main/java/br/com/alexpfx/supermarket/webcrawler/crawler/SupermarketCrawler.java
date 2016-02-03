@@ -43,6 +43,9 @@ public class SupermarketCrawler implements Crawler {
         int size = urlsToVisit.size();
         while (iterator.hasNext() && !stop) {
             String url = iterator.next();
+            System.out.println();
+            System.out.println(url);
+            System.out.println();
             List<TransferObject> collected = itemsCollector.collect(Collections.singletonList(url));
             notifyListeners(collected);
             stop = evaluateStopCondition(url, i++, size);

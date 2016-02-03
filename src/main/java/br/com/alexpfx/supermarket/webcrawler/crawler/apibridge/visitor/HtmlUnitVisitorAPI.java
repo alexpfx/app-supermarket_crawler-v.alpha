@@ -5,8 +5,10 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by alexandre on 30/01/2016.
@@ -20,9 +22,10 @@ public class HtmlUnitVisitorAPI implements VisitorAPI {
 
     @Override
     public String visit(String url) {
-        Page p = null;
+        HtmlPage p = null;
         try {
             p = webClient.getPage(url);
+            List<?> xPath = p.getByXPath("//ul[@class='lstProd  ']");
             return p.getWebResponse().getContentAsString(Constants.CHARSET);
         } catch (IOException e) {
             return "";
