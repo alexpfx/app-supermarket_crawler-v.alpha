@@ -22,7 +22,7 @@ public class AngeloniExtractionRules extends ProductExtractorFromPageListAdapter
 
     @Override
     protected String extractUrl(Element p) {
-        return p.select("").toString();
+        return "";
     }
 
     @Override

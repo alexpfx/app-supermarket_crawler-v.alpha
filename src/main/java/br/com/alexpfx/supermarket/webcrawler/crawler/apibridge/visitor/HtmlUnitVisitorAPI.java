@@ -5,6 +5,7 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
@@ -25,8 +26,8 @@ public class HtmlUnitVisitorAPI implements VisitorAPI {
         HtmlPage p = null;
         try {
             p = webClient.getPage(url);
-            List<?> xPath = p.getByXPath("//ul[@class='lstProd  ']");
-            return p.getWebResponse().getContentAsString(Constants.CHARSET);
+            System.out.println(p.asText());
+            return p.asXml();
         } catch (IOException e) {
             return "";
         }
