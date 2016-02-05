@@ -9,26 +9,29 @@ import org.jsoup.select.Elements;
  */
 public class AngeloniExtractionRules extends ProductExtractorFromPageListAdapter {
 
-    @Override
-    protected String extractDescricao(Element p) {
-        return "";
-
-
-    }
 
     @Override
     public Elements extractItemList(Document doc) {
-        return doc.select("ul.lstProd ");
+        doc.setBaseUri("http://www.angeloni.com.br/");
+        return doc.select("ul.lstProd li");
     }
 
     @Override
     protected String extractCodigo(Element p) {
-        return p.select("cod").text();
+        return p.select("span.cod").text();
     }
 
     @Override
+    protected String extractDescricao(Element p) {
+        String text = p.select("span.descr").text();
+        return text;
+    }
+
+
+    @Override
     protected String extractUrl(Element p) {
-        return "";
+        String text = p.select("span.descr a").attr("abs:href");
+        return text;
     }
 
     @Override

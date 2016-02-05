@@ -1,4 +1,3 @@
-[] getByXpath htmlunit
 [] angeloni: nao esta pegando pagina de vinhos.
 [] falta refatorar a parte do product collector.
 [] evoluir parte de gravacao no banco
@@ -6,6 +5,7 @@
 [] adicionar limite de recursividade
 [] eliminar erro quando job eh rodado pela segunda vez
 [] logar informacoes sobre o crawler: motivo de parada, tempo em execucao, etc.
+[-] getByXpath htmlunit
 [x] construtores de visitor rule e collector ruler estao ambiguos.
 [x] eliminar implementações de AbstractCrawler
 [x] alterar abstract crawler para ser classe concreta, mudar nome para SuperMercadoCrawler
