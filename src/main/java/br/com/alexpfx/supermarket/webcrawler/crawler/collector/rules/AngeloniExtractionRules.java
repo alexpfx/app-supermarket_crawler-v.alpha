@@ -1,6 +1,5 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
-import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -9,6 +8,13 @@ import org.jsoup.select.Elements;
  * Created by alexandre on 25/01/2016.
  */
 public class AngeloniExtractionRules extends ProductExtractorFromPageListAdapter {
+
+    @Override
+    protected String extractDescricao(Element p) {
+        return "";
+
+
+    }
 
     @Override
     public Elements extractItemList(Document doc) {
