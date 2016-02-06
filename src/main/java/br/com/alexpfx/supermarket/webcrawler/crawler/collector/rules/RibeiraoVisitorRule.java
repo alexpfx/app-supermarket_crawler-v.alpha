@@ -12,7 +12,7 @@ import java.util.List;
  * Created by alexandre on 25/01/2016.
  */
 public class RibeiraoVisitorRule extends AbstractExtractionRules<String, CrawlerAPI<Document>> {
-
+    private static final String BASE_URI = "https://www.mercadoribeirao.com.br/";
     public RibeiraoVisitorRule() {
     }
 
@@ -26,6 +26,9 @@ public class RibeiraoVisitorRule extends AbstractExtractionRules<String, Crawler
 
         List<String> list = new ArrayList<>();
         Document doc = getCrawlerAPI().parse(htmlCode);
+        if (doc.baseUri() == null){
+            doc.setBaseUri(BASE_URI);
+        }
 
         Elements submenu = doc.select("a.new_sub_menu");
         submenu.forEach(element1 -> {

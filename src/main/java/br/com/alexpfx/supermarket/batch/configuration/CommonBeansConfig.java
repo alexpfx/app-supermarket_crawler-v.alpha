@@ -7,10 +7,12 @@ import br.com.alexpfx.supermarket.dao.ProductDao;
 import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
 import br.com.alexpfx.supermarket.webcrawler.crawler.Crawler;
 import br.com.alexpfx.supermarket.webcrawler.crawler.SupermarketCrawler;
+import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPIImpl;
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.parse.JSoupParseAPI;
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.visitor.HtmlUnitVisitorAPI;
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.visitor.JsoupVisitorAPI;
+import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ExtractionRules;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ItemsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.AngeloniExtractionRules;
@@ -19,13 +21,12 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.RibeiraoExt
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.RibeiraoVisitorRule;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.RibeiraoListener;
+import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.jsoup.nodes.Document;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Collections;
 
 /**
  * Created by alexandre on 13/01/2016.
@@ -37,15 +38,18 @@ public class CommonBeansConfig {
     @Bean
     @Qualifier(value = "ribeiraoCrawler")
     public Crawler ribeiraoCrawler() {
-        return new SupermarketCrawler(new UrlsCollector(
-                new CrawlerAPIImpl(new JsoupVisitorAPI(), new JSoupParseAPI()),
-                new RibeiraoVisitorRule(new CrawlerAPIImpl(new JsoupVisitorAPI(), new JSoupParseAPI()))
-        ),
-                                      new ItemsCollector(new CrawlerAPIImpl(new JsoupVisitorAPI(),
-                                                                            new JSoupParseAPI()),
-                                                         new RibeiraoExtractionRules()
-                                      ),
-                                      Collections.singletonList("https://www.mercadoribeirao.com.br/"));
+
+
+        CrawlerAPI<Document> crawlerApi = new CrawlerAPIImpl<>(new JsoupVisitorAPI(), new JSoupParseAPI());
+
+        ExtractionRules urlsCollectorExtractionRulles = new RibeiraoVisitorRule(crawlerApi);
+        UrlsCollector urlsCollector = new UrlsCollector(crawlerApi, urlsCollectorExtractionRulles);
+
+
+        ExtractionRules<TransferObject> itemsCollectorExtractionRules = new RibeiraoExtractionRules();
+        ItemsCollector itemsCollector = new ItemsCollector(crawlerApi, itemsCollectorExtractionRules);
+        return new SupermarketCrawler(urlsCollector, itemsCollector,
+                                      "http://mercadoribeirao.com.br/");
     }
 
     @Bean
@@ -66,7 +70,7 @@ public class CommonBeansConfig {
         ItemsCollector itemsCollector = new ItemsCollector(htmlUnitVisitorApi, angeloniProductExtractRules);
 
         return new SupermarketCrawler(urlsCollector, itemsCollector,
-                                      Collections.singletonList("http://www.angeloni.com.br/super/index"));
+                                      "http://www.angeloni.com.br/super/index");
     }
 
     @Bean

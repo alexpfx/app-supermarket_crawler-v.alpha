@@ -5,15 +5,20 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.collector.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by alexandre on 27/12/2015.
  */
 public class SupermarketCrawler implements Crawler {
 
+    private final List<String> startUrls;
     private CrawlerListener listener = CrawlerListener.EMPTY;
 
     private StopCondition stopCondition = StopCondition.EMTPY;
@@ -24,13 +29,19 @@ public class SupermarketCrawler implements Crawler {
 
     private ItemsCollector itemsCollector;
 
+    private String baseUri;
 
-    private List<String> startUrls;
-
-    public SupermarketCrawler(UrlsCollector urlsCollector, ItemsCollector itemsCollector, List<String> startUrls) {
+    public SupermarketCrawler(UrlsCollector urlsCollector, ItemsCollector itemsCollector,
+                              String startUrl) {
         this.urlsCollector = urlsCollector;
         this.itemsCollector = itemsCollector;
-        this.startUrls = startUrls;
+        try {
+            URL url = new URL(startUrl);
+            baseUri = url.getProtocol() + "://" + url.getHost();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException("Url invalida");
+        }
+        this.startUrls = Collections.singletonList(startUrl);
     }
 
     @Override
