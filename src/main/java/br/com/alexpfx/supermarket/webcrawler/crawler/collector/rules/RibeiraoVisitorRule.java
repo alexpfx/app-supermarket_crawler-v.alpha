@@ -2,6 +2,7 @@ package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
 import com.google.common.base.Preconditions;
+import com.google.inject.matcher.Matcher;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
@@ -26,7 +27,7 @@ public class RibeiraoVisitorRule extends AbstractExtractionRules<String, Crawler
 
         List<String> list = new ArrayList<>();
         Document doc = getCrawlerAPI().parse(htmlCode);
-        if (doc.baseUri() == null){
+        if (doc.baseUri().isEmpty()){
             doc.setBaseUri(BASE_URI);
         }
 
