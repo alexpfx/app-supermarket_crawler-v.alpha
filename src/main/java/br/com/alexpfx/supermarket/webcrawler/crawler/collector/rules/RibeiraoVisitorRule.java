@@ -14,11 +14,9 @@ import java.util.List;
  */
 public class RibeiraoVisitorRule extends AbstractExtractionRules<String, CrawlerAPI<Document>> {
     private static final String BASE_URI = "https://www.mercadoribeirao.com.br/";
-    public RibeiraoVisitorRule() {
-    }
 
     public RibeiraoVisitorRule(CrawlerAPI<Document> parserAPI) {
-        setCrawlerAPI(parserAPI);
+        super(parserAPI);
     }
 
     @Override

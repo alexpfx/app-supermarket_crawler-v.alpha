@@ -46,7 +46,7 @@ public class CommonBeansConfig {
         UrlsCollector urlsCollector = new UrlsCollector(crawlerApi, urlsCollectorExtractionRulles);
 
 
-        ExtractionRules<TransferObject> itemsCollectorExtractionRules = new RibeiraoExtractionRules();
+        ExtractionRules<TransferObject> itemsCollectorExtractionRules = new RibeiraoExtractionRules(crawlerApi);
         ItemsCollector itemsCollector = new ItemsCollector(crawlerApi, itemsCollectorExtractionRules);
         return new SupermarketCrawler(urlsCollector, itemsCollector,
                                       "http://mercadoribeirao.com.br/");
@@ -60,8 +60,7 @@ public class CommonBeansConfig {
         AngeloniVisitorRule angeloniVisitorRule = new AngeloniVisitorRule(jsoupCrawlerAPI);
 
 
-        AngeloniExtractionRules angeloniProductExtractRules = new AngeloniExtractionRules();
-        angeloniProductExtractRules.setCrawlerAPI(jsoupCrawlerAPI);
+        AngeloniExtractionRules angeloniProductExtractRules = new AngeloniExtractionRules(jsoupCrawlerAPI);
 
         CrawlerAPIImpl htmlUnitVisitorApi = new CrawlerAPIImpl(new HtmlUnitVisitorAPI(),
                                                                new JSoupParseAPI());

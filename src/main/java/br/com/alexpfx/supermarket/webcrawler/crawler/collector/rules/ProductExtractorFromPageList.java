@@ -18,9 +18,14 @@ import java.util.List;
 public abstract class ProductExtractorFromPageList <T, X> extends AbstractExtractionRules <ProdutoSuperMercadoTO, CrawlerAPI<Document>>{
 
 
+    public ProductExtractorFromPageList(
+            CrawlerAPI<Document> crawlerAPI) {
+        super(crawlerAPI);
+    }
+
     @Override
     public List<ProdutoSuperMercadoTO> extract(String htmlCode) {
-        Preconditions.checkNotNull(getCrawlerAPI());
+//        Preconditions.checkNotNull(getCrawlerAPI());
 
         Document doc = getCrawlerAPI().parse(htmlCode);
 

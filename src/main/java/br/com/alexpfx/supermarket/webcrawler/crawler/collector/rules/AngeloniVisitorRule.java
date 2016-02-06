@@ -14,12 +14,9 @@ public class AngeloniVisitorRule extends AbstractExtractionRules <String, Crawle
 
     public static final String BASE_URI = "http://www.angeloni.com.br/";
 
-    public AngeloniVisitorRule(){
-
-    }
 
     public AngeloniVisitorRule(CrawlerAPI<Document> parserAPI) {
-        setCrawlerAPI(parserAPI);
+        super(parserAPI);
     }
 
     @Override
