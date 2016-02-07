@@ -49,7 +49,7 @@ public class CommonBeansConfig {
         ExtractionRules<TransferObject> itemsCollectorExtractionRules = new RibeiraoExtractionRules(crawlerApi);
         ItemsCollector itemsCollector = new ItemsCollector(crawlerApi, itemsCollectorExtractionRules);
         return new SupermarketCrawler(urlsCollector, itemsCollector,
-                                      "http://mercadoribeirao.com.br/");
+                                      "https://www.mercadoribeirao.com.br/produto.php?id_prod=35176&ervilha-partida-yoki-500g/");
     }
 
     @Bean

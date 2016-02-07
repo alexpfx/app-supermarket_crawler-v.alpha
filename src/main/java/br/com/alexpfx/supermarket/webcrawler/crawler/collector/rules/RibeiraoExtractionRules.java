@@ -1,7 +1,6 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
-import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -24,8 +23,8 @@ public class RibeiraoExtractionRules extends ProductExtractorFromPageListAdapter
 
     @Override
     protected String extractCodigo(Element p) {
-        Element a = p.select("ratings-container").select("a").first();
-        return a.text();
+        Element a = p.select("div.ratings-container").select("a").first();
+        return a == null ? "" : a.text().toLowerCase().replace("ref:", "");
     }
 
     @Override

@@ -1,9 +1,9 @@
 0 --
-[] verificar se ribeirao crawler esta rodando.
 [] completar campos ribeirao crawler.
 [] completar campos angeloni crawler.
 [] verificar escrita no banco ribeirao crawler
 [] verificar escrita no banco ribeirao crawler angeloni crawler.
+[] verificar se ribeirao crawler esta rodando.
 [x] ver se roda duas vezes seguidas // nao roda
 1 --
 [] parametros para os jobs
