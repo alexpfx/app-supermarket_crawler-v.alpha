@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by alexandre on 25/01/2016.
  */
-public class AngeloniVisitorRule extends AbstractExtractionRules <String, CrawlerAPI<Document>> {
+public class AngeloniVisitorRule extends AbstractExtractionRules<String, CrawlerAPI<Document>> {
 
     public static final String BASE_URI = "http://www.angeloni.com.br/";
 

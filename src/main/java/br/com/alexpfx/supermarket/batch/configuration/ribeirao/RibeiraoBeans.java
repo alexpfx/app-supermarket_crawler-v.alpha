@@ -11,8 +11,6 @@ import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ItemsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.UrlsCollector;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.RibeiraoExtractionRules;
 import br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules.RibeiraoVisitorRule;
-import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
-import br.com.alexpfx.supermarket.webcrawler.listeners.impl.ProductListener;
 import br.com.alexpfx.supermarket.webcrawler.to.TransferObject;
 import org.jsoup.nodes.Document;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -42,7 +40,6 @@ public class RibeiraoBeans {
         return new SupermarketCrawler(urlsCollector, itemsCollector,
                                       "https://www.mercadoribeirao.com.br/produto.php?id_prod=35176&ervilha-partida-yoki-500g/");
     }
-
 
 
 }

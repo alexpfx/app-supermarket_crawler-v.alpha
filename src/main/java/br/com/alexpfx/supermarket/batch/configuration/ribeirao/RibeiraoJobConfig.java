@@ -46,10 +46,6 @@ public class RibeiraoJobConfig {
     @Qualifier(value = "ribeiraoCrawler")
     Crawler ribeiraoCrawler;
 
-    @Autowired
-    @Qualifier(value = "angeloniCrawler")
-    Crawler angeloniCrawler;
-
     @Bean
     public Tasklet crawlerTasklet() {
         return new StartCrawlerTasklet(ribeiraoCrawler);

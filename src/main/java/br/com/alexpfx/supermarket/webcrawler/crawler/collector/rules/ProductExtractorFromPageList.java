@@ -1,10 +1,8 @@
 package br.com.alexpfx.supermarket.webcrawler.crawler.collector.rules;
 
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.CrawlerAPI;
-import br.com.alexpfx.supermarket.webcrawler.crawler.collector.ExtractionRules;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTO;
 import br.com.alexpfx.supermarket.webcrawler.to.ProdutoSuperMercadoTOBuilder;
-import com.google.common.base.Preconditions;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -15,7 +13,7 @@ import java.util.List;
 /**
  * Created by alexandre on 26/01/2016.
  */
-public abstract class ProductExtractorFromPageList <T, X> extends AbstractExtractionRules <ProdutoSuperMercadoTO, CrawlerAPI<Document>>{
+public abstract class ProductExtractorFromPageList<T, X> extends AbstractExtractionRules<ProdutoSuperMercadoTO, CrawlerAPI<Document>> {
 
 
     public ProductExtractorFromPageList(
@@ -25,7 +23,7 @@ public abstract class ProductExtractorFromPageList <T, X> extends AbstractExtrac
 
     @Override
     public List<ProdutoSuperMercadoTO> extract(String htmlCode) {
-//        Preconditions.checkNotNull(getCrawlerAPI());
+        //        Preconditions.checkNotNull(getCrawlerAPI());
 
         Document doc = getCrawlerAPI().parse(htmlCode);
 

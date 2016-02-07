@@ -27,7 +27,7 @@ public class UrlsCollector<A extends CrawlerAPI<?>> extends AbstractCollector<St
     }
 
     private List<String> doCollect(List<String> toVisit, List<String> lista) {
-        List<String> subList =  new ArrayList<>();
+        List<String> subList = new ArrayList<>();
         for (String url : toVisit) {
             System.out.println(url);
             List<String> evaluated = evaluate(url);

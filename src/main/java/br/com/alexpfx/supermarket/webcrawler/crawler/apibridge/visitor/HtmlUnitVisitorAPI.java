@@ -3,13 +3,10 @@ package br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.visitor;
 import br.com.alexpfx.supermarket.webcrawler.crawler.apibridge.Constants;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
-import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by alexandre on 30/01/2016.
