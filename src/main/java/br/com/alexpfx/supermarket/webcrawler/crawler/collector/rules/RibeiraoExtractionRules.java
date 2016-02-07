@@ -24,19 +24,19 @@ public class RibeiraoExtractionRules extends ProductExtractorFromPageListAdapter
     @Override
     protected String extractCodigo(Element p) {
         Element a = p.select("div.ratings-container").select("a").first();
-        return a == null ? "" : a.text().toLowerCase().replace("ref:", "");
+        return a == null ? "" : a.text().toLowerCase().replace("ref:", "").trim();
     }
 
     @Override
     protected String extractDescricao(Element p) {
         Elements select = p.select("h3.item-name");
-        return select.text();
+        return select.text().trim();
     }
 
     @Override
     protected String extractUrl(Element p) {
         Element a = p.select("h3.item-name").select("a").first();
-        return a.attr("abs:href");
+        return a.attr("abs:href").trim();
 
     }
 
