@@ -1,10 +1,5 @@
-0 --
-[] completar campos ribeirao crawler.
-[] completar campos angeloni crawler.
-[] verificar escrita no banco ribeirao crawler
-[] verificar escrita no banco ribeirao crawler angeloni crawler.
-[] verificar se ribeirao crawler esta rodando.
-[x] ver se roda duas vezes seguidas // nao roda
+[] separar jobs
+
 1 --
 [] parametros para os jobs
 [] testes unitarios do que precisa
@@ -13,7 +8,12 @@
 [] lista do que é interessante testar
 
 
-
+[x] completar campos ribeirao crawler.
+[x] completar campos angeloni crawler.
+[x] verificar escrita no banco ribeirao crawler
+[x] verificar escrita no banco angeloni crawler.
+[x] verificar se ribeirao crawler esta rodando.
+[x] ver se roda duas vezes seguidas // nao roda
 
 ---
 [?] falta refatorar a parte do product collector.

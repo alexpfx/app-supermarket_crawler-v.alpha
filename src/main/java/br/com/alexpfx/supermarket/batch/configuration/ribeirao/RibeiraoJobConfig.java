@@ -1,6 +1,6 @@
 package br.com.alexpfx.supermarket.batch.configuration.ribeirao;
 
-import br.com.alexpfx.supermarket.batch.configuration.InfrastructureConfig;
+import br.com.alexpfx.supermarket.batch.configuration.infracstructure.InfrastructureConfig;
 import br.com.alexpfx.supermarket.batch.processor.ProductProcessor;
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.batch.tasklet.StartCrawlerTasklet;
@@ -30,7 +30,7 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 @EnableBatchProcessing
-public class CrawlerJobConfig {
+public class RibeiraoJobConfig {
 
 
     @Autowired
@@ -74,7 +74,7 @@ public class CrawlerJobConfig {
     @Bean
     public Step processProductStep() {
         TaskletStep processProductStep = steps.get("processProductStep")
-                .<TransferObject, Product>chunk(10)
+                .<TransferObject, Product>chunk(100)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())

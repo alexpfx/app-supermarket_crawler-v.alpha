@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by alexandre on 04/01/2016.
  */
-public class RibeiraoListener implements CrawlerListener {
+public class ProductListener implements CrawlerListener {
 
     @Autowired
     ProductList productList;

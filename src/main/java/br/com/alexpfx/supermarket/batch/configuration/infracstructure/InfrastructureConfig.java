@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.batch.configuration;
+package br.com.alexpfx.supermarket.batch.configuration.infracstructure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.PlatformTransactionManager;

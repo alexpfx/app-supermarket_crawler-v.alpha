@@ -1,4 +1,4 @@
-package br.com.alexpfx.supermarket.batch.configuration;
+package br.com.alexpfx.supermarket.batch.configuration.infracstructure;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.beans.factory.annotation.Value;

@@ -37,8 +37,10 @@ public class RibeiraoExtractionRules extends ProductExtractorFromPageListAdapter
     protected String extractUrl(Element p) {
         Element a = p.select("h3.item-name").select("a").first();
         return a.attr("abs:href").trim();
-
     }
 
-
+    @Override
+    protected String extractFabricante(Element p) {
+        return "";
+    }
 }
