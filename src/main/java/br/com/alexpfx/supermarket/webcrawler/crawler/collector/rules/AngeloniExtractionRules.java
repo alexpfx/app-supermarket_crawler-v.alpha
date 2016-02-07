@@ -29,15 +29,15 @@ public class AngeloniExtractionRules extends ProductExtractorFromPageListAdapter
 
     @Override
     protected String extractDescricao(Element p) {
-        String text = p.select("span.descr").text();
-        return text;
+        return p.select("span.descr").text().trim();
+
     }
 
 
     @Override
     protected String extractUrl(Element p) {
-        String text = p.select("span.descr a").attr("abs:href");
-        return text;
+        return p.select("span.descr a").attr("abs:href").trim();
+
     }
 
     @Override
