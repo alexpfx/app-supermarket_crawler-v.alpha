@@ -54,7 +54,7 @@ public class RibeiraoJobConfig {
 
     @Bean
     public Job job(JobBuilderFactory jobs) {
-        Job theJob = jobs.get("crawlerJob").start(crawlerStep()).next(processProductStep()).build();
+        Job theJob = jobs.get("crawlerJob").start(crawlerStep()).next(transformProductStep()).build();
         ((AbstractJob) theJob).setRestartable(true);
         return theJob;
 
@@ -68,8 +68,8 @@ public class RibeiraoJobConfig {
     }
 
     @Bean
-    public Step processProductStep() {
-        TaskletStep processProductStep = steps.get("processProductStep")
+    public Step transformProductStep() {
+        TaskletStep processProductStep = steps.get("transformProductStep")
                 .<TransferObject, Product>chunk(100)
                 .reader(reader())
                 .processor(processor())
