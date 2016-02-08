@@ -1,16 +1,16 @@
 
 
-[] separar jobs
 
 
 1 --
-[] parametros para os jobs
 [] testes unitarios do que precisa
 [] logar informacoes sobre o crawler: motivo de parada, tempo em execucao, etc.
 [] rever nome de classes e metodos
 [] lista do que é interessante testar
 
 
+[x] parametros para os jobs
+[x] separar jobs
 [x] completar campos ribeirao crawler.
 [x] completar campos angeloni crawler.
 [x] verificar escrita no banco ribeirao crawler

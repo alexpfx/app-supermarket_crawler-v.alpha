@@ -42,52 +42,54 @@ public class AngeloniJobConfig {
     @Qualifier(value = "angeloniCrawler")
     Crawler angeloniCrawler;
 
-
     @Autowired
     private StepBuilderFactory steps;
 
 
     @Bean
-    public Job job(JobBuilderFactory jobs) {
-        Job theJob = jobs.get("angeloniCrawlerJob").start(crawlerStep()).next(transformProductStep()).build();
-        ((AbstractJob) theJob).setRestartable(true);
-        return theJob;
+    public Job angeloniJob(JobBuilderFactory jobs) {
+        AbstractJob angeloniJob = (AbstractJob) jobs.get("angeloniJob").start(angeloniCrawlerStep()).next(
+                angeloniTransformProductStep()).build();
+        angeloniJob.setRestartable(true);
+        return angeloniJob;
     }
 
     @Bean
-    public Tasklet crawlerTasklet() {
+    public Step angeloniCrawlerStep() {
+        TaskletStep crawlerStep = steps.get("angeloniCrawlerStep").tasklet(angeloniCrawlerTasklet()).build();
+        crawlerStep.setAllowStartIfComplete(true);
+        return crawlerStep;
+    }
+
+    @Bean
+    public Tasklet angeloniCrawlerTasklet() {
         return new StartCrawlerTasklet(angeloniCrawler);
     }
 
+
     @Bean
-    public Step transformProductStep() {
-        TaskletStep step = steps.get("transformProductStep").<TransferObject, Product>chunk(100)
-                .reader(reader()).processor(processor()).writer(writer()).build();
+    public Step angeloniTransformProductStep() {
+        TaskletStep step = steps.get("angeloniTransformProductStep").<TransferObject, Product>chunk(100)
+                .reader(angeloniItemReader()).processor(angeloniProcessor()).writer(angeloniWriter()).build();
         step.setAllowStartIfComplete(true);
         return step;
     }
 
-    @Bean
-    public ItemWriter<Product> writer() {
-        return new HibernateProductsItemWriter();
-    }
 
     @Bean
-    public ItemProcessor<? super TransferObject, ? extends Product> processor() {
-        return new AngeloniProductProcessor();
-    }
-
-    @Bean
-    public ItemReader<TransferObject> reader() {
+    public ItemReader<TransferObject> angeloniItemReader() {
         return new ProductItemReader();
     }
 
+    @Bean
+    public ItemProcessor<? super TransferObject, ? extends Product> angeloniProcessor() {
+        return new AngeloniProductProcessor();
+    }
+
 
     @Bean
-    public Step crawlerStep() {
-        TaskletStep crawlerStep = steps.get("crawlerStep").tasklet(crawlerTasklet()).build();
-        crawlerStep.setAllowStartIfComplete(true);
-        return crawlerStep;
+    public ItemWriter<Product> angeloniWriter() {
+        return new HibernateProductsItemWriter();
     }
 
 

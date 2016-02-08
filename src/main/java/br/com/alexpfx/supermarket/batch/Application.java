@@ -9,11 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application {
 
-    public static final String ANGELONI_JOB = "angeloniCrawlerJob";
-    public static final String RIBEIRAO_JOB = "ribeiraoCrawlerJob";
+    public static final String ANGELONI_JOB = "angeloniJob";
+    public static final String RIBEIRAO_JOB = "ribeiraoJob";
 
     public static void main(String[] args) {
-        System.setProperty("spring.batch.job.names", RIBEIRAO_JOB);
+        System.setProperty("spring.batch.job.names", ANGELONI_JOB);
         SpringApplication.run(Application.class, args);
 
     }

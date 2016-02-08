@@ -47,33 +47,33 @@ public class RibeiraoJobConfig {
     Crawler ribeiraoCrawler;
 
     @Bean
-    public Tasklet crawlerTasklet() {
-        return new StartCrawlerTasklet(ribeiraoCrawler);
-    }
-
-
-    @Bean
     public Job job(JobBuilderFactory jobs) {
-        Job theJob = jobs.get("ribeiraoCrawlerJob").start(crawlerStep()).next(transformProductStep()).build();
+        Job theJob = jobs.get("ribeiraoJob").start(ribeiraoCrawlerStep()).next(
+                ribeiraoTransformProductStep()).build();
         ((AbstractJob) theJob).setRestartable(true);
         return theJob;
-
     }
 
+
     @Bean
-    public Step crawlerStep() {
-        TaskletStep crawlerStep = steps.get("crawlerStep").tasklet(crawlerTasklet()).build();
+    public Step ribeiraoCrawlerStep() {
+        TaskletStep crawlerStep = steps.get("ribeiraoCrawlerStep").tasklet(ribeiraoCrawlerTasklet()).build();
         crawlerStep.setAllowStartIfComplete(true);
         return crawlerStep;
     }
 
     @Bean
-    public Step transformProductStep() {
-        TaskletStep processProductStep = steps.get("transformProductStep")
+    public Tasklet ribeiraoCrawlerTasklet() {
+        return new StartCrawlerTasklet(ribeiraoCrawler);
+    }
+
+    @Bean
+    public Step ribeiraoTransformProductStep() {
+        TaskletStep processProductStep = steps.get("ribeiraoTransformProductStep")
                 .<TransferObject, Product>chunk(100)
-                .reader(reader())
-                .processor(processor())
-                .writer(writer())
+                .reader(ribeiraoReader())
+                .processor(ribeiraoProcessor())
+                .writer(ribeiraoWriter())
                 .build();
         processProductStep.setAllowStartIfComplete(true);
         return processProductStep;
@@ -81,17 +81,17 @@ public class RibeiraoJobConfig {
 
 
     @Bean
-    public ItemProcessor<TransferObject, Product> processor() {
-        return new ProductProcessor();
-    }
-
-    @Bean
-    public ItemReader<TransferObject> reader() {
+    public ItemReader<TransferObject> ribeiraoReader() {
         return new ProductItemReader();
     }
 
     @Bean
-    public ItemWriter<Product> writer() {
+    public ItemProcessor<TransferObject, Product> ribeiraoProcessor() {
+        return new ProductProcessor();
+    }
+
+    @Bean
+    public ItemWriter<Product> ribeiraoWriter() {
         return new HibernateProductsItemWriter();
     }
 
