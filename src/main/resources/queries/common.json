@@ -1,3 +1,0 @@
-{
-  "common.last_insert_id": "select last_insert_id()"
-}

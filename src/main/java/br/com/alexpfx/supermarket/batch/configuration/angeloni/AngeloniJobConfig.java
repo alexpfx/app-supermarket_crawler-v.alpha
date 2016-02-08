@@ -1,5 +1,6 @@
 package br.com.alexpfx.supermarket.batch.configuration.angeloni;
 
+import br.com.alexpfx.supermarket.batch.configuration.infracstructure.InfrastructureConfig;
 import br.com.alexpfx.supermarket.batch.processor.AngeloniProductProcessor;
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
 import br.com.alexpfx.supermarket.batch.tasklet.StartCrawlerTasklet;
@@ -22,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 /**
  * Created by alexandre on 07/02/2016.
@@ -29,6 +31,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableBatchProcessing
 public class AngeloniJobConfig {
+
+    @Autowired
+    private InfrastructureConfig infrastructureConfig;
+
+    @Autowired
+    Environment environment;
 
     @Autowired
     @Qualifier(value = "angeloniCrawler")
@@ -39,8 +47,9 @@ public class AngeloniJobConfig {
     private StepBuilderFactory steps;
 
 
+    @Bean
     public Job job(JobBuilderFactory jobs) {
-        Job theJob = jobs.get("crawlerJob").start(crawlerStep()).next(transformProductStep()).build();
+        Job theJob = jobs.get("angeloniCrawlerJob").start(crawlerStep()).next(transformProductStep()).build();
         ((AbstractJob) theJob).setRestartable(true);
         return theJob;
     }
@@ -74,7 +83,8 @@ public class AngeloniJobConfig {
     }
 
 
-    private Step crawlerStep() {
+    @Bean
+    public Step crawlerStep() {
         TaskletStep crawlerStep = steps.get("crawlerStep").tasklet(crawlerTasklet()).build();
         crawlerStep.setAllowStartIfComplete(true);
         return crawlerStep;

@@ -54,7 +54,7 @@ public class RibeiraoJobConfig {
 
     @Bean
     public Job job(JobBuilderFactory jobs) {
-        Job theJob = jobs.get("crawlerJob").start(crawlerStep()).next(transformProductStep()).build();
+        Job theJob = jobs.get("ribeiraoCrawlerJob").start(crawlerStep()).next(transformProductStep()).build();
         ((AbstractJob) theJob).setRestartable(true);
         return theJob;
 
