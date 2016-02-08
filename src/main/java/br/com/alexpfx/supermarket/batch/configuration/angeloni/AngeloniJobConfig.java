@@ -3,6 +3,7 @@ package br.com.alexpfx.supermarket.batch.configuration.angeloni;
 import br.com.alexpfx.supermarket.batch.configuration.infracstructure.InfrastructureConfig;
 import br.com.alexpfx.supermarket.batch.processor.AngeloniProductProcessor;
 import br.com.alexpfx.supermarket.batch.reader.ProductItemReader;
+import br.com.alexpfx.supermarket.batch.tasklet.LoadProductListTasklet;
 import br.com.alexpfx.supermarket.batch.tasklet.StartCrawlerTasklet;
 import br.com.alexpfx.supermarket.batch.writer.HibernateProductsItemWriter;
 import br.com.alexpfx.supermarket.domain.Product;
@@ -48,10 +49,23 @@ public class AngeloniJobConfig {
 
     @Bean
     public Job angeloniJob(JobBuilderFactory jobs) {
-        AbstractJob angeloniJob = (AbstractJob) jobs.get("angeloniJob").start(angeloniCrawlerStep()).next(
+        AbstractJob angeloniJob = (AbstractJob) jobs.get("angeloniJob").start(loadProductListStep()).next(
+                angeloniCrawlerStep()).next(
                 angeloniTransformProductStep()).build();
         angeloniJob.setRestartable(true);
         return angeloniJob;
+    }
+
+    @Bean
+    public Step loadProductListStep() {
+        TaskletStep step = steps.get("loadProductListStep").tasklet(loadProductListTasklet()).build();
+        step.setAllowStartIfComplete(true);
+        return step;
+    }
+
+    @Bean
+    public Tasklet loadProductListTasklet() {
+        return new LoadProductListTasklet();
     }
 
     @Bean

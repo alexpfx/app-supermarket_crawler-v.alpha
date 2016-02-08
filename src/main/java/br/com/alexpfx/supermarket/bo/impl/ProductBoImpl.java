@@ -1,7 +1,7 @@
 package br.com.alexpfx.supermarket.bo.impl;
 
 import br.com.alexpfx.supermarket.bo.ProductBo;
-import br.com.alexpfx.supermarket.dao.ProductDao;
+import br.com.alexpfx.supermarket.dao.BaseDao;
 import br.com.alexpfx.supermarket.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductBoImpl implements ProductBo {
 
     @Autowired
-    ProductDao<Product> dao;
+    BaseDao<Product> dao;
 
     @Override
     @Transactional

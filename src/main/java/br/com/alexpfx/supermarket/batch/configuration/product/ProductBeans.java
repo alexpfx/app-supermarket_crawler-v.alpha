@@ -3,7 +3,7 @@ package br.com.alexpfx.supermarket.batch.configuration.product;
 import br.com.alexpfx.supermarket.batch.reader.ProductList;
 import br.com.alexpfx.supermarket.bo.ProductBo;
 import br.com.alexpfx.supermarket.bo.impl.ProductBoImpl;
-import br.com.alexpfx.supermarket.dao.ProductDao;
+import br.com.alexpfx.supermarket.dao.BaseDao;
 import br.com.alexpfx.supermarket.dao.impl.ProductDaoImpl;
 import br.com.alexpfx.supermarket.webcrawler.listeners.CrawlerListener;
 import br.com.alexpfx.supermarket.webcrawler.listeners.impl.ProductListener;
@@ -23,7 +23,7 @@ public class ProductBeans {
     }
 
     @Bean
-    public ProductDao productDao() {
+    public BaseDao productDao() {
         return new ProductDaoImpl();
     }
 
