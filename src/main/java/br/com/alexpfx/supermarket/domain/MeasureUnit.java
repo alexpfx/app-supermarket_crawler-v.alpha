@@ -1,6 +1,8 @@
 package br.com.alexpfx.supermarket.domain;
 
 import java.util.EnumSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by alexandre on 13/02/2016.
@@ -18,9 +20,6 @@ public enum MeasureUnit {
         this.name = name;
     }
 
-    static class Indexer {
-        int i = 0;
-    }
 
     public static String getRegex() {
         EnumSet<MeasureUnit> range = EnumSet.allOf(MeasureUnit.class);
@@ -38,4 +37,48 @@ public enum MeasureUnit {
         return sb.toString();
     }
 
+    static class Indexer {
+        int i = 0;
+    }
+
+    public enum Patterns {
+
+        QUANTITY_UNIT("(?i)([0-9]+)(" + MeasureUnit.getRegex() + ")");
+
+        private Pattern pattern;
+
+        Patterns(String patternString) {
+            pattern = pattern.compile(patternString);
+        }
+
+        public Pattern getPattern() {
+            return pattern;
+        }
+
+        public Matcher getMatcher(CharSequence input) {
+            return getPattern().matcher(input);
+        }
+
+
+        public String getQuantity(CharSequence input) {
+            final int group_idx = 1;
+
+            Matcher matcher = getMatcher(input);
+            boolean found = matcher.find();
+            return found ? toLower(matcher.group(group_idx)) : "";
+        }
+
+        private String toLower(String input) {
+            return input.toLowerCase();
+        }
+
+        public String getUnity(CharSequence input) {
+            final int group_idx = 2;
+
+            Matcher matcher = getMatcher(input);
+            boolean found = matcher.find();
+            return found ? toLower(matcher.group(group_idx)) : "";
+        }
+    }
 }
+
