@@ -5,6 +5,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.util.regex.Pattern;
+
 /**
  * Created by alexandre on 25/01/2016.
  */
@@ -30,9 +32,15 @@ public class AngeloniExtractionRules extends ProductExtractorFromPageListAdapter
     @Override
     protected String extractDescricao(Element p) {
         return p.select("span.descr").text().trim();
-
     }
 
+    @Override
+    protected String extractUnidadeMedida(Element p) {
+
+
+
+        return null;
+    }
 
     @Override
     protected String extractUrl(Element p) {

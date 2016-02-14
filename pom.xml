@@ -197,7 +197,6 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>com.crawljax</groupId>
             <artifactId>crawljax-core</artifactId>
@@ -215,8 +214,6 @@
             <artifactId>webdriver-firefox</artifactId>
             <version>0.9.7376</version>
         </dependency>
-
-
 
 
     </dependencies>
