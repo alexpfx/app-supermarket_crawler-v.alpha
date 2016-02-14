@@ -57,7 +57,13 @@ public abstract class ProductExtractorFromPageList<T, X> extends AbstractExtract
 
     protected abstract String extractFabricante(Element p);
 
+
+
     public abstract Elements extractItemList(Document doc);
+
+
+
+
 
 
 }

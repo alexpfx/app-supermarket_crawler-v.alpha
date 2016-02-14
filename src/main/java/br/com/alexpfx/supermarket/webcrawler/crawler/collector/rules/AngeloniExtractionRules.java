@@ -6,8 +6,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.util.regex.Matcher;
-
 /**
  * Created by alexandre on 25/01/2016.
  */
@@ -39,16 +37,18 @@ public class AngeloniExtractionRules extends ProductExtractorFromPageListAdapter
         return p.select("span.descr").text().trim();
     }
 
+
     @Override
     protected String extractUnidadeMedida(Element p) {
         String descricao = descricao(p);
-        Matcher m = MeasureUnit.Patterns.QUANTITY_UNIT.getPattern().matcher(descricao);
-        if (m.find()) {
-            //TODO: extrair somente a unidade de medida.
-            //criar metodo para extrair quantidades.
-            return m.group();
-        }
-        return null;
+        return MeasureUnit.Patterns.QUANTITY_UNIT.getUnity(descricao);
+
+    }
+
+    @Override
+    protected String extractQuantidade(Element p) {
+        String descricao = descricao(p);
+        return MeasureUnit.Patterns.QUANTITY_UNIT.getQuantity(descricao);
     }
 
 
@@ -56,11 +56,6 @@ public class AngeloniExtractionRules extends ProductExtractorFromPageListAdapter
     protected String extractUrl(Element p) {
         return p.select("span.descr a").attr("abs:href").trim();
 
-    }
-
-    @Override
-    protected String extractQuantidade(Element p) {
-        return super.extractQuantidade(p);
     }
 
 
