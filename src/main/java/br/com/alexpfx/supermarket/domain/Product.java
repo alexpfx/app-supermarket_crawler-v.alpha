@@ -1,6 +1,7 @@
 package br.com.alexpfx.supermarket.domain;
 
 
+import br.com.alexpfx.supermarket.domain.barcode.BarCode;
 import br.com.alexpfx.supermarket.domain.barcode.Ean13;
 
 import javax.persistence.*;
@@ -16,14 +17,15 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(Integer id, Manufacturer manufacturer, String description, String url, Ean13 ean,
-                   Keywords keywords) {
+    public Product(Integer id, Manufacturer manufacturer, String description, String url, BarCode barCode,
+                   Keywords keywords, MeasureUnit measureUnit) {
         this.id = id;
         this.manufacturer = manufacturer;
         this.description = description;
         this.url = url;
-        this.ean = ean;
+        this.barCode = barCode;
         this.keywords = keywords;
+        this.measureUnit = measureUnit;
     }
 
     @Id
@@ -41,7 +43,10 @@ public class Product implements Serializable {
     private String url;
 
     @Embedded
-    private Ean13 ean;
+    private BarCode barCode;
+
+    @Enumerated(EnumType.STRING)
+    private MeasureUnit measureUnit;
 
     @Transient
     private Keywords keywords;
@@ -55,8 +60,8 @@ public class Product implements Serializable {
     }
 
 
-    public void setEan(Ean13 ean) {
-        this.ean = ean;
+    public void setBarCode(Ean13 barCode) {
+        this.barCode = barCode;
     }
 
     public Manufacturer getManufacturer() {
@@ -91,9 +96,21 @@ public class Product implements Serializable {
         this.keywords = keywords;
     }
 
+    public BarCode getBarCode() {
+        return barCode;
+    }
+
+    public MeasureUnit getMeasureUnit() {
+        return measureUnit;
+    }
+
+    public void setMeasureUnit(MeasureUnit measureUnit) {
+        this.measureUnit = measureUnit;
+    }
+
     @Override
     public String toString() {
-        return String.format("%63s\t%63s\t%100s", description, ean, keywords);
+        return String.format("%63s\t%63s\t%100s", description, barCode, keywords);
 
     }
 }

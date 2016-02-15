@@ -1,8 +1,11 @@
 package br.com.alexpfx.supermarket.domain;
 
+import java.util.Arrays;
 import java.util.EnumSet;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
  * Created by alexandre on 13/02/2016.
@@ -20,6 +23,13 @@ public enum MeasureUnit {
         this.name = name;
     }
 
+    public static MeasureUnit getByAcronym(String acronym) {
+        final Stream<MeasureUnit> stream = Arrays.stream(values());
+        final Optional<MeasureUnit> first = stream.filter(
+                measureUnit -> measureUnit.acronym.equalsIgnoreCase(acronym)).findFirst();
+        return first == null ? null : first.get();
+
+    }
 
     public static String getRegex() {
         EnumSet<MeasureUnit> range = EnumSet.allOf(MeasureUnit.class);

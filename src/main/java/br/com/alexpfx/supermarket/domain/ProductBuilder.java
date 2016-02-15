@@ -1,5 +1,6 @@
 package br.com.alexpfx.supermarket.domain;
 
+import br.com.alexpfx.supermarket.domain.barcode.BarCode;
 import br.com.alexpfx.supermarket.domain.barcode.Ean13;
 
 public class ProductBuilder {
@@ -7,8 +8,9 @@ public class ProductBuilder {
     private Manufacturer manufacturer;
     private String description;
     private String url;
-    private Ean13 ean;
+    private BarCode ean;
     private Keywords keywords;
+    private MeasureUnit measureUnit;
 
     public ProductBuilder id(Integer id) {
         this.id = id;
@@ -40,7 +42,12 @@ public class ProductBuilder {
         return this;
     }
 
-    public Product create() {
-        return new Product(id, manufacturer, description, url, ean, keywords);
+    public ProductBuilder measureUnit(MeasureUnit measureUnit) {
+        this.measureUnit = measureUnit;
+        return this;
+    }
+
+    public Product createProduct() {
+        return new Product(id, manufacturer, description, url, ean, keywords, measureUnit);
     }
 }
