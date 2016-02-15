@@ -15,20 +15,19 @@ public enum MeasureUnit {
     MG("mg", "miligrama"), G("g", "grama"), GR("gr", "grama"), KG("kg", "kilograma"), ML("ml", "Mililitro"), L("l",
                                                                                                                "Litro");
 
-    private String name;
+    private String description;
     private String acronym;
 
-    MeasureUnit(String acronym, String name) {
+    MeasureUnit(String acronym, String description) {
         this.acronym = acronym;
-        this.name = name;
+        this.description = description;
     }
 
     public static MeasureUnit getByAcronym(String acronym) {
-        final Stream<MeasureUnit> stream = Arrays.stream(values());
-        final Optional<MeasureUnit> first = stream.filter(
+        Stream<MeasureUnit> stream = Arrays.stream(values());
+        Optional<MeasureUnit> first = stream.filter(
                 measureUnit -> measureUnit.acronym.equalsIgnoreCase(acronym)).findFirst();
-        return first == null ? null : first.get();
-
+        return first.empty().isPresent()?first.get():null;
     }
 
     public static String getRegex() {

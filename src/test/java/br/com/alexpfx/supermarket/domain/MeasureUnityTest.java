@@ -67,6 +67,7 @@ public class MeasureUnityTest {
     }
 
 
+
     @Test
     public void getByAcronym(){
         final MeasureUnit ml = MeasureUnit.getByAcronym("ml");
@@ -77,7 +78,13 @@ public class MeasureUnityTest {
 
         final MeasureUnit naoexiste = MeasureUnit.getByAcronym("naoexiste");
         assertNull(naoexiste);
+
+        final MeasureUnit vazio = MeasureUnit.getByAcronym("");
+        assertNull(naoexiste);
+
     }
+
+
 
 
 

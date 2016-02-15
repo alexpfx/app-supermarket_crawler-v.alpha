@@ -221,7 +221,7 @@
     <repositories>
         <repository>
             <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
+            <description>Spring Snapshots</description>
             <url>http://repo.spring.io/snapshot</url>
             <snapshots>
                 <enabled>true</enabled>

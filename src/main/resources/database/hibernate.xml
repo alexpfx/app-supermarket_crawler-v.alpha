@@ -8,11 +8,11 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 
-        <property name="dataSource">
+        <property description="dataSource">
             <ref bean="dataSource"/>
         </property>
 
-        <property name="hibernateProperties">
+        <property description="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
@@ -22,7 +22,7 @@
             </props>
         </property>
 
-        <property name="annotatedClasses">
+        <property description="annotatedClasses">
             <list>
                 <value>br.com.alexpfx.supermarket.domain.Product</value>
                 <value>br.com.alexpfx.supermarket.domain.Manufacturer</value>
